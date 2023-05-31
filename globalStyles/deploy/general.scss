@@ -1,0 +1,83 @@
+/* general */
+
+::placeholder {
+  color: rgb(182, 182, 182);
+}
+
+div[contenteditable="true"]:empty::before {
+  content: attr(placeholder);
+  color: #808080;
+}
+
+div[contenteditable="true"] {
+  max-height: 250px;
+  overflow-y: scroll !important;
+}
+div[contenteditable="true"].shorter {
+  max-height: 100px;
+}
+
+div[contenteditable="true"],
+input {
+  border: solid 2px $blue-grey-2;
+  border-radius: 4px;
+  padding: 7px;
+  color: rgb(45, 45, 45); 
+}
+
+input[type="checkbox"] {
+  width: 1.2em;
+  height: 1.2em;
+  border: solid 1px currentColor;
+}
+
+div[contenteditable="true"],
+input {
+  outline: none;
+}
+
+.doNotScroll {
+  overflow: hidden !important;
+}
+
+::-webkit-scrollbar {
+  transition: all 0.5s;
+  width: 5px;
+  height: 1px;
+  z-index: 10;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c2bfbb;
+}
+
+body {
+  color: $blue-grey;
+  margin: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+body > #app{
+  min-height: 100%;
+}
+
+/* To control text editors image overflow */
+
+img,
+figure {
+  max-width: 100% !important;
+}
+
+// body {
+  // background-color: #c4dfe6;
+  /* padding-top: 52px; */
+  /* width: 100vw; */
+  // overflow: hidden;
+  /* height: 100vh; */
+// }

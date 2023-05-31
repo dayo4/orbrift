@@ -1,0 +1,39 @@
+<style lang="scss" scoped>
+    .Wrapper {
+        pointer-events: none;
+        position: fixed;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .Load {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        height: 66px;
+        padding: 5px;
+        border-radius: 28px;
+    }
+
+    .load span:last-child {
+        height: 30px;
+        min-width: 200px;
+    }
+</style>
+
+<div>
+    <div v-show="status" class="Wrapper flex j-c-center noselect">
+        <span class="Load bg-trans-2">
+            <span class="logo-base logo-small logo-rotate shadow-2">
+                <span>
+                    <span>
+                    </span>
+                    <span></span>
+                </span>
+                <span></span>
+            </span>
+        </span>
+    </div>
+</div>

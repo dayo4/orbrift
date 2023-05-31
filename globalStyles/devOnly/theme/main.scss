@@ -1,0 +1,147 @@
+//Variable definitions (Find the classname definitions in the deploy folder)
+// $pri-color: #336b87; // Stone
+// $sec-color: #763626; // Autumn Foliage
+// $ter-color: #90AFC5; //Mist
+// $alt-color: #2a3132; //Shadow
+
+// $pri-color: #00293C; // cyan--4
+// $pri-color-alt: #00527e; // cyan--2
+$pri-color: #006064; // cyan--4
+$pri-color-alt: #00838f; // cyan--3
+$sec-color: #880e4f; // pink--4
+$sec-color-alt: #e91e63; // pink
+$ter-color: #90AFC5; //Mist
+$ter-color-alt: #90AFC5; //Mist
+$alt-color: #2a3132; //Shadow
+
+$header-color-bold: "";
+$header-color-light: "";
+$bg-color-bold: "";
+$bg-color-light: "";
+$text-color-bold: "";
+$text-color-light: "";
+$top-quotes-color: $pink-3;
+// $top-quotes-color: #B6452C;
+// $top-quotes-color: #;
+
+@mixin bg-gradient-1 {
+	background-color: $pri-color;
+	background:linear-gradient(
+			$pri-color 20%,
+			$pri-color-alt 50%,
+			$pri-color 80%,
+		);
+}
+@mixin bg-gradient-2 {
+	background-color: $pri-color;
+	background:linear-gradient(to right,
+			$pri-color 10%,
+			$pri-color-alt 50%,
+			$pri-color 90%,
+		);
+}
+@mixin bg-gradient-3 {
+	background-color: $pri-color;
+	background:linear-gradient(to right,
+			$pri-color 10%,
+			$pri-color-alt 90%,
+		);
+}
+
+@mixin pri-gradient-btn {
+	background-color: $pri-color;
+	background:  linear-gradient(
+		$pri-color 25%,
+		$pri-color-alt 50%,
+		$pri-color 75%,
+	);
+
+	&:not(.isDisabled):active{
+		background: linear-gradient(
+			$pri-color 15%,
+			$pri-color-alt 35%,
+			$pri-color-alt 65%,
+			$pri-color 85%,
+		);
+	}
+}
+
+@mixin sec-gradient-btn {
+	background-color: $sec-color-alt;
+	background:  linear-gradient(
+		$sec-color 25%,
+		$sec-color-alt 50%,
+		$sec-color 75%,
+		);
+
+		&:not(.isDisabled):active{
+		background: linear-gradient(
+			$sec-color 15%,
+			$sec-color-alt 35%,
+			$sec-color-alt 65%,
+			$sec-color 85%,
+		);
+	}
+}
+
+@mixin anim-list-gradient {
+    background-color: rgba(0, 97, 100, 0.4);
+    background: linear-gradient(
+      to right,
+      rgba(0, 131, 143, 0.4),
+      rgba(0, 97, 100, 0) 90%
+    );
+}
+@mixin anim-list-style {
+    content: "";
+    display: inline-block;
+    position: relative;
+    left: -15px;
+    width: 3px;
+    height: 10px;
+    border-top: 5px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-right: 7px solid rgba(0, 131, 143, 0.65);
+    transform: rotateZ(55deg);
+}
+@mixin anim-title-bg {
+    position: relative;
+	font-family: "Itim", "Roboto", sans-serif;
+	letter-spacing: 1px;
+	text-align: center;
+	margin-bottom: 20px;
+	padding: 16px;
+	color: white;
+	font-size: 24px;
+	background-color: rgba(2, 28, 30, 0.8);
+	background: linear-gradient(
+		to right,
+		rgba(2, 28, 30, 0) 0%,
+		rgba(2, 28, 30, 0.5) 10%,
+		rgba(2, 28, 30, 0.9),
+		rgba(2, 28, 30, 0.5) 90%,
+		rgba(2, 28, 30, 0) 100%
+	);
+
+	& i {
+		position: absolute;
+		top: calc(50% - 40px);
+		left: calc(50% - 40px);
+		height: 80px;
+		width: 80px;
+		border-radius: 100%;
+			display: flex;
+	align-items: center;
+	justify-content: center;
+		z-index: -1;
+		background-color: rgba(136, 14, 79, 0.8);
+
+		&::after {
+			content: "";
+			position: absolute;
+			background-color: rgba(136, 14, 79, 0.9);
+			border-radius: 100%;
+			animation: xpand 2s linear infinite forwards;
+		}
+	}
+}

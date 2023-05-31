@@ -1,0 +1,84 @@
+
+// Classname definitions
+.pri-color {
+    color: $pri-color;
+}
+.sec-color {
+    color: $sec-color;
+}
+.ter-color {
+    color: $ter-color;
+}
+
+
+.top-quotes-color {
+    color: $pink-3;
+    }
+    
+    .pri-header-color {
+    color: $cyan-3;
+    }
+    .sec-header-color {
+    color: $pink-3;
+    }
+
+.bg-gradient-1 {
+	background-color: $pri-color;
+	background:linear-gradient(
+			$pri-color 20%,
+			$pri-color-alt 50%,
+			$pri-color 80%,
+		);
+}
+.bg-gradient-2 {
+	background-color: $pri-color;
+	background:linear-gradient(to right,
+			$pri-color 10%,
+			$pri-color-alt 50%,
+			$pri-color 90%,
+		);
+}
+.bg-gradient-3 {
+	background-color: $pri-color;
+	background:linear-gradient(to right,
+			$pri-color 10%,
+			$pri-color-alt 50%,
+			$pri-color 90%,
+		);
+}
+
+.pri-gradient-btn {
+	background-color: $pri-color;
+	background:  linear-gradient(
+		$pri-color 25%,
+		$pri-color-alt 50%,
+		$pri-color 75%,
+	);
+
+	&:not(.isDisabled):active{
+		background: linear-gradient(
+			$pri-color 15%,
+			$pri-color-alt 35%,
+			$pri-color-alt 65%,
+			$pri-color 85%,
+		);
+	}
+}
+
+.sec-gradient-btn {
+	background-color: $sec-color-alt;
+	background:  linear-gradient(
+		$sec-color 25%,
+		$sec-color-alt 50%,
+		$sec-color 75%,
+		);
+
+		&:not(.isDisabled):active{
+		background: linear-gradient(
+			$sec-color 15%,
+			$sec-color-alt 35%,
+			$sec-color-alt 65%,
+			$sec-color 85%,
+		);
+	}
+}
