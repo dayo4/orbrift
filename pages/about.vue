@@ -103,7 +103,7 @@ export default {
 <style lang="scss" scoped>
 .Quote {
   text-align: center;
-  font-family: "Itim", "Roboto", sans-serif;
+  // font-family: "Itim", "Roboto", sans-serif;
   font-size: 30px;
   color: $top-quotes-color;
   padding: 20px 20px 30px 20px;

@@ -1,6 +1,6 @@
 <template>
   <nav ref="topNav" id="TopNav" class="flex a-i-center noselect">
-    <div class="flex a-i-center j-c-between shadow-11">
+    <div class="flex a-i-center j-c-between shadow-7">
       <router-link to="/" class="Logo flex a-i-center px-2 mr-2">
         <div v-html="$appLogo('white', 'logo-x-small mr-2')"></div>
         <b>orbrift</b>
@@ -258,15 +258,22 @@ nav {
   }
 
   & > div {
-    @include bg-gradient-1;
+    // @include bg-gradient-1;
+    // background-color: $pri-color;
+    background-color: white;
+    // background-color: #0A2647;
     width: 100%;
     height: 100%;
-    border-radius: 26%;
+    border-radius: 3px;
     position: relative;
     & a {
       cursor: pointer;
-      color: white;
+      color: $pri-color-bolder;
       text-decoration: none;
+    }
+    & .Logo {
+      letter-spacing: 0.7px;
+      color: $pri-color-bolder;
     }
   }
 }

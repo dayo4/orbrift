@@ -1,19 +1,23 @@
 //Variable definitions (Find the classname definitions in the deploy folder)
-// $pri-color: #336b87; // Stone
-// $sec-color: #763626; // Autumn Foliage
-// $ter-color: #90AFC5; //Mist
-// $alt-color: #2a3132; //Shadow
 
-// $pri-color: #00293C; // cyan--4
-// $pri-color-alt: #00527e; // cyan--2
-$pri-color: #006064; // cyan--4
-$pri-color-alt: #00838f; // cyan--3
-$sec-color: #880e4f; // pink--4
-$sec-color-alt: #e91e63; // pink
+// $pri-color: #006064; // cyan--4
+// $pri-color-alt: #00838f; // cyan--3
+// $sec-color: #880e4f; // pink--4
+// $sec-color-alt: #e91e63; // pink
 $ter-color: #90AFC5; //Mist
 $ter-color-alt: #90AFC5; //Mist
 $alt-color: #2a3132; //Shadow
 
+$pri-color-bolder: #FF9900; 
+$pri-color: #FAB95B; 
+// $pri-color: #FF9900; 
+$pri-color-alt: #00838f; 
+$sec-color: #144272; 
+// $sec-color: #13334C; 
+// $sec-color: #0A2647; 
+$sec-color-alt: #e91e63; 
+
+$dark-text-color: rgba(0, 0, 0, 0.75);
 $header-color-bold: "";
 $header-color-light: "";
 $bg-color-bold: "";
@@ -106,7 +110,7 @@ $top-quotes-color: $pink-3;
 }
 @mixin anim-title-bg {
     position: relative;
-	font-family: "Itim", "Roboto", sans-serif;
+	// font-family: "Itim", "Roboto", sans-serif;
 	letter-spacing: 1px;
 	text-align: center;
 	margin-bottom: 20px;

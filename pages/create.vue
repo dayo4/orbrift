@@ -386,7 +386,7 @@ export default {
 }
 .Quote {
   text-align: center;
-  font-family: "Itim", "Roboto", sans-serif;
+  // font-family: "Itim", "Roboto", sans-serif;
   font-size: 30px;
   color: $top-quotes-color;
   padding: 0 20px 10px 20px;

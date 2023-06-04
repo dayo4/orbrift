@@ -454,12 +454,13 @@ export default {
 }
 .Quote {
   text-align: center;
-  font-family: "Itim", "Roboto", sans-serif;
+  // font-family: "Itim", "Roboto", sans-serif;
   // font-family: "Itim", cursive;
   // font-family: "Sriracha", /* cursive */;
   // font-family: /* "Courgette", */ cursive;
   font-size: 30px;
-  color: $top-quotes-color;
+  color: $pri-color;
+  // color: $top-quotes-color;
   padding: 0 20px 10px 20px;
 }
 
@@ -496,14 +497,15 @@ export default {
         font-size: 35px;
       }
       & > .Sdesc {
-        font-family: "Itim", "Roboto", sans-serif;
-        color: white;
+        // font-family: "Itim", "Roboto", sans-serif;
+        color: $pri-color;
+        // color: white;
         font-size: 35px;
         margin-top: 25px;
         padding: 0 10px;
       }
       & > .Targ {
-        font-family: "Itim", "Roboto", sans-serif;
+        // font-family: "Itim", "Roboto", sans-serif;
         color: $pink-5;
       }
     }
@@ -599,15 +601,19 @@ export default {
         text-align: center;
         font-weight: bold;
         font-size: 18px;
-        color: white;
-        @include bg-gradient-2;
+        // color: white;
+        color: $pri-color;
+        background-color: $sec-color;
+        // background-color: #0A2647;
+        // @include bg-gradient-2;
       }
       & > div:last-child {
         padding: 10px 10px 15px 10px;
         text-align: center;
         font-weight: bold;
         font-size: 16px;
-        color: $blue-grey-2;
+        // color: $blue-grey-2;
+        color: $dark-text-color;
       }
     }
   }
