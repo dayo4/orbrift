@@ -37,6 +37,7 @@ export default defineNuxtConfig({
     css: [
         "~/globalStyles/deploy/myCssLibrary/greycore.css",
         "~/globalStyles/deploy/icons/css/fontello.css",
+        "~/globalStyles/deploy/icons/css/animation.css",
         '~/globalStyles/deploy/general.scss',
         '~/globalStyles/deploy/logo.scss',
         '~/globalStyles/deploy/plugins.scss',
