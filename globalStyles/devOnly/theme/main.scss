@@ -12,12 +12,15 @@ $pri-color-bolder: #FF9900;
 $pri-color: #FAB95B; 
 // $pri-color: #FF9900; 
 $pri-color-alt: #00838f; 
-$sec-color: #144272; 
-// $sec-color: #13334C; 
-// $sec-color: #0A2647; 
-$sec-color-alt: #e91e63; 
+ $sec-color: #02293D;
+$sec-color-transparent: rgb(2, 41, 61, 0.75);
+ $sec-color-transparent-less: rgb(2, 41, 61, 0.90);
 
-$dark-text-color: rgba(0, 0, 0, 0.75);
+$sec-color-alt: #e91e63; 
+$light-color: white;
+$dark-color: black;
+$dark-color-less: "";
+$dark-text-color: rgba(0, 0, 0, 0.65);
 $header-color-bold: "";
 $header-color-light: "";
 $bg-color-bold: "";
@@ -105,7 +108,7 @@ $top-quotes-color: $pink-3;
     height: 10px;
     border-top: 5px solid transparent;
     border-bottom: 13px solid transparent;
-    border-right: 7px solid rgba(0, 131, 143, 0.65);
+    border-right: 7px solid $sec-color-transparent;
     transform: rotateZ(55deg);
 }
 @mixin anim-title-bg {

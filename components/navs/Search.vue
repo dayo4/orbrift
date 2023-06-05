@@ -1,7 +1,7 @@
 <template>
   <div
     :class="expanded ? 'Expanded' : ''"
-    class="SearchBox flex j-c-center bg-gradient-2 shadow-3"
+    class="SearchBox flex j-c-center shadow-3"
   >
     <i @click="$emit('searchoff')" class="icon-cancel"></i>
     <div class="Search xs12 sm10 md9 lg7">
@@ -116,6 +116,7 @@ export default {
   height: 50px;
   z-index: 100;
   overflow-y: scroll;
+  background-color: $sec-color;
 
   transition: 1s;
 
@@ -128,10 +129,10 @@ export default {
     font-size: 35px;
     right: 5px;
     top: 2px;
-    color: white;
+    color: $light-color;
     cursor: pointer;
     z-index: 101;
-    border: solid 0.5px white;
+    border: solid 0.5px $light-color;
     border-radius: 3px;
   }
 }
@@ -147,8 +148,8 @@ export default {
     color: black;
     & input {
       width: calc(100% - 10px);
-      background-color: white;
-      color: black;
+      background-color: $light-color;
+      color: $dark-color;
     }
     & > i {
       position: absolute;
@@ -159,19 +160,19 @@ export default {
       border-radius: 3px;
       cursor: pointer;
       &:active {
-        background-color: $cyan-3;
+        background-color: $sec-color;
       }
     }
   }
 }
 
 .SearchResult {
-  background-color: white;
+  background-color: $light-color;
   border-radius: 5px;
   padding-bottom: 6px;
 
   & .ResultList {
-    color: black;
+    color: $dark-text-color;
   }
   & .ResultList:hover {
     color: $blue-grey-1;
