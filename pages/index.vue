@@ -553,7 +553,7 @@ export default {
       }
       & > div {
         font-family: "Courier New", Courier, monospace;
-        color: $top-quotes-color;
+        color: $pri-color;
         margin-top: 18px;
         margin-left: -20px;
         padding-left: 10px;

@@ -260,7 +260,7 @@ nav {
   & > div {
     // @include bg-gradient-1;
     // background-color: $pri-color;
-    background-color: white;
+    background-color: $sec-color-transparent;
     // background-color: #0A2647;
     width: 100%;
     height: 100%;
@@ -268,12 +268,12 @@ nav {
     position: relative;
     & a {
       cursor: pointer;
-      color: $pri-color-bolder;
+      color: $pri-color;
       text-decoration: none;
     }
     & .Logo {
       letter-spacing: 0.7px;
-      color: $pri-color-bolder;
+      color: $pri-color;
     }
   }
 }
@@ -281,10 +281,10 @@ nav {
 .SearchIcon {
   text-align: center;
   border-radius: 28px;
-  border: white 1.5px solid;
+  border: $pri-color 1.5px solid;
   width: 40px;
   padding-top: 1px;
-  color: white;
+  color: $pri-color;
   cursor: pointer;
 }
 
@@ -309,7 +309,7 @@ nav {
       transition: ease-in-out 0.6s;
     }
     &:not(.NoLowerBorder).router-link-exact-active::before {
-      border-bottom: 3px solid rgba(255, 255, 255, 0.589);
+      border-bottom: 3px solid $pri-color;
       left: 0px;
       width: 100%;
     }
@@ -353,12 +353,7 @@ nav {
       padding-right: 20px;
       cursor: pointer;
       text-transform: capitalize;
-      background-color: rgb(0, 97, 100);
-      background: linear-gradient(
-        to right,
-        rgba(0, 97, 100, 0.973) 70%,
-        rgba(0, 97, 100, 0.226)
-      );
+      background-color: $sec-color-transparent-less;
     }
     & a.Hidden {
       transform: translateX(100px);
