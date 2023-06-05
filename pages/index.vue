@@ -79,7 +79,7 @@
         </button>
       </div>
       <div class="flex j-c-center">
-        <Button size="small" icon="icon-forward" :loading="true">
+        <Button size="small" icon="icon-forward">
           testing
         </Button>
         </div>
