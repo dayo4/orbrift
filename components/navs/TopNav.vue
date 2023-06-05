@@ -251,6 +251,11 @@ nav {
     transform: rotateX(90deg);
     visibility: hidden;
   }
+  &.FullTrans > div {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    
+  }
   & a:not(.MenuDropBtn) {
     position: relative;
     overflow: hidden;
@@ -266,6 +271,7 @@ nav {
     height: 100%;
     border-radius: 3px;
     position: relative;
+    transition: 0.5s;
     & a {
       cursor: pointer;
       color: $pri-color;

@@ -5,8 +5,8 @@
         <!-- Intro -->
         <div class="Intro text-center">
           <div class="Stitle">ORBRIFT</div>
-          <div class="Sdesc">Genuine Web Apps Solutions</div>
-          <div class="Targ">For The Creatives</div>
+          <div class="Sdesc">Innovative Digital Solutions</div>
+          <div class="Targ">For Creative Brands</div>
         </div>
 
         <!-- image -->
@@ -64,10 +64,10 @@
       </div>
 
       <!-- logo -->
-      <div
+      <!-- <div
         v-html="$appLogo('white')"
         class="Logo flex j-c-center noselect"
-      ></div>
+      ></div> -->
 
       <!-- CTA Button -->
       <div class="flex j-c-center">
@@ -78,6 +78,11 @@
           START HERE
         </button>
       </div>
+      <div class="flex j-c-center">
+        <Button size="small" icon="icon-forward" :loading="true">
+          testing
+        </Button>
+        </div>
     </section>
 
     <div class="Divider">
@@ -475,19 +480,19 @@ export default {
   background-attachment: fixed;
   // filter: blur(3px);
   // -webkit-filter: blur(3px);
-  & .Logo {
-    position: absolute;
-    z-index: 2;
-    top: 72px;
-    width: 66.66%;
-  }
-  &::after {
-    background-color: rgba(72, 72, 72, 0.65);
-  }
+  // & .Logo {
+  //   position: absolute;
+  //   z-index: 2;
+  //   top: 72px;
+  //   width: 66.66%;
+  // }
+  // &::after {
+    // background-color: rgba(72, 72, 72, 0.65);
+  // }
   & .Detail {
     z-index: 1;
     & .Intro {
-      padding: 75px 0 0 0;
+      padding: 5px 0 0 0;
       & > div {
         letter-spacing: 1px;
         font-weight: bold;
@@ -506,7 +511,7 @@ export default {
       }
       & > .Targ {
         // font-family: "Itim", "Roboto", sans-serif;
-        color: $pink-5;
+        color: $light-color;
       }
     }
 
@@ -525,7 +530,7 @@ export default {
       padding: 20px 0 0 0;
       letter-spacing: 1px;
       font-weight: bold;
-      color: white;
+      color: $light-color;
       font-size: 16px;
       margin-left: 80px;
 
@@ -533,7 +538,7 @@ export default {
         list-style: none;
         margin: 3px 0;
         padding: 5px 3px;
-        @include anim-list-gradient;
+        background-color: $sec-color-transparent;
         border-radius: 4px;
         transition: 1s cubic-bezier(0.4, -0.65, 0.265, 2);
 
