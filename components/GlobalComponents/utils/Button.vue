@@ -1,6 +1,6 @@
 <template>
-  <button :class="classes" class="GenBtn" @click="handleClick">
-    <span class="iconClasses"> </span>
+  <button ref="GenBtn" :class="classes" class="GenBtn" @click="handleClick">
+    <span v-if="icon" :class="icon" class="BtnIcon"> </span>
     <slot></slot>
   </button>
 </template>
@@ -17,7 +17,6 @@ export default {
     },
     icon: {
       type: String,
-      default: "",
     },
     size: {
       type: String,
@@ -25,30 +24,33 @@ export default {
     },
   },
   setup(props, { emit }) {
+    // const GenBtn = ref(null);
+    // const icon = ref(/* props.loading ? "icon-spin6 animate-spin" :  */props.icon);
+
     const classes = computed(() => ({
       CtaBtn: props.type === "cta",
-      BtnLoading: props.loading,
       Large: props.size === "large",
       Medium: props.size === "medium",
       Small: props.size === "small",
     }));
-    const iconClasses = computed(() => ({
-      // BtnLoading: props.loading,
-      "icon-spin6": props.loading,
-      "animate-spin": props.loading,
-    }));
+    const icon = computed(() =>
+      props.loading ? "icon-spin6 animate-spin" : props.icon
+    );
 
     const handleClick = () => {
       if (!props.loading) {
         emit("clicked");
-        console.log(classes);
+        console.log("jnbvjnb")
       }
     };
 
+    onMounted(() => {});
     return {
       classes,
-      iconClasses,
       handleClick,
+
+      icon,
+      // GenBtn,
     };
   },
 };
@@ -75,7 +77,7 @@ export default {
   transition: 0.1s;
   &.Small {
     min-height: 30px;
-    min-width: 100px;
+    min-width: 110px;
   }
   &:not(.isDisabled):hover {
     opacity: 0.9;
@@ -83,6 +85,9 @@ export default {
   &:not(.isDisabled):active {
     opacity: 0.77;
     box-shadow: none !important;
+  }
+  & .BtnIcon {
+    margin-right: 6px;
   }
 }
 .isDisabled {
