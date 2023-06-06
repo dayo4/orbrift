@@ -132,14 +132,17 @@
           </transition>
 
           <!-- Send button -->
-          <button
-            ref="sendBtn"
-            @click="send"
-            class="btn pri-gradient-btn shadow-5 font-5 br4 mt-5 m-auto noselect"
-          >
-            <span class="icon-forward mr-3"></span>
-            <span>Done</span>
-          </button>
+          <div class="flex j-c-center my-8">
+            <Button
+              ref="sendBtn"
+              @clicked="send"
+              type="action"
+              size="medium"
+              icon="icon-forward"
+            >
+              Done
+            </Button>
+          </div>
         </div>
       </div>
     </template>
@@ -382,13 +385,13 @@ export default {
 /* NOTE: "GenFormStyle GenFormWrapper" shared classes are found in the main "Auth" components */
 .TopInfo {
   border-radius: 4px 4px 15px 15px;
-  @include bg-gradient-2;
+  background-color: $sec-color;
 }
 .Quote {
   text-align: center;
   // font-family: "Itim", "Roboto", sans-serif;
   font-size: 30px;
-  color: $top-quotes-color;
+  color: $pri-color;
   padding: 0 20px 10px 20px;
   margin: 40px 0;
 }

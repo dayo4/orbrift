@@ -1,46 +1,44 @@
 <template>
-	<div>
-		<section class="SectHead">
-			<slot name="SectHead"></slot>
-		</section>
-		<section class="SectBody">
-			<slot name="SectBody"></slot>
-		</section>
-	</div>
+  <div>
+    <section class="SectHead">
+      <slot name="SectHead"></slot>
+    </section>
+    <section class="SectBody">
+      <slot name="SectBody"></slot>
+    </section>
+  </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import Vue from "vue";
 
-export default  {
-
-};
+export default {};
 </script>
 
 <style lang="scss" scoped>
 .SectHead {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	@include bg-gradient-3;
-	border-radius: 4px 20px 4px 4px;
-	color: white;
-	font-size: 15px;
-	letter-spacing: 0.5px;
-	font-weight: bold;
-	padding: 8px 12px 8px 12px;
-	margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: $sec-color-transparent-less;
+  border-radius: 4px 20px 4px 4px;
+  color: white;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  padding: 8px 12px 8px 12px;
+  margin-bottom: 8px;
 }
 
 @include xs-only {
-	.SectHead {
-		justify-content: space-around;
-		padding: 8px 5px 8px 5px;
-		& > *:not(:only-child),
-		& > *:not(:last-child) {
-			margin-bottom: 4px;
-		}
-	}
+  .SectHead {
+    justify-content: space-around;
+    padding: 8px 5px 8px 5px;
+    & > *:not(:only-child),
+    & > *:not(:last-child) {
+      margin-bottom: 4px;
+    }
+  }
 }
 </style>
