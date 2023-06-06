@@ -70,24 +70,17 @@
       ></div> -->
 
       <!-- CTA Button -->
-      <div class="flex j-c-center">
-        <button
-          @click="$router.push({ path: '/create' })"
-          class="btn sec-gradient-btn shadow-5 font-5 br4 py-3"
+      <div class="flex j-c-center my-10">
+        <Button 
+        @clicked="$router.push({ path: '/create' })" 
+        type="cta"
+        size="large" 
+        icon="icon-forward"
         >
           START HERE
-        </button>
-      </div>
-      <div class="flex j-c-center">
-        <Button size="small" icon="icon-forward">
-          testing
         </Button>
         </div>
     </section>
-
-    <div class="Divider">
-      <span></span>
-    </div>
 
     <div class="Quote">
       A virtual online profile that makes your live simple. Just do it here.
@@ -122,10 +115,6 @@
         </button>
       </div>
     </section>
-
-    <div class="Divider">
-      <span></span>
-    </div>
 
     <!--Designs Gallery -->
     <div class="Quote">Some Project Designs gallery</div>
@@ -167,9 +156,7 @@
       </div>
     </section>
 
-    <div class="Divider">
-      <span></span>
-    </div>
+
 
     <!-- Developer profile -->
     <div class="Quote">Orbrift's developer</div>
@@ -208,9 +195,7 @@
       </div>
     </section>
 
-    <div class="Divider">
-      <span></span>
-    </div>
+
 
     <div class="Quote">A Few Feedbacks..</div>
 
@@ -241,9 +226,7 @@
     <!-- <div ref="contactCTA" class="Divider">
       <span></span>
     </div> -->
-    <div class="Divider">
-      <span></span>
-    </div>
+
 
     <h2 class="text-center t-blue-grey--1">
       <span class="icon-mail mr-3"></span>
