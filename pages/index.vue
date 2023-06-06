@@ -71,15 +71,14 @@
 
       <!-- CTA Button -->
       <div class="flex j-c-center my-10">
-        <Button 
-        @clicked="$router.push({ path: '/create' })" 
-        type="cta"
-        size="large" 
-        icon="icon-forward"
+        <Button
+          @clicked="$router.push({ path: '/create' })"
+          type="cta"
+          size="large"
         >
           START HERE
         </Button>
-        </div>
+      </div>
     </section>
 
     <div class="Quote">
@@ -105,19 +104,23 @@
         </div>
       </div>
 
-      <div class="flex j-c-center">
-        <button
-          @click="$router.push({ name: 'about' })"
-          class="btn pri-gradient-btn shadow-5 font-5 br4 mt-3"
+      <div class="flex j-c-center mt-6">
+        <Button
+          @clicked="
+            $router.push({
+              name: 'about',
+            })
+          "
+          size="medium"
+          icon="icon-right"
         >
-          <span class="icon-right mr-2"></span>
-          <span>More About Orbrift</span>
-        </button>
+          More About Orbrift
+        </Button>
       </div>
     </section>
 
     <!--Designs Gallery -->
-    <div class="Quote">Some Project Designs gallery</div>
+    <div class="Quote">Few Designs gallery</div>
 
     <section>
       <h2 class="text-center t-blue-grey--1"></h2>
@@ -156,46 +159,38 @@
       </div>
     </section>
 
-
-
     <!-- Developer profile -->
     <div class="Quote">Orbrift's developer</div>
-
-    <section>
+    
+    <section class="TeamImgWrapper">
       <h2 class="text-center t-blue-grey--1">
         <span>Adedayo Adeniyi</span>
       </h2>
 
       <div class="flex j-c-center">
-        <div class="LogoBorder logo-base logo-static img-logo-border noselect">
-          <span class="img-masked-0">
-            <img
-              src="/defaults/usr/me.jpg"
-              alt="Adedayo Adeniyi"
-              draggable="false"
-            />
-          </span>
-          <span></span>
-          <span></span>
+        <div class="ImgCont noselect">
+          <img
+            src="/defaults/usr/me.jpg"
+            alt="Adedayo Adeniyi"
+            draggable="false"
+          />
         </div>
       </div>
 
-      <div class="flex j-c-center">
-        <button
-          @click="
+      <div class="flex j-c-center mt-8">
+        <Button
+          @clicked="
             $router.push({
               name: 'adedayo-adeniyi',
             })
           "
-          class="btn pri-gradient-btn shadow-5 font-5 br4 mt-5"
+          size="medium"
+          icon="icon-right"
         >
-          <span class="icon-right mr-3"></span>
-          <span>View My Profile</span>
-        </button>
+          View Profile
+        </Button>
       </div>
     </section>
-
-
 
     <div class="Quote">A Few Feedbacks..</div>
 
@@ -226,7 +221,6 @@
     <!-- <div ref="contactCTA" class="Divider">
       <span></span>
     </div> -->
-
 
     <h2 class="text-center t-blue-grey--1">
       <span class="icon-mail mr-3"></span>
@@ -420,7 +414,7 @@ export default {
       TSTList,
       loopGallery,
       TSTclickLeft,
-      TSTclickRight
+      TSTclickRight,
     };
   },
 };
@@ -458,6 +452,7 @@ export default {
   width: 100%;
   padding-top: 60px;
   padding-bottom: 20px;
+  margin-bottom: 50px;
   background-color: $blue-grey--3;
   background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
   background-attachment: fixed;
@@ -470,7 +465,7 @@ export default {
   //   width: 66.66%;
   // }
   // &::after {
-    // background-color: rgba(72, 72, 72, 0.65);
+  // background-color: rgba(72, 72, 72, 0.65);
   // }
   & .Detail {
     z-index: 1;
@@ -559,18 +554,19 @@ export default {
 }
 
 .Section_2 {
+  margin-bottom: 50px;
   & .Tiles {
-    background-color: $pri-color;
+    background-color: $sec-color;
     background-attachment: fixed;
     background-image: url("/defaults/pgs/orbrift_pfbg.jpg");
     & > div {
       z-index: 2;
       min-height: 330px;
-      background-color: white;
+      background-color: $light-color;
       border-radius: 28px;
       margin: 0px 30px 30px 20px;
-      border-top: solid 3px $pri-color-alt;
-      border-bottom: solid 3px $pri-color-alt;
+      border-top: solid 3px $sec-color;
+      border-bottom: solid 3px $sec-color;
       & img {
         width: 90px;
         height: 90px;
@@ -608,25 +604,25 @@ export default {
 }
 
 /* Developer image */
-.LogoBorder {
+.TeamImgWrapper {
+  margin-bottom:50px;
+}
+.ImgCont {
   height: 150px;
   width: 150px;
-  & > span:nth-child(1) {
-    top: 5%;
-    left: 5%;
-    width: 90%;
-    height: 90%;
-    & img {
-      width: 100%;
-      height: 100%;
-    }
+  border-radius: 50%;
+  overflow: hidden;
+  border: solid 3px $sec-color;
+  & img {
+    width: 100%;
+    height: 100%;
   }
 }
 
 .Gallery {
   position: relative;
   overflow: hidden;
-
+  margin-bottom: 50px;
   & .Thumb {
     min-height: 50px;
   }
@@ -647,8 +643,8 @@ export default {
       min-height: 100%;
     }
     border-radius: 6px;
-    border: solid $pri-color-alt 4px;
-    border-bottom: solid $pri-color-alt 15px;
+    border: solid $sec-color-transparent-less 4px;
+    border-bottom: solid $sec-color-transparent-less 15px;
   }
   .Tablet,
   .Phone {
@@ -673,7 +669,8 @@ export default {
   position: relative;
   max-width: 100vw;
   overflow-y: hidden;
-  background-color: #003b46;
+  margin-bottom: 50px;
+  background-color: $sec-color;
   background-attachment: fixed;
   background-image: url("/defaults/pgs/orbrift_pfbg.jpg");
 
@@ -689,7 +686,7 @@ export default {
     border-radius: 50%;
     font-size: 20px;
     font-weight: bolder;
-    color: white;
+    color: $pri-color;
     background-color: rgba(53, 51, 51, 0.507);
   }
   & .LeftBtn:active,
@@ -721,8 +718,8 @@ export default {
     text-align: center;
     margin: 20px;
     border-radius: 12px;
-    border-top: solid 2px $pri-color-alt;
-    border-bottom: solid 2px $pri-color-alt;
+    border-top: solid 2px $sec-color-transparent-less;
+    border-bottom: solid 2px $sec-color-transparent-less;
     scroll-snap-align: center;
     background-color: white;
 
@@ -733,23 +730,23 @@ export default {
       margin-left: -60px;
       width: 120px;
       height: 20px;
-      background-color: white;
-      border-left: solid 2px $pri-color-alt;
-      border-right: solid 2px $pri-color-alt;
+      background-color: $light-color;
+      border-left: solid 2px $sec-color-transparent-less;
+      border-right: solid 2px $sec-color-transparent-less;
     }
     & .TopHandle {
       top: -20px;
       border-radius: 28px 28px 0px 0px;
-      border-top: solid 2px $pri-color-alt;
-      border-left: solid 2px $pri-color-alt;
-      border-right: solid 2px $pri-color-alt;
+      border-top: solid 2px $sec-color-transparent-less;
+      border-left: solid 2px $sec-color-transparent-less;
+      border-right: solid 2px $sec-color-transparent-less;
     }
     & .BottomHandle {
       bottom: -20px;
       border-radius: 0px 0px 28px 28px;
-      border-bottom: solid 2px $pri-color-alt;
-      border-left: solid 2px $pri-color-alt;
-      border-right: solid 2px $pri-color-alt;
+      border-bottom: solid 2px $sec-color-transparent-less;
+      border-left: solid 2px $sec-color-transparent-less;
+      border-right: solid 2px $sec-color-transparent-less;
     }
   }
 }
@@ -780,11 +777,6 @@ export default {
 }
 
 @include xs-only {
-  .Divider {
-    & span {
-      width: 70%;
-    }
-  }
   .Top {
     .Detail {
       & .Intro {
