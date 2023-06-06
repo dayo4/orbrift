@@ -10,8 +10,6 @@ class="Wrapper"
       <slot></slot>
     </span>
   </button>
-  <!-- <span></span> -->
-  <!-- <span></span> -->
 </div>
 </template>
 <script lang="ts">
@@ -45,10 +43,11 @@ export default {
         const wrapperClasses = computed(() => ({
       CtaBtn: props.type === "cta",
       BasicBtn: props.type === "basic",
+      ActionBtn: props.type === "action",
       loading: props.loading
     }));
     const icon = computed(() =>
-      props.loading ? "icon-spin6 animate-spin" : props.icon
+      props.loading ? "icon-spin6 gen-btn-animate-spin" : props.icon
     );
     // const loading = compruted(() =>
     //   props.loading
@@ -57,7 +56,6 @@ export default {
     const handleClick = () => {
       if (!props.loading) {
         emit("clicked");
-        console.log("jnbvjnb")
       }
     };
 
@@ -90,6 +88,7 @@ export default {
     content: "";
     position: absolute;
     background-color: $sec-color;
+    transition: 0.6s;
     z-index: -1;
   }
     &::after {
@@ -110,11 +109,11 @@ export default {
     opacity: 0.77;
     box-shadow: none !important;
   }
-  &.BasicBtn.loading::after {
+  &.ActionBtn.loading::after {
     // width: 50%;
     animation: loading-a 0.4s alternate infinite linear;
   }
-  &.BasicBtn.loading::before {
+  &.ActionBtn.loading::before {
     // height: 50%;
     animation: loading-b 0.4s alternate infinite linear;
   }
@@ -138,6 +137,12 @@ export default {
   //     height: 0% !important;
   //   // animation: cta-b-active 0.3s alternate infinite linear;
   // }
+      &.BasicBtn:hover::after {
+        width:30%
+  }
+    &.BasicBtn:hover::before {
+      height:20%
+  }
 }
 .GenBtn {
   display: flex;
@@ -173,6 +178,10 @@ export default {
   & .BtnIcon {
     margin-right: 6px;
   }
+}
+.gen-btn-animate-spin {
+  animation: spin 1s infinite linear;
+  display: inline-block;
 }
 
 @keyframes loading-a {
@@ -224,4 +233,15 @@ export default {
     height:15%
   }
 }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
 </style>
