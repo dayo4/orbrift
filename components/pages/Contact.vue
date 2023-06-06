@@ -2,9 +2,7 @@
   <section class="flex j-c-center">
     <div class="GenFormStyle xs11 sm9 md7 z-index-1 noselect">
       <section v-if="topInfo" class="TopInfo bg-blue-5 p-3 mb-7">
-        <div class="t-white">
-          Simply send a request using the form below or use other mediums here
-        </div>
+        <div class="t-white">Simply send a request using the form below.</div>
         <div class="Mediums flex a-i-center j-c-center font-12">
           <a
             class="icon-whatsapp t-green--1 no-deco"
@@ -62,14 +60,17 @@
       </transition>
 
       <!-- Send button -->
-      <button
-        ref="sendBtn"
-        @click="send"
-        class="btn pri-gradient-btn shadow-5 font-5 br4 mt-5 m-auto noselect"
-      >
-        <span class="icon-forward mr-3"></span>
-        <span>Send {{ target === "app" ? "Mail" : "" }}</span>
-      </button>
+      <div class="flex j-c-center my-8">
+        <Button
+          ref="sendBtn"
+          @clicked="send"
+          type="action"
+          size="medium"
+          icon="icon-forward"
+        >
+          Send {{ target === "app" ? "Mail" : "" }}
+        </Button>
+      </div>
     </div>
   </section>
 </template>
@@ -265,7 +266,7 @@ export default {
 /* NOTE: "GenFormStyle GenFormWrapper" shared classes are found in the main "Auth" components */
 .TopInfo {
   border-radius: 4px 4px 15px 15px;
-  @include bg-gradient-2;
+  background-color: $sec-color;
   & > a {
     font-size: 26px;
     margin-left: 10px;
@@ -321,14 +322,14 @@ export default {
       border-radius: 73% 73% 20% 20%;
       border-left: white double 10px;
       border-right: white double 10px;
-      text-shadow: 0px 1px 2px white;
+      // text-shadow: 0px 1px 2px white;
       display: block;
       min-width: 130px;
       max-width: 80%;
       font-weight: 500;
       font-size: 18px;
-      color: white;
-      background-color: $pri-color;
+      color: $pri-color;
+      background-color: $sec-color;
     }
     & > input {
       height: 50px;

@@ -4,11 +4,11 @@
     :class="collapsed ? 'Collapsed' : ''"
   >
     <div class="Panel">
-      <div
-        class="Head flex a-i-center j-c-center shadow-7 t-white font-6 bold-3"
+      <!-- <div
+        class="Head flex a-i-center j-c-center t-white font-6 bold-3"
       >
         orbrift
-      </div>
+      </div> -->
 
       <div class="Body flex wrap j-c-between p-2 mt-2">
         <div
@@ -41,7 +41,7 @@
     <!-- Handle -->
     <span
       @click="collapsed = !collapsed"
-      class="Handle sec-gradient-btn t-white shadow-3 flex a-i-center j-c-end br5"
+      class="Handle t-white shadow-3 flex a-i-center j-c-end br5"
     >
       <span
         class="icon-right-open-big"
@@ -51,7 +51,6 @@
   </div>
 </template>
 <script lang="ts">
-
 export default {
   setup() {
     const collapsed = ref(true);
@@ -104,8 +103,8 @@ export default {
     return {
       collapsed,
       socialLinks,
-      pageIcons
-    }
+      pageIcons,
+    };
   },
 };
 </script>
@@ -119,7 +118,8 @@ export default {
   height: 100%;
   z-index: 8;
   transition: width 0.2s;
-  background-image: url("/defaults/pgs/orbrift_panel.jpg");
+  background-color: $sec-color-transparent-less;
+  // background-image: url("/defaults/pgs/orbrift_panel.jpg");
 
   & .Panel {
     overflow-y: scroll;
@@ -129,21 +129,24 @@ export default {
   & .Handle {
     cursor: pointer;
     position: absolute;
-    right: -22px;
+    right: -18px;
     top: 70%;
-    width: 50px;
-    height: 50px;
-    border-right: 5px solid $pink-3;
-    border-left: 5px solid $pink-3;
+    width: 45px;
+    height: 45px;
+    // border: solid 1px $pri-color;
+    background-color: $sec-color;
+    color: $pri-color;
     transition: all 0.4s;
+    box-shadow: $shadow-3;
+    z-index: -1;
     &:hover {
-      right: -25px;
+      right: -22px;
     }
     & > span {
       position: absolute;
       font-size: 22px;
-      top: calc(50% - 12px);
-      right: -6px;
+      top: calc(50% - 16px);
+      right: -5px;
       transition: transform 0.3s;
       &.close {
         transform: rotateZ(180deg);
@@ -154,11 +157,6 @@ export default {
   &.Collapsed {
     width: 0px !important;
   }
-}
-.Head {
-  height: 50px;
-  text-shadow: 0px 1px 2px white;
-  border-radius: 33%;
 }
 .Body {
   border-top: white solid 1.5px;
@@ -187,6 +185,7 @@ export default {
   }
   & span:last-child {
     font-size: 12px;
+    color:$pri-color;
     font-weight: bold;
   }
   & a {
