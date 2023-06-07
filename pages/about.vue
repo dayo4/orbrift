@@ -110,7 +110,7 @@ export default {
     border: solid 3px $sec-color-transparent-more;
   }
   & .Body {
-        background-color: $sec-color-transparent-more;
+        background-color: $sec-color-transparent;
         color:$pri-color;
     border-bottom: solid $sec-color-transparent-more 3px;
   }

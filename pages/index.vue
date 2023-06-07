@@ -88,10 +88,10 @@
       </section>
 
     <section class="Section_2">
-      <h2 class="text-center t-blue-grey--1">
-        <span class="icon-check-1 mr-2"></span>
+      <h3 class="SectionSubHead">
+        <span class="icon-check mr-2"></span>
         <span>What You Get.. </span>
-      </h2>
+      </h3>
       <div class="Tiles bg-img-masked flex wrap j-c-center py-4">
         <div class="xs11 sm10 md9 lg7 shadow-3" v-for="(L, i) in list" :key="i">
           <div class="noselect">
@@ -115,7 +115,7 @@
           "
           size="medium"
           icon="icon-right"
-          iconPosition="right"
+          iconPos="right"
         >
           More Info
         </Button>
@@ -123,8 +123,11 @@
     </section>
 
     <!--Designs Gallery -->
-    <div class="Quote">Few Designs gallery</div>
-
+      <h3 class="SectionSubHead">
+        <span class="icon-check mr-2"></span>
+        <span> Few Designs gallery </span>
+      </h3>
+      
     <section>
       <h2 class="text-center t-blue-grey--1"></h2>
 
@@ -162,41 +165,11 @@
       </div>
     </section>
 
-    <!-- Developer profile -->
-    <!-- <div class="Quote">Orbrift's developer</div> -->
-    
-    <!-- <section class="TeamImgWrapper">
-      <h2 class="text-center t-blue-grey--1">
-        <span>Adedayo Adeniyi</span>
-      </h2>
-
-      <!-- <div class="flex j-c-center">
-        <div class="ImgCont noselect">
-          <img
-            src="/defaults/usr/me.jpg"
-            alt="Adedayo Adeniyi"
-            draggable="false"
-          />
-        </div>
-      </div> -->
-
-      <!-- <div class="flex j-c-center mt-8">
-        <Button
-          @clicked="
-            $router.push({
-              name: 'adedayo-adeniyi',
-            })
-          "
-          size="medium"
-          icon="icon-right"
-        >
-          View Profile
-        </Button>
-      </div> -->
-    <!-- </section>  -->
-
-    <div class="Quote">A Few Feedbacks..</div>
-
+      <h3 class="SectionSubHead">
+        <span class="icon-check mr-2"></span>
+        <span> A Few Feedbacks.. </span>
+      </h3>
+      
     <section class="TSTSection bg-img-masked flex wrap j-c-center my-3">
       <div
         id="TestimonialContRef"
@@ -221,17 +194,13 @@
       </div> -->
     </section>
 
-    <!-- <div ref="contactCTA" class="Divider">
-      <span></span>
-    </div> -->
-
-    <h2 class="text-center t-blue-grey--1">
+    <h3 class="SectionSubHead">
       <span class="icon-mail mr-3"></span>
       <span>
-        It's Time.
-        <i class="font-3">Start Getting Things Done!</i>
+        Get Started
+        <!-- <i class="font-3">Start Getting Things Done!</i> -->
       </span>
-    </h2>
+    </h3>
     <!-- Contact Component -->
     <div>
       <Contact></Contact>
@@ -429,7 +398,23 @@ export default {
     color: $pri-color;
     background-color: $sec-color-transparent;
     padding: 15px;
+    margin-bottom: 40px;
   }
+  
+.SectionSubHead {
+  position: relative;
+  color:$blue-grey;
+  text-align: center;
+  &::after {
+    content: "";
+    height: 3px;
+    width: 70px;
+    position: absolute;
+    bottom: -5px;
+    left: calc(50% - 35px);
+    background-color: $pri-color;
+  }
+}
 
 .Top {
   position: relative;
