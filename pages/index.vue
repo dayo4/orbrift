@@ -81,9 +81,11 @@
       </div>
     </section>
 
-    <div class="Quote">
-      A virtual online profile that makes your live simple. Just do it here.
-    </div>
+      <section class="SubText flex j-c-center">
+        <div class="xs12 md6">
+          A virtual online profile that makes your live simple. Just do it here.
+        </div>
+      </section>
 
     <section class="Section_2">
       <h2 class="text-center t-blue-grey--1">
@@ -113,8 +115,9 @@
           "
           size="medium"
           icon="icon-right"
+          iconPosition="right"
         >
-          More About Orbrift
+          More Info
         </Button>
       </div>
     </section>
@@ -160,14 +163,14 @@
     </section>
 
     <!-- Developer profile -->
-    <div class="Quote">Orbrift's developer</div>
+    <!-- <div class="Quote">Orbrift's developer</div> -->
     
-    <section class="TeamImgWrapper">
+    <!-- <section class="TeamImgWrapper">
       <h2 class="text-center t-blue-grey--1">
         <span>Adedayo Adeniyi</span>
       </h2>
 
-      <div class="flex j-c-center">
+      <!-- <div class="flex j-c-center">
         <div class="ImgCont noselect">
           <img
             src="/defaults/usr/me.jpg"
@@ -175,9 +178,9 @@
             draggable="false"
           />
         </div>
-      </div>
+      </div> -->
 
-      <div class="flex j-c-center mt-8">
+      <!-- <div class="flex j-c-center mt-8">
         <Button
           @clicked="
             $router.push({
@@ -189,8 +192,8 @@
         >
           View Profile
         </Button>
-      </div>
-    </section>
+      </div> -->
+    <!-- </section>  -->
 
     <div class="Quote">A Few Feedbacks..</div>
 
@@ -420,31 +423,13 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-// Testimonial
-
-.Divider {
-  display: flex;
-  justify-content: center;
-  margin: 60px 0px;
-  & span {
-    width: 50%;
-    border-top: solid 4px $sec-color;
-    border-bottom: solid 4px $pri-color;
-    box-shadow: $shadow-8;
-    border-radius: 73%;
+.SubText {
+    text-align: center;
+    font-size: 24px;
+    color: $pri-color;
+    background-color: $sec-color-transparent;
+    padding: 15px;
   }
-}
-.Quote {
-  text-align: center;
-  // font-family: "Itim", "Roboto", sans-serif;
-  // font-family: "Itim", cursive;
-  // font-family: "Sriracha", /* cursive */;
-  // font-family: /* "Courgette", */ cursive;
-  font-size: 30px;
-  color: $pri-color;
-  // color: $top-quotes-color;
-  padding: 0 20px 10px 20px;
-}
 
 .Top {
   position: relative;
@@ -453,7 +438,7 @@ export default {
   padding-top: 60px;
   padding-bottom: 20px;
   margin-bottom: 50px;
-  background-color: $blue-grey--3;
+  background-color: $sec-color;
   background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
   background-attachment: fixed;
   // filter: blur(3px);
@@ -604,20 +589,20 @@ export default {
 }
 
 /* Developer image */
-.TeamImgWrapper {
-  margin-bottom:50px;
-}
-.ImgCont {
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: solid 3px $sec-color;
-  & img {
-    width: 100%;
-    height: 100%;
-  }
-}
+// .TeamImgWrapper {
+//   margin-bottom:50px;
+// }
+// .ImgCont {
+//   height: 150px;
+//   width: 150px;
+//   border-radius: 50%;
+//   overflow: hidden;
+//   border: solid 3px $sec-color;
+//   & img {
+//     width: 100%;
+//     height: 100%;
+//   }
+// }
 
 .Gallery {
   position: relative;
