@@ -6,8 +6,9 @@ class="Wrapper"
 >
   <button ref="GenBtn" :class="classes" class="GenBtn">
     <span class="ContentWrapper">
-      <span v-if="icon" :class="icon" class="BtnIcon"> </span>
-      <slot></slot>
+      <span v-if="icon && iconPos !== 'right'" :class="icon" class="BtnIcon mr-3"> </span>
+        <slot></slot>
+      <span v-if="icon && iconPos === 'right'" :class="icon" class="BtnIcon ml-3"> </span>
     </span>
   </button>
 </div>
@@ -24,6 +25,9 @@ export default {
       default: false,
     },
     icon: {
+      type: String,
+    },
+    iconPos: {
       type: String,
     },
     size: {
@@ -49,6 +53,9 @@ export default {
     const icon = computed(() =>
       props.loading ? "icon-spin6 gen-btn-animate-spin" : props.icon
     );
+    const iconPos = computed(() =>
+      props.iconPos
+    );
     // const loading = compruted(() =>
     //   props.loading
     // );
@@ -66,6 +73,7 @@ export default {
       handleClick,
 
       icon,
+      iconPos
       // GenBtn,
     };
   },
@@ -153,7 +161,7 @@ export default {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  padding: 6px 10px;
+  padding: 7px 12px;
   cursor: pointer;
   outline: none;
   color: $pri-color;
@@ -174,9 +182,6 @@ export default {
     &.Large {
     min-height: 50px;
     min-width: 130px;
-  }
-  & .BtnIcon {
-    margin-right: 6px;
   }
 }
 .gen-btn-animate-spin {

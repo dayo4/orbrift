@@ -36,17 +36,17 @@
     <section v-if="footNote" class="FootNoteGBL">
       <div v-if="useDefaultFootNote" class="flex j-c-center">
         <div class="xs12 md7 lg6">
-        For more enquiries, feel free to contact us. If you are ready to
-        start your project, use the button below
-        <div class="flex j-c-center my-5">
-          <Button
-            @clicked="$router.push({ path: '/create' })"
-            type="cta"
-            size="large"
-          >
-            Get A Quote
-          </Button>
-        </div>
+          For more enquiries, feel free to contact us. If you are ready to start
+          your project, use the button below
+          <div class="flex j-c-center my-5">
+            <Button
+              @clicked="$router.push({ path: '/create' })"
+              type="cta"
+              size="large"
+            >
+              Get A Quote
+            </Button>
+          </div>
         </div>
       </div>
       <slot v-else name="FootNote"></slot>
@@ -82,10 +82,25 @@ export default {
   background-attachment: fixed;
   background-position: center;
   & .Title {
+    position: relative;
     text-align: center;
     font-size: 30px;
+    margin-bottom: 35px;
     // color: $light-color;
     color: rgba(204, 235, 238, 0.7);
+    &::after {
+      content: "";
+      height: 3px;
+      width: 70px;
+      position: absolute;
+      bottom: -2px;
+      left: calc(50% - 35px);
+      background-color: $pri-color;
+      background-color: $pri-color;
+      @media (prefers-colo$pri-color a//rk) {
+        background-color:  !important;
+      }
+    }
   }
   & .SubText {
     text-align: center;
