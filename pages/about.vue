@@ -6,131 +6,223 @@
     </template>
 
     <template #WrapperBody>
-      <section class="flex j-c-center">
+      <section class="AB_Cont flex j-c-center">
         <div class="xs5 sm4 md3 mb-5">
           <img src="/defaults/pgs/orbrift_ab2.jpg" draggable="false" />
         </div>
       </section>
 
-      <section class="flex j-c-center wrap">
-        <section
-          v-for="(QA, i) in QueAns"
-          :key="i"
-          class="xs12 sm10 md10 mb-10"
-        >
-          <!-- Question -->
-          <div class="Ques br2 noselect">
-            <div class="Body pl-10 br3">
-              <div class="bold-4 p-2">{{ QA.Q }}</div>
-              <span class="Img br5">
-                <img class="br5" src="/defaults/usr/a.jpg" draggable="false" />
-              </span>
-            </div>
-          </div>
+      <section class="flex j-c-center">
+        <section class="xs11 sm9 md8 mb-10">
+          <section>
+            <h2 class="AB_Head">About Me</h2>
+            <p>
+              I'm an enthusiastic explorer, driven by a deep curiosity for
+              design and a desire to explore the secrets of technology. With an
+              extensive understanding of the principles of Node.js, Databases,
+              User Interface (UI), User Experience (UX), and Application
+              Programming Interfaces (APIs), I thrive on creating exceptional
+              digital experiences.
+            </p>
+            <p>
+              Throughout my journey, I've showcased my expertise by crafting
+              modern, cutting-edge websites, stunning designs, and robust
+              Single-Page Applications (SPAs) and Progressive Web Applications
+              (PWAs). By leveraging JavaScript frameworks like Vue.js and
+              React.js, I've developed innovative solutions that seamlessly
+              integrate with modern E-commerce(Online Store) platforms and
+              Content Management Systems (CMS). My proficiency extends to
+              managing Google Cloud Platforms (GCP) and utilizing Linux-based
+              cloud hosting services, ensuring high-performance applications.
+            </p>
+            <p>
+              However, my true passion lies in creating user-centric solutions
+              that captivate and engage. I believe in delivering more than just
+              technical excellence; I strive to enhance user experiences,
+              improve efficiency, and drive business growth. By applying my deep
+              understanding of UI/UX principles and advanced JavaScript
+              frameworks, I develop intuitive, visually appealing websites and
+              applications optimized for top-notch performance. Through seamless
+              integrations with E-commerce platforms and CMS solutions, I
+              empower businesses to streamline their operations, expand their
+              reach, and achieve online success.
+            </p>
+            <p data-aos="fade-up-left">
+              Beyond my technical endeavors, I find immense joy in engaging in
+              intuitive conversations and exploring the abstract design of
+              nature. I'm constantly inspired by how these principles shape the
+              architecture of our digital world. It's this drive for precision
+              that fuels my passion for every project I undertake.
+            </p>
+          </section>
 
-          <!-- Answer -->
-          <div class="Ans br2 noselect" v-for="(ans, i) in QA.A" :key="i">
-            <div class="Body bg-grey-5 br3">
-              <div v-html="ans" class="p-2 pl-2"></div>
-            </div>
-          </div>
+          <section>
+            <h2 class="AB_Head">My Expertise</h2>
+            <p data-aos="zoom-in">
+              As a web developer committed to providing exceptional digital
+              solutions, I bring a wide range of skills to the table
+            </p>
+            <article>
+              <h3 data-aos="fade-right" class="AB_SubHead">Custom Web Design and Development</h3>
+              <p data-aos="fade-up-left">
+                Imagine a website that seamlessly blends stunning aesthetics
+                with effortless functionality. That's precisely what I bring to
+                the table. Using industry-leading design tools like Figma and
+                Adobe Design Tools, I create visually captivating user
+                interfaces that not only grab attention but also guide visitors
+                through an intuitive and immersive experience. Let's take your
+                brand's story and turn it into a beautifully designed digital
+                masterpiece.
+              </p>
+            </article>
+
+            <article>
+              <h3 data-aos="fade-right" class="AB_SubHead">
+                Front-end Development: Elevating User Engagement
+              </h3>
+              <p data-aos="fade-up-left">
+                When it comes to front-end development, I'm more than just a
+                coder. I'm a storyteller. I utilize the power of JavaScript and
+                TypeScript, combined with my expertise in Vue.js and React.js,
+                to craft interactive and responsive websites that captivate your
+                audience from the very first click. Whether it's implementing
+                eye-catching animations or designing seamless transitions, I
+                focus on creating a user experience that leaves a lasting
+                impression.
+              </p>
+            </article>
+
+            <article>
+              <h3 data-aos="fade-right" class="AB_SubHead">Back-end Development</h3>
+              <p data-aos="fade-up-left">
+                Behind every great website lies a robust and scalable back-end
+                infrastructure. With expertise in frameworks like Express.js,
+                Fastify, and Koa, I architect and develop powerful web
+                applications that bring your vision to life. From complex
+                database integrations to sophisticated logic and functionality,
+                I ensure that your website or application is not just
+                aesthetically pleasing, but also highly functional and
+                efficient.
+              </p>
+            </article>
+
+            <article>
+              <h3 data-aos="fade-right" class="AB_SubHead">Servers and Hosting</h3>
+              <p data-aos="fade-up-left">
+                Your website deserves a reliable and secure home for your data.
+                I am well-versed in managing servers and hosting platforms such
+                as Google Cloud Platforms, AWS, and DigitalOcean. With an eye
+                for performance optimization and scalable architecture, I ensure
+                that your website delivers lightning-fast load times and
+                operates seamlessly, even under heavy traffic.
+              </p>
+            </article>
+
+            <article>
+              <h3 data-aos="fade-right" class="AB_SubHead">Version Control and Collaboration</h3>
+              <p data-aos="fade-up-left">
+                To ensure efficient and collaborative development processes, I
+                utilize systems like GitHub, Basecamp, Discord, Slack, etc. This
+                allows for seamless code management, easy collaboration with
+                team members, and efficient project tracking.
+              </p>
+            </article>
+
+            <article>
+              <h3 data-aos="fade-right" class="AB_SubHead">
+                Blockchain Development: Embracing the Future
+              </h3>
+              <p data-aos="fade-up-left">
+                The blockchain revolution is upon us, and I'm here to guide you
+                through it. With hands-on experience in Web3.js and Solidity, I
+                help businesses leverage the power of decentralized applications
+                and smart contracts. Whether it's building a secure and
+                transparent voting system or developing a unique
+                blockchain-based solution, I have the expertise to bring your
+                ideas to life on this transformative technology.
+              </p>
+            </article>
+          </section>
+
+          <section>
+            <h2 data-aos="fade-right" class="AB_Head">Still, Why You Should Choose Me?</h2>
+            <ul>
+              <li data-aos="fade-up-left">
+                <strong class="t-blue-grey--1"
+                  >Advanced Technical Skills:</strong
+                >
+                I stay up to date with the latest industry trends and
+                continuously expand my technical skill set. This allows me to
+                implement cutting-edge solutions and deliver high-quality
+                results that align with industry standards.
+              </li>
+              <li data-aos="fade-up-left">
+                <strong class="t-blue-grey--1"
+                  >Analytical and Divergent Thinking:
+                </strong>
+                I possess strong problem-solving skills, enabling me to approach
+                challenges from different angles and provide innovative
+                solutions. I thrive on finding creative and efficient ways to
+                overcome obstacles and achieve optimal outcomes.
+              </li>
+              <li data-aos="fade-up-left">
+                <strong class="t-blue-grey--1"
+                  >Effective Communication and Collaboration:</strong
+                >
+                When you choose to work with me, you're not just hiring a web
+                developer; you're gaining a trusted partner who is dedicated to
+                your success. I believe in effective communication,
+                transparency, and collaboration throughout the entire
+                development process. Your vision and goals are at the forefront
+                of every decision I make, ensuring that the end result aligns
+                with your expectations and possibly exceeds them.
+              </li>
+            </ul>
+          </section>
+
+          <section data-aos="zoom-in">
+            <h2 class="AB_Head">
+              Let's Create Something Extraordinary
+            </h2>
+            <p>
+              Are you ready to elevate your brand's digital presence?
+              <NuxtLink to="hire-me"> Hire me</NuxtLink>. Get in touch with me
+              today, to discuss your web development goals. Together, we'll
+              embark on a journey to create a captivating online experience that
+              sets you apart from the competition and drives measurable success.
+            </p>
+          </section>
         </section>
       </section>
     </template>
-
   </GlobalWrapper>
 </template>
 <script lang="ts">
+
 export default {
   setup() {
-    const { $myMetaInfo } = useNuxtApp();
+    const { $myMetaInfo, $aos } = useNuxtApp();
 
     useSeoMeta($myMetaInfo({ title: "About | orbrift" }));
 
-    const QueAns = [
-      {
-        Q: "About Orbrift!",
-        A: [
-          `<p>Hello! With orbrift you get unique UI designs, web applications development and other web solutions specifically targeted at helping designers and other creative minded setups likewise in profitably presenting their crafts to their target markets. You are delivered professional, custom and result-oriented web development services while also getting access to objective guidance in solving common websites-related business challenges.</p>
-          <p>For more details <a href="/adedayo-adeniyi" class="t-blue bg-grey-3 cursor-pointer br2 p-2 no-deco" target="_blank">Check out my profile.</a></p>`,
-        ],
-      },
-      {
-        Q: "About the products and services!",
-        A: [
-          `<p>You see, it is a dynamic and fast-changing world, everyone here and there is looking to create a customized virtual identity either for themselves or their businesses to boost their reach beyond their local environment. And when they do, they need someone who would do it to a high standard, engineered to their taste. This is where I come in!</p>
-          <p>Everyone and every business deserves a virtual online profile that not only stands out but also fulfills its intended purpose, and I specialize in providing that.</p>
-          <p class="mb-1">From creating regular SEO responsive webpages to implementing complex business and functional ui logic for web technologies. I am versed in presenting a genuine design and overall development services. In my time doing this, I've worked physically and remotely with a number of people building their projects.</p>
-          <p><b>What kind of website or web application do you need now?</b> Personal, for a hobby? for your business or vocation?. Or just need someone to work with you in building your next big project. I'll be happy to get onboard in bringing your ideas to live.</p> 
-          <p>We can discuss the detail <a href="/contact" class="t-blue bg-grey-3 cursor-pointer br2 p-2 no-deco" target="_blank">here. Send a message.</a></p>`,
-        ],
-      },
-      // {
-      //   Q: "Single Page web Applications(SPAs) and Progressive web Applications(PWAs)",
-      //   A: [
-      //     `<p>SPAs/PWAs are web apps that give you a similar mobile apps experience on the web without the need to download and install on your device. Progressive, faster navigation, fully customized, and no boring loadings between pages...</p>
-
-      //     <p>Among others built, a good example is <span class="t-blue bg-grey-3 cursor-pointer br2 p-2 no-deco">orbrift.com</span>.</p>
-      //     <p>Unlike most traditional websites setup on wordpress and the likes, SPAs are most often more custom built for your specific purpose and will have better overall user experience, without requiring much more resources.<p>
-      //     <p>Likewise I also create wordpress websites if it's what you need, and there are ways to still take advantage of it's CMS functionalities in SPAs. Whether personal or ecommerce websites.<p>
-      //     `,
-      //   ],
-      // },
-      //..
-    ];
-
-    return {
-      QueAns,
-    };
+    return {};
   },
 };
 </script>
 <style lang="scss" scoped>
-/* Question & Answer Styling*/
-.Ques,
-.Ans {
-  position: relative;
-
-  & .Img {
-    position: absolute;
-    top: -18px;
-    height: 50px;
-    width: 50px;
-    & img {
-      width: 100%;
-      height: 100%;
-    }
+.AB_Cont {
+  & p {
+    font-size: 16px;
   }
 }
-
-.Ques {
-  margin: 25px 50px 10px 5px;
-  & .Img {
-    background-color: $sec-color;
-    border: solid 3px $sec-color-transparent-more;
-  }
-  & .Body {
-        background-color: $sec-color-transparent;
-        color:$pri-color;
-    border-bottom: solid $sec-color-transparent-more 3px;
-  }
-  & .Img {
-    left: -2px;
-  }
+.AB_Head {
+  color: $blue-grey--1;
 }
-
-.Ans {
-  margin: 5px;
-  & .Body {
-    font-size: 20px;
-    letter-spacing: 0.2px;
-    border-bottom: solid $sec-color-transparent-more 3px;
-  }
-}
-
-@include xs-only {
-  .Ques {
-    margin-right: 35px;
-  }
+.AB_SubHead {
+  padding: 10px;
+  background-color: $sec-color-transparent;
+  color: $pri-color;
+  border-bottom: solid $sec-color-transparent-more 3px;
+  border-radius: 10px;
 }
 </style>

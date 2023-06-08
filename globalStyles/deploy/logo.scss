@@ -1,69 +1,9 @@
 .logo-base {
     position: relative;
-    width: 64px;
-    height: 64px;
     border-radius: 50%;
     overflow: hidden;
     background-color: transparent;
-    // background-color: #007d8d;
-    // background: linear-gradient(#00838f 25%, #00bcd4 50%, #00838f 75%);
-
-    & span {
-        position: absolute;
-        border-radius: 50%;
-    }
-
-    & > span:nth-child(1) {
-        top: 13%;
-        left: 13%;
-        z-index: 1;
-        width: 74%;
-        height: 74%;
-        overflow: hidden;
-        // background-color: #007d8d;
-        background-color: #00838f;
-
-        & span:nth-child(1) {
-            top: 14%;
-            left: 14%;
-            width: 72%;
-            height: 72%;
-            background-color: #003b46;
-            // background-color: #ad1457;
-        }
-    }
-    & > span:nth-child(2),
-    & > span:nth-child(3) {
-        // background-color: #e91e63;
-        background-color: #ad1457;
-        // animation: rotateR 9s linear infinite;
-    }
-    & > span:nth-child(2) {
-        top: 22.5%;
-        left: 3%;
-        width: 94%;
-        height: 55%;
-    }
-    & > span:nth-child(3) {
-        left: 22.5%;
-        top: 3%;
-        height: 94%;
-        width: 55%;
-    }
-
-    &.img-logo-border {
-        background-color: #007d8d;
-        & > span:nth-child(2) {
-            left: 1%;
-            width: 98%;
-        }
-        & > span:nth-child(3) {
-            top: 1%;
-            height: 98%;
-        }
-    }
 }
-
 .logo-x-small {
     width: 45px;
     height: 45px;
@@ -78,28 +18,6 @@
     width: 120px;
     height: 120px;
 }
-
-// .logo-static {
-//     & span {
-//         animation: none !important;
-//     }
-// }
-
-
-// .logo-trans-1::after,
-// .logo-trans-2::after {
-//     content: "";
-//     z-index: 3;
-//     position: absolute;
-//     width: 100%;
-//     height: 100%;
-// }
-// .logo-trans-1::after {
-//     background-color: rgba(72, 72, 72, 0.2);
-// }
-// .logo-trans-2::after {
-//     background-color: rgba(72, 72, 72, 0.55);
-// }
 
 .logo-rotate {
         animation: rotateR 0.8s linear infinite;

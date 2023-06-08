@@ -1,68 +1,36 @@
 <template>
   <div>
-    <section v-for="(post, i) in posts" :key="i">
-      <!-- regular posts(ARTICLE) template-->
-      <article class="Article bg-gradient-2 br2 mb-3">
-        <section
-          class="PostImage xs12 sm6 md5 noselect"
-          @click="openPost(post.slug)"
-        >
-          <img
-            :src="post.featured_media_src_url"
-            draggable="false"
-            class="br1"
-          />
-        </section>
-        <section class="Details xs12 sm6 md7">
-          <div
-            @click="openPost(post.slug)"
-            class="cursor-pointer flex h-full w-full"
-          >
+    <div class="BlogPosts">
+      <div v-for="(post, i) in posts" :key="i" class="BlogPost xs12 sm10 md7">
+        <div class="TopSection" @click="openPost(post.slug)">
+          <div class="PostImageWrapper">
             <img
-              src="/defaults/usr/me.jpg"
-              width="30"
-              height="30"
+              :src="post.featured_media_src_url"
+              alt="Featured Image"
+              class="PostImage"
               draggable="false"
-              class="noselect"
             />
-            <div>
-              <h5 class="font-3 my-1 mx-5 t-white">
-                {{ post.title?.rendered }}
-              </h5>
-              <p class="font-2 my-2 mx-5 t-grey-1 bold-3">
-                <span class="mr-2 bold-5 t-grey-2">{{
-                  "Adedayo Adeniyi"
-                }}</span>
-
-                <!-- - <span class="icon-clock">{{
-                  $moment(post.modified).fromNow()
-                }}</span> -->
-              </p>
-              <p
-                class="Excerpt hide-sm-downh t-white"
-                v-html="post.excerpt?.rendered"
-              ></p>
-            </div>
           </div>
-
-          <!-- Dropdown component -->
-          <Dropdown
-            :ownID="post.id"
-            :pos="{ type: 'absolute', top: 4, right: 4 }"
-            class="Dropdown icon-ellipsis-vert font-8 bg-trans-2"
-            style="width: 30px"
-          >
-            <!-- slots -->
-            <template v-slot:default>
-              <router-link :to="{ path: '/posts/' + post.slug }">
-                <span class="icon-eye"></span>
-                <span>Open</span>
-              </router-link>
-            </template>
-          </Dropdown>
-        </section>
-      </article>
-    </section>
+          <h2 class="Title">
+            {{ post.title?.rendered }}
+          </h2>
+        </div>
+        <div class="Author">
+          <img
+            src="/defaults/usr/me.jpg"
+            alt="Author Image"
+            class="AuthorImage"
+            draggable="false"
+          />
+          <span class="AuthorName">Samuel Adeniyi</span>
+        </div>
+        <p
+          class="Excerpt"
+          v-html="post.excerpt?.rendered"
+          @click="openPost(post.slug)"
+        ></p>
+      </div>
+    </div>
 
     <!-- Pagination -->
     <section class="flex j-c-center">
@@ -94,26 +62,111 @@
   </div>
 </template>
 <script lang="ts">
-
 export default {
   props: {
     posts: { required: true, type: Array },
     pagin: { required: true, type: Object },
   },
 
-  methods: {
-    openPost(slug: string) {
-      /* let route = */ this.$router.push({ path: "/posts/" + slug });
-      // window.open(route.href, '_blank')
-    },
+  setup(props) {
+    const router = useRouter();
+
+    const posts = computed(() =>
+      props.posts
+    );
+    const pagin = computed(() =>
+      props.pagin
+    );
+
+    const openPost = (slug: string) => {
+      router.push({ path: "/posts/" + slug });
+    };
+
+    return {
+      posts,
+      pagin,
+      openPost
+    }
   },
 };
 </script>
 <style lang="scss" scoped>
+.BlogPosts {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.BlogPost {
+  padding: 16px;
+  background-color: #f5f5f5;
+  // background-color: $sec-color;
+  border-radius: 4px;
+}
+
+.TopSection {
+  background-color: #333; /* Dark background color for the featured image and title */
+  background-color: $sec-color-transparent;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.PostImageWrapper {
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio (9 divided by 16, multiplied by 100) */
+  position: relative;
+}
+.PostImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.Title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: $pri-color;
+}
+.Author {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.AuthorImage {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.AuthorName {
+  font-size: 14px;
+  font-weight: bold;
+  color: #777;
+  cursor: pointer;
+}
+
+.Excerpt {
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgb(59, 59, 59);
+  cursor: pointer;
+}
+
+//
 .Pagins {
   display: flex;
   justify-content: space-between;
-  margin: 8px 0;
+  margin: 30px 20px 10px 20px;
   padding: 5px;
   width: 100%;
   border-bottom: rgb(45, 45, 45) solid 2px;
@@ -143,69 +196,6 @@ export default {
   }
 }
 
-.Article {
-  display: flex;
-  overflow: hidden;
-
-  & .PostImage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    // & img {
-    // position: absolute;
-    // top: 0;
-    // max-width: 100%;
-    // max-height: 100%;
-    // }
-  }
-  & .Details {
-    width: 100%;
-    position: relative;
-    padding: 5px 8px;
-    margin: 2px;
-    & .Dropdown {
-      box-shadow: none ;
-      background-color: transparent;
-    }
-    & img {
-      min-width: 30px;
-      height: 30px;
-      border-radius: 50%;
-    }
-    & .Excerpt {
-      font-size: 15px ;
-      letter-spacing: 0.2px;
-      line-height: 16px;
-    }
-  }
-}
-
-@include sm-and-up {
-  .Article {
-    min-height: 240px;
-    max-height: 250px;
-  }
-}
-@include sm-and-down {
-  .Article {
-    & .Excerpt {
-      font-size: 14px !important;
-    }
-  }
-}
-@include xs-only {
-  .Article {
-    flex-wrap: wrap;
-    min-height: 400px;
-  // & .PostImage {
-  //   max-height: 220px;
-  // }
-    // & .Details {
-    // & .Excerpt {
-    //   font-size: 12px;
-    // }
-    // }
-  }
-}
+// @include sm-and-up {}
+// @include sm-and-down {}
 </style>

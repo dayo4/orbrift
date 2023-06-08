@@ -1,28 +1,7 @@
 <template>
-  <div class="BottomNav bg-trans-4 pb-1" ref="bottomNav">
-    <router-link to="/" class="no-deco">
-      <span
-        class="icon-home"
-        :class="homeRoute ? 't-grey--1' : 't-white'"
-      ></span>
-      <span>Home</span>
-    </router-link>
-    <div @click="$router.back()">
-      <span
-        class="icon-left-open-big"
-        :class="backable ? 't-white' : 't-grey-1'"
-      ></span>
-      <span>Back</span>
-    </div>
-    <div @click="$router.forward()">
-      <span
-        class="icon-right-open-big"
-        :class="backable ? 't-white' : 't-grey-1'"
-      ></span>
-      <span>forward</span>
-    </div>
+  <div v-show="scrolled" class="BottomNav pb-1" ref="bottomNav">
     <div @click="scrollUp">
-      <span class="icon-up" :class="!scrolled ? 't-grey--1' : 't-white'"></span>
+      <span class="icon-up"></span>
       <span>Scroll Up</span>
     </div>
   </div>
@@ -33,22 +12,11 @@ import { useNavs } from "@/store";
 export default {
   setup() {
     const $Navs = useNavs();
-    const route = useRoute();
-
-    const homeRoute = ref(true);
-    const backable = ref(true);
-    const forwardable = ref(true);
 
     const bottomNav: Ref<HTMLElement | null> = ref(null);
 
-    const scrolled = $Navs.scrolled;
-
-    watch(
-      () => route.path,
-      () => {
-        homeRoute.value = route.path === "/";
-        backable.value = history.length > 0;
-      }
+    const scrolled = computed(() =>
+        $Navs.scrolled
     );
 
     const scrollUp = () => {
@@ -66,9 +34,6 @@ export default {
     });
 
     return {
-      homeRoute,
-      backable,
-      forwardable,
       bottomNav,
       scrolled,
       scrollUp,
@@ -81,31 +46,39 @@ export default {
 .BottomNav {
   position: fixed;
   bottom: 0;
-  left: 50%;
+  right: 5px;
   z-index: 7;
-  margin-left: -110px;
   display: flex;
   align-items: center;
-  border-radius: 20px 20px 0 0;
+  background-color: $sec-color-transparent-less;
+  border-radius: 28px 28px 1px 1px;
   height: 44px;
+  animation: show 0.6s;
   & > * {
     text-align: center;
     margin-left: 10px;
     margin-right: 10px;
     cursor: pointer;
-    & span {
-      transition: 0.5s;
-    }
     & span:first-child {
       display: block;
       font-size: 25px;
+        color: $pri-color;
     }
     & span:last-child {
-      color: white;
+  color: $pri-color;
       font-weight: bold;
       display: block;
       font-size: 8px;
+      padding-bottom: 2px;
     }
+  }
+}
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 </style>

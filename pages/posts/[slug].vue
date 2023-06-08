@@ -1,241 +1,103 @@
 <template>
-  <GlobalWrapper :header="false" :title="false">
+  <GlobalWrapper :header="true" :subText="true">
+    <template #Title>
+      Discover
+    </template>
+    <template v-if="post" #SubText>
+      {{ post.title.rendered }}
+    </template>
+
     <template #WrapperBody>
-      <div class="Wrapper">
+      <div v-if="post" class="PostContainer">
         <!-- HEAD -->
-        <section class="Head flex col j-c-center p-2">
-          <div
-            class="Title a-s-center font-11 bold-3 text-cap text-center letter-space-1 px-8 mb-8"
-          >
-            {{ post.title?.rendered }}
+        <div class="BlogPost xs12 sm10 md7">
+          <div class="TopSection">
+            <div class="PostImageWrapper">
+              <img
+                :src="post.featured_media_src_url"
+                alt="post.title?.rendered"
+                class="PostImage"
+                draggable="false"
+              />
+            </div>
+            <h2 class="Title">
+              {{ post.title?.rendered }}
+            </h2>
           </div>
-          <div class="FeaturedImage a-s-center br2 p-0 noselect">
+          <div class="Author">
             <img
-              class="w-full br2"
-              :src="post.featured_media_src_url"
-              :alt="post.title?.rendered"
+              src="/defaults/usr/me.jpg"
+              alt="Author Image"
+              class="AuthorImage"
               draggable="false"
             />
+            <span class="AuthorName">Samuel Adeniyi</span>
           </div>
-        </section>
+        </div>
 
-        <!-- META -->
-        <section class="Meta mt-1">
-          <!-- <hr /> -->
-          <!-- <div class="m-1 t-blue-grey">
-            <b>Updated:</b>
-            {{ $moment(post.modified).fromNow() }}
-          </div> -->
-          <!-- <hr /> -->
-          <div class="ShareIcons flex a-i-center noselect">
-            <div
-              class="icon-forward sec-gradient-btn flex a-i-center j-c-center t-white font-12 br5"
-            ></div>
-            <div class="font-7 pl-5 py-1 pr-2 br4 flex j-c-around">
-              <a
-                :href="`https://www.facebook.com/sharer/sharer.php?u=${href}`"
-                target="_blank"
-                @mouseout="shareIconsTooltip = ''"
-                @mouseover="shareIconsTooltip = 'facebook'"
-                class="icon-facebook t-blue--2"
-              ></a>
-              <a
-                :href="`https://twitter.com/share?url=${href}`"
-                target="_blank"
-                @mouseout="shareIconsTooltip = ''"
-                @mouseover="shareIconsTooltip = 'twitter'"
-                class="icon-twitter t-cyan"
-              ></a>
-              <a
-                :href="`https://www.linkedin.com/sharing/share-offsite/?url=${href}`"
-                target="_blank"
-                @mouseout="shareIconsTooltip = ''"
-                @mouseover="shareIconsTooltip = 'linkedIn'"
-                class="icon-linkedin t-blue--2"
-              ></a>
-              <!-- <a
-                                  :href="`whatsapp://send?text=${href}`"
-                                  data-action="share/whatsapp/share"
-                                  target="_blank"
-                                  @mouseout="shareIconsTooltip = ''"
-                                  @mouseover="shareIconsTooltip = 'whatsapp'"
-                                  class="icon-whatsapp t-green--2"
-                              ></a>-->
-              <a
-                :href="`https://reddit.com/submit?url=${href}`"
-                target="_blank"
-                @mouseout="shareIconsTooltip = ''"
-                @mouseover="shareIconsTooltip = 'reddit'"
-                class="icon-reddit t-red-1"
-              ></a>
-              <i
-                class="Tooltip font-4 text-center"
-                :class="shareIconsTooltip ? '' : 'transform'"
-                >{{ shareIconsTooltip }}</i
-              >
-            </div>
-          </div>
-          <!-- <hr /> -->
-          <div class="Actions flex j-c-center noselect my-1">
-            <!-- @click="showCommentModal(post)" -->
-            <!-- <span
-							class="icon-comment btn pri-gradient-btn"
-							>Comments (0)
-							 {{
-								post.comments_count
-									? `(${post.comments_count})`
-									: ""
-							}} 
-                            </span 
-						> -->
-            <!-- <span
-                              class="icon-thumbs-up-alt btn sec-gradient-btn"
-                              @click="thumbUp"
-                          >{{post.up}}</span>-->
-          </div>
-        </section>
+        <!-- Top META -->
+        <ShareIcons />
 
         <!-- BODY -->
-        <section v-html="post.content?.rendered" class="Body p-5"></section>
+        <section
+          v-html="post.content?.rendered"
+          class="Body xs12 sm10 md7 p-5"
+        ></section>
 
         <!-- Bottom Meta -->
-        <section class="Meta mt-3">
-          <div class="ShareIcons flex a-i-center noselect">
-            <div
-              class="icon-forward sec-gradient-btn flex a-i-center j-c-center t-white font-12 br5"
-            ></div>
-            <div class="font-7 pl-5 py-1 pr-2 br4 flex j-c-around">
-              <a
-                :href="`https://www.facebook.com/sharer/sharer.php?u=${href}`"
-                target="_blank"
-                @mouseout="shareIconsTooltip = ''"
-                @mouseover="shareIconsTooltip = 'facebook'"
-                class="icon-facebook t-blue--2"
-              ></a>
-              <a
-                :href="`https://twitter.com/share?url=${href}`"
-                target="_blank"
-                @mouseout="shareIconsTooltip = ''"
-                @mouseover="shareIconsTooltip = 'twitter'"
-                class="icon-twitter t-cyan"
-              ></a>
-              <a
-                :href="`https://www.linkedin.com/sharing/share-offsite/?url=${href}`"
-                target="_blank"
-                @mouseout="shareIconsTooltip = ''"
-                @mouseover="shareIconsTooltip = 'linkedIn'"
-                class="icon-linkedin t-blue--2"
-              ></a>
-              <a
-                :href="`https://reddit.com/submit?url=${href}`"
-                target="_blank"
-                @mouseout="shareIconsTooltip = ''"
-                @mouseover="shareIconsTooltip = 'reddit'"
-                class="icon-reddit t-red-1"
-              ></a>
-              <i
-                class="Tooltip font-4 text-center"
-                :class="shareIconsTooltip ? '' : 'transform'"
-                >{{ shareIconsTooltip }}</i
-              >
-            </div>
-          </div>
-        </section>
+        <ShareIcons />
 
-        <!-- <div
-					class="Divider px-5 mt-5 font-9 bold-3 t-blue-grey text-cap text-center letter-space-1"
-				>
-					Author
-				</div> -->
-
-        <!-- FOOT -->
-        <!-- <section class="Foot">
-					<div class="UserDetails py-1 px-2 mb-2 mt-4">
-						<div class="Info flex col text-center w-full mr-1">
-							<div
-								class="font-6 bold-3 t-blue-grey--1 text-cap m-1"
-							>
-								Adedayo Adeniyi
-							</div>
-							<div class="flex a-s-center">
-								<button
-									@click="
-										$router.push('/adedayo-adeniyi')
-									"
-									class="icon-user btn font-3 py-1 px-2 m-1 bg-pink--2 t-white br1"
-								>
-									View Profile
-								</button>
-							</div>
-
-
-							<div
-								class="flex wrap sm-nowrap j-c-center a-i-center"
-							>
-								<div class="Image noselect mr-1">
-									<img
-										src="/defaults/usr/me.jpg"
-										alt="author"
-										draggable="false"
-									/>
-								</div>
-
-
-								<Minimizer
-									:initialHeight="90"
-									:closeable="false"
-								>
-									<div class="t-cyan--3 font-4 p-1 b1 br3">
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta vero excepturi quam asperiores, animi error itaque maxime nobis impedit! Libero provident atque nesciunt. Voluptatem eligendi repudiandae placeat et cupiditate cum.
-									</div>
-								</Minimizer>
-							</div>
-						</div>
-					</div>
-				</section>  -->
-
-        <section class="NextPrev">
-          <div
+        <!-- Next - Prev Buttons -->
+        <div class="NP_postNavigation ml-2 mt-20">
+          <router-link
             v-if="prevPost"
-            @click="openPost(prevPost.slug)"
-            class="Prev xs9 sm5 flex a-i-center bg-gradient-2 p-1 shadow-2"
+            :to="`/posts/${prevPost.slug}`"
+            class="NP_navigationLink NP_previousLink"
           >
-            <div class="Img flex a-i-center mr-2">
-              <img
-                :src="prevPost.featured_media_src_url"
-                :alt="prevPost.title?.rendered"
-              />
+            <div class="NP_thumbnailCont">
+              <div class="NP_thumbnail">
+                <img
+                  :src="prevPost.featured_media_src_url"
+                  :alt="prevPost.title?.rendered"
+                  class="NP_thumbnailImage"
+                />
+              </div>
+              <div class="NP_label">
+                <i class="icon-left mr-2"></i>
+                Prev Post
+              </div>
             </div>
-            <h4>{{ prevPost.title?.rendered }}</h4>
-            <span class="Label">
-              <i class="icon-left-open"></i>
-              <p class="mr-2">PREV POST</p>
-            </span>
-          </div>
-          <div
+            <div class="NP_title">{{ prevPost.title?.rendered }}</div>
+          </router-link>
+        </div>
+
+        <div class="NP_postNavigation j-c-end mr-2">
+          <router-link
             v-if="nextPost"
-            @click="openPost(nextPost.slug)"
-            class="Next xs9 sm5 flex a-i-center bg-gradient-2 p-1 shadow-2"
+            :to="`/posts/${nextPost.slug}`"
+            class="NP_navigationLink NP_nextLink"
           >
-            <div class="Img flex a-i-center mr-2">
-              <img
-                :src="nextPost.featured_media_src_url"
-                :alt="nextPost.title?.rendered"
-              />
+            <div class="NP_thumbnailCont">
+              <div class="NP_label">
+                Next Post
+                <i class="icon-right ml-2"></i>
+              </div>
+              <div class="NP_thumbnail">
+                <img
+                  :src="nextPost.featured_media_src_url"
+                  :alt="nextPost.title?.rendered"
+                  class="NP_thumbnailImage"
+                />
+              </div>
             </div>
-            <h4>{{ nextPost.title?.rendered }}</h4>
-            <span class="Label">
-              <p class="ml-2">NEXT POST</p>
-              <i class="icon-right-open"></i>
-            </span>
-          </div>
-        </section>
+            <div class="NP_title">{{ nextPost.title?.rendered }}</div>
+          </router-link>
+        </div>
       </div>
     </template>
   </GlobalWrapper>
 </template>
 <script lang="ts">
-import { $contentApi } from "~/addons/utils/Axios";
 
 import { usePosts } from "@/store";
 
@@ -246,117 +108,114 @@ export default {
     const route = useRoute();
     const $Posts = usePosts();
 
-    /* posts properties */
     const {
       data: post,
-      error,
-      pending,
     } = useAsyncData(async () => {
-      const { data } = await $contentApi.get("posts?slug=" + route.params.slug);
-      console.log(pending)
-      // console.log(error)
-      // console.log(data[0])
-      return data[0];
+      const data = await $Posts.fetchPost(route.params.slug);
+      return data;
     });
+    
+    // watch(() => route.params.slug, async (slug) => {
+    //   console.log('slug')
+    //   console.log(slug)
+    //   await refresh()
+    // }, { immediate: true })
 
     useSeoMeta(
       $myMetaInfo({
-        title: post.value.title.rendered,
-        content: post.value.excerpt.rendered,
-        image: post.value.featured_media_src_url,
+        title: post.value?.title.rendered,
+        content: post.value?.excerpt.rendered,
+        image: post.value?.featured_media_src_url,
         url: "https://orbrift.com" + route.path,
         type: "article",
       })
     );
 
-    onBeforeRouteUpdate(async ({}) => {
-      await !pending.value; // Wait until the data is loaded
-    });
-
-    const prefetchPrev = () => {
-      $Posts.fetchPrevPost({
-        date: post.value.date,
-        id: post.value.id,
-      });
-    };
-    const prefetchNext = () => {
-      $Posts.fetchNextPost({
-        date: post.value.date,
-        id: post.value.id,
-      });
-    };
     const openPost = (slug: string) => {
       router.push({ path: "/posts/" + slug });
     };
 
-    const prevPost = $Posts.prevPost;
-    const nextPost = $Posts.nextPost;
-
-    onMounted(() => {
-      prefetchPrev();
-      prefetchNext();
-    });
+    const prevPost = computed(() =>
+        $Posts.prevPost
+    );
+    const nextPost = computed(() =>
+        $Posts.nextPost
+    );
 
     return {
-
       post,
-      prefetchPrev,
-      prefetchNext,
       openPost,
       prevPost,
       nextPost,
-      href:"https://orbrift.com" + route.path
+      href: "https://orbrift.com" + route.path,
+
     };
   },
 };
 </script>
 <style lang="scss" scoped>
-.Wrapper {
+.PostContainer {
   max-width: 100vw !important;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
-.Wrapper > div {
-  margin-bottom: 15px;
-  overflow: hidden;
-  background-color: white;
+.BlogPost {
+  padding: 16px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
 }
 
-.UserDetails {
-  border-radius: 28px 100px 100px 28px;
+.TopSection {
+  background-color: #333; /* Dark background color for the featured image and title */
+  background-color: $sec-color-transparent;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.PostImageWrapper {
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio (9 divided by 16, multiplied by 100) */
   position: relative;
-  & .Image {
-    position: relative;
-    border: 2px solid $pri-color;
-    background-color: $pri-color;
-    border-radius: 100%;
-    min-width: 65px;
-    min-height: 65px;
-    width: 65px;
-    height: 65px;
-    & img {
-      min-width: 60px;
-      min-height: 60px;
-      width: 60px;
-      height: 60px;
-      border-radius: 100%;
-    }
-  }
+}
+.PostImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.Title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: $pri-color;
+}
+.Author {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.AuthorImage {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
-.Head {
-  border-radius: 100px;
-  & .Title {
-    border-radius: 93%;
-    border-top: 2px $blue-grey-2 solid;
-    color: $blue-grey--2;
-    padding-top: 35px;
-    width: 100%;
-  }
-  & .FeaturedImage {
-    overflow: hidden;
-    width: 92%;
-  }
+.AuthorName {
+  font-size: 14px;
+  font-weight: bold;
+  color: #777;
 }
+
 .Meta {
+  padding-left: 20px;
   & .ShareIcons {
     & a {
       text-decoration: none;
@@ -366,18 +225,17 @@ export default {
       width: 50px;
       height: 50px;
       z-index: 2;
+      background-color: $sec-color;
+      color: $pri-color;
     }
     & div:nth-child(2) {
       position: absolute;
       left: 20px;
-      top: 6px;
+      top: 1px;
       min-width: 250px;
       border: solid $sec-color 3px;
       z-index: 1;
-      & span {
-        border-radius: 50%;
-        cursor: pointer;
-      }
+
       & .Tooltip {
         position: absolute;
         content: "";
@@ -396,93 +254,58 @@ export default {
       }
     }
   }
-
-  & .Actions {
-    & span:first-child {
-      border-radius: 28px;
-    }
-  }
-  & hr {
-    color: $blue-grey-4;
-    margin: 2px;
-  }
 }
 .Body {
-  height: fit-content;
   width: 100%;
-  max-width: 100%;
-  // color: $blue-grey--4;
+  max-width: 100%; //Bcos the wordpress post images were overflowing the border.
   color: black;
 }
 
-.Divider {
-  border-radius: 93%;
-  border-bottom: 2px $blue-grey-2 solid;
-  padding-bottom: 15px;
+.NP_postNavigation {
+  display: flex;
   width: 100%;
 }
 
-.Foot {
-  height: fit-content;
+.NP_navigationLink {
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  max-width: 300px;
+  min-width: 280px;
+}
+.NP_thumbnailCont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: $sec-color-transparent;
+}
+.NP_thumbnail {
+  width: 120px;
+  height: 90px;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  overflow: hidden;
+  position: relative;
 }
 
-.NextPrev {
-  margin: 10px 0 0 0;
+.NP_thumbnailImage {
   width: 100%;
-  color: white;
-  letter-spacing: 0.2px;
-  & .Img {
-    width: 100px;
-    height: 100px;
-    & img {
-      min-width: 100%;
-    }
-  }
-  & .Prev,
-  .Next {
-    position: relative;
-    border-radius: 3px;
-    margin-top: 40px;
-    cursor: pointer;
-  }
-  & .Prev {
-    float: left;
-  }
-  & .Next {
-    float: right;
-  }
-  & .Label {
-    position: absolute;
-    top: -25px;
-    left: calc(50% - 60px);
-    width: 120px;
-    height: 35px;
-    background-color: $sec-color;
-    font-weight: bold;
-    // letter-spacing: 0.3px;
-    border-radius: 28px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  height: 100%;
+  object-fit: cover;
+}
+.NP_label {
+  font-size: 14px;
+  font-weight: bold;
+  color: $pri-color;
+  padding: 5px;
+  border: solid 2px $pri-color;
+  border-radius: 5px;
 }
 
-@include sm-and-up {
-  .NextPrev {
-    display: inline-block;
-  }
-}
-
-@include xs-only {
-  .Head {
-    & .Title {
-      border-radius: 32%;
-      padding: 25px 6px 6px 0px;
-      width: 99%;
-    }
-    & .FeaturedImage {
-      width: 99%;
-    }
-  }
+.NP_title {
+  font-size: 14px;
+  font-weight: bold;
 }
 </style>

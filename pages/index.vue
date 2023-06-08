@@ -81,11 +81,11 @@
       </div>
     </section>
 
-      <section class="SubText flex j-c-center">
-        <div class="xs12 md6">
-          A virtual online profile that makes your live simple. Just do it here.
-        </div>
-      </section>
+    <section class="SubText flex j-c-center">
+      <div class="xs12 md6">
+        A virtual online profile that makes your live simple. Just do it here.
+      </div>
+    </section>
 
     <section class="Section_2">
       <h3 class="SectionSubHead">
@@ -123,21 +123,21 @@
     </section>
 
     <!--Designs Gallery -->
-      <h3 class="SectionSubHead">
-        <span class="icon-check mr-2"></span>
-        <span> Few Designs gallery </span>
-      </h3>
-      
+    <h3 class="SectionSubHead">
+      <span class="icon-check mr-2"></span>
+      <span> Few Designs gallery </span>
+    </h3>
+
     <section>
       <h2 class="text-center t-blue-grey--1"></h2>
 
-      <div class="Gallery img-masked-00 flex wrap j-c-center">
+      <div class="Gallery img-masked-00 flex wrap j-c-center px-3">
         <transition name="slide-down-fade">
-          <div v-if="showPc" class="Pc xs11 m-1">
+          <div v-if="showPc" class="Pc xs12 sm6 md5  m-1">
             <img
               class="shadow-5"
               :src="'/defaults/gal/' + galImageList[activeGal].pc + '.jpg'"
-              alt
+              alt="orbrift.com"
               draggable="false"
             />
 
@@ -147,7 +147,7 @@
                 :src="
                   '/defaults/gal/' + galImageList[activeGal].tablet + '.jpg'
                 "
-                alt
+                alt="orbrift.com"
                 draggable="false"
               />
             </div>
@@ -156,20 +156,26 @@
               <img
                 class="shadow-5"
                 :src="'/defaults/gal/' + galImageList[activeGal].phone + '.jpg'"
-                alt
+                alt="orbrift.com"
                 draggable="false"
               />
             </div>
           </div>
         </transition>
       </div>
+
+      <div class="flex j-c-center mb-10">
+        <Button size="medium" icon="icon-right" iconPos="right">
+          Projects
+        </Button>
+      </div>
     </section>
 
-      <h3 class="SectionSubHead">
-        <span class="icon-check mr-2"></span>
-        <span> A Few Feedbacks.. </span>
-      </h3>
-      
+    <h3 class="SectionSubHead">
+      <span class="icon-check mr-2"></span>
+      <span> A Few Feedbacks.. </span>
+    </h3>
+
     <section class="TSTSection bg-img-masked flex wrap j-c-center my-3">
       <div
         id="TestimonialContRef"
@@ -188,38 +194,32 @@
       </div>
       <i @click="TSTclickLeft" class="LeftBtn icon-left"></i>
       <i @click="TSTclickRight" class="RightBtn icon-right"></i>
-      <!-- <div class="Smudges sm9 md10 lg7">
-        <i class="LeftSmudge"></i>
-        <i class="RightSmudge"></i>
-      </div> -->
     </section>
 
     <h3 class="SectionSubHead">
       <span class="icon-mail mr-3"></span>
       <span>
         Get Started
-        <!-- <i class="font-3">Start Getting Things Done!</i> -->
       </span>
     </h3>
     <!-- Contact Component -->
-    <div>
-      <Contact></Contact>
-    </div>
-    <!-- Contact Component -->
+
+      <div>
+        <MainContact></MainContact>
+      </div>
+
   </div>
 </template>
 <script lang="ts">
-import Contact from "@/components/pages/Contact.vue";
-import { $General /* , $Axios */ } from "@/addons";
-
-useSeoMeta($General.metaInfo({}));
 
 export default {
   name: "Home",
-  components: {
-    Contact,
-  },
+
   setup() {
+        const { $myMetaInfo } = useNuxtApp();
+
+    useSeoMeta($myMetaInfo({}));
+
     /* Properties */
     const showPc = ref(false);
     const showTablet = ref(false);
@@ -393,17 +393,17 @@ export default {
 </script>
 <style lang="scss" scoped>
 .SubText {
-    text-align: center;
-    font-size: 24px;
-    color: $pri-color;
-    background-color: $sec-color-transparent;
-    padding: 15px;
-    margin-bottom: 40px;
-  }
-  
+  text-align: center;
+  font-size: 24px;
+  color: $pri-color;
+  background-color: $sec-color-transparent;
+  padding: 15px;
+  margin-bottom: 40px;
+}
+
 .SectionSubHead {
   position: relative;
-  color:$blue-grey;
+  color: $blue-grey;
   text-align: center;
   &::after {
     content: "";
@@ -512,7 +512,7 @@ export default {
         padding-left: 10px;
         font-size: 28px;
         border-radius: 10px;
-        border-left: solid 3px $top-quotes-color;
+        border-left: solid 3px $pri-color;
       }
     }
   }
@@ -592,15 +592,15 @@ export default {
 .Gallery {
   position: relative;
   overflow: hidden;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   & .Thumb {
     min-height: 50px;
   }
   & .Pc {
-    min-height: 400px;
+    min-height: 250px;
     position: relative;
     top: 0;
-    max-width: 1000px;
+    // max-width: 1000px;
     max-height: 600px;
     overflow: hidden;
     animation: pc 1s;
@@ -723,19 +723,11 @@ export default {
 
 @include sm-and-down {
   .Top {
-    & .Logo {
-      width: 100%;
-    }
     & .Detail {
       & .Img {
         position: relative;
         top: 40px;
       }
-    }
-  }
-  .Gallery {
-    & .Pc {
-      min-height: 300px;
     }
   }
 

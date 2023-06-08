@@ -14,7 +14,6 @@
 
     <div class="InnerWrapper">
       <!-- Main Container (START) -->
-      <!-- md10 lg8 -->
       <article :class="rightPane ? 'xs12 md8' : 'xs12'" class="mb-5">
         <!-- Main Container Header-->
         <section v-if="subHead" class="SubHeadGBL">
@@ -34,10 +33,9 @@
 
     <!-- At The very Bottom -->
     <section v-if="footNote" class="FootNoteGBL">
-      <div v-if="useDefaultFootNote" class="flex j-c-center">
+      <div data-aos="zoom-in" v-if="useDefaultFootNote" class="flex j-c-center">
         <div class="xs12 md7 lg6">
-          For more enquiries, feel free to contact us. If you are ready to start
-          your project, use the button below
+          Thank you. If you would like to discuss a potential job or project, I would be delighted to hear from you. <NuxtLink to="/contact"> Contact me</NuxtLink>, or use the button below
           <div class="flex j-c-center my-5">
             <Button
               @clicked="$router.push({ path: '/create' })"
@@ -49,7 +47,7 @@
           </div>
         </div>
       </div>
-      <!-- <slot v-else name="FootNote"></slot> -->
+              <slot v-else name="FootNote"></slot>
     </section>
   </div>
 </template>
@@ -68,15 +66,11 @@ export default {
 </script>
 
 <style lang="scss">
-// #GBLMWrapper {
-//   padding-top: 60px;
-// }
 .HeaderGBL {
   position: relative;
   min-height: 200px;
   width: 100%;
   padding-top: 60px;
-  // padding-bottom: 10px;
   margin-bottom: 50px;
   background-color: $sec-color;
   background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
@@ -117,6 +111,10 @@ export default {
   color: $pri-color;
   background-color: $sec-color-transparent;
   padding: 15px;
+  & a {
+    // color:$pri-color;
+    color: lightblue;
+  }
 }
 .InnerWrapper {
   display: flex;

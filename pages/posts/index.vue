@@ -1,26 +1,11 @@
 <template>
-  <GlobalWrapper :title="false">
-    <template #WrapperHead>
-      <!-- <Dropdown ownID="PostSort" class="font-3 bg-trans-3 br4"> -->
-      <!-- slots -->
-      <!-- <template #labels>
-					<span class="icon-sort-alt-down mr-1"></span>
-					<span class="mr-2">{{ sort }}</span>
-				</template>
-
-				<template #default>
-					<a @click="sortBy('Newest', ['created_at', 'desc'])">
-						<span class="icon-down-open"></span>
-						<span>Newest</span>
-					</a>
-					<a @click="sortBy('Oldest', ['created_at', 'asc'])">
-						<span class="icon-up-open"></span>
-						<span>Oldest</span>
-					</a>
-				</template> -->
-      <!-- </Dropdown> -->
-    </template>
-
+  <GlobalWrapper>
+<template #Title>
+  Explore
+  </template>
+<template #SubText>
+  A Collection of inspiring contents to keep you informed
+  </template>
     <!-- ListOfPosts Component -->
     <template #WrapperBody>
       <section v-if="posts && posts.length > 0">
@@ -30,14 +15,9 @@
   </GlobalWrapper>
 </template>
 <script lang="ts">
-import { $General } from "@/addons";
-import ListOfPosts from "@/components/posts/ListOfPosts.vue";
 import { usePosts } from "@/store";
 
 export default {
-  components: {
-    ListOfPosts,
-  },
 
   setup() {
     const { $myMetaInfo } = useNuxtApp();
@@ -79,10 +59,6 @@ export default {
       // }
     };
 
-    onMounted(() => {
-      // fetchPosts()
-    });
-
     return {
       pagin,
       sort,
@@ -95,8 +71,4 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.Header {
-  background-color: rgb(45, 45, 45);
-  border-radius: 20px 20px 4px 4px;
-}
 </style>

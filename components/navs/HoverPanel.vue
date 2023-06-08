@@ -4,12 +4,6 @@
     :class="collapsed ? 'Collapsed' : ''"
   >
     <div class="Panel">
-      <!-- <div
-        class="Head flex a-i-center j-c-center t-white font-6 bold-3"
-      >
-        orbrift
-      </div> -->
-
       <div class="Body flex wrap j-c-between p-2 mt-2">
         <div
           v-for="(icon, i) in pageIcons"
@@ -71,7 +65,7 @@ export default {
       {
         font: "icon-facebook",
         text: "Facebook",
-        link: "https://facebook.com/orbrift",
+        link: "https://facebook.com/",
       },
       {
         font: "icon-linkedin",
@@ -119,7 +113,6 @@ export default {
   z-index: 8;
   transition: width 0.2s;
   background-color: $sec-color-transparent-less;
-  // background-image: url("/defaults/pgs/orbrift_panel.jpg");
 
   & .Panel {
     overflow-y: scroll;
@@ -133,7 +126,6 @@ export default {
     top: 70%;
     width: 45px;
     height: 45px;
-    // border: solid 1px $pri-color;
     background-color: $sec-color;
     color: $pri-color;
     transition: all 0.4s;

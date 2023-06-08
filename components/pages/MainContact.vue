@@ -1,6 +1,6 @@
 <template>
   <section class="flex j-c-center">
-    <div class="GenFormStyle xs11 sm9 md7 z-index-1 noselect">
+    <div class="GenFormStyle xs11 sm9 md7 lg6 z-index-1 noselect">
       <section v-if="topInfo" class="TopInfo bg-blue-5 p-3 mb-7">
         <div class="t-white">Simply send a request using the form below.</div>
         <div class="Mediums flex a-i-center j-c-center font-12">
@@ -62,7 +62,6 @@
       <!-- Send button -->
       <div class="flex j-c-center my-8">
         <Button
-          ref="sendBtn"
           @clicked="send"
           type="action"
           size="medium"
@@ -75,7 +74,7 @@
   </section>
 </template>
 <script lang="ts">
-import { $Validator, $Obstacl, $General } from "@/addons";
+import { $Validator, $General } from "@/addons";
 import { useMailer, useProcess } from "@/store";
 
 export default {
@@ -156,40 +155,35 @@ export default {
         //! Start sending message
         function start() {
           /* Refs to template elements */
-          const sendBtn: Ref<HTMLButtonElement | null> = ref(null);
           const msgInput = ref(null);
 
           // @ts-ignore
           grecaptcha.ready(() => {
             $Process.add("Verifying user");
-            $Obstacl.create(sendBtn as HTMLButtonElement, {
-              action: function () {
-                // @ts-ignore
-                grecaptcha
-                  .execute("6LfWRMQbAAAAAG0QCV3Blkn1lFuPB64l-zjYnRmU", {
-                    action: props.action,
-                  })
-                  .then(async function (token: string) {
-                    $Mailer.setError("");
-                    $Mailer.setSuccess("");
 
-                    const data = await $Mailer.sendMail({
-                      name: name.value,
-                      email: email.value,
-                      message: msg.value,
-                      target: props.target,
-                      token: token,
-                    });
+            // @ts-ignore
+            grecaptcha
+              .execute("6LfWRMQbAAAAAG0QCV3Blkn1lFuPB64l-zjYnRmU", {
+                action: props.action,
+              })
+              .then(async function (token: string) {
+                $Mailer.setError("");
+                $Mailer.setSuccess("");
 
-                    if (data) {
-                      $Obstacl.destroy(sendBtn);
+                const data = await $Mailer.sendMail({
+                  name: name.value,
+                  email: email.value,
+                  message: msg.value,
+                  target: props.target,
+                  token: token,
+                });
 
-                      name.value = email.value = msg.value = "";
-                      (msgInput.value as HTMLDivElement).textContent = "";
-                    }
-                  });
-              },
-            });
+                if (data) {
+
+                  name.value = email.value = msg.value = "";
+                  (msgInput.value as HTMLDivElement).textContent = "";
+                }
+              });
           });
         }
       }

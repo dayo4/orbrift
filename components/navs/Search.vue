@@ -12,20 +12,20 @@
           type="search"
           name="search"
         />
-        <i @click="search" class="icon-search"></i>
+        <i @click="search(searchText)" class="icon-search"></i>
       </div>
 
       <!-- SEARCH RESULT DISPLAYS HERE -->
       <div v-show="searchResult" class="SearchResult">
         <h3 class="text-center">
-          Search Result - {{ searchResult ? searchResult.length : "0" }}
+          Search Result - {{ searchResult?.length || "0" }}
         </h3>
         <div v-for="(result, i) in searchResult" :key="i">
           <h5
             @click="open(result.url)"
-            class="ResultList font-5 m-5 t-black cursor-pointer"
+            class="ResultList font-5 m-5 cursor-pointer"
           >
-            {{ result.title }}
+           - {{ result.title }}
           </h5>
         </div>
         <div v-if="searchResult && searchResult.length === 0">
@@ -44,12 +44,13 @@
   </div>
 </template>
 <script lang="ts">
+import { $contentApi } from "~/addons/utils/Axios";
+import { useProcess } from "@/store";
 
 export default {
   setup(_, { emit }) {
-    const { $Process, $contentApi } = useNuxtApp();
+    const $Process = useProcess();
     const searchText = ref("");
-    // const searchOn = ref(false);
     const searchResult = ref(null);
     const expanded = ref(false);
     const error = ref(false);
@@ -65,7 +66,7 @@ export default {
           error.value = false;
           expanded.value = false;
 
-          const data = await $contentApi.get(
+          const { data } = await $contentApi.get(
             `search/?search=${searchText.value}&per_page=10`
           );
 
@@ -175,8 +176,7 @@ export default {
     color: $dark-text-color;
   }
   & .ResultList:hover {
-    color: $blue-grey-1;
-    // color: rgb(49, 49, 49);
+    color: $pri-color;
   }
 }
 

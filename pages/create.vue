@@ -1,15 +1,14 @@
 <template>
   <GlobalWrapper>
-    <template #Title> Get Started On Your Dream Site </template>
-    <!-- <template #Title> Get Started On Your Dream Site </template> -->
+    <template #Title> Get Started On Your Project </template>
     <template #SubText>
-        Let's help you create a modern website that will make
-        your business stand out
+      Let's help you create a modern website that will make your business stand
+      out
     </template>
 
     <template #WrapperBody>
       <div class="flex j-c-center">
-        <div class="xs12 sm10">
+        <div class="xs11 sm10 md8 lg6">
           <section class="flex j-c-center">
             <div class="xs4 sm3 md2 mb-7">
               <img src="/defaults/pgs/orbrift_ab3.jpg" draggable="false" />
@@ -134,7 +133,6 @@
           <!-- Send button -->
           <div class="flex j-c-center my-8">
             <Button
-              ref="sendBtn"
               @clicked="send"
               type="action"
               size="medium"
@@ -149,7 +147,7 @@
   </GlobalWrapper>
 </template>
 <script lang="ts">
-import { $Validator, $Obstacl, $General } from "@/addons";
+import { $Validator, $General } from "@/addons";
 import { useMailer, useProcess } from "@/store";
 
 export default {
@@ -162,11 +160,6 @@ export default {
 
     const email = ref("");
     const name = ref("");
-    const site_status = ref("");
-    const purpose = ref("");
-    const type = ref("");
-    const template = ref("");
-    const logo = ref("");
     const description = ref("");
     const features = ref("");
     const budget = ref("");
@@ -174,28 +167,16 @@ export default {
     const errorRefs = reactive({
       email_err: "",
       name_err: "",
-      site_status_err: "",
-      purpose_err: "",
-      type_err: "",
-      template_err: "",
       description_err: "",
       features_err: "",
       budget_err: "",
     });
 
-    const site_status_custom = ref(false);
-    const purpose_custom = ref(false);
-    const type_custom = ref(false);
-    const template_custom = ref(false);
     const budget_custom = ref(false);
 
     const {
       email_err,
       name_err,
-      site_status_err,
-      purpose_err,
-      type_err,
-      template_err,
       description_err,
       features_err,
       budget_err,
@@ -256,15 +237,12 @@ export default {
         //! Start sending message
         function start() {
           /* Refs to template elements */
-          const sendBtn: Ref<HTMLButtonElement | null> = ref(null);
           const descInput = ref(null);
           const featInput = ref(null);
 
           // @ts-ignore
           grecaptcha.ready(() => {
             $Process.add("Verifying user");
-            $Obstacl.create(sendBtn, {
-              action: function () {
                 // @ts-ignore
                 grecaptcha
                   .execute("6LfWRMQbAAAAAG0QCV3Blkn1lFuPB64l-zjYnRmU", {
@@ -284,7 +262,6 @@ export default {
                       token: token,
                     });
                     if (data) {
-                      $Obstacl.destroy(sendBtn);
 
                       $Process.add("Successful!");
 
@@ -293,8 +270,6 @@ export default {
                       (featInput.value as HTMLDivElement).textContent = "";
                     }
                   });
-              },
-            });
           });
         }
       }
@@ -343,29 +318,16 @@ export default {
     return {
       email,
       name,
-      site_status,
-      purpose,
-      type,
-      template,
-      logo,
       description,
       features,
       budget,
 
       email_err,
       name_err,
-      site_status_err,
-      purpose_err,
-      type_err,
-      template_err,
       description_err,
       features_err,
       budget_err,
 
-      site_status_custom,
-      purpose_custom,
-      type_custom,
-      template_custom,
       budget_custom,
 
       error,
@@ -389,7 +351,6 @@ export default {
 }
 .Quote {
   text-align: center;
-  // font-family: "Itim", "Roboto", sans-serif;
   font-size: 30px;
   color: $pri-color;
   padding: 0 20px 10px 20px;

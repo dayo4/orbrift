@@ -3,7 +3,7 @@
     <div class="flex a-i-center j-c-between shadow-7">
       <router-link to="/" class="Logo flex a-i-center px-2 mr-2">
         <div v-html="$appLogo('white', 'logo-x-small mr-2')"></div>
-        <b>orbrift</b>
+        orbrift
       </router-link>
 
       <!-- SEARCH ICON FOR MOBILE SCREEN -->
@@ -35,6 +35,7 @@
         <!-- LINKS FOR VERY SMALL SCREENS  -->
 
         <!-- LINKS FOR WIDE SCREENS  -->
+       <ClientOnly>
         <router-link
           :class="`hide-xs ${link.subLinks ? 'MenuDropBtn NoLowerBorder' : ''}`"
           :to="{ name: link.a }"
@@ -67,6 +68,7 @@
             <span class="Name">{{ link.name }}</span>
           </a>
         </router-link>
+       </ClientOnly>
         <!-- LINKS FOR WIDE SCREENS  -->
       </div>
 
@@ -92,7 +94,6 @@ export default {
   setup() {
     const $Navs = useNavs();
     const router = useRouter();
-    // const route = useRoute();
 
     /* Do not rename these */
     const dropdowns = ref({
@@ -117,11 +118,7 @@ export default {
         subLinks: [
           { a: "contact", name: "contact", icon: "icon-mail" },
           { a: "about", name: "about", icon: "icon-info" },
-          {
-            a: "adedayo-adeniyi",
-            name: "developer profile",
-            icon: "icon-star-empty",
-          },
+          
         ],
       },
       { a: "posts", name: "blog", icon: "icon-doc" },
@@ -133,11 +130,6 @@ export default {
       { a: "about", name: "about", icon: "icon-info" },
       { a: "posts", name: "blog", icon: "icon-doc" },
       { a: "create", name: "create your website", icon: "icon-diamond" },
-      {
-        a: "adedayo-adeniyi",
-        name: "developer profile",
-        icon: "icon-star-empty",
-      },
     ];
 
     const identifyDropdownType = (type: string) => {
@@ -263,10 +255,7 @@ nav {
   }
 
   & > div {
-    // @include bg-gradient-1;
-    // background-color: $pri-color;
     background-color: $sec-color-transparent;
-    // background-color: #0A2647;
     width: 100%;
     height: 100%;
     border-radius: 3px;
@@ -280,6 +269,7 @@ nav {
     & .Logo {
       letter-spacing: 0.7px;
       color: $pri-color;
+      font-weight: bold;
     }
   }
 }
@@ -321,7 +311,8 @@ nav {
     }
     & .Icon {
       font-weight: thin !important;
-      margin-right: 4px;
+      margin-left: 5px;
+      margin-right: 8px;
     }
     & .Name {
       text-transform: capitalize;
@@ -389,15 +380,4 @@ nav {
     }
   }
 }
-
-// @include xs-only {
-
-// }
-
-// @include xs-and-up {
-// }
-
-// @include xxs-only {
-
-// }
 </style>
