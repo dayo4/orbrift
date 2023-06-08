@@ -1,11 +1,11 @@
 <template>
-  <footer class="t-white text-center bg-gradient-2">
+  <footer class="t-white text-center">
     <section>
       <div>
         <span class="icon-copyright mr-2">2023 orbrift</span>
       </div>
       <div class="mt-3">
-        <router-link class="t-blue-4 no-deco" to="/privacy"
+        <router-link class="Lnk no-deco" to="/privacy"
           >Privacy and Terms</router-link
         >
       </div>
@@ -22,6 +22,7 @@ export default {
 footer {
   display: table-row;
   width: 100%;
+  background-color: $sec-color;
 
   & > section {
     padding: 60px 0;
@@ -56,6 +57,10 @@ footer {
         transparent 13px
       );
     }
+  }
+  
+  & .Lnk {
+    color: $pri-color;
   }
 }
 </style>

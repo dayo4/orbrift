@@ -1,17 +1,24 @@
 <template>
   <div id="GBLMWrapper">
     <!-- At The very Top -->
-    <h1 v-if="title" class="TitleGBL">
-      <i></i>
-      <slot name="WrapperTitle"></slot>
-    </h1>
+    <section v-if="header" class="HeaderGBL bg-img-masked br1">
+      <h2 class="Title">
+        <slot name="Title"></slot>
+      </h2>
+      <section v-if="subText" class="SubText flex j-c-center">
+        <div class="xs12 md6">
+          <slot name="SubText"></slot>
+        </div>
+      </section>
+    </section>
 
     <div class="InnerWrapper">
       <!-- Main Container (START) -->
-      <article :class="rightPane ? 'xs11 md8' : 'xs11 md10 lg8'" class="mb-5">
+      <!-- md10 lg8 -->
+      <article :class="rightPane ? 'xs12 md8' : 'xs12'" class="mb-5">
         <!-- Main Container Header-->
-        <section v-if="header" class="HeaderGBL">
-          <slot name="WrapperHead"></slot>
+        <section v-if="subHead" class="SubHeadGBL">
+          <slot name="subHead"></slot>
         </section>
 
         <!-- Main Container Body-->
@@ -20,43 +27,96 @@
       <!-- Main Container (END) -->
 
       <!-- Right Side Pane -->
-      <article v-if="rightPane" class="RightPane xs11 md3">
+      <article v-if="rightPane" class="RightPane xs12 md3">
         <slot name="RightPane"></slot>
       </article>
     </div>
 
     <!-- At The very Bottom -->
-    <h1 v-if="footNote" class="FootNoteGBL">
-      <i></i>
-      <slot name="WrapperFootNote"></slot>
-    </h1>
+    <section v-if="footNote" class="FootNoteGBL">
+      <div v-if="useDefaultFootNote" class="flex j-c-center">
+        <div class="xs12 md7 lg6">
+          For more enquiries, feel free to contact us. If you are ready to start
+          your project, use the button below
+          <div class="flex j-c-center my-5">
+            <Button
+              @clicked="$router.push({ path: '/create' })"
+              type="cta"
+              size="large"
+            >
+              Get A Quote
+            </Button>
+          </div>
+        </div>
+      </div>
+      <!-- <slot v-else name="FootNote"></slot> -->
+    </section>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-
 export default {
   props: {
-    title: { required: false, type: Boolean, default: true },
-    footNote: { required: false, type: Boolean, default: false },
     header: { required: false, type: Boolean, default: true },
+    subText: { required: false, type: Boolean, default: true },
+    footNote: { required: false, type: Boolean, default: false },
+    useDefaultFootNote: { required: false, type: Boolean, default: false },
+    subHead: { required: false, type: Boolean, default: false },
     rightPane: { required: false, type: Boolean, default: false },
   },
 };
 </script>
 
 <style lang="scss">
-#GBLMWrapper {
+// #GBLMWrapper {
+//   padding-top: 60px;
+// }
+.HeaderGBL {
+  position: relative;
+  min-height: 200px;
+  width: 100%;
   padding-top: 60px;
+  // padding-bottom: 10px;
+  margin-bottom: 50px;
+  background-color: $sec-color;
+  background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  & .Title {
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 35px;
+    // color: $light-color;
+    color: rgba(204, 235, 238, 0.7);
+    &::after {
+      content: "";
+      height: 3px;
+      width: 70px;
+      position: absolute;
+      bottom: -2px;
+      left: calc(50% - 35px);
+      background-color: $pri-color;
+      @media (prefers-color-scheme :dark) {
+        background-color: $pri-color;
+      }
+    }
+  }
+  & .SubText {
+    text-align: center;
+    font-size: 24px;
+    width: 100%;
+    color: $pri-color;
+    background-color: $sec-color-transparent-alot;
+    padding: 15px;
+  }
 }
-.TitleGBL,
 .FootNoteGBL {
-  @include anim-title-bg;
-}
-.FootNoteGBL {
-  font-size: 16px !important;
-  padding: 8px 20px;
+  font-size: 16px;
+  text-align: center;
+  color: $pri-color;
+  background-color: $sec-color-transparent;
+  padding: 15px;
 }
 .InnerWrapper {
   display: flex;
@@ -64,13 +124,12 @@ export default {
   flex-wrap: wrap;
   margin-bottom: 50px;
 }
-.HeaderGBL {
+.SubHeadGBL {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  // background-color: rgb(45, 45, 45);
-  @include bg-gradient-2;
+  background-color: $sec-color;
   color: white;
   border-radius: 20px 20px 4px 4px;
   padding: 8px 12px 8px 12px;
@@ -81,10 +140,10 @@ export default {
 }
 
 @include xs-only {
-  .TitleGBL {
+  .HeaderGBL {
     font-size: 16px !important;
   }
-  .HeaderGBL {
+  .SubHeadGBL {
     justify-content: space-around;
     & > *:not(:only-child),
     & > *:not(:last-child) {

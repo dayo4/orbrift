@@ -1,15 +1,15 @@
 <template>
-  <GlobalWrapper :header="false">
-    <template #WrapperTitle> Get Started On Your Dream Site </template>
+  <GlobalWrapper>
+    <template #Title> Get Started On Your Dream Site </template>
+    <!-- <template #Title> Get Started On Your Dream Site </template> -->
+    <template #SubText>
+        Let's help you create a modern website that will make
+        your business stand out
+    </template>
 
     <template #WrapperBody>
       <div class="flex j-c-center">
         <div class="xs12 sm10">
-          <section class="Quote">
-            Let's help you create a professional modern website that will make
-            your business or organization stand out
-          </section>
-
           <section class="flex j-c-center">
             <div class="xs4 sm3 md2 mb-7">
               <img src="/defaults/pgs/orbrift_ab3.jpg" draggable="false" />
@@ -132,14 +132,17 @@
           </transition>
 
           <!-- Send button -->
-          <button
-            ref="sendBtn"
-            @click="send"
-            class="btn pri-gradient-btn shadow-5 font-5 br4 mt-5 m-auto noselect"
-          >
-            <span class="icon-forward mr-3"></span>
-            <span>Done</span>
-          </button>
+          <div class="flex j-c-center my-8">
+            <Button
+              ref="sendBtn"
+              @clicked="send"
+              type="action"
+              size="medium"
+              icon="icon-forward"
+            >
+              Done
+            </Button>
+          </div>
         </div>
       </div>
     </template>
@@ -382,13 +385,13 @@ export default {
 /* NOTE: "GenFormStyle GenFormWrapper" shared classes are found in the main "Auth" components */
 .TopInfo {
   border-radius: 4px 4px 15px 15px;
-  @include bg-gradient-2;
+  background-color: $sec-color;
 }
 .Quote {
   text-align: center;
   // font-family: "Itim", "Roboto", sans-serif;
   font-size: 30px;
-  color: $top-quotes-color;
+  color: $pri-color;
   padding: 0 20px 10px 20px;
   margin: 40px 0;
 }

@@ -1,12 +1,11 @@
 <template>
-  <GlobalWrapper :header="false" :footNote="true">
-    <template #WrapperTitle> A Little More Info </template>
+  <GlobalWrapper :header="true" :footNote="true" :useDefaultFootNote="true">
+    <template #Title> ABOUT </template>
+    <template #SubText>
+      Get your business on the winning edge in the technology-driven world
+    </template>
 
     <template #WrapperBody>
-      <section class="Quote">
-        Get your business on the winning edge in the technology-driven world
-      </section>
-
       <section class="flex j-c-center">
         <div class="xs5 sm4 md3 mb-5">
           <img src="/defaults/pgs/orbrift_ab2.jpg" draggable="false" />
@@ -20,9 +19,9 @@
           class="xs12 sm10 md10 mb-10"
         >
           <!-- Question -->
-          <div class="Ques br2 px-2 noselect">
-            <div class="Body bg-blue-grey-5 shadow-4 pl-10 br3">
-              <div class="t-blue-grey bold-4 p-2">{{ QA.Q }}</div>
+          <div class="Ques br2 noselect">
+            <div class="Body pl-10 br3">
+              <div class="bold-4 p-2">{{ QA.Q }}</div>
               <span class="Img br5">
                 <img class="br5" src="/defaults/usr/a.jpg" draggable="false" />
               </span>
@@ -30,8 +29,8 @@
           </div>
 
           <!-- Answer -->
-          <div class="Ans br2 px-2 noselect" v-for="(ans, i) in QA.A" :key="i">
-            <div class="Body shadow-2 bg-grey-5 br3">
+          <div class="Ans br2 noselect" v-for="(ans, i) in QA.A" :key="i">
+            <div class="Body bg-grey-5 br3">
               <div v-html="ans" class="p-2 pl-2"></div>
             </div>
           </div>
@@ -39,27 +38,13 @@
       </section>
     </template>
 
-    <template #WrapperFootNote>
-      <div>
-        Care for more enquiries? Feel free to contact me. Or if you are ready to
-        start your project, use the button below
-        <div class="flex j-c-center mt-4 mb-2">
-          <button
-            @click="$router.push({ path: '/create' })"
-            class="btn sec-gradient-btn shadow-5 br4 py-3"
-          >
-            Get a quote
-          </button>
-        </div>
-      </div>
-    </template>
   </GlobalWrapper>
 </template>
 <script lang="ts">
 export default {
   setup() {
     const { $myMetaInfo } = useNuxtApp();
-    
+
     useSeoMeta($myMetaInfo({ title: "About | orbrift" }));
 
     const QueAns = [
@@ -101,14 +86,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.Quote {
-  text-align: center;
-  // font-family: "Itim", "Roboto", sans-serif;
-  font-size: 30px;
-  color: $top-quotes-color;
-  padding: 20px 20px 30px 20px;
-}
-
 /* Question & Answer Styling*/
 .Ques,
 .Ans {
@@ -127,22 +104,15 @@ export default {
 }
 
 .Ques {
-  margin: 25px 70px 15px 5px;
+  margin: 25px 50px 10px 5px;
   & .Img {
-    background-color: $pri-color-alt;
-    border: solid 3px $pri-color-alt;
-  }
-  & .Name {
-    & > div {
-      padding: 4px 4px 4px 46px;
-      margin-left: 4px;
-      width: 84%;
-      border-top: solid currentColor 0.5px;
-      border-radius: 0 50px 0 0;
-    }
+    background-color: $sec-color;
+    border: solid 3px $sec-color-transparent-more;
   }
   & .Body {
-    border-bottom: solid $pri-color-alt 3px;
+        background-color: $sec-color-transparent;
+        color:$pri-color;
+    border-bottom: solid $sec-color-transparent-more 3px;
   }
   & .Img {
     left: -2px;
@@ -150,24 +120,17 @@ export default {
 }
 
 .Ans {
-  margin: 5px 5px 5px 50px;
+  margin: 5px;
   & .Body {
     font-size: 20px;
     letter-spacing: 0.2px;
-    border-bottom: solid $pink--2 3px;
-  }
-
-  & .Img {
-    right: -4px;
+    border-bottom: solid $sec-color-transparent-more 3px;
   }
 }
 
 @include xs-only {
   .Ques {
     margin-right: 35px;
-  }
-  .Ans {
-    margin-left: 10px;
   }
 }
 </style>

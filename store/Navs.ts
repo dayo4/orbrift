@@ -8,67 +8,68 @@ interface Navs {
   topNav: HTMLElement | null;
   bottomNav: HTMLElement | null;
   scrolled: boolean;
+  prevScrollPos: Number | null;
 
   scrollEventHandler: null;
 }
 
 export const useNavs = defineStore("navs", {
-  state: (): Navs => ({
+  state: () => ({
     container: null,
     topNav: null,
     bottomNav: null,
-
     scrolled: false,
     scrollEventHandler: null,
-  }),
 
-  getters: {},
+    prevScrollPos: null,
+  }),
 
   actions: {
     setScrollEvent() {
-      let scrollPos = this.container?.pageYOffset;
-
-      let _this = this;
-      this.scrollEventHandler = handler;
+      this.prevScrollPos = this.container?.pageYOffset;
+      this.scrollEventHandler = this.handler.bind(this);
       this.container?.addEventListener(
         "scroll",
         this.scrollEventHandler,
         false
       );
-      
-      if (scrollPos < 22) {
-          this.topNav?.classList.add("FullTrans");
+
+      if (this.prevScrollPos < 22) {
+        this.topNav?.classList.add("FullTrans");
       }
+    },
 
-      function handler(e) {
-        if (e.isTrusted) {
-          var subsequentScrollPos = _this.container?.pageYOffset;
+    handler(e) {
+      if (e.isTrusted) {
+        var subsequentScrollPos = this.container?.pageYOffset;
 
-          /* For monitoring the container scrolled status */
-          if (subsequentScrollPos > 200) {
-            _this.scrolled = true;
+        if (subsequentScrollPos > 200) {
+          this.scrolled = true;
+        } else {
+          this.scrolled = false;
+        }
+
+        if (subsequentScrollPos > 200) {
+          const diff = subsequentScrollPos - this.prevScrollPos;
+          if (subsequentScrollPos > this.prevScrollPos) {
+            if (diff > 50) {
+              this.topNav?.classList.add("rotated");
+              this.prevScrollPos = subsequentScrollPos;
+            }
           } else {
-            _this.scrolled = false;
+            this.topNav?.classList.remove("rotated");
+            this.prevScrollPos = subsequentScrollPos;
           }
-
-          /* For making the TopNav less transparent when scrolling downward*/
+        } else {
           if (subsequentScrollPos < 22) {
-            scrollPos < subsequentScrollPos
-              ? _this.topNav?.classList.remove("FullTrans")
-              : _this.topNav?.classList.add("FullTrans");
-            scrollPos = subsequentScrollPos;
-          }
-
-          /* For hiding the TopNav when scrolling downward*/
-          if (subsequentScrollPos > 200) {
-            scrollPos > subsequentScrollPos
-              ? _this.topNav?.classList.remove("rotated")
-              : _this.topNav?.classList.add("rotated");
-            scrollPos = subsequentScrollPos;
+            this.topNav?.classList.add("FullTrans");
+          } else {
+            this.topNav?.classList.remove("FullTrans");
           }
         }
       }
     },
+
     removeScrollEvent() {
       this.container?.removeEventListener(
         "scroll",
@@ -76,12 +77,15 @@ export const useNavs = defineStore("navs", {
         false
       );
     },
+
     setContainer(value) {
       this.container = value;
     },
+
     setTopNav(value) {
       this.topNav = value;
     },
+
     setBottomNav(value) {
       this.bottomNav = value;
     },

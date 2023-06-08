@@ -1,8 +1,10 @@
 <template>
-  <GlobalWrapper :header="false">
-    <template #WrapperTitle> Privacy Policy </template>
+  <GlobalWrapper :subText="false">
+    <template #Title> Privacy Policy </template>
 
     <template #WrapperBody>
+      <section class="flex j-c-center">
+      <div class="xs12 sm12 md8 px-5">
       <h4 class="t-blue-grey--2">
         We are committed to protecting the privacy of those who visit this
         ORBRIFT Website and/or use our services.
@@ -61,6 +63,8 @@
           >Terms</a
         >
       </p>
+      </div>
+      </section>
     </template>
   </GlobalWrapper>
 </template>
