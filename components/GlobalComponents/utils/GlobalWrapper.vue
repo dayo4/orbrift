@@ -5,7 +5,7 @@
       <h2 class="Title">
         <slot name="Title"></slot>
       </h2>
-      <section class="SubText flex j-c-center">
+      <section v-if="subText" class="SubText flex j-c-center">
         <div class="xs12 md6">
           <slot name="SubText"></slot>
         </div>
@@ -49,7 +49,7 @@
           </div>
         </div>
       </div>
-      <slot v-else name="FootNote"></slot>
+      <!-- <slot v-else name="FootNote"></slot> -->
     </section>
   </div>
 </template>
@@ -58,6 +58,7 @@
 export default {
   props: {
     header: { required: false, type: Boolean, default: true },
+    subText: { required: false, type: Boolean, default: true },
     footNote: { required: false, type: Boolean, default: false },
     useDefaultFootNote: { required: false, type: Boolean, default: false },
     subHead: { required: false, type: Boolean, default: false },
@@ -72,7 +73,7 @@ export default {
 // }
 .HeaderGBL {
   position: relative;
-  min-height: 150px;
+  min-height: 200px;
   width: 100%;
   padding-top: 60px;
   // padding-bottom: 10px;
@@ -96,9 +97,8 @@ export default {
       bottom: -2px;
       left: calc(50% - 35px);
       background-color: $pri-color;
-      background-color: $pri-color;
-      @media (prefers-colo$pri-color a//rk) {
-        background-color:  !important;
+      @media (prefers-color-scheme :dark) {
+        background-color: $pri-color;
       }
     }
   }

@@ -1,15 +1,15 @@
 <template>
-  <GlobalWrapper :header="false">
-    <template #WrapperTitle> Get Started On Your Dream Site </template>
+  <GlobalWrapper>
+    <template #Title> Get Started On Your Dream Site </template>
+    <!-- <template #Title> Get Started On Your Dream Site </template> -->
+    <template #SubText>
+        Let's help you create a modern website that will make
+        your business stand out
+    </template>
 
     <template #WrapperBody>
       <div class="flex j-c-center">
         <div class="xs12 sm10">
-          <section class="Quote">
-            Let's help you create a professional modern website that will make
-            your business or organization stand out
-          </section>
-
           <section class="flex j-c-center">
             <div class="xs4 sm3 md2 mb-7">
               <img src="/defaults/pgs/orbrift_ab3.jpg" draggable="false" />

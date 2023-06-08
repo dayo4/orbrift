@@ -1,16 +1,17 @@
 <template>
+<div class="GBLBtnCont" @click="handleClick">
 <div 
-class="Wrapper" 
-@click="handleClick"
+class="GBLBtnWrapper" 
 :class="wrapperClasses"
 >
   <button ref="GenBtn" :class="classes" class="GenBtn">
-    <span class="ContentWrapper">
+    <span>
       <span v-if="icon && iconPos !== 'right'" :class="icon" class="BtnIcon mr-3"> </span>
         <slot></slot>
       <span v-if="icon && iconPos === 'right'" :class="icon" class="BtnIcon ml-3"> </span>
     </span>
   </button>
+</div>
 </div>
 </template>
 <script lang="ts">
@@ -80,14 +81,19 @@ export default {
 };
 </script>
 <style lang="scss">
-.Wrapper {
+.GenBtnCont {
+  padding: 3px;
+  border-radius: 3px;
+  background-color: $sec-color;
+}
+.GenBtnWrapper {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: $pri-color;
   border-radius: 3px;
-  border: solid 3px $sec-color;
+  // border: solid 3px $sec-color;
   overflow: hidden;
   box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
   transition: 0.2s;
