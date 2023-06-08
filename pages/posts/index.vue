@@ -12,13 +12,9 @@
   </GlobalWrapper>
 </template>
 <script lang="ts">
-import ListOfPosts from "@/components/posts/ListOfPosts.vue";
 import { usePosts } from "@/store";
 
 export default {
-  components: {
-    ListOfPosts,
-  },
 
   setup() {
     const { $myMetaInfo } = useNuxtApp();
@@ -42,6 +38,11 @@ export default {
       const res = await $Posts.fetchPosts()
       return res
     });
+    // const { data:posts, error, pending } = useFetch(
+    //   "https://api.orbrift.com/wp-json/wp/v2/" +
+    //     "posts"
+    // );
+    //     console.log(posts);
 
     const sortBy = (txt, v: string[]) => {
       // this.query.sort = v

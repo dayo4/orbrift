@@ -25,13 +25,13 @@ export const usePosts = defineStore('posts', {
             if (index && this.posts[index + 1]) {
                 this.setPrevPost(this.posts[index + 1])
             }
-            else {
-                try {
-                    const {data} = await $contentApi.get("posts/?before=" + date + "&per_page=1")
-                    this.setPrevPost(data[0])
-                }
-                catch ({ response }) { }
-            }
+            // else {
+            //     try {
+            //         const {data} = await $contentApi.get("posts/?before=" + date + "&per_page=1")
+            //         this.setPrevPost(data[0])
+            //     }
+            //     catch ({ response }) { }
+            // }
     
         },
         async fetchNextPost({ date, id }) {
@@ -41,13 +41,13 @@ export const usePosts = defineStore('posts', {
             if (index && this.posts[index - 1]) {
                 this.setNextPost(this.posts[index - 1])
             }
-            else {
-                try {
-                    const {data} = await $contentApi.get("posts/?after=" + date + "&orderby=date&order=asc&per_page=1")
-                    this.setNextPost(data[0])
-                }
-                catch ({ response }) { }
-            }
+            // else {
+            //     try {
+            //         const {data} = await $contentApi.get("posts/?after=" + date + "&orderby=date&order=asc&per_page=1")
+            //         this.setNextPost(data[0])
+            //     }
+            //     catch ({ response }) { }
+            // }
         },
         setPosts(value: [Object]|any) {
             this.posts = value
