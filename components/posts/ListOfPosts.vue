@@ -3,17 +3,17 @@
     <div class="BlogPosts">
       <div v-for="(post, i) in posts" :key="i" class="BlogPost xs12 sm10 md7">
         <div class="TopSection" @click="openPost(post.slug)">
-        <div class="PostImageWrapper">
-          <img
-            :src="post.featured_media_src_url"
-            alt="Featured Image"
-            class="PostImage"
-            draggable="false"
-          />
-        </div>
-        <h2 class="Title">
-          {{ post.title?.rendered }}
-        </h2>
+          <div class="PostImageWrapper">
+            <img
+              :src="post.featured_media_src_url"
+              alt="Featured Image"
+              class="PostImage"
+              draggable="false"
+            />
+          </div>
+          <h2 class="Title">
+            {{ post.title?.rendered }}
+          </h2>
         </div>
         <div class="Author">
           <img
@@ -31,7 +31,6 @@
         ></p>
       </div>
     </div>
-
 
     <!-- Pagination -->
     <section class="flex j-c-center">
@@ -69,11 +68,25 @@ export default {
     pagin: { required: true, type: Object },
   },
 
-  methods: {
-    openPost(slug: string) {
-      /* let route = */ this.$router.push({ path: "/posts/" + slug });
-      // window.open(route.href, '_blank')
-    },
+  setup(props) {
+    const router = useRouter();
+
+    const posts = computed(() =>
+      props.posts
+    );
+    const pagin = computed(() =>
+      props.pagin
+    );
+
+    const openPost = (slug: string) => {
+      router.push({ path: "/posts/" + slug });
+    };
+
+    return {
+      posts,
+      pagin,
+      openPost
+    }
   },
 };
 </script>
@@ -98,6 +111,7 @@ export default {
   border-radius: 4px;
   padding: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 .PostImageWrapper {
   width: 100%;
@@ -131,18 +145,21 @@ export default {
   object-fit: cover;
   border-radius: 50%;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .AuthorName {
   font-size: 14px;
   font-weight: bold;
   color: #777;
+  cursor: pointer;
 }
 
 .Excerpt {
   margin-top: 10px;
   font-size: 14px;
-  color: #777;
+  color: rgb(59, 59, 59);
+  cursor: pointer;
 }
 
 //

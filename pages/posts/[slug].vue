@@ -4,12 +4,12 @@
       Discover
       <!-- {{ post.title?.rendered }} -->
     </template>
-    <template #SubText>
-      {{ post.title?.rendered }}
+    <template v-if="post" #SubText>
+      {{ post.title.rendered }}
     </template>
 
     <template #WrapperBody>
-      <div class="PostContainer">
+      <div v-if="post" class="PostContainer">
         <!-- HEAD -->
         <div class="BlogPost xs12 sm10 md7">
           <div class="TopSection">
@@ -36,65 +36,8 @@
           </div>
         </div>
 
-        <!-- META -->
-        <section class="Meta mt-1 xs12 sm10 md7">
-          <!-- <hr /> -->
-          <!-- <div class="m-1 t-blue-grey">
-            <b>Updated:</b>
-            {{ $moment(post.modified).fromNow() }}
-          </div> -->
-          <!-- <hr /> -->
-          <div class="ShareIcons flex a-i-center noselect">
-            <div
-              class="icon-forward flex a-i-center j-c-center t-white font-12 br5"
-            ></div>
-            <div class="font-7 pl-5 py-1 pr-2 br4 flex j-c-around">
-              <a
-                :href="`https://www.facebook.com/sharer/sharer.php?u=${href}`"
-                target="_blank"
-                @mouseout="shareIconsTooltip = ''"
-                @mouseover="shareIconsTooltip = 'facebook'"
-                class="icon-facebook t-blue--2"
-              ></a>
-              <a
-                :href="`https://twitter.com/share?url=${href}`"
-                target="_blank"
-                @mouseout="shareIconsTooltip = ''"
-                @mouseover="shareIconsTooltip = 'twitter'"
-                class="icon-twitter t-cyan"
-              ></a>
-              <a
-                :href="`https://www.linkedin.com/sharing/share-offsite/?url=${href}`"
-                target="_blank"
-                @mouseout="shareIconsTooltip = ''"
-                @mouseover="shareIconsTooltip = 'linkedIn'"
-                class="icon-linkedin t-blue--2"
-              ></a>
-              <!-- <a
-                                  :href="`whatsapp://send?text=${href}`"
-                                  data-action="share/whatsapp/share"
-                                  target="_blank"
-                                  @mouseout="shareIconsTooltip = ''"
-                                  @mouseover="shareIconsTooltip = 'whatsapp'"
-                                  class="icon-whatsapp t-green--2"
-                              ></a>-->
-              <a
-                :href="`https://reddit.com/submit?url=${href}`"
-                target="_blank"
-                @mouseout="shareIconsTooltip = ''"
-                @mouseover="shareIconsTooltip = 'reddit'"
-                class="icon-reddit t-red-1"
-              ></a>
-              <i
-                class="Tooltip font-4 text-center"
-                :class="shareIconsTooltip ? '' : 'transform'"
-                >{{ shareIconsTooltip }}</i
-              >
-            </div>
-          </div>
-          <!-- <div class="Actions flex j-c-center noselect my-1">
-          </div> -->
-        </section>
+        <!-- Top META -->
+        <ShareIcons />
 
         <!-- BODY -->
         <section
@@ -103,48 +46,7 @@
         ></section>
 
         <!-- Bottom Meta -->
-        <section class="Meta mt-3 xs12 sm10 md7">
-          <div class="ShareIcons flex a-i-center noselect">
-            <div
-              class="icon-forward flex a-i-center j-c-center t-white font-12 br5"
-            ></div>
-            <div class="font-7 pl-5 py-1 pr-2 br4 flex j-c-around">
-              <a
-                :href="`https://www.facebook.com/sharer/sharer.php?u=${href}`"
-                target="_blank"
-                @mouseout="setTooltip('')"
-                @mouseover="setTooltip('facebook')"
-                class="icon-facebook t-blue--2"
-              ></a>
-              <a
-                :href="`https://twitter.com/share?url=${href}`"
-                target="_blank"
-                @mouseout="setTooltip('')"
-                @mouseover="setTooltip('twitter')"
-                class="icon-twitter t-cyan"
-              ></a>
-              <a
-                :href="`https://www.linkedin.com/sharing/share-offsite/?url=${href}`"
-                target="_blank"
-                @mouseout="setTooltip('')"
-                @mouseover="setTooltip('linkedIn')"
-                class="icon-linkedin t-blue--2"
-              ></a>
-              <a
-                :href="`https://reddit.com/submit?url=${href}`"
-                target="_blank"
-                @mouseout="setTooltip('')"
-                @mouseover="setTooltip('reddit')"
-                class="icon-reddit t-red-1"
-              ></a>
-              <i
-                class="Tooltip font-4 text-center"
-                :class="shareIconsTooltip ? '' : 'transform'"
-                >{{ shareIconsTooltip }}</i
-              >
-            </div>
-          </div>
-        </section>
+        <ShareIcons />
 
         <!-- Next - Prev Buttons -->
         <div class="NP_postNavigation ml-2 mt-20">
@@ -197,6 +99,7 @@
   </GlobalWrapper>
 </template>
 <script lang="ts">
+
 import { $contentApi } from "~/addons/utils/Axios";
 
 import { usePosts } from "@/store";
@@ -213,53 +116,47 @@ export default {
       shareIconsTooltip.value = value;
     };
 
-const post = ref([])
-    /* posts properties */
     const {
-      // data: post,
-      fetch, fetchState
-    } = useFetch(async () => {
+      data: post,
+      error,
+      pending,
+      refresh,
+    } = useAsyncData(async () => {
       const { data } = await $contentApi.get("posts?slug=" + route.params.slug);
-      // console.log(error)
-      // console.log(data[0])
-      // return data[0];
-      post.value = data[0]
+      return data[0];
     });
-    // const {
-    //   data: post,
-    //   error,
-    //   pending,
-    // } = useAsyncData(async () => {
-    //   const { data } = await $contentApi.get("posts?slug=" + route.params.slug);
-    //   // console.log(error)
-    //   // console.log(data[0])
-    //   return data[0];
-    // });
+    
+    // watch(() => route.params.slug, async (slug) => {
+    //   console.log('slug')
+    //   console.log(slug)
+    //   await refresh()
+    // }, { immediate: true })
 
     useSeoMeta(
       $myMetaInfo({
-        title: post.value.title.rendered,
-        content: post.value.excerpt.rendered,
-        image: post.value.featured_media_src_url,
+        // title: post.value.title.rendered,
+        // content: post.value.excerpt.rendered,
+        // image: post.value.featured_media_src_url,
         url: "https://orbrift.com" + route.path,
         type: "article",
       })
     );
 
-    // onBeforeRouteUpdate(async ({}) => {
-    //   await !pending.value; // Wait until the data is loaded
-    // });
+    onBeforeRouteUpdate(async ({}) => {
+      await !pending.value; // Wait until the data is loaded
+      return !pending.value; // Wait until the data is loaded
+    });
 
     const prefetchPrev = () => {
       $Posts.fetchPrevPost({
-        date: post.value.date,
-        id: post.value.id,
+        date: post.value?.date,
+        id: post.value?.id,
       });
     };
     const prefetchNext = () => {
       $Posts.fetchNextPost({
-        date: post.value.date,
-        id: post.value.id,
+        date: post.value?.date,
+        id: post.value?.id,
       });
     };
     const openPost = (slug: string) => {
