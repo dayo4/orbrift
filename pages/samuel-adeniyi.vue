@@ -1,13 +1,16 @@
 <template>
   <div class="MainCont">
     <div>
-      <div class="Header text-center t-white bold-4 font-9 px-3 py-4 mb-2">
-        {{ topInfo.header }}
-      </div>
-      <div class="Title">
-        {{ topInfo.title }}
-        <i></i>
-      </div>
+      <section class="Header bg-img-masked br1">
+        <h2 class="Title">
+          {{ topInfo.header }}
+        </h2>
+        <section class="SubText flex j-c-center">
+          <div class="xs12 md6">
+            {{ topInfo.title }}
+          </div>
+        </section>
+      </section>
 
       <section class="CompCont flex j-c-center a-i-center">
         <keep-alive>
@@ -27,7 +30,7 @@
         <div ref="SkillsInfo" class="xs12 sm11 md10 lg8">
           <div class="Heading">
             <!-- Major Skills -->
-            </div>
+          </div>
           <ul>
             Designs
             <li>Figma, Adobe Design Tools</li>
@@ -108,14 +111,12 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-
 import ProfileBottomNav from "@/components/profile_tabs/ProfileBottomNav.vue";
 import Home from "@/components/profile_tabs/mainTabs/Home.vue";
 import Message from "@/components/profile_tabs/mainTabs/Contact.vue";
 import About from "@/components/profile_tabs/mainTabs/About.vue";
 
-export default Vue.extend({
+export default {
   components: {
     ProfileBottomNav,
     Message,
@@ -150,8 +151,8 @@ export default Vue.extend({
           this.topInfo.title = "Send Me a Message";
           break;
         default:
-          this.topInfo.header = "Adedayo Adeniyi";
-          this.topInfo.title = "Web Developer";
+          this.topInfo.header = "Samuel Adeniyi";
+          this.topInfo.title = "Fullstack Developer";
       }
     },
   },
@@ -181,7 +182,7 @@ export default Vue.extend({
   beforeDestroy() {
     clearInterval(this.SkillsInfoInterval);
   },
-});
+};
 </script>
 <style lang="scss" scoped>
 .MainCont {
@@ -190,53 +191,45 @@ export default Vue.extend({
   padding-bottom: 40px;
 }
 
-.Header {
-  letter-spacing: 1px;
-}
-
-.Title {
-  font-weight: bold;
-  color: $pri-color-alt;
-}
-
-.Title {
+.HeaderGBL {
   position: relative;
-  font-family: "Itim", "Roboto", sans-serif;
-  letter-spacing: 1px;
-  text-align: center;
-  margin-bottom: 20px;
-  padding: 16px;
-  font-size: 30px;
-  background-color: rgba(2, 28, 30, 0.8);
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.7) 10%,
-    rgba(255, 255, 255, 0.9),
-    rgba(255, 255, 255, 0.7) 90%,
-    rgba(255, 255, 255, 0) 100%
-  );
-
-  & i {
-    position: absolute;
-    top: calc(50% - 40px);
-    left: calc(50% - 40px);
-    height: 80px;
-    width: 80px;
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: -1;
-    background-color: white;
-
+  min-height: 200px;
+  width: 100%;
+  padding-top: 60px;
+  // padding-bottom: 10px;
+  margin-bottom: 50px;
+  background-color: $sec-color;
+  background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  & .Title {
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 35px;
+    // color: $light-color;
+    letter-spacing: 1px;
+    color: rgba(204, 235, 238, 0.7);
     &::after {
       content: "";
+      height: 3px;
+      width: 70px;
       position: absolute;
-      background-color: white;
-      border-radius: 100%;
-      animation: xpand 2s linear infinite forwards;
+      bottom: -2px;
+      left: calc(50% - 35px);
+      background-color: $pri-color;
+      @media (prefers-color-scheme: dark) {
+        background-color: $pri-color;
+      }
     }
+  }
+  & .SubText {
+    text-align: center;
+    font-size: 24px;
+    width: 100%;
+    color: $pri-color;
+    background-color: $sec-color-transparent-alot;
+    padding: 15px;
   }
 }
 .CompCont {
@@ -257,7 +250,7 @@ export default Vue.extend({
   color: white;
   font-size: 16px;
   margin-left: 80px;
-    font-family: "Courier New", Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 
   & ul {
     list-style: none;

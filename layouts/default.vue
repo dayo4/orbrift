@@ -2,7 +2,7 @@
   <div>
     <div
       class="GBLMContainer"
-      :class="$route.name === 'adedayo-adeniyi' ? 'PrfBg bg-img-masked' : ''"
+      :class="$route.name === 'samuel-adeniyi' ? 'PrfBg bg-img-masked' : ''"
     >
       <TopNav @search="searchOn = !searchOn" />
       <HoverPanel />
