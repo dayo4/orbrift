@@ -36,13 +36,29 @@
 export default {
   setup() {
     const $Process = useProcess();
-
+    
+     const status = computed(() =>
+      $Process.status
+    );
+     const info = computed(() =>
+      $Process.info
+    );
+     const icon = computed(() =>
+      $Process.icon
+    );
+     const progressTotal = computed(() =>
+      $Process.progressTotal
+    );
+     const progressElapsed = computed(() =>
+      $Process.progressElapsed
+    );
+    
     return {
-      status: $Process.status,
-      info: $Process.info,
-      icon: $Process.icon,
-      progressTotal: $Process.progressTotal,
-      progressElapsed: $Process.progressElapsed,
+      status,
+      info,
+      icon,
+      progressTotal,
+      progressElapsed
     }
   },
 };
