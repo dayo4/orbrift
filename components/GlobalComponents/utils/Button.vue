@@ -1,7 +1,7 @@
 <template>
-<div class="GBLBtnCont" @click="handleClick">
+<div class="GenBtnCont" @click="handleClick">
 <div 
-class="GBLBtnWrapper" 
+class="GenBtnWrapper" 
 :class="wrapperClasses"
 >
   <button ref="GenBtn" :class="classes" class="GenBtn">
