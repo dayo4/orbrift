@@ -1,7 +1,7 @@
 <template>
   <div class="MainCont">
     <div>
-      <section class="Header bg-img-masked br1">
+      <section class="Header bg-img-masked- br1">
         <h2 class="Title">
           {{ topInfo.header }}
         </h2>
@@ -111,95 +111,100 @@
   </div>
 </template>
 <script lang="ts">
-import ProfileBottomNav from "@/components/profile_tabs/ProfileBottomNav.vue";
-import Home from "@/components/profile_tabs/mainTabs/Home.vue";
-import Message from "@/components/profile_tabs/mainTabs/Contact.vue";
-import About from "@/components/profile_tabs/mainTabs/About.vue";
-
 export default {
-  components: {
-    ProfileBottomNav,
-    Message,
-    Home,
-    About,
-  },
 
-  data() {
-    return {
-      currentTab: "Home",
-      topInfo: {
-        header: "Adedayo Adeniyi",
-        title: "Web Developer",
-      },
-    };
-  },
-  methods: {
-    switchTab(tab_name: string) {
+  setup(props, { emit }) {
+    const SkillsInfo: Ref<HTMLElement | null> = ref(null);
+
+    let SkillsInfoInterval;
+    let currentTab = ref(resolveComponent('Home'))
+    const topInfo = ref({
+      header: "Samuel Adeniyi",
+      title: "Fullstack Developer",
+    });
+
+    // const Home = resolveComponent('Home')
+    // const Contact = resolveComponent('Contact')
+    // const About = resolveComponent('About')
+
+    const switchTab = (tab_name: string) => {
       if (tab_name === "Home") {
         setTimeout(() => {
-          this.currentTab = tab_name;
+          currentTab.value = resolveComponent('Home');
         }, 500);
-      } else {
-        this.currentTab = tab_name;
+      }
+      else if(tab_name === "Contact") {
+        currentTab.value = resolveComponent('Contact');
+      }
+      else {
+        // currentTab.value = resolveComponent('About');
       }
 
       switch (tab_name) {
         case "About":
-          this.topInfo.title = "Little About Me";
+          topInfo.value.title = "About Me";
           break;
-        case "Message":
-          this.topInfo.title = "Send Me a Message";
+        case "Contact":
+          topInfo.value.title = "Send Me a Message";
           break;
         default:
-          this.topInfo.header = "Samuel Adeniyi";
-          this.topInfo.title = "Fullstack Developer";
+          topInfo.value.header = "Samuel Adeniyi";
+          topInfo.value.title = "Fullstack Developer";
       }
-    },
-  },
-
-  mounted() {
-    window.scrollTo({ top: 150, left: 0 });
-
-    /* Animate Skills info at intervals */
-    let skillCount = 0;
-    let loopInfo = () => {
-      skillCount++;
-      if (skillCount > 9) {
-        skillCount = 1;
-      }
-      const elems = this.$refs.SkillsInfo.children;
-      elems[skillCount].classList.add("Auto");
-
-      setTimeout(() => {
-        elems[skillCount].classList.remove("Auto");
-      }, 2000);
     };
-    this.SkillsInfoInterval = setInterval(() => {
-      loopInfo();
-    }, 2200);
-  },
 
-  beforeDestroy() {
-    clearInterval(this.SkillsInfoInterval);
+    onMounted(() => {
+      // window.scrollTo({ top: 150, left: 0 });
+
+      /* Animate Skills info at intervals */
+      let skillCount = 0;
+      let loopInfo = () => {
+        skillCount++;
+        if (skillCount > 9) {
+          skillCount = 1;
+        }
+        const elems = SkillsInfo.value?.children;
+        elems[skillCount].classList.add("Auto");
+
+        setTimeout(() => {
+          elems[skillCount].classList.remove("Auto");
+        }, 2000);
+      };
+
+      SkillsInfoInterval = setInterval(() => {
+        loopInfo();
+      }, 2200);
+    });
+
+    onBeforeUnmount(() => {
+      clearInterval(SkillsInfoInterval.value);
+    });
+
+    return {
+      currentTab,
+      topInfo,
+      switchTab,
+      SkillsInfo,
+    };
   },
 };
 </script>
 <style lang="scss" scoped>
 .MainCont {
   min-height: 100vh;
-  padding-top: 60px;
+  // padding-top: 60px;
   padding-bottom: 40px;
 }
 
-.HeaderGBL {
+.Header {
   position: relative;
   min-height: 200px;
   width: 100%;
   padding-top: 60px;
   // padding-bottom: 10px;
   margin-bottom: 50px;
-  background-color: $sec-color;
-  background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
+  // background-color: $sec-color;
+  // background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
   background-attachment: fixed;
   background-position: center;
   & .Title {

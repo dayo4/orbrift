@@ -83,7 +83,7 @@ export default {
   }
 }
 .PrfBg {
-  background-color: #003b46;
+  background-color: $sec-color-transparent;
   background-image: url("/defaults/pgs/orbrift_pfbg.jpg");
   background-blend-mode: overlay;
   background-attachment: fixed;

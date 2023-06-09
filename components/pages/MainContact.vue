@@ -1,6 +1,6 @@
 <template>
   <section class="flex j-c-center">
-    <div class="GenFormStyle xs11 sm9 md7 z-index-1 noselect">
+    <div class="GenFormStyle xs11 sm9 md7 lg6 z-index-1 noselect">
       <section v-if="topInfo" class="TopInfo bg-blue-5 p-3 mb-7">
         <div class="t-white">Simply send a request using the form below.</div>
         <div class="Mediums flex a-i-center j-c-center font-12">

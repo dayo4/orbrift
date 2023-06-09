@@ -118,7 +118,7 @@ export default {
           { a: "contact", name: "contact", icon: "icon-mail" },
           { a: "about", name: "about", icon: "icon-info" },
           {
-            a: "adedayo-adeniyi",
+            a: "samuel-adeniyi",
             name: "developer profile",
             icon: "icon-star-empty",
           },
@@ -134,7 +134,7 @@ export default {
       { a: "posts", name: "blog", icon: "icon-doc" },
       { a: "create", name: "create your website", icon: "icon-diamond" },
       {
-        a: "adedayo-adeniyi",
+        a: "samuel-adeniyi",
         name: "developer profile",
         icon: "icon-star-empty",
       },
