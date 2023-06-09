@@ -36,6 +36,8 @@ export const useNavs = defineStore("navs", {
 
       if (this.prevScrollPos < 22) {
         this.topNav?.classList.add("FullTrans");
+      } else {
+        this.topNav?.classList.remove("FullTrans");
       }
     },
 
@@ -43,7 +45,7 @@ export const useNavs = defineStore("navs", {
       if (e.isTrusted) {
         var subsequentScrollPos = this.container?.pageYOffset;
 
-        if (subsequentScrollPos > 200) {
+        if (subsequentScrollPos > 1000) {
           this.scrolled = true;
         } else {
           this.scrolled = false;

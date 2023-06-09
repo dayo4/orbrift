@@ -100,8 +100,6 @@
 </template>
 <script lang="ts">
 
-import { $contentApi } from "~/addons/utils/Axios";
-
 import { usePosts } from "@/store";
 
 export default {
@@ -111,19 +109,12 @@ export default {
     const route = useRoute();
     const $Posts = usePosts();
 
-    const shareIconsTooltip = ref("");
-    const setTooltip = (value) => {
-      shareIconsTooltip.value = value;
-    };
-
     const {
       data: post,
-      error,
-      pending,
-      refresh,
     } = useAsyncData(async () => {
-      const { data } = await $contentApi.get("posts?slug=" + route.params.slug);
-      return data[0];
+      const data = await $Posts.fetchPost(route.params.slug);
+      // const { data } = await $contentApi.get("posts?slug=" + route.params.slug);
+      return data;
     });
     
     // watch(() => route.params.slug, async (slug) => {
@@ -134,54 +125,34 @@ export default {
 
     useSeoMeta(
       $myMetaInfo({
-        // title: post.value.title.rendered,
-        // content: post.value.excerpt.rendered,
-        // image: post.value.featured_media_src_url,
+        title: post.value?.title.rendered,
+        content: post.value?.excerpt.rendered,
+        image: post.value?.featured_media_src_url,
         url: "https://orbrift.com" + route.path,
         type: "article",
       })
     );
 
-    onBeforeRouteUpdate(async ({}) => {
-      await !pending.value; // Wait until the data is loaded
-      return !pending.value; // Wait until the data is loaded
-    });
-
-    const prefetchPrev = () => {
-      $Posts.fetchPrevPost({
-        date: post.value?.date,
-        id: post.value?.id,
-      });
-    };
-    const prefetchNext = () => {
-      $Posts.fetchNextPost({
-        date: post.value?.date,
-        id: post.value?.id,
-      });
-    };
     const openPost = (slug: string) => {
       router.push({ path: "/posts/" + slug });
     };
 
-    const prevPost = $Posts.prevPost;
-    const nextPost = $Posts.nextPost;
+    const prevPost = computed(() =>
+        $Posts.prevPost
+    );
+    const nextPost = computed(() =>
+        $Posts.nextPost
+    );
 
-    onMounted(() => {
-      prefetchPrev();
-      prefetchNext();
-    });
+    // onMounted(() => {});
 
     return {
       post,
-      prefetchPrev,
-      prefetchNext,
       openPost,
       prevPost,
       nextPost,
       href: "https://orbrift.com" + route.path,
 
-      shareIconsTooltip,
-      setTooltip,
     };
   },
 };

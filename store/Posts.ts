@@ -1,62 +1,67 @@
 interface Posts {
-    posts: [Object] | any
-    prevPost: Object | any
-    nextPost: Object | any
+  posts: [Object] | any;
+  prevPost: Object | any;
+  nextPost: Object | any;
 }
-import { defineStore } from "pinia"
-import { $contentApi } from "~/addons/utils/Axios"
+import { defineStore } from "pinia";
+import { $contentApi } from "~/addons/utils/Axios";
 
-export const usePosts = defineStore('posts', {
-    state: ():Posts => ({
-        posts: [],
-        prevPost: null,
-        nextPost: null,
-    }),
-    actions: {
-        async fetchPosts() {
-            const {data} = await $contentApi.get("posts/")
-            this.setPosts(data)
-            return data
-        },
-        async fetchPrevPost({ date, id }) {
-            const index = this.posts.findIndex(post => {
-                return post.id === id
-            })
-            if (index && this.posts[index + 1]) {
-                this.setPrevPost(this.posts[index + 1])
-            }
-            // else {
-            //     try {
-            //         const {data} = await $contentApi.get("posts/?before=" + date + "&per_page=1")
-            //         this.setPrevPost(data[0])
-            //     }
-            //     catch ({ response }) { }
-            // }
-    
-        },
-        async fetchNextPost({ date, id }) {
-            const index = this.posts.findIndex(post => {
-                return post.id === id
-            })
-            if (index && this.posts[index - 1]) {
-                this.setNextPost(this.posts[index - 1])
-            }
-            // else {
-            //     try {
-            //         const {data} = await $contentApi.get("posts/?after=" + date + "&orderby=date&order=asc&per_page=1")
-            //         this.setNextPost(data[0])
-            //     }
-            //     catch ({ response }) { }
-            // }
-        },
-        setPosts(value: [Object]|any) {
-            this.posts = value
-        },
-        setPrevPost(value: Object) {
-            this.prevPost = value
-        },
-        setNextPost(value: Object) {
-            this.nextPost = value
+export const usePosts = defineStore("posts", {
+  state: (): Posts => ({
+    posts: [],
+    prevPost: null,
+    nextPost: null,
+  }),
+  actions: {
+    async fetchPosts() {
+      if (this.posts?.length > 0) {
+        return this.posts;
+      } else {
+        const { data } = await $contentApi.get("posts/");
+        this.setPosts(data);
+        return data;
+      }
+    },
+    async fetchPost(slug: String) {
+      const processPost = () => {
+        const post = this.posts.find((p) => p.slug === slug);
+
+        const index = this.posts.indexOf(post);
+        const prev = index + 1;
+        const next = index - 1;
+        
+        if (prev > 0 && prev < this.posts.length) {
+          this.setPrevPost(this.posts[prev]);
+        } else {
+          this.setPrevPost(null);
         }
-    }
-})
+        
+        if (next >= 0 && next < this.posts.length) {
+          this.setNextPost(this.posts[next]);
+        } else {
+          this.setNextPost(null);
+        }
+
+        return post;
+      };
+
+      if (this.posts?.length > 0) {
+        return processPost();
+      } else {
+        const posts = await this.fetchPosts();
+        if (posts) {
+          return processPost();
+        }
+      }
+    },
+    setPosts(value: [Object] | any) {
+      this.posts = value;
+    },
+    setPrevPost(value: Object | null) {
+      this.prevPost = value;
+    },
+    setNextPost(value: Object | null) {
+      this.nextPost = value;
+    },
+  },
+});

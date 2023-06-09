@@ -1,7 +1,10 @@
 <template>
-  <GlobalWrapper :subText="false">
+  <GlobalWrapper>
 <template #Title>
   Explore
+  </template>
+<template #SubText>
+  A Collection of inspiring contents to keep you informed
   </template>
     <!-- ListOfPosts Component -->
     <template #WrapperBody>
