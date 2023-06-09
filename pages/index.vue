@@ -81,11 +81,11 @@
       </div>
     </section>
 
-      <section class="SubText flex j-c-center">
-        <div class="xs12 md6">
-          A virtual online profile that makes your live simple. Just do it here.
-        </div>
-      </section>
+    <section class="SubText flex j-c-center">
+      <div class="xs12 md6">
+        A virtual online profile that makes your live simple. Just do it here.
+      </div>
+    </section>
 
     <section class="Section_2">
       <h3 class="SectionSubHead">
@@ -123,17 +123,17 @@
     </section>
 
     <!--Designs Gallery -->
-      <h3 class="SectionSubHead">
-        <span class="icon-check mr-2"></span>
-        <span> Few Designs gallery </span>
-      </h3>
-      
+    <h3 class="SectionSubHead">
+      <span class="icon-check mr-2"></span>
+      <span> Few Designs gallery </span>
+    </h3>
+
     <section>
       <h2 class="text-center t-blue-grey--1"></h2>
 
       <div class="Gallery img-masked-00 flex wrap j-c-center px-3">
         <transition name="slide-down-fade">
-          <div v-if="showPc" class="Pc xs12 sm7 md6  m-1">
+          <div v-if="showPc" class="Pc xs12 sm6 md5  m-1">
             <img
               class="shadow-5"
               :src="'/defaults/gal/' + galImageList[activeGal].pc + '.jpg'"
@@ -162,25 +162,20 @@
             </div>
           </div>
         </transition>
-            
       </div>
-      
+
       <div class="flex j-c-center mb-10">
-        <Button
-          size="medium"
-          icon="icon-right"
-          iconPos="right"
-        >
-         Projects
+        <Button size="medium" icon="icon-right" iconPos="right">
+          Projects
         </Button>
       </div>
     </section>
 
-      <h3 class="SectionSubHead">
-        <span class="icon-check mr-2"></span>
-        <span> A Few Feedbacks.. </span>
-      </h3>
-      
+    <h3 class="SectionSubHead">
+      <span class="icon-check mr-2"></span>
+      <span> A Few Feedbacks.. </span>
+    </h3>
+
     <section class="TSTSection bg-img-masked flex wrap j-c-center my-3">
       <div
         id="TestimonialContRef"
@@ -213,23 +208,23 @@
       </span>
     </h3>
     <!-- Contact Component -->
-    <div>
-      <Contact></Contact>
-    </div>
+    <!-- <section class="flex j-c-center">
+      <div class="xs11 sm8 md6 lg5"> -->
+      <div>
+        <MainContact></MainContact>
+      </div>
+    <!-- </section> -->
     <!-- Contact Component -->
   </div>
 </template>
 <script lang="ts">
-import Contact from "@/components/pages/Contact.vue";
 import { $General /* , $Axios */ } from "@/addons";
 
 useSeoMeta($General.metaInfo({}));
 
 export default {
   name: "Home",
-  components: {
-    Contact,
-  },
+
   setup() {
     /* Properties */
     const showPc = ref(false);
@@ -404,17 +399,17 @@ export default {
 </script>
 <style lang="scss" scoped>
 .SubText {
-    text-align: center;
-    font-size: 24px;
-    color: $pri-color;
-    background-color: $sec-color-transparent;
-    padding: 15px;
-    margin-bottom: 40px;
-  }
-  
+  text-align: center;
+  font-size: 24px;
+  color: $pri-color;
+  background-color: $sec-color-transparent;
+  padding: 15px;
+  margin-bottom: 40px;
+}
+
 .SectionSubHead {
   position: relative;
-  color:$blue-grey;
+  color: $blue-grey;
   text-align: center;
   &::after {
     content: "";
