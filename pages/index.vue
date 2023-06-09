@@ -131,13 +131,13 @@
     <section>
       <h2 class="text-center t-blue-grey--1"></h2>
 
-      <div class="Gallery img-masked-00 flex wrap j-c-center">
+      <div class="Gallery img-masked-00 flex wrap j-c-center px-3">
         <transition name="slide-down-fade">
-          <div v-if="showPc" class="Pc xs11 m-1">
+          <div v-if="showPc" class="Pc xs12 sm7 md6  m-1">
             <img
               class="shadow-5"
               :src="'/defaults/gal/' + galImageList[activeGal].pc + '.jpg'"
-              alt
+              alt="orbrift.com"
               draggable="false"
             />
 
@@ -147,7 +147,7 @@
                 :src="
                   '/defaults/gal/' + galImageList[activeGal].tablet + '.jpg'
                 "
-                alt
+                alt="orbrift.com"
                 draggable="false"
               />
             </div>
@@ -156,12 +156,23 @@
               <img
                 class="shadow-5"
                 :src="'/defaults/gal/' + galImageList[activeGal].phone + '.jpg'"
-                alt
+                alt="orbrift.com"
                 draggable="false"
               />
             </div>
           </div>
         </transition>
+            
+      </div>
+      
+      <div class="flex j-c-center mb-10">
+        <Button
+          size="medium"
+          icon="icon-right"
+          iconPos="right"
+        >
+         Projects
+        </Button>
       </div>
     </section>
 
@@ -592,15 +603,15 @@ export default {
 .Gallery {
   position: relative;
   overflow: hidden;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   & .Thumb {
     min-height: 50px;
   }
   & .Pc {
-    min-height: 400px;
+    min-height: 250px;
     position: relative;
     top: 0;
-    max-width: 1000px;
+    // max-width: 1000px;
     max-height: 600px;
     overflow: hidden;
     animation: pc 1s;
@@ -723,9 +734,9 @@ export default {
 
 @include sm-and-down {
   .Top {
-    & .Logo {
-      width: 100%;
-    }
+    // & .Logo {
+    //   width: 100%;
+    // }
     & .Detail {
       & .Img {
         position: relative;
@@ -733,11 +744,11 @@ export default {
       }
     }
   }
-  .Gallery {
-    & .Pc {
-      min-height: 300px;
-    }
-  }
+  // .Gallery {
+  //   & .Pc {
+  //     min-height: 300px;
+  //   }
+  // }
 
   .TestimonialContRef {
     & .Item {
