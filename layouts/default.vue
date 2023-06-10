@@ -11,7 +11,7 @@
       <Search v-show="searchOn" @searchoff="searchOn = false" />
 
       <section class="Routes">
-        <transition name="fade-in">
+        <transition name="slide-fade" mode="out-in">
           <slot />
         </transition>
       </section>
@@ -23,25 +23,12 @@
 </template>
 
 <script lang="ts">
-import TopNav from "@/components/navs/TopNav.vue";
-import BottomNav from "@/components/navs/BottomNav.vue";
-import Footer from "@/components/navs/Footer.vue";
-import HoverPanel from "@/components/navs/HoverPanel.vue";
-import Process from "@/components/GlobalComponents/notification/Process.vue";
-import Search from "@/components/navs/Search.vue";
+
 import { $General } from "@/addons";
 
 import { useNavs } from "@/store";
 
 export default {
-  components: {
-    TopNav,
-    Footer,
-    BottomNav,
-    HoverPanel,
-    Process,
-    Search,
-  },
 
   setup() {
     const $Navs = useNavs();
@@ -71,6 +58,14 @@ export default {
 </script>
 
 <style lang="scss">
+.slide-fade-leave-active, .slide-fade-enter-active {
+    transition: all 0.3s ease-in-out;
+}
+
+.slide-fade-enter-from, .slide-fade-leave-to {
+    transform: translateX(20px);
+    opacity: 0;
+}
 .GBLMContainer {
   display: table;
   position: relative;

@@ -66,7 +66,7 @@ export default {
     top: 5%;
     left: 5%;
     overflow: hidden;
-    z-index: 2;
+    z-index: 1;
     border-radius: 50%;
     width: 90%;
     height: 90%;
