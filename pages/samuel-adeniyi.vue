@@ -13,18 +13,22 @@
       </section>
 
       <section class="CompCont flex j-c-center a-i-center">
+          <transition name="slide-fade" mode="in-out">
         <keep-alive>
+          
           <component
             @tabClicked="switchTab"
             @return="switchTab"
             :is="currentTab"
           ></component>
+
         </keep-alive>
+          </transition>
       </section>
 
       <!-- Skills -->
       <section
-        v-show="currentTab === 'Home'"
+        
         class="SkillsInfo flex j-c-center"
       >
         <div ref="SkillsInfo" class="xs12 sm11 md10 lg8">
@@ -73,10 +77,10 @@
           </ul>
         </div>
       </section>
-
+<!--  -->
       <!-- Social Icons -->
       <section
-        v-show="currentTab === 'Home'"
+        
         class="Social flex j-c-center text-center mt-10 mb-3"
       >
         <a
@@ -136,8 +140,8 @@ export default {
       else if(tab_name === "Contact") {
         currentTab.value = resolveComponent('Contact');
       }
-      else {
-        // currentTab.value = resolveComponent('About');
+      else if (tab_name === "About"){
+        currentTab.value = resolveComponent('About');
       }
 
       switch (tab_name) {

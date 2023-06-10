@@ -37,14 +37,14 @@
 
 /* slide-fadE  -> USED IN: login title switch, globalDropdown, */
 
-.slide-fade-leave-active, .slide-fade-enter-active {
+/* .slide-fade-leave-active, .slide-fade-enter-active {
     transition: all 0.3s ease-in-out;
 }
 
 .slide-fade-enter, .slide-fade-leave-to {
     transform: translateX(20px);
     opacity: 0;
-}
+} */
 
 /* slide-up-fade   -> USED IN: Loadings */
 

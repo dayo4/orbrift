@@ -1,11 +1,11 @@
 <template>
-  <transition name="slide-down-fade">
+  <!-- <transition name="slide-fade" mode="in-out"> -->
     <div ref="TabsCont" class="ProfileTabsContainer shadow-3 xs12 sm11 md9 lg7">
       <span @click="back" class="closeBtn"><i class="icon-cancel"></i></span>
       <!-- TABS SLOT -->
       <slot></slot>
     </div>
-  </transition>
+  <!-- </transition> -->
 </template>
 <script lang="ts">
 
@@ -38,6 +38,7 @@ export default {
   border-top: solid 3px $pri-color-alt;
   border-bottom: solid 3px $pri-color-alt;
   background-color: rgb(247, 247, 240);
+  z-index: 2;
 
   &.removed {
     animation: tab_out 500ms cubic-bezier(0.51, -0.1, 0.02, 0.89) forwards;
