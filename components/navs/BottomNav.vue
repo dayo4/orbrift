@@ -18,15 +18,6 @@ export default {
     const scrolled = computed(() =>
         $Navs.scrolled
     );
-    // const scrolled = $Navs.scrolled;
-
-    // watch(
-    //   () => route.path,
-    //   () => {
-    //     homeRoute.value = route.path === "/";
-    //     backable.value = history.length > 0;
-    //   }
-    // );
 
     const scrollUp = () => {
       if (scrolled) {

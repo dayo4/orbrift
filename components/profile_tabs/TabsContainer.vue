@@ -35,8 +35,8 @@ export default {
   margin: 20px 5px;
   padding: 15px;
   border-radius: 12px 0px 12px 12px;
-  border-top: solid 3px $pri-color-alt;
-  border-bottom: solid 3px $pri-color-alt;
+  border-top: solid 3px $sec-color;
+  border-bottom: solid 3px $sec-color;
   background-color: rgb(247, 247, 240);
   z-index: 2;
 

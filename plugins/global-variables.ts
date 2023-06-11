@@ -1,5 +1,5 @@
 import { $General } from '@/addons'
-import moment from 'moment'
+// import moment from 'moment'
 
 export default defineNuxtPlugin((nuxtApp) => {
 
@@ -7,7 +7,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     provide: {
       appLogo: $General.appLogo,
       myMetaInfo: $General.metaInfo,
-      moment
+      // moment
     }
   }
 })

@@ -194,38 +194,32 @@
       </div>
       <i @click="TSTclickLeft" class="LeftBtn icon-left"></i>
       <i @click="TSTclickRight" class="RightBtn icon-right"></i>
-      <!-- <div class="Smudges sm9 md10 lg7">
-        <i class="LeftSmudge"></i>
-        <i class="RightSmudge"></i>
-      </div> -->
     </section>
 
     <h3 class="SectionSubHead">
       <span class="icon-mail mr-3"></span>
       <span>
         Get Started
-        <!-- <i class="font-3">Start Getting Things Done!</i> -->
       </span>
     </h3>
     <!-- Contact Component -->
-    <!-- <section class="flex j-c-center">
-      <div class="xs11 sm8 md6 lg5"> -->
+
       <div>
         <MainContact></MainContact>
       </div>
-    <!-- </section> -->
-    <!-- Contact Component -->
+
   </div>
 </template>
 <script lang="ts">
-import { $General /* , $Axios */ } from "@/addons";
-
-useSeoMeta($General.metaInfo({}));
 
 export default {
   name: "Home",
 
   setup() {
+        const { $myMetaInfo } = useNuxtApp();
+
+    useSeoMeta($myMetaInfo({}));
+
     /* Properties */
     const showPc = ref(false);
     const showTablet = ref(false);
@@ -518,7 +512,7 @@ export default {
         padding-left: 10px;
         font-size: 28px;
         border-radius: 10px;
-        border-left: solid 3px $top-quotes-color;
+        border-left: solid 3px $pri-color;
       }
     }
   }
@@ -729,9 +723,6 @@ export default {
 
 @include sm-and-down {
   .Top {
-    // & .Logo {
-    //   width: 100%;
-    // }
     & .Detail {
       & .Img {
         position: relative;
@@ -739,11 +730,6 @@ export default {
       }
     }
   }
-  // .Gallery {
-  //   & .Pc {
-  //     min-height: 300px;
-  //   }
-  // }
 
   .TestimonialContRef {
     & .Item {

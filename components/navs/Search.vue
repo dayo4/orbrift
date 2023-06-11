@@ -51,7 +51,6 @@ export default {
   setup(_, { emit }) {
     const $Process = useProcess();
     const searchText = ref("");
-    // const searchOn = ref(false);
     const searchResult = ref(null);
     const expanded = ref(false);
     const error = ref(false);
@@ -178,7 +177,6 @@ export default {
   }
   & .ResultList:hover {
     color: $pri-color;
-    // color: rgb(49, 49, 49);
   }
 }
 

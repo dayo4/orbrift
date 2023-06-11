@@ -92,7 +92,6 @@ export default {
   setup() {
     const $Navs = useNavs();
     const router = useRouter();
-    // const route = useRoute();
 
     /* Do not rename these */
     const dropdowns = ref({
@@ -263,10 +262,7 @@ nav {
   }
 
   & > div {
-    // @include bg-gradient-1;
-    // background-color: $pri-color;
     background-color: $sec-color-transparent;
-    // background-color: #0A2647;
     width: 100%;
     height: 100%;
     border-radius: 3px;
@@ -389,15 +385,4 @@ nav {
     }
   }
 }
-
-// @include xs-only {
-
-// }
-
-// @include xs-and-up {
-// }
-
-// @include xxs-only {
-
-// }
 </style>

@@ -32,9 +32,6 @@
         class="SkillsInfo flex j-c-center"
       >
         <div ref="SkillsInfo" class="xs12 sm11 md10 lg8">
-          <div class="Heading">
-            <!-- Major Skills -->
-          </div>
           <ul>
             Designs
             <li>Figma, Adobe Design Tools</li>
@@ -127,10 +124,6 @@ export default {
       title: "Fullstack Developer",
     });
 
-    // const Home = resolveComponent('Home')
-    // const Contact = resolveComponent('Contact')
-    // const About = resolveComponent('About')
-
     const switchTab = (tab_name: string) => {
       if (tab_name === "Home") {
         setTimeout(() => {
@@ -158,8 +151,6 @@ export default {
     };
 
     onMounted(() => {
-      // window.scrollTo({ top: 150, left: 0 });
-
       /* Animate Skills info at intervals */
       let skillCount = 0;
       let loopInfo = () => {
@@ -207,8 +198,6 @@ export default {
   padding-top: 60px;
   // padding-bottom: 10px;
   margin-bottom: 50px;
-  // background-color: $sec-color;
-  // background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
   background-attachment: fixed;
   background-position: center;
   & .Title {
@@ -282,16 +271,6 @@ export default {
     &::before {
       @include anim-list-style;
     }
-  }
-  & .Heading {
-    // font-family: "Courier New", Courier, monospace;
-    color: $top-quotes-color;
-    margin-top: 18px;
-    margin-left: -20px;
-    padding-left: 10px;
-    font-size: 28px;
-    border-radius: 10px;
-    border-left: solid 3px $top-quotes-color;
   }
 }
 

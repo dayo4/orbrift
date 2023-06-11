@@ -12,11 +12,8 @@
         </div>
       </section>
 
-      <!-- <section class="flex j-c-center">
-        <div class="xs11 sm8 md6 lg5"> -->
         <MainContact></MainContact>
-        <!-- </div>
-      </section> -->
+
     </template>
   </GlobalWrapper>
 </template>

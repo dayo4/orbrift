@@ -37,9 +37,6 @@ export default {
     },
   },
   setup(props, { emit }) {
-    // const GenBtn = ref(null);
-    // const icon = ref(/* props.loading ? "icon-spin6 animate-spin" :  */props.icon);
-
     const classes = computed(() => ({
       Large: props.size === "large",
       Medium: props.size === "medium",
@@ -67,7 +64,6 @@ export default {
       }
     };
 
-    // onMounted(() => {});
     return {
       classes,
       wrapperClasses,
@@ -75,7 +71,6 @@ export default {
 
       icon,
       iconPos
-      // GenBtn,
     };
   },
 };
@@ -93,7 +88,6 @@ export default {
   justify-content: center;
   background-color: $pri-color;
   border-radius: 3px;
-  // border: solid 3px $sec-color;
   overflow: hidden;
   box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
   transition: 0.2s;
@@ -143,14 +137,6 @@ export default {
     &.CtaBtn:hover::before {
     animation: cta-b-hover 0.2s alternate infinite linear;
   }
-  //     &.CtaBtn:active::after {
-  //       width:0% !important;
-  //   // animation: cta-a-active 0.3s alternate infinite linear;
-  // }
-  //   &.CtaBtn:active::before {
-  //     height: 0% !important;
-  //   // animation: cta-b-active 0.3s alternate infinite linear;
-  // }
       &.BasicBtn:hover::after {
         width:30%
   }

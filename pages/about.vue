@@ -20,14 +20,18 @@
               Welcome to Orbrift, a leading web development team committed to
               providing exceptional digital solutions for designers, businesses,
               and creative-minded individuals. Our mission is to empower brands
-              that reach out to us with captivating web experiences that elevate their online
-              presence and drive tangible results.
+              that reach out to us with captivating web experiences that elevate
+              their online presence and drive tangible results.
             </p>
           </section>
 
           <section>
             <h2 class="AB_Head">Our Expertise</h2>
-            <p>A talented team of software developer, designer, and strategists, combining our expertise to offer a comprehensive range of services.</p>
+            <p>
+              A talented team of software developer, designer, and strategists,
+              combining our expertise to offer a comprehensive range of
+              services.
+            </p>
             <article>
               <h3 class="AB_SubHead">Custom Web Design and Development</h3>
               <p>
@@ -63,7 +67,11 @@
             <article>
               <h3 class="AB_SubHead">Graphics and Product Design</h3>
               <p>
-                From visually striking logos to compelling marketing collateral, our graphic design services help you create a cohesive and impactful brand identity. We specialize in designing engaging visuals that resonate with your target audience and leave a lasting impression.
+                From visually striking logos to compelling marketing collateral,
+                our graphic design services help you create a cohesive and
+                impactful brand identity. We specialize in designing engaging
+                visuals that resonate with your target audience and leave a
+                lasting impression.
               </p>
             </article>
 
@@ -94,14 +102,16 @@
             <ul>
               <li>
                 <strong class="t-blue-grey--1">Strategic Collaboration:</strong>
-                We believe in forging strong relationships with brands that reach out to us. We
-                work closely with you, engaging in open communication and active
-                collaboration throughout the entire development process.
+                We believe in forging strong relationships with brands that
+                reach out to us. We work closely with you, engaging in open
+                communication and active collaboration throughout the entire
+                development process.
               </li>
               <li>
                 <strong class="t-blue-grey--1">Customized Solutions:</strong>
-We understand that each client has unique requirements. That's why we take a tailored approach to deliver solutions that align with your specific goals and objectives.
-
+                We understand that each client has unique requirements. That's
+                why we take a tailored approach to deliver solutions that align
+                with your specific goals and objectives.
               </li>
               <li>
                 <strong class="t-blue-grey--1">Strategic Guidance:</strong> We
@@ -160,7 +170,7 @@ export default {
   }
 }
 .AB_Head {
-  color: $blue-grey--1
+  color: $blue-grey--1;
 }
 .AB_SubHead {
   padding: 10px;

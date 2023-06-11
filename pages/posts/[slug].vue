@@ -2,7 +2,6 @@
   <GlobalWrapper :header="true" :subText="true">
     <template #Title>
       Discover
-      <!-- {{ post.title?.rendered }} -->
     </template>
     <template v-if="post" #SubText>
       {{ post.title.rendered }}
@@ -113,7 +112,6 @@ export default {
       data: post,
     } = useAsyncData(async () => {
       const data = await $Posts.fetchPost(route.params.slug);
-      // const { data } = await $contentApi.get("posts?slug=" + route.params.slug);
       return data;
     });
     
@@ -144,8 +142,6 @@ export default {
         $Posts.nextPost
     );
 
-    // onMounted(() => {});
-
     return {
       post,
       openPost,
@@ -160,7 +156,6 @@ export default {
 <style lang="scss" scoped>
 .PostContainer {
   max-width: 100vw !important;
-  // padding-top: 80px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -169,7 +164,6 @@ export default {
 .BlogPost {
   padding: 16px;
   background-color: #f5f5f5;
-  // background-color: $sec-color;
   border-radius: 4px;
 }
 
@@ -314,12 +308,4 @@ export default {
   font-size: 14px;
   font-weight: bold;
 }
-
-@include sm-and-down {
-  //  .NP_nextLink  {
-  //   margin-left:auto;
-  // }
-}
-
-// @include xs-only {}
 </style>

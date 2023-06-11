@@ -14,7 +14,6 @@
 
     <div class="InnerWrapper">
       <!-- Main Container (START) -->
-      <!-- md10 lg8 -->
       <article :class="rightPane ? 'xs12 md8' : 'xs12'" class="mb-5">
         <!-- Main Container Header-->
         <section v-if="subHead" class="SubHeadGBL">
@@ -49,7 +48,6 @@
           </div>
         </div>
       </div>
-      <!-- <slot v-else name="FootNote"></slot> -->
     </section>
   </div>
 </template>
@@ -68,15 +66,11 @@ export default {
 </script>
 
 <style lang="scss">
-// #GBLMWrapper {
-//   padding-top: 60px;
-// }
 .HeaderGBL {
   position: relative;
   min-height: 200px;
   width: 100%;
   padding-top: 60px;
-  // padding-bottom: 10px;
   margin-bottom: 50px;
   background-color: $sec-color;
   background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
