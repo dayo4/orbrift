@@ -304,7 +304,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: $pink-4;
+    color: $pri-color;
     text-decoration: none;
   }
 }

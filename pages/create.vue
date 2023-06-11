@@ -9,7 +9,7 @@
 
     <template #WrapperBody>
       <div class="flex j-c-center">
-        <div class="xs12 sm10">
+        <div class="xs11 sm10 md8 lg6">
           <section class="flex j-c-center">
             <div class="xs4 sm3 md2 mb-7">
               <img src="/defaults/pgs/orbrift_ab3.jpg" draggable="false" />
