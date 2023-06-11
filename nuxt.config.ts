@@ -42,8 +42,6 @@ export default defineNuxtConfig({
 
     "~/globalStyles/deploy/theme/main.scss",
 
-    /* Obstacl styles */
-    "~/node_modules/obstacl/dist/obstacl.min.css",
   ],
   plugins: [
     // "~/plugins/navs/index.ts"
