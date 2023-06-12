@@ -35,8 +35,7 @@
     <section v-if="footNote" class="FootNoteGBL">
       <div v-if="useDefaultFootNote" class="flex j-c-center">
         <div class="xs12 md7 lg6">
-          For more enquiries, feel free to contact us. If you are ready to start
-          your project, use the button below
+          Thank you. If you would like to discuss a potential job or project, I would be delighted to hear from you. <NuxtLink to="/contact"> Contact me</NuxtLink>, or use the button below
           <div class="flex j-c-center my-5">
             <Button
               @clicked="$router.push({ path: '/create' })"
