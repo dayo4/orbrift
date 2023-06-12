@@ -110,6 +110,10 @@ export default {
   color: $pri-color;
   background-color: $sec-color-transparent;
   padding: 15px;
+  & a {
+    // color:$pri-color;
+    color: lightblue;
+  }
 }
 .InnerWrapper {
   display: flex;
