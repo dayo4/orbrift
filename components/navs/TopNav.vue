@@ -3,7 +3,7 @@
     <div class="flex a-i-center j-c-between shadow-7">
       <router-link to="/" class="Logo flex a-i-center px-2 mr-2">
         <div v-html="$appLogo('white', 'logo-x-small mr-2')"></div>
-        <b>orbrift</b>
+        orbrift
       </router-link>
 
       <!-- SEARCH ICON FOR MOBILE SCREEN -->
@@ -35,6 +35,7 @@
         <!-- LINKS FOR VERY SMALL SCREENS  -->
 
         <!-- LINKS FOR WIDE SCREENS  -->
+       <ClientOnly>
         <router-link
           :class="`hide-xs ${link.subLinks ? 'MenuDropBtn NoLowerBorder' : ''}`"
           :to="{ name: link.a }"
@@ -67,6 +68,7 @@
             <span class="Name">{{ link.name }}</span>
           </a>
         </router-link>
+       </ClientOnly>
         <!-- LINKS FOR WIDE SCREENS  -->
       </div>
 
@@ -276,6 +278,7 @@ nav {
     & .Logo {
       letter-spacing: 0.7px;
       color: $pri-color;
+      font-weight: bold;
     }
   }
 }
