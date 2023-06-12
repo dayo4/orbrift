@@ -47,7 +47,7 @@
               empower businesses to streamline their operations, expand their
               reach, and achieve online success.
             </p>
-            <p>
+            <p data-aos="fade-up-left">
               Beyond my technical endeavors, I find immense joy in engaging in
               intuitive conversations and exploring the abstract design of
               nature. I'm constantly inspired by how these principles shape the
@@ -58,13 +58,13 @@
 
           <section>
             <h2 class="AB_Head">My Expertise</h2>
-            <p>
+            <p data-aos="zoom-in">
               As a web developer committed to providing exceptional digital
               solutions, I bring a wide range of skills to the table
             </p>
             <article>
-              <h3 class="AB_SubHead">Custom Web Design and Development</h3>
-              <p>
+              <h3 data-aos="fade-right" class="AB_SubHead">Custom Web Design and Development</h3>
+              <p data-aos="fade-up-left">
                 Imagine a website that seamlessly blends stunning aesthetics
                 with effortless functionality. That's precisely what I bring to
                 the table. Using industry-leading design tools like Figma and
@@ -77,10 +77,10 @@
             </article>
 
             <article>
-              <h3 class="AB_SubHead">
+              <h3 data-aos="fade-right" class="AB_SubHead">
                 Front-end Development: Elevating User Engagement
               </h3>
-              <p>
+              <p data-aos="fade-up-left">
                 When it comes to front-end development, I'm more than just a
                 coder. I'm a storyteller. I utilize the power of JavaScript and
                 TypeScript, combined with my expertise in Vue.js and React.js,
@@ -93,8 +93,8 @@
             </article>
 
             <article>
-              <h3 class="AB_SubHead">Back-end Development</h3>
-              <p>
+              <h3 data-aos="fade-right" class="AB_SubHead">Back-end Development</h3>
+              <p data-aos="fade-up-left">
                 Behind every great website lies a robust and scalable back-end
                 infrastructure. With expertise in frameworks like Express.js,
                 Fastify, and Koa, I architect and develop powerful web
@@ -107,8 +107,8 @@
             </article>
 
             <article>
-              <h3 class="AB_SubHead">Servers and Hosting</h3>
-              <p>
+              <h3 data-aos="fade-right" class="AB_SubHead">Servers and Hosting</h3>
+              <p data-aos="fade-up-left">
                 Your website deserves a reliable and secure home for your data.
                 I am well-versed in managing servers and hosting platforms such
                 as Google Cloud Platforms, AWS, and DigitalOcean. With an eye
@@ -119,8 +119,8 @@
             </article>
 
             <article>
-              <h3 class="AB_SubHead">Version Control and Collaboration</h3>
-              <p>
+              <h3 data-aos="fade-right" class="AB_SubHead">Version Control and Collaboration</h3>
+              <p data-aos="fade-up-left">
                 To ensure efficient and collaborative development processes, I
                 utilize systems like GitHub, Basecamp, Discord, Slack, etc. This
                 allows for seamless code management, easy collaboration with
@@ -129,10 +129,10 @@
             </article>
 
             <article>
-              <h3 class="AB_SubHead">
+              <h3 data-aos="fade-right" class="AB_SubHead">
                 Blockchain Development: Embracing the Future
               </h3>
-              <p>
+              <p data-aos="fade-up-left">
                 The blockchain revolution is upon us, and I'm here to guide you
                 through it. With hands-on experience in Web3.js and Solidity, I
                 help businesses leverage the power of decentralized applications
@@ -145,9 +145,9 @@
           </section>
 
           <section>
-            <h2 class="AB_Head">Still, Why You Should Choose Me?</h2>
+            <h2 data-aos="fade-right" class="AB_Head">Still, Why You Should Choose Me?</h2>
             <ul>
-              <li>
+              <li data-aos="fade-up-left">
                 <strong class="t-blue-grey--1"
                   >Advanced Technical Skills:</strong
                 >
@@ -156,7 +156,7 @@
                 implement cutting-edge solutions and deliver high-quality
                 results that align with industry standards.
               </li>
-              <li>
+              <li data-aos="fade-up-left">
                 <strong class="t-blue-grey--1"
                   >Analytical and Divergent Thinking:
                 </strong>
@@ -165,7 +165,7 @@
                 solutions. I thrive on finding creative and efficient ways to
                 overcome obstacles and achieve optimal outcomes.
               </li>
-              <li>
+              <li data-aos="fade-up-left">
                 <strong class="t-blue-grey--1"
                   >Effective Communication and Collaboration:</strong
                 >
@@ -180,7 +180,7 @@
             </ul>
           </section>
 
-          <section>
+          <section data-aos="zoom-in">
             <h2 class="AB_Head">
               Let's Create Something Extraordinary
             </h2>
@@ -198,9 +198,10 @@
   </GlobalWrapper>
 </template>
 <script lang="ts">
+
 export default {
   setup() {
-    const { $myMetaInfo } = useNuxtApp();
+    const { $myMetaInfo, $aos } = useNuxtApp();
 
     useSeoMeta($myMetaInfo({ title: "About | orbrift" }));
 

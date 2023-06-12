@@ -1,6 +1,6 @@
 <template>
   <footer class="t-white text-center">
-    <section>
+    <section class="LNKCont">
       <div>
         <span class="icon-copyright mr-2">2023 orbrift</span>
       </div>
@@ -10,6 +10,33 @@
         >
       </div>
     </section>
+          <!-- Social Icons -->
+      <section
+        
+        class="Social flex j-c-center text-center mb-5"
+      >
+        <a
+          class="icon-github mr-3 br5 b4"
+          href="https://github.com/dayo4"
+          target="blank"
+        ></a>
+        <a
+          class="icon-facebook mr-3 br5 b4"
+          href="https://facebook.com/dayo999"
+          target="blank"
+        ></a>
+        <a
+          class="icon-whatsapp mr-3 br5 b4"
+          href="https://wa.me/message/25GPJOSG52QCO1"
+          target="blank"
+        ></a>
+        <a
+          class="icon-linkedin mr-3 br5 b4"
+          href="https://www.linkedin.com/in/dayo-adeniyi-761498244"
+          target="blank"
+        ></a>
+      </section>
+
   </footer>
 </template>
 <script lang="ts">
@@ -24,7 +51,7 @@ footer {
   width: 100%;
   background-color: $sec-color;
 
-  & > section {
+  & .LNKCont {
     padding: 60px 0;
     position: relative;
 
@@ -62,5 +89,20 @@ footer {
   & .Lnk {
     color: $pri-color;
   }
+  
+  & .Social {
+    text-align: center;
+  & a {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $pri-color;
+    text-decoration: none;
+  }
+}
 }
 </style>

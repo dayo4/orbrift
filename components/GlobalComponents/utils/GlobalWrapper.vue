@@ -33,7 +33,7 @@
 
     <!-- At The very Bottom -->
     <section v-if="footNote" class="FootNoteGBL">
-      <div v-if="useDefaultFootNote" class="flex j-c-center">
+      <div data-aos="zoom-in" v-if="useDefaultFootNote" class="flex j-c-center">
         <div class="xs12 md7 lg6">
           Thank you. If you would like to discuss a potential job or project, I would be delighted to hear from you. <NuxtLink to="/contact"> Contact me</NuxtLink>, or use the button below
           <div class="flex j-c-center my-5">
@@ -47,6 +47,7 @@
           </div>
         </div>
       </div>
+              <slot v-else name="FootNote"></slot>
     </section>
   </div>
 </template>

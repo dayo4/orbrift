@@ -1,5 +1,5 @@
 <template>
-  <GlobalWrapper :header="true" :footNote="true" :useDefaultFootNote="true">
+  <GlobalWrapper :header="true" :footNote="true">
     <template #Title> Get In Touch </template>
     <template #SubText>
       Let’s help you reach and engage your target audience where they are
@@ -14,6 +14,24 @@
 
         <MainContact></MainContact>
 
+    </template>
+    
+    
+    <template #FootNote>
+         <div class="flex j-c-center">
+        <div class="xs12 md7 lg6">
+          Thank you. If you would prefer to have a more streamlined project discussion and request an estimate, use the button below
+          <div class="flex j-c-center my-5">
+            <Button
+              @clicked="$router.push({ path: '/create' })"
+              type="cta"
+              size="large"
+            >
+              Get A Quote
+            </Button>
+          </div>
+        </div>
+      </div>
     </template>
   </GlobalWrapper>
 </template>

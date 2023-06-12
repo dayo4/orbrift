@@ -31,6 +31,8 @@ import { useNavs } from "@/store";
 export default {
 
   setup() {
+        const { $aos } = useNuxtApp();
+
     const $Navs = useNavs();
     const searchOn = ref(false);
 
@@ -45,6 +47,8 @@ export default {
         })
         .catch((e) => {});
     });
+
+onMounted(()=>$aos())
 
     onUnmounted(() => {
       $Navs.removeScrollEvent();
