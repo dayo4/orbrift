@@ -317,7 +317,8 @@ nav {
     }
     & .Icon {
       font-weight: thin !important;
-      margin-right: 4px;
+      margin-left: 5px;
+      margin-right: 8px;
     }
     & .Name {
       text-transform: capitalize;
