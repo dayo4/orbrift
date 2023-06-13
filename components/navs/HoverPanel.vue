@@ -65,7 +65,7 @@ export default {
       {
         font: "icon-facebook",
         text: "Facebook",
-        link: "https://facebook.com/orbrift",
+        link: "https://facebook.com/",
       },
       {
         font: "icon-linkedin",

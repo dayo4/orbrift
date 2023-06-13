@@ -118,11 +118,7 @@ export default {
         subLinks: [
           { a: "contact", name: "contact", icon: "icon-mail" },
           { a: "about", name: "about", icon: "icon-info" },
-          {
-            a: "samuel-adeniyi",
-            name: "developer profile",
-            icon: "icon-star-empty",
-          },
+          
         ],
       },
       { a: "posts", name: "blog", icon: "icon-doc" },
@@ -134,11 +130,6 @@ export default {
       { a: "about", name: "about", icon: "icon-info" },
       { a: "posts", name: "blog", icon: "icon-doc" },
       { a: "create", name: "create your website", icon: "icon-diamond" },
-      {
-        a: "samuel-adeniyi",
-        name: "developer profile",
-        icon: "icon-star-empty",
-      },
     ];
 
     const identifyDropdownType = (type: string) => {
