@@ -7,20 +7,20 @@
 
     <template #WrapperBody>
       <section class="flex j-c-center">
-        <div class="xs5 sm3 md2 mb-7">
+        <!-- <div class="xs5 sm3 md2 mb-7">
           <img src="/defaults/pgs/orbrift_ab1.jpg" draggable="false" />
-        </div>
+        </div> -->
       </section>
 
-        <MainContact></MainContact>
-
+      <MainContact></MainContact>
+      <Accordion />
     </template>
-    
-    
+
     <template #FootNote>
-         <div class="flex j-c-center">
+      <div data-aos="zoom-in" class="flex j-c-center">
         <div class="xs12 md7 lg6">
-          Thank you. If you would prefer to have a more streamlined project discussion and request an estimate, use the button below
+          Thank you. If you would prefer to have a more streamlined project
+          discussion and request an estimate, use the button below
           <div class="flex j-c-center my-5">
             <Button
               @clicked="$router.push({ path: '/create' })"
@@ -36,17 +36,14 @@
   </GlobalWrapper>
 </template>
 <script lang="ts">
-import Contact from "~/components/pages/MainContact.vue";
 
 export default {
-  components: {
-    Contact,
-  },
 
   setup() {
     const { $myMetaInfo } = useNuxtApp();
 
-    useSeoMeta($myMetaInfo({ title: "Get Things Started | orbrift" }));
+    useSeoMeta($myMetaInfo({ title: "Contact Me - Request My Service" }));
+
   },
 };
 </script>
