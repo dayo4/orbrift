@@ -205,8 +205,8 @@ export default {
           rules: {
             required: true,
             string: true,
-            min: 3,
-            max: 50,
+            // min: 3,
+            // max: 50,
           },
         },
         {
@@ -215,8 +215,8 @@ export default {
           rules: {
             required: true,
             string: true,
-            min: 20,
-            max: 4000,
+            // min: 20,
+            // max: 4000,
           },
         },
       ];
