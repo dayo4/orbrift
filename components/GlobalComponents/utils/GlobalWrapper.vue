@@ -1,55 +1,64 @@
 <template>
-  <div id="GBLMWrapper">
-    <!-- At The very Top -->
-    <section v-if="header" class="HeaderGBL bg-img-masked br1">
-      <h2 class="Title">
-        <slot name="Title"></slot>
-      </h2>
-      <section v-if="subText" class="SubText flex j-c-center">
-        <div class="xs12 md6">
-          <slot name="SubText"></slot>
-        </div>
-      </section>
-    </section>
-
-    <div class="InnerWrapper">
-      <!-- Main Container (START) -->
-      <article :class="rightPane ? 'xs12 md8' : 'xs12'" class="mb-5">
-        <!-- Main Container Header-->
-        <section v-if="subHead" class="SubHeadGBL">
-          <slot name="subHead"></slot>
+  <transition name="slide-fade" mode="out-in">
+    <div id="GBLMWrapper">
+      <!-- At The very Top -->
+      <section v-if="header" class="HeaderGBL bg-img-masked br1">
+        <h2 class="Title">
+          <slot name="Title"></slot>
+        </h2>
+        <section v-if="subText" class="SubText flex j-c-center">
+          <div class="xs12 md6">
+            <slot name="SubText"></slot>
+          </div>
         </section>
+      </section>
 
-        <!-- Main Container Body-->
-        <slot name="WrapperBody"></slot>
-      </article>
-      <!-- Main Container (END) -->
+      <div class="InnerWrapper">
+        <!-- Main Container (START) -->
+        <article :class="rightPane ? 'xs12 md8' : 'xs12'" class="mb-5">
+          <!-- Main Container Header-->
+          <section v-if="subHead" class="SubHeadGBL">
+            <slot name="subHead"></slot>
+          </section>
 
-      <!-- Right Side Pane -->
-      <article v-if="rightPane" class="RightPane xs12 md3">
-        <slot name="RightPane"></slot>
-      </article>
-    </div>
+          <!-- Main Container Body-->
+          <slot name="WrapperBody"></slot>
+        </article>
+        <!-- Main Container (END) -->
 
-    <!-- At The very Bottom -->
-    <section v-if="footNote" class="FootNoteGBL">
-      <div data-aos="zoom-in" v-if="useDefaultFootNote" class="flex j-c-center">
-        <div class="xs12 md7 lg6">
-          Thank you. If you would like to discuss a potential job or project, I would be delighted to hear from you. <NuxtLink to="/contact"> Contact me</NuxtLink>, or use the button below
-          <div class="flex j-c-center my-5">
-            <Button
-              @clicked="$router.push({ path: '/create' })"
-              type="cta"
-              size="large"
-            >
-              Get A Quote
-            </Button>
+        <!-- Right Side Pane -->
+        <article v-if="rightPane" class="RightPane xs12 md3">
+          <slot name="RightPane"></slot>
+        </article>
+      </div>
+
+      <!-- At The very Bottom -->
+      <section v-if="footNote" class="FootNoteGBL">
+        <div
+          data-aos="zoom-in"
+          v-if="useDefaultFootNote"
+          class="flex j-c-center"
+        >
+          <div class="xs12 md7 lg6">
+            Thank you. If you would like to discuss a potential job or project,
+            I would be delighted to hear from you.
+            <NuxtLink to="/contact"> Contact me</NuxtLink>, or use the button
+            below
+            <div class="flex j-c-center my-5">
+              <Button
+                @clicked="$router.push({ path: '/create' })"
+                type="cta"
+                size="large"
+              >
+                Get A Quote
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
-              <slot v-else name="FootNote"></slot>
-    </section>
-  </div>
+        <slot v-else name="FootNote"></slot>
+      </section>
+    </div>
+  </transition>
 </template>
 
 <script lang="ts">
@@ -91,7 +100,7 @@ export default {
       bottom: -2px;
       left: calc(50% - 35px);
       background-color: $pri-color;
-      @media (prefers-color-scheme :dark) {
+      @media (prefers-color-scheme: dark) {
         background-color: $pri-color;
       }
     }
