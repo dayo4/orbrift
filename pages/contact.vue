@@ -13,7 +13,7 @@
       </section>
 
       <MainContact></MainContact>
-      <Accordion />
+
     </template>
 
     <template #FootNote>
