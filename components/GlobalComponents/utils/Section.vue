@@ -20,7 +20,7 @@ export default {};
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  // background-color: $sec-color-transparent-less;
+  // background-color: $sec-color-trans;
   background-color: $pri-color;
   border-radius: 4px;
   // border-radius: 4px 20px 4px 4px;

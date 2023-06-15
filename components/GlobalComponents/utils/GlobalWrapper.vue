@@ -110,7 +110,7 @@ export default {
     font-size: 24px;
     width: 100%;
     color: $pri-color;
-    background-color: $sec-color-transparent-alot;
+    background-color: $sec-color-trans-3;
     padding: 15px;
   }
 }
@@ -118,7 +118,7 @@ export default {
   font-size: 16px;
   text-align: center;
   color: $pri-color;
-  background-color: $sec-color-transparent;
+  background-color: $sec-color-trans-1;
   padding: 15px;
   & a {
     // color:$pri-color;

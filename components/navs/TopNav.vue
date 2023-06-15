@@ -255,7 +255,7 @@ nav {
   }
 
   & > div {
-    background-color: $sec-color-transparent;
+    background-color: $sec-color-trans-1;
     width: 100%;
     height: 100%;
     border-radius: 3px;
@@ -350,7 +350,7 @@ nav {
       padding-right: 20px;
       cursor: pointer;
       text-transform: capitalize;
-      background-color: $sec-color-transparent-less;
+      background-color: $sec-color-trans;
     }
     & a.Hidden {
       transform: translateX(100px);
