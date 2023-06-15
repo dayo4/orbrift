@@ -4,11 +4,15 @@ $ter-color: #90afc5;
 
 $pri-color-bolder: #ff9900;
 $pri-color: #fab95b;
-$sec-color: #02293d;
-$sec-color-transparent: rgb(2, 41, 61, 0.75);
-$sec-color-transparent-less: rgb(2, 41, 61, 0.9);
-$sec-color-transparent-more: rgb(2, 41, 61, 0.5);
-$sec-color-transparent-alot: rgb(2, 41, 61, 0.25);
+// $sec-color: rgb(2, 41, 61); //prussian blue
+$sec-color: rgb(47, 72, 88);  //charcoal
+$sec-color: rgb(39, 64, 96);
+$sec-color: rgb(18, 78, 120);
+$sec-color: rgb(39, 64, 96);
+$sec-color-transparent: rgb(39, 64, 96, 0.75);
+$sec-color-transparent-less: rgb(39, 64, 96, 0.9);
+$sec-color-transparent-more: rgb(39, 64, 96, 0.5);
+$sec-color-transparent-alot: rgb(39, 64, 96, 0.25);
 
 $light-color: white;
 $dark-color: black;
