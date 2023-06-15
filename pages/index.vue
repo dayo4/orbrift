@@ -11,7 +11,7 @@
         </div>
 
         <!-- image -->
-        <div class="Img flex md5 j-c-center mb-9">
+        <div class="Img flex md6 j-c-center mb-9">
           <div class="xs10 sm7">
             <img
               src="/defaults/pgs/wpages.png"
@@ -263,6 +263,7 @@ export default {
         position: relative;
         color: white;
         font-size: 20px;
+        margin-top: 10px;
         margin-bottom: 0;
         z-index: 0;
         &::after {
@@ -282,10 +283,12 @@ export default {
         color: $pri-color;
         // color: white;
         font-size: 35px;
-        margin-top: 25px;
+        margin-top: 50px;
+        margin-bottom: 8px;
         padding: 0 10px;
       }
       & > .Targ {
+        font-size: 15px;
         margin-top: 0px;
         color: $light-color;
       }
