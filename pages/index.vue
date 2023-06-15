@@ -43,13 +43,9 @@
       </div>
     </section>
 
-    <section class="slider-container">
-      <ul class="slider-list" ref="sliderListRef">
-        <li v-for="(image, index) in images" :key="index">
-          <img :src="image.src" :alt="image.alt" />
-        </li>
-      </ul>
-    </section>
+    <!-- Tech Stack Icons Slider Component -->
+    <TechStackSlider />
+    <!-- Tech Stack Icons Slider Component -->
 
     <section class="SubText flex j-c-center">
       <div class="xs12 md6">
@@ -95,44 +91,15 @@
     <!--Designs Gallery -->
     <h3 class="SectionSubHead">
       <span class="icon-check mr-2"></span>
-      <span> Few Designs gallery </span>
+      <span> Some Designs gallery.. </span>
     </h3>
 
     <section>
       <h2 class="text-center t-blue-grey--1"></h2>
 
-      <div class="Gallery img-masked-00 flex wrap j-c-center px-3">
-        <transition name="slide-down-fade">
-          <div v-if="showPc" class="Pc xs12 sm6 md5 m-1">
-            <img
-              class="shadow-5"
-              :src="'/defaults/gal/' + galImageList[activeGal].pc + '.jpg'"
-              alt="orbrift.com"
-              draggable="false"
-            />
-
-            <div v-if="showTablet" ref="Tablet" class="Tablet">
-              <img
-                class="shadow-5"
-                :src="
-                  '/defaults/gal/' + galImageList[activeGal].tablet + '.jpg'
-                "
-                alt="orbrift.com"
-                draggable="false"
-              />
-            </div>
-
-            <div v-if="showPhone" ref="Phone" class="Phone">
-              <img
-                class="shadow-5"
-                :src="'/defaults/gal/' + galImageList[activeGal].phone + '.jpg'"
-                alt="orbrift.com"
-                draggable="false"
-              />
-            </div>
-          </div>
-        </transition>
-      </div>
+      <!-- Projects Gallery Component -->
+      <ProjGallery />
+      <!-- Projects Gallery Component -->
 
       <div class="flex j-c-center mb-10">
         <Button size="medium" icon="icon-right" iconPos="right">
@@ -143,7 +110,7 @@
 
     <h3 class="SectionSubHead">
       <span class="icon-check mr-2"></span>
-      <span> A Few Feedbacks.. </span>
+      <span> Some Feedbacks.. </span>
     </h3>
 
     <section class="TSTSection bg-img-masked flex wrap j-c-center my-3">
@@ -168,20 +135,19 @@
 
     <h3 class="SectionSubHead">
       <span class="icon-mail mr-3"></span>
-      <span> Get Started </span>
+      <span> Talk To Me </span>
     </h3>
     <!-- Contact Component -->
-
     <div>
       <MainContact></MainContact>
     </div>
 
-    <!-- FootNoteGBL  -->
+    <!-- FootNote   -->
     <section class="HomeFootNote mt-10">
       <div data-aos="zoom-in" data-aos-once="true" class="flex j-c-center">
         <div class="xs12 md7 lg6">
-          If you would love to have a more streamlined project discussion to
-          request an estimate, use the button below
+          If you would love to have a more streamlined project discussion with
+          me to request an estimate, use the button below
           <div class="flex j-c-center my-5">
             <Button
               @clicked="$router.push({ path: '/create' })"
@@ -205,13 +171,6 @@ export default {
 
     useSeoMeta($myMetaInfo({}));
 
-    /* Properties */
-    const showPc = ref(false);
-    const showTablet = ref(false);
-    const showPhone = ref(false);
-    const activeGal = ref(-1);
-
-    const interval: Ref<TimerHandler | null> = ref(null); //holds the setInterval timer
 
     /* Element Refs */
     const TestimonialContRef: Ref<HTMLElement | null> = ref(null);
@@ -260,33 +219,6 @@ export default {
       },
     ];
 
-    // Tech stack slider props
-    const images = [
-      { src: "/defaults/logo/orbrift-cy.png", alt: "Image 1" },
-      { src: "/defaults/logo/orbrift-cy.png", alt: "Image 2" },
-      { src: "/defaults/logo/orbrift-cy.png", alt: "Image 3" },
-      // Add more images as needed
-    ];
-
-    const sliderListRef = ref(null);
-    const listItemWidth = ref(0);
-    let sliderInterval;
-
-    const animateSlider = () => {
-      if (sliderListRef.value) {
-        sliderListRef.value.style.transform = `translateX(-${listItemWidth.value}px)`;
-      }
-    };
-
-    //  proj gallery
-    const galImageList = [
-      { pc: "1", tablet: "2", phone: "3" },
-      { pc: "4", tablet: "5", phone: "6" },
-      { pc: "7", tablet: "8", phone: "9" },
-      { pc: "10", tablet: "11", phone: "12" },
-      { pc: "13", tablet: "14", phone: "15" },
-      { pc: "16", tablet: "17", phone: "18" },
-    ];
 
     const TSTList = [
       {
@@ -311,24 +243,6 @@ export default {
       },
     ];
 
-    const loopGallery = () => {
-      activeGal.value++;
-      if (activeGal.value > 5) {
-        activeGal.value = 0;
-      }
-      showPc.value = true;
-
-      setTimeout(() => {
-        showTablet.value = true;
-      }, 2000);
-      setTimeout(() => {
-        showPhone.value = true;
-      }, 3000);
-      setTimeout(() => {
-        showPc.value = showPhone.value = showTablet.value = false;
-      }, 7500);
-    };
-
     const TSTclickLeft = () => {
       TestimonialContRef.value?.scrollBy({
         left: -TestimonialContRef.value?.children[0].clientWidth,
@@ -343,68 +257,18 @@ export default {
       });
     };
 
-    onMounted(() => {
-      // Icons slider
-      if (sliderListRef.value) {
-        listItemWidth.value = sliderListRef.value.firstElementChild.clientWidth;
-      }
+    // onMounted(() => {});
 
-      const handleTransitionEnd = () => {
-        if (sliderListRef.value) {
-          sliderListRef.value.appendChild(
-            sliderListRef.value.firstElementChild
-          );
-          sliderListRef.value.style.transition = "none";
-          sliderListRef.value.style.transform = "translateX(0)";
-
-          setTimeout(() => {
-            sliderListRef.value.style.transition =
-              "transform 10s linear infinite";
-          });
-        }
-      };
-
-      if (sliderListRef.value) {
-        sliderListRef.value.addEventListener(
-          "transitionend",
-          handleTransitionEnd
-        );
-      }
-
-      sliderInterval = setInterval(animateSlider, 10000); // Adjust the duration based on your preference
-
-      //Gallery
-      loopGallery();
-      interval.value = setInterval(() => {
-        loopGallery();
-      }, 8000);
-    });
-
-    onUnmounted(() => {
-      clearInterval(interval.value);
-
-      if (sliderInterval) {
-        clearInterval(sliderInterval);
-      }
-    });
+    // onUnmounted(() => { });
 
     return {
-      showPc,
-      showTablet,
-      showPhone,
-      activeGal,
-      interval,
       TestimonialContRef,
 
       list,
-      galImageList,
       TSTList,
-      loopGallery,
+      
       TSTclickLeft,
       TSTclickRight,
-
-      images,
-      sliderListRef,
     };
   },
 };
@@ -471,7 +335,7 @@ export default {
           margin-left: -95px;
           width: 190px;
           height: 15px;
-          background-color: $pri-color;
+          background-color: $pri-color-trans-3;
           z-index: -1;
         }
       }
@@ -504,48 +368,6 @@ export default {
   & button {
     margin-top: 40px;
     z-index: 2;
-  }
-}
-
-//icons slider
-.slider-container {
-  width: 100%;
-  height: 100px;
-  overflow: hidden;
-  position: relative;
-  // background-color: red;
-  margin-bottom: 50px;
-}
-
-.slider-list {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  // background-color: yellow;
-  animation: scroll 10s linear infinite;
-}
-
-.slider-list li {
-  list-style: none;
-  width: 70px;
-  height: 70px;
-  margin-right: 10px;
-}
-
-.slider-list li img {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
   }
 }
 
@@ -596,52 +418,6 @@ export default {
         color: $dark-text-color;
       }
     }
-  }
-}
-
-.Gallery {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 30px;
-  & .Thumb {
-    min-height: 50px;
-  }
-  & .Pc {
-    min-height: 250px;
-    position: relative;
-    top: 0;
-    // max-width: 1000px;
-    max-height: 600px;
-    overflow: hidden;
-    animation: pc 1s;
-  }
-  .Pc,
-  .Tablet,
-  .Phone {
-    & img {
-      width: 100%;
-      min-height: 100%;
-    }
-    border-radius: 6px;
-    border: solid $sec-color-trans 4px;
-    border-bottom: solid $sec-color-trans 15px;
-  }
-  .Tablet,
-  .Phone {
-    position: absolute;
-    top: 20px;
-    max-height: 90%;
-    overflow: hidden;
-    animation: mobiles 2s;
-  }
-
-  .Tablet {
-    left: 5%;
-    width: 30%;
-  }
-  .Phone {
-    left: 45%;
-    width: 19%;
   }
 }
 
@@ -785,12 +561,6 @@ export default {
     }
   }
 
-  .Gallery {
-    & .Pc {
-      min-height: 190px;
-    }
-  }
-
   .TestimonialContRef {
     & .Item {
       min-width: 220px;
@@ -816,28 +586,6 @@ export default {
         max-width: 91.66%;
       }
     }
-  }
-  .Gallery {
-    & .Pc {
-      min-height: 150px;
-    }
-  }
-}
-
-@keyframes pc {
-  from {
-    top: 600px;
-  }
-  to {
-    top: 0;
-  }
-}
-@keyframes mobiles {
-  from {
-    top: 600px;
-  }
-  to {
-    top: 20px;
   }
 }
 </style>
