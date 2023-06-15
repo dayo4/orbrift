@@ -1,6 +1,5 @@
 
 <template>
-<!-- Extracted a home section to seperate component -->
     <section class="TST bg-img-masked flex wrap j-c-center my-3">
       <div
         id="ContRef"
