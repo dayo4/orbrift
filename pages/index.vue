@@ -414,7 +414,7 @@ export default {
   text-align: center;
   font-size: 24px;
   color: $pri-color;
-  background-color: $sec-color-transparent;
+  background-color: $sec-color-trans-1;
   padding: 15px;
   margin-bottom: 40px;
 }
@@ -623,8 +623,8 @@ export default {
       min-height: 100%;
     }
     border-radius: 6px;
-    border: solid $sec-color-transparent-less 4px;
-    border-bottom: solid $sec-color-transparent-less 15px;
+    border: solid $sec-color-trans 4px;
+    border-bottom: solid $sec-color-trans 15px;
   }
   .Tablet,
   .Phone {
@@ -698,8 +698,8 @@ export default {
     text-align: center;
     margin: 20px;
     border-radius: 12px;
-    border-top: solid 2px $sec-color-transparent-less;
-    border-bottom: solid 2px $sec-color-transparent-less;
+    border-top: solid 2px $sec-color-trans;
+    border-bottom: solid 2px $sec-color-trans;
     scroll-snap-align: center;
     background-color: white;
 
@@ -711,22 +711,22 @@ export default {
       width: 120px;
       height: 20px;
       background-color: $light-color;
-      border-left: solid 2px $sec-color-transparent-less;
-      border-right: solid 2px $sec-color-transparent-less;
+      border-left: solid 2px $sec-color-trans;
+      border-right: solid 2px $sec-color-trans;
     }
     & .TopHandle {
       top: -20px;
       border-radius: 28px 28px 0px 0px;
-      border-top: solid 2px $sec-color-transparent-less;
-      border-left: solid 2px $sec-color-transparent-less;
-      border-right: solid 2px $sec-color-transparent-less;
+      border-top: solid 2px $sec-color-trans;
+      border-left: solid 2px $sec-color-trans;
+      border-right: solid 2px $sec-color-trans;
     }
     & .BottomHandle {
       bottom: -20px;
       border-radius: 0px 0px 28px 28px;
-      border-bottom: solid 2px $sec-color-transparent-less;
-      border-left: solid 2px $sec-color-transparent-less;
-      border-right: solid 2px $sec-color-transparent-less;
+      border-bottom: solid 2px $sec-color-trans;
+      border-left: solid 2px $sec-color-trans;
+      border-right: solid 2px $sec-color-trans;
     }
   }
 }
@@ -735,7 +735,7 @@ export default {
   font-size: 16px;
   text-align: center;
   color: $pri-color;
-  background-color: $sec-color-transparent;
+  background-color: $sec-color-trans-1;
   padding: 15px;
   & a {
     // color:$pri-color;

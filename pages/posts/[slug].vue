@@ -169,7 +169,7 @@ export default {
 
 .TopSection {
   background-color: #333; /* Dark background color for the featured image and title */
-  background-color: $sec-color-transparent;
+  background-color: $sec-color-trans-1;
   border-radius: 4px;
   padding: 10px;
   margin-bottom: 10px;
@@ -279,7 +279,7 @@ export default {
   justify-content: space-between;
   padding: 5px;
   border-radius: 4px;
-  background-color: $sec-color-transparent;
+  background-color: $sec-color-trans-1;
 }
 .NP_thumbnail {
   width: 120px;

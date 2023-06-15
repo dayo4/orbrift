@@ -112,7 +112,7 @@ export default {
   height: 100%;
   z-index: 8;
   transition: width 0.2s;
-  background-color: $sec-color-transparent-less;
+  background-color: $sec-color-trans;
 
   & .Panel {
     overflow-y: scroll;
