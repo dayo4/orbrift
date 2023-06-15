@@ -1,9 +1,8 @@
 <template>
   <GlobalWrapper>
-    <template #Title> Get Started On Your Project </template>
+    <template #Title> Request My Service </template>
     <template #SubText>
-      Let's help you create a modern website that will make your business stand
-      out
+      A seamless web experience that will make your business stand out
     </template>
 
     <template #WrapperBody>
@@ -19,13 +18,13 @@
             <div class="text-center font-2 t-white letter-space-1">
               It starts with a simple request
             </div>
-            <div class="text-center font-7 t-white">Just A Few Details</div>
+            <!-- <div class="text-center font-7 t-white">Just A Few Details</div> -->
           </section>
 
           <!-- Email -->
           <Section class="mb-5">
             <template #SectHead>
-              <span>Your E-mail</span>
+              <span>Your Email</span>
             </template>
             <template #SectBody>
               <div>
@@ -40,7 +39,7 @@
                 v-model="email"
                 @input="email_err = ''"
                 type="email"
-                placeholder="Input your email"
+                placeholder="Enter your email"
               />
             </template>
           </Section>
@@ -58,7 +57,7 @@
                 v-model="name"
                 @input="name_err = ''"
                 type="text"
-                placeholder="Input your name"
+                placeholder="Enter your name"
               />
             </template>
           </Section>
@@ -66,7 +65,10 @@
           <!-- Business Description -->
           <Section class="mb-5">
             <template #SectHead>
-              <span>Tell us about your business and website purpose</span>
+              <span
+                >Tell me about your business and specific service you are
+                looking for</span
+              >
             </template>
             <template #SectBody>
               <span v-show="description_err" class="Error t-red-1">{{
@@ -77,7 +79,7 @@
                 @input="setDescription"
                 class="TextArea bg-white font-5 br2 p-7 mt-2"
                 contenteditable="true"
-                placeholder="Enter your text here"
+                placeholder="Enter information about the service you require"
               ></div>
             </template>
           </Section>
@@ -86,9 +88,9 @@
           <Section class="mb-5">
             <template #SectHead>
               <span
-                >Tell us all the features that you would like to have on your
-                site.</span
-              >
+                >Tell me all the specific details and features that you would
+                like to get
+              </span>
             </template>
             <template #SectBody>
               <span v-show="features_err" class="Error t-red-1">{{
@@ -99,7 +101,7 @@
                 @input="setFeatures"
                 class="TextArea bg-white font-5 br2 p-7 mt-2"
                 contenteditable="true"
-                placeholder="Enter your text here"
+                placeholder="Enter the details and features that you desire"
               ></div>
             </template>
           </Section>
@@ -138,7 +140,7 @@
               size="medium"
               icon="icon-forward"
             >
-              Done
+              Submit
             </Button>
           </div>
         </div>
@@ -174,13 +176,8 @@ export default {
 
     const budget_custom = ref(false);
 
-    const {
-      email_err,
-      name_err,
-      description_err,
-      features_err,
-      budget_err,
-    } = toRefs(errorRefs);
+    const { email_err, name_err, description_err, features_err, budget_err } =
+      toRefs(errorRefs);
 
     let error = $Mailer.error;
 
@@ -243,33 +240,32 @@ export default {
           // @ts-ignore
           grecaptcha.ready(() => {
             $Process.add("Verifying user");
-                // @ts-ignore
-                grecaptcha
-                  .execute("6LfWRMQbAAAAAG0QCV3Blkn1lFuPB64l-zjYnRmU", {
-                    action: "projEnq",
-                  })
-                  .then(async function (token: string) {
-                    $Mailer.setError("");
-                    $Mailer.setSuccess("");
+            // @ts-ignore
+            grecaptcha
+              .execute("6LfWRMQbAAAAAG0QCV3Blkn1lFuPB64l-zjYnRmU", {
+                action: "projEnq",
+              })
+              .then(async function (token: string) {
+                $Mailer.setError("");
+                $Mailer.setSuccess("");
 
-                    const data = await $Mailer.sendProjectEnq({
-                      email: email.value,
-                      name: name.value,
-                      description: description.value,
-                      features: features.value,
-                      budget: budget.value,
+                const data = await $Mailer.sendProjectEnq({
+                  email: email.value,
+                  name: name.value,
+                  description: description.value,
+                  features: features.value,
+                  budget: budget.value,
 
-                      token: token,
-                    });
-                    if (data) {
+                  token: token,
+                });
+                if (data) {
+                  $Process.add("Successful!");
 
-                      $Process.add("Successful!");
-
-                      name.value = email.value = budget.value = "";
-                      (descInput.value as HTMLDivElement).textContent = "";
-                      (featInput.value as HTMLDivElement).textContent = "";
-                    }
-                  });
+                  name.value = email.value = budget.value = "";
+                  (descInput.value as HTMLDivElement).textContent = "";
+                  (featInput.value as HTMLDivElement).textContent = "";
+                }
+              });
           });
         }
       }
@@ -348,13 +344,6 @@ export default {
 .TopInfo {
   border-radius: 4px 4px 15px 15px;
   background-color: $sec-color;
-}
-.Quote {
-  text-align: center;
-  font-size: 30px;
-  color: $pri-color;
-  padding: 0 20px 10px 20px;
-  margin: 40px 0;
 }
 
 .TextArea {
