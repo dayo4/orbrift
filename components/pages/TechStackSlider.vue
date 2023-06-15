@@ -1,6 +1,6 @@
 <template>
-    <section class="slider-container">
-      <ul class="slider-list" ref="sliderListRef">
+    <section class="Slider flex">
+      <ul class="SliderList xs12" ref="sliderRef">
         <li v-for="(image, index) in images" :key="index">
           <img :src="image.src" :alt="image.alt" />
         </li>
@@ -20,40 +20,40 @@ export default {
       // Add more images as needed
     ];
 
-    const sliderListRef = ref(null);
+    const sliderRef = ref(null);
     const listItemWidth = ref(0);
     let sliderInterval;
 
     const animateSlider = () => {
-      if (sliderListRef.value) {
-        sliderListRef.value.style.transform = `translateX(-${listItemWidth.value}px)`;
+      if (sliderRef.value) {
+        sliderRef.value.style.transform = `translateX(-${listItemWidth.value}px)`;
       }
     };
 
 
     onMounted(() => {
       // Icons slider
-      if (sliderListRef.value) {
-        listItemWidth.value = sliderListRef.value.firstElementChild.clientWidth;
+      if (sliderRef.value) {
+        listItemWidth.value = sliderRef.value.firstElementChild.clientWidth;
       }
 
       const handleTransitionEnd = () => {
-        if (sliderListRef.value) {
-          sliderListRef.value.appendChild(
-            sliderListRef.value.firstElementChild
+        if (sliderRef.value) {
+          sliderRef.value.appendChild(
+            sliderRef.value.firstElementChild
           );
-          sliderListRef.value.style.transition = "none";
-          sliderListRef.value.style.transform = "translateX(0)";
+          sliderRef.value.style.transition = "none";
+          sliderRef.value.style.transform = "translateX(0)";
 
           setTimeout(() => {
-            sliderListRef.value.style.transition =
+            sliderRef.value.style.transition =
               "transform 10s linear infinite";
           });
         }
       };
 
-      if (sliderListRef.value) {
-        sliderListRef.value.addEventListener(
+      if (sliderRef.value) {
+        sliderRef.value.addEventListener(
           "transitionend",
           handleTransitionEnd
         );
@@ -71,15 +71,15 @@ export default {
 
     return {
       images,
-      sliderListRef,
+      sliderRef,
     };
   },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 //icons slider
-.slider-container {
+.Slider {
   width: 100%;
   height: 100px;
   overflow: hidden;
@@ -88,7 +88,7 @@ export default {
   margin-bottom: 50px;
 }
 
-.slider-list {
+.SliderList {
   display: flex;
   align-items: center;
   width: 100%;
@@ -99,14 +99,14 @@ export default {
   animation: scroll 10s linear infinite;
 }
 
-.slider-list li {
+.SliderList li {
   list-style: none;
   width: 70px;
   height: 70px;
   margin-right: 10px;
 }
 
-.slider-list li img {
+.SliderList li img {
   max-width: 100%;
   max-height: 100%;
 }

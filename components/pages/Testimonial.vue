@@ -1,178 +1,185 @@
+
 <template>
-  <div class="Gallery img-masked-00 flex wrap j-c-center px-3">
-    <transition name="slide-down-fade">
-      <div v-if="showPc" class="Pc xs12 sm6 md5 m-1">
-        <img
-          class="shadow-5"
-          :src="'/defaults/gal/' + galImageList[activeGal].pc + '.jpg'"
-          alt="orbrift.com"
-          draggable="false"
-        />
-
-        <div v-if="showTablet" ref="Tablet" class="Tablet">
-          <img
-            class="shadow-5"
-            :src="'/defaults/gal/' + galImageList[activeGal].tablet + '.jpg'"
-            alt="orbrift.com"
-            draggable="false"
-          />
-        </div>
-
-        <div v-if="showPhone" ref="Phone" class="Phone">
-          <img
-            class="shadow-5"
-            :src="'/defaults/gal/' + galImageList[activeGal].phone + '.jpg'"
-            alt="orbrift.com"
-            draggable="false"
-          />
+<!-- Extracted a home section to seperate component -->
+    <section class="TST bg-img-masked flex wrap j-c-center my-3">
+      <div
+        id="ContRef"
+        ref="ContRef"
+        class="ContRef flex sm11 md10 lg7"
+      >
+        <div class="Item" v-for="(item, i) in TSTList" :key="i">
+          <h3>{{ item.name }}</h3>
+          <h5>{{ item.info }}</h5>
+          <p>
+            {{ item.msg }}
+          </p>
+          <i class="TopHandle"></i>
+          <i class="BottomHandle"></i>
         </div>
       </div>
-    </transition>
-  </div>
+      <i @click="TSTclickLeft" class="LeftBtn icon-left"></i>
+      <i @click="TSTclickRight" class="RightBtn icon-right"></i>
+    </section>
 </template>
 
 <script lang="ts">
 export default {
   setup() {
+    /* Element Refs */
+    const ContRef: Ref<HTMLElement | null> = ref(null);
+
     /* Properties */
-    const showPc = ref(false);
-    const showTablet = ref(false);
-    const showPhone = ref(false);
-    const activeGal = ref(-1);
-
-    const interval: Ref<TimerHandler | null> = ref(null); //holds the setInterval timer
-
-    //  proj gallery
-    const galImageList = [
-      { pc: "1", tablet: "2", phone: "3" },
-      { pc: "4", tablet: "5", phone: "6" },
-      { pc: "7", tablet: "8", phone: "9" },
-      { pc: "10", tablet: "11", phone: "12" },
-      { pc: "13", tablet: "14", phone: "15" },
-      { pc: "16", tablet: "17", phone: "18" },
+    const TSTList = [
+      {
+        name: "Isaac Olajide",
+        info: "ceo - Iradux Printing",
+        msg: "It's such a great work you did on our website with amazing designs and simple pages setup. Our customers feedback on it is satisfactory. Keep up the good job.",
+      },
+      {
+        name: "Mercy Oni",
+        info: "Graphics designer",
+        msg: "I really love the the impressive custom design of my porfolio and the user-friendliness. It has really made it easy for me to engage clients. I'm glad you were recommended to me.",
+      },
+      {
+        name: "Timothy Williams",
+        info: "Lead Software Developer",
+        msg: "It was good to have you as part of our project team. You did a splendid work managing our NodeJs backend - all APIs and micro services were incredibly implemented.",
+      },
+      {
+        name: "Tony Nathaniel",
+        info: "ceo, ENK - product branding company",
+        msg: "Just wanted to say you have been very helpful to my business with the recent pages redesign and new features implemented. Doing business has never been so easy and efficient.",
+      },
     ];
 
-    const loopGallery = () => {
-      activeGal.value++;
-      if (activeGal.value > 5) {
-        activeGal.value = 0;
-      }
-      showPc.value = true;
-
-      setTimeout(() => {
-        showTablet.value = true;
-      }, 2000);
-      setTimeout(() => {
-        showPhone.value = true;
-      }, 3000);
-      setTimeout(() => {
-        showPc.value = showPhone.value = showTablet.value = false;
-      }, 7500);
+    const TSTclickLeft = () => {
+      ContRef.value?.scrollBy({
+        left: -ContRef.value?.children[0].clientWidth,
+        behavior: "smooth",
+      });
     };
 
-    onMounted(() => {
-      loopGallery();
-      interval.value = setInterval(() => {
-        loopGallery();
-      }, 8000);
-    });
-
-    onUnmounted(() => {
-      if (interval) {
-        clearInterval(interval.value);
-      }
-    });
+    const TSTclickRight = () => {
+      ContRef.value?.scrollBy({
+        left: ContRef.value.children[0].clientWidth,
+        behavior: "smooth",
+      });
+    };
 
     return {
-      showPc,
-      showTablet,
-      showPhone,
-      activeGal,
-      interval,
+      ContRef,
 
-      galImageList,
-      loopGallery,
+      TSTList,
+      
+      TSTclickLeft,
+      TSTclickRight,
     };
   },
 };
 </script>
 
-<style lang="scss">
-.Gallery {
+<style lang="scss" scoped>
+.TST {
   position: relative;
-  overflow: hidden;
-  margin-bottom: 30px;
-  & .Thumb {
-    min-height: 50px;
-  }
-  & .Pc {
-    min-height: 250px;
-    position: relative;
-    top: 0;
-    // max-width: 1000px;
-    max-height: 600px;
-    overflow: hidden;
-    animation: pc 1s;
-  }
-  .Pc,
-  .Tablet,
-  .Phone {
-    & img {
-      width: 100%;
-      min-height: 100%;
-    }
-    border-radius: 6px;
-    border: solid $sec-color-trans 4px;
-    border-bottom: solid $sec-color-trans 15px;
-  }
-  .Tablet,
-  .Phone {
-    position: absolute;
-    top: 20px;
-    max-height: 90%;
-    overflow: hidden;
-    animation: mobiles 2s;
-  }
+  max-width: 100vw;
+  overflow-y: hidden;
+  margin-bottom: 50px;
+  background-color: $sec-color;
+  background-attachment: fixed;
+  background-image: url("/defaults/pgs/orbrift_pfbg.jpg");
 
-  .Tablet {
-    left: 5%;
-    width: 30%;
+  & .LeftBtn,
+  .RightBtn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 45%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bolder;
+    color: $pri-color;
+    background-color: rgba(53, 51, 51, 0.507);
   }
-  .Phone {
-    left: 45%;
-    width: 19%;
+  & .LeftBtn:active,
+  .RightBtn:active {
+    background-color: rgba(53, 51, 51, 0.253);
+  }
+  & .LeftBtn {
+    left: 3%;
+  }
+  & .RightBtn {
+    right: 5%;
+  }
+}
+.ContRef {
+  position: relative;
+  padding: 10px 50px 40px 50px;
+  // border-left: solid 2px $cyan;
+  border-radius: 12px;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-snap-stop: always;
+  overscroll-behavior-x: contain;
+  transform: translateY(20px);
+
+  & .Item {
+    position: relative;
+    min-width: 400px;
+    padding: 5px 20px;
+    text-align: center;
+    margin: 20px;
+    border-radius: 12px;
+    border-top: solid 2px $sec-color-trans;
+    border-bottom: solid 2px $sec-color-trans;
+    scroll-snap-align: center;
+    background-color: white;
+
+    & .TopHandle,
+    .BottomHandle {
+      position: absolute;
+      left: 50%;
+      margin-left: -60px;
+      width: 120px;
+      height: 20px;
+      background-color: $light-color;
+      border-left: solid 2px $sec-color-trans;
+      border-right: solid 2px $sec-color-trans;
+    }
+    & .TopHandle {
+      top: -20px;
+      border-radius: 28px 28px 0px 0px;
+      border-top: solid 2px $sec-color-trans;
+      border-left: solid 2px $sec-color-trans;
+      border-right: solid 2px $sec-color-trans;
+    }
+    & .BottomHandle {
+      bottom: -20px;
+      border-radius: 0px 0px 28px 28px;
+      border-bottom: solid 2px $sec-color-trans;
+      border-left: solid 2px $sec-color-trans;
+      border-right: solid 2px $sec-color-trans;
+    }
+  }
+}
+
+@include sm-and-down {
+  .ContRef {
+    & .Item {
+      min-width: 300px;
+    }
   }
 }
 
 @include xs-only {
-  .Gallery {
-    & .Pc {
-      min-height: 190px;
+  .ContRef {
+    & .Item {
+      min-width: 220px;
     }
   }
 }
-@include xxs-only {
-  .Gallery {
-    & .Pc {
-      min-height: 150px;
-    }
-  }
-}
+// @include xxs-only {}
 
-@keyframes pc {
-  from {
-    top: 600px;
-  }
-  to {
-    top: 0;
-  }
-}
-@keyframes mobiles {
-  from {
-    top: 600px;
-  }
-  to {
-    top: 20px;
-  }
-}
 </style>
