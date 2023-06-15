@@ -4,13 +4,14 @@
       <div class="Detail xs12 md8 noselect br1">
         <!-- Intro -->
         <div class="Intro text-center">
-          <div class="Stitle">ORBRIFT</div>
-          <div class="Sdesc">Innovative Digital Solutions</div>
-          <div class="Targ">For Creative Brands</div>
+          <h2 class="MyName">SAMUEL ADENIYI</h2>
+          <h5 class="MyRole">Fullstack Developer</h5>
+          <h3 class="Sdesc">Innovative Digital Solutions</h3>
+          <h5 class="Targ">For Creative Brands</h5>
         </div>
 
         <!-- image -->
-        <div class="Img flex md5 j-c-center">
+        <div class="Img flex md5 j-c-center mb-9">
           <div class="xs10 sm7">
             <img
               src="/defaults/pgs/wpages.png"
@@ -20,47 +21,8 @@
           </div>
         </div>
 
-        <!-- Summary -->
-        <div ref="MoreInfoRef" class="More">
-          <div>
-            <!-- Unique websites tailored to your needs. -->
-          </div>
-          <ul>
-            UI Designs
-            <li>
-              Have your website's UI professionally designed for the best user
-              experience.
-            </li>
-          </ul>
-          <ul>
-            Single Page Applications(SPAs)
-            <li>
-              Give your website a mobile-app appearance and experience, with
-              fast page navigation.
-            </li>
-          </ul>
-          <ul>
-            E-commerce, Online Stores
-            <li>
-              Render your products to the market with various e-commerce
-              integrations.
-            </li>
-          </ul>
-          <ul>
-            Back-end Development
-            <li>
-              Deploy your apps with a fast back-end using powerful NodeJS
-              frameworks hosted with amazing Cloud Platforms.
-            </li>
-          </ul>
-          <ul>
-            Blogs, Contents Marketing
-            <li>
-              Publish contents with great SEO using CMSs like Wordpress, Ghost,
-              ...anyhow you want it.
-            </li>
-          </ul>
-        </div>
+        <!-- Summary Accordion Component -->
+        <Accordion />
       </div>
 
       <!-- logo -->
@@ -81,24 +43,24 @@
       </div>
     </section>
 
-      <section class="slider-container">
-        <ul class="slider-list" ref="sliderListRef">
-          <li v-for="(image, index) in images" :key="index">
-            <img :src="image.src" :alt="image.alt" />
-          </li>
-        </ul>
-      </section>
-      
+    <section class="slider-container">
+      <ul class="slider-list" ref="sliderListRef">
+        <li v-for="(image, index) in images" :key="index">
+          <img :src="image.src" :alt="image.alt" />
+        </li>
+      </ul>
+    </section>
+
     <section class="SubText flex j-c-center">
       <div class="xs12 md6">
-        A virtual online profile that makes your live simple. Just do it here.
+        Your Online Profile, Simplified and Elevated. Let's do it
       </div>
     </section>
 
     <section class="Section_2">
       <h3 class="SectionSubHead">
         <span class="icon-check mr-2"></span>
-        <span>What You Get.. </span>
+        <span>My Approach.. </span>
       </h3>
       <div class="Tiles bg-img-masked flex wrap j-c-center py-4">
         <div class="xs11 sm10 md9 lg7 shadow-3" v-for="(L, i) in list" :key="i">
@@ -214,8 +176,8 @@
       <MainContact></MainContact>
     </div>
 
-    <!-- FootNoteGBL class ia in the GlobalWrapper component -->
-    <section class="FootNoteGBL mt-10">
+    <!-- FootNoteGBL  -->
+    <section class="HomeFootNote mt-10">
       <div data-aos="zoom-in" data-aos-once="true" class="flex j-c-center">
         <div class="xs12 md7 lg6">
           If you would love to have a more streamlined project discussion to
@@ -250,11 +212,9 @@ export default {
     const activeGal = ref(-1);
 
     const interval: Ref<TimerHandler | null> = ref(null); //holds the setInterval timer
-    const topInfoInterval: Ref<TimerHandler | null> = ref(null);
 
     /* Element Refs */
     const TestimonialContRef: Ref<HTMLElement | null> = ref(null);
-    const MoreInfoRef: Ref<HTMLElement | null> = ref(null);
 
     /* Other Static properties  */
     const list = [
@@ -300,7 +260,7 @@ export default {
       },
     ];
 
-// Tech stack slider props
+    // Tech stack slider props
     const images = [
       { src: "/defaults/logo/orbrift-cy.png", alt: "Image 1" },
       { src: "/defaults/logo/orbrift-cy.png", alt: "Image 2" },
@@ -318,8 +278,7 @@ export default {
       }
     };
 
-
-//  proj gallery
+    //  proj gallery
     const galImageList = [
       { pc: "1", tablet: "2", phone: "3" },
       { pc: "4", tablet: "5", phone: "6" },
@@ -386,7 +345,7 @@ export default {
 
     onMounted(() => {
       // Icons slider
-              if (sliderListRef.value) {
+      if (sliderListRef.value) {
         listItemWidth.value = sliderListRef.value.firstElementChild.clientWidth;
       }
 
@@ -419,30 +378,11 @@ export default {
       interval.value = setInterval(() => {
         loopGallery();
       }, 8000);
-
-      /* Animate Addition top info at intervals */
-      let infoCount = 0;
-      let loopInfo = () => {
-        infoCount++;
-        if (infoCount > 5) {
-          infoCount = 1;
-        }
-        const elems = MoreInfoRef.value?.children;
-        elems[infoCount].classList.add("Auto");
-
-        setTimeout(() => {
-          elems[infoCount].classList.remove("Auto");
-        }, 2000);
-      };
-      topInfoInterval.value = setInterval(() => {
-        loopInfo();
-      }, 2200);
     });
 
     onUnmounted(() => {
       clearInterval(interval.value);
-      clearInterval(topInfoInterval.value);
-      
+
       if (sliderInterval) {
         clearInterval(sliderInterval);
       }
@@ -454,9 +394,7 @@ export default {
       showPhone,
       activeGal,
       interval,
-      topInfoInterval,
       TestimonialContRef,
-      MoreInfoRef,
 
       list,
       galImageList,
@@ -464,8 +402,8 @@ export default {
       loopGallery,
       TSTclickLeft,
       TSTclickRight,
-      
-            images,
+
+      images,
       sliderListRef,
     };
   },
@@ -506,17 +444,6 @@ export default {
   background-color: $sec-color;
   background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
   background-attachment: fixed;
-  // filter: blur(3px);
-  // -webkit-filter: blur(3px);
-  // & .Logo {
-  //   position: absolute;
-  //   z-index: 2;
-  //   top: 72px;
-  //   width: 66.66%;
-  // }
-  // &::after {
-  // background-color: rgba(72, 72, 72, 0.65);
-  // }
   & .Detail {
     z-index: 1;
     & .Intro {
@@ -525,9 +452,28 @@ export default {
         letter-spacing: 1px;
         font-weight: bold;
       }
-      & > .Stitle {
+      & > .MyName {
         color: rgba(204, 235, 238, 0.7);
         font-size: 35px;
+        margin-bottom: 0;
+      }
+      & > .MyRole {
+        position: relative;
+        color: white;
+        font-size: 20px;
+        margin-bottom: 0;
+        z-index: 0;
+        &::after {
+          position: absolute;
+          content: "";
+          bottom: -2px;
+          left: 50%;
+          margin-left: -95px;
+          width: 190px;
+          height: 15px;
+          background-color: $pri-color;
+          z-index: -1;
+        }
       }
       & > .Sdesc {
         // font-family: "Itim", "Roboto", sans-serif;
@@ -538,7 +484,7 @@ export default {
         padding: 0 10px;
       }
       & > .Targ {
-        // font-family: "Itim", "Roboto", sans-serif;
+        margin-top: 0px;
         color: $light-color;
       }
     }
@@ -551,48 +497,6 @@ export default {
       & img {
         width: 100%;
         height: 100%;
-      }
-    }
-
-    & .More {
-      padding: 20px 0 0 0;
-      letter-spacing: 1px;
-      font-weight: bold;
-      color: $light-color;
-      font-size: 16px;
-      margin-left: 80px;
-
-      & > ul {
-        list-style: none;
-        margin: 3px 0;
-        padding: 5px 3px;
-        background-color: $sec-color-transparent;
-        border-radius: 4px;
-        transition: 1s cubic-bezier(0.4, -0.65, 0.265, 2);
-
-        &.Auto {
-          transform: translateX(20px);
-        }
-
-        & li {
-          font-size: 13px;
-          font-weight: normal;
-          padding-left: 16px;
-        }
-
-        &::before {
-          @include anim-list-style;
-        }
-      }
-      & > div {
-        font-family: "Courier New", Courier, monospace;
-        color: $pri-color;
-        margin-top: 18px;
-        margin-left: -20px;
-        padding-left: 10px;
-        font-size: 28px;
-        border-radius: 10px;
-        border-left: solid 3px $pri-color;
       }
     }
   }
@@ -610,7 +514,7 @@ export default {
   overflow: hidden;
   position: relative;
   // background-color: red;
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .slider-list {
@@ -637,8 +541,12 @@ export default {
 }
 
 @keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .Section_2 {
@@ -690,22 +598,6 @@ export default {
     }
   }
 }
-
-/* Developer image */
-// .TeamImgWrapper {
-//   margin-bottom:50px;
-// }
-// .ImgCont {
-//   height: 150px;
-//   width: 150px;
-//   border-radius: 50%;
-//   overflow: hidden;
-//   border: solid 3px $sec-color;
-//   & img {
-//     width: 100%;
-//     height: 100%;
-//   }
-// }
 
 .Gallery {
   position: relative;
@@ -839,6 +731,18 @@ export default {
   }
 }
 
+.HomeFootNote {
+  font-size: 16px;
+  text-align: center;
+  color: $pri-color;
+  background-color: $sec-color-transparent;
+  padding: 15px;
+  & a {
+    // color:$pri-color;
+    color: lightblue;
+  }
+}
+
 @include sm-and-down {
   .Top {
     & .Detail {
@@ -860,7 +764,7 @@ export default {
   .Top {
     .Detail {
       & .Intro {
-        & > .Stitle {
+        & > .MyName {
           font-size: 26px;
         }
         & > .Sdesc {
