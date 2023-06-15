@@ -98,7 +98,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .Cont {
   min-height: 350px;
   padding-left: 20px;
