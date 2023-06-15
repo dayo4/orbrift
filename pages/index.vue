@@ -11,7 +11,7 @@
         </div>
 
         <!-- image -->
-        <div class="Img flex md5 j-c-center mb-9">
+        <div class="Img flex md6 j-c-center mb-9">
           <div class="xs10 sm7">
             <img
               src="/defaults/pgs/wpages.png"
@@ -43,16 +43,12 @@
       </div>
     </section>
 
-    <section class="slider-container">
-      <ul class="slider-list" ref="sliderListRef">
-        <li v-for="(image, index) in images" :key="index">
-          <img :src="image.src" :alt="image.alt" />
-        </li>
-      </ul>
-    </section>
+    <!-- Tech Stack Icons Slider Component -->
+    <TechStackSlider />
+    <!-- Tech Stack Icons Slider Component -->
 
     <section class="SubText flex j-c-center">
-      <div class="xs12 md6">
+      <div class="xs12 sm9 md4">
         Your Online Profile, Simplified and Elevated. Let's do it
       </div>
     </section>
@@ -95,44 +91,15 @@
     <!--Designs Gallery -->
     <h3 class="SectionSubHead">
       <span class="icon-check mr-2"></span>
-      <span> Few Designs gallery </span>
+      <span> Some Designs gallery.. </span>
     </h3>
 
     <section>
       <h2 class="text-center t-blue-grey--1"></h2>
 
-      <div class="Gallery img-masked-00 flex wrap j-c-center px-3">
-        <transition name="slide-down-fade">
-          <div v-if="showPc" class="Pc xs12 sm6 md5 m-1">
-            <img
-              class="shadow-5"
-              :src="'/defaults/gal/' + galImageList[activeGal].pc + '.jpg'"
-              alt="orbrift.com"
-              draggable="false"
-            />
-
-            <div v-if="showTablet" ref="Tablet" class="Tablet">
-              <img
-                class="shadow-5"
-                :src="
-                  '/defaults/gal/' + galImageList[activeGal].tablet + '.jpg'
-                "
-                alt="orbrift.com"
-                draggable="false"
-              />
-            </div>
-
-            <div v-if="showPhone" ref="Phone" class="Phone">
-              <img
-                class="shadow-5"
-                :src="'/defaults/gal/' + galImageList[activeGal].phone + '.jpg'"
-                alt="orbrift.com"
-                draggable="false"
-              />
-            </div>
-          </div>
-        </transition>
-      </div>
+      <!-- Projects Gallery Component -->
+      <ProjGallery />
+      <!-- Projects Gallery Component -->
 
       <div class="flex j-c-center mb-10">
         <Button size="medium" icon="icon-right" iconPos="right">
@@ -143,45 +110,28 @@
 
     <h3 class="SectionSubHead">
       <span class="icon-check mr-2"></span>
-      <span> A Few Feedbacks.. </span>
+      <span> Some Feedbacks.. </span>
     </h3>
 
-    <section class="TSTSection bg-img-masked flex wrap j-c-center my-3">
-      <div
-        id="TestimonialContRef"
-        ref="TestimonialContRef"
-        class="TestimonialContRef flex sm11 md10 lg7"
-      >
-        <div class="Item" v-for="(item, i) in TSTList" :key="i">
-          <h3>{{ item.name }}</h3>
-          <h5>{{ item.info }}</h5>
-          <p>
-            {{ item.msg }}
-          </p>
-          <i class="TopHandle"></i>
-          <i class="BottomHandle"></i>
-        </div>
-      </div>
-      <i @click="TSTclickLeft" class="LeftBtn icon-left"></i>
-      <i @click="TSTclickRight" class="RightBtn icon-right"></i>
-    </section>
+    <!-- Testimonial Component -->
+    <Testimonial />
+    <!-- Testimonial Component -->
 
     <h3 class="SectionSubHead">
       <span class="icon-mail mr-3"></span>
-      <span> Get Started </span>
+      <span> Talk To Me </span>
     </h3>
     <!-- Contact Component -->
-
     <div>
       <MainContact></MainContact>
     </div>
 
-    <!-- FootNoteGBL  -->
+    <!-- FootNote   -->
     <section class="HomeFootNote mt-10">
       <div data-aos="zoom-in" data-aos-once="true" class="flex j-c-center">
         <div class="xs12 md7 lg6">
-          If you would love to have a more streamlined project discussion to
-          request an estimate, use the button below
+          If you would love to have a more streamlined project discussion with
+          me to request an estimate, use the button below
           <div class="flex j-c-center my-5">
             <Button
               @clicked="$router.push({ path: '/create' })"
@@ -205,16 +155,7 @@ export default {
 
     useSeoMeta($myMetaInfo({}));
 
-    /* Properties */
-    const showPc = ref(false);
-    const showTablet = ref(false);
-    const showPhone = ref(false);
-    const activeGal = ref(-1);
-
-    const interval: Ref<TimerHandler | null> = ref(null); //holds the setInterval timer
-
     /* Element Refs */
-    const TestimonialContRef: Ref<HTMLElement | null> = ref(null);
 
     /* Other Static properties  */
     const list = [
@@ -260,151 +201,12 @@ export default {
       },
     ];
 
-    // Tech stack slider props
-    const images = [
-      { src: "/defaults/logo/orbrift-cy.png", alt: "Image 1" },
-      { src: "/defaults/logo/orbrift-cy.png", alt: "Image 2" },
-      { src: "/defaults/logo/orbrift-cy.png", alt: "Image 3" },
-      // Add more images as needed
-    ];
+    // onMounted(() => {});
 
-    const sliderListRef = ref(null);
-    const listItemWidth = ref(0);
-    let sliderInterval;
-
-    const animateSlider = () => {
-      if (sliderListRef.value) {
-        sliderListRef.value.style.transform = `translateX(-${listItemWidth.value}px)`;
-      }
-    };
-
-    //  proj gallery
-    const galImageList = [
-      { pc: "1", tablet: "2", phone: "3" },
-      { pc: "4", tablet: "5", phone: "6" },
-      { pc: "7", tablet: "8", phone: "9" },
-      { pc: "10", tablet: "11", phone: "12" },
-      { pc: "13", tablet: "14", phone: "15" },
-      { pc: "16", tablet: "17", phone: "18" },
-    ];
-
-    const TSTList = [
-      {
-        name: "Isaac Olajide",
-        info: "ceo - Iradux Printing",
-        msg: "It's such a great work you did on our website with amazing designs and simple pages setup. Our customers feedback on it is satisfactory. Keep up the good job.",
-      },
-      {
-        name: "Mercy Oni",
-        info: "Graphics designer",
-        msg: "I really love the the impressive custom design of my porfolio and the user-friendliness. It has really made it easy for me to engage clients. I'm glad you were recommended to me.",
-      },
-      {
-        name: "Timothy Williams",
-        info: "Lead Software Developer",
-        msg: "It was good to have you as part of our project team. You did a splendid work managing our NodeJs backend - all APIs and micro services were incredibly implemented.",
-      },
-      {
-        name: "Tony Nathaniel",
-        info: "ceo, ENK - product branding company",
-        msg: "Just wanted to say you have been very helpful to my business with the recent pages redesign and new features implemented. Doing business has never been so easy and efficient.",
-      },
-    ];
-
-    const loopGallery = () => {
-      activeGal.value++;
-      if (activeGal.value > 5) {
-        activeGal.value = 0;
-      }
-      showPc.value = true;
-
-      setTimeout(() => {
-        showTablet.value = true;
-      }, 2000);
-      setTimeout(() => {
-        showPhone.value = true;
-      }, 3000);
-      setTimeout(() => {
-        showPc.value = showPhone.value = showTablet.value = false;
-      }, 7500);
-    };
-
-    const TSTclickLeft = () => {
-      TestimonialContRef.value?.scrollBy({
-        left: -TestimonialContRef.value?.children[0].clientWidth,
-        behavior: "smooth",
-      });
-    };
-
-    const TSTclickRight = () => {
-      TestimonialContRef.value?.scrollBy({
-        left: TestimonialContRef.value.children[0].clientWidth,
-        behavior: "smooth",
-      });
-    };
-
-    onMounted(() => {
-      // Icons slider
-      if (sliderListRef.value) {
-        listItemWidth.value = sliderListRef.value.firstElementChild.clientWidth;
-      }
-
-      const handleTransitionEnd = () => {
-        if (sliderListRef.value) {
-          sliderListRef.value.appendChild(
-            sliderListRef.value.firstElementChild
-          );
-          sliderListRef.value.style.transition = "none";
-          sliderListRef.value.style.transform = "translateX(0)";
-
-          setTimeout(() => {
-            sliderListRef.value.style.transition =
-              "transform 10s linear infinite";
-          });
-        }
-      };
-
-      if (sliderListRef.value) {
-        sliderListRef.value.addEventListener(
-          "transitionend",
-          handleTransitionEnd
-        );
-      }
-
-      sliderInterval = setInterval(animateSlider, 10000); // Adjust the duration based on your preference
-
-      //Gallery
-      loopGallery();
-      interval.value = setInterval(() => {
-        loopGallery();
-      }, 8000);
-    });
-
-    onUnmounted(() => {
-      clearInterval(interval.value);
-
-      if (sliderInterval) {
-        clearInterval(sliderInterval);
-      }
-    });
+    // onUnmounted(() => { });
 
     return {
-      showPc,
-      showTablet,
-      showPhone,
-      activeGal,
-      interval,
-      TestimonialContRef,
-
       list,
-      galImageList,
-      TSTList,
-      loopGallery,
-      TSTclickLeft,
-      TSTclickRight,
-
-      images,
-      sliderListRef,
     };
   },
 };
@@ -414,7 +216,7 @@ export default {
   text-align: center;
   font-size: 24px;
   color: $pri-color;
-  background-color: $sec-color-transparent;
+  background-color: $sec-color-trans-1;
   padding: 15px;
   margin-bottom: 40px;
 }
@@ -461,6 +263,7 @@ export default {
         position: relative;
         color: white;
         font-size: 20px;
+        margin-top: 10px;
         margin-bottom: 0;
         z-index: 0;
         &::after {
@@ -471,7 +274,7 @@ export default {
           margin-left: -95px;
           width: 190px;
           height: 15px;
-          background-color: $pri-color;
+          background-color: $pri-color-trans-3;
           z-index: -1;
         }
       }
@@ -480,10 +283,12 @@ export default {
         color: $pri-color;
         // color: white;
         font-size: 35px;
-        margin-top: 25px;
+        margin-top: 50px;
+        margin-bottom: 8px;
         padding: 0 10px;
       }
       & > .Targ {
+        font-size: 15px;
         margin-top: 0px;
         color: $light-color;
       }
@@ -504,48 +309,6 @@ export default {
   & button {
     margin-top: 40px;
     z-index: 2;
-  }
-}
-
-//icons slider
-.slider-container {
-  width: 100%;
-  height: 100px;
-  overflow: hidden;
-  position: relative;
-  // background-color: red;
-  margin-bottom: 50px;
-}
-
-.slider-list {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  // background-color: yellow;
-  animation: scroll 10s linear infinite;
-}
-
-.slider-list li {
-  list-style: none;
-  width: 70px;
-  height: 70px;
-  margin-right: 10px;
-}
-
-.slider-list li img {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
   }
 }
 
@@ -599,143 +362,11 @@ export default {
   }
 }
 
-.Gallery {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 30px;
-  & .Thumb {
-    min-height: 50px;
-  }
-  & .Pc {
-    min-height: 250px;
-    position: relative;
-    top: 0;
-    // max-width: 1000px;
-    max-height: 600px;
-    overflow: hidden;
-    animation: pc 1s;
-  }
-  .Pc,
-  .Tablet,
-  .Phone {
-    & img {
-      width: 100%;
-      min-height: 100%;
-    }
-    border-radius: 6px;
-    border: solid $sec-color-transparent-less 4px;
-    border-bottom: solid $sec-color-transparent-less 15px;
-  }
-  .Tablet,
-  .Phone {
-    position: absolute;
-    top: 20px;
-    max-height: 90%;
-    overflow: hidden;
-    animation: mobiles 2s;
-  }
-
-  .Tablet {
-    left: 5%;
-    width: 30%;
-  }
-  .Phone {
-    left: 45%;
-    width: 19%;
-  }
-}
-
-.TSTSection {
-  position: relative;
-  max-width: 100vw;
-  overflow-y: hidden;
-  margin-bottom: 50px;
-  background-color: $sec-color;
-  background-attachment: fixed;
-  background-image: url("/defaults/pgs/orbrift_pfbg.jpg");
-
-  & .LeftBtn,
-  .RightBtn {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 45%;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 20px;
-    font-weight: bolder;
-    color: $pri-color;
-    background-color: rgba(53, 51, 51, 0.507);
-  }
-  & .LeftBtn:active,
-  .RightBtn:active {
-    background-color: rgba(53, 51, 51, 0.253);
-  }
-  & .LeftBtn {
-    left: 3%;
-  }
-  & .RightBtn {
-    right: 5%;
-  }
-}
-.TestimonialContRef {
-  position: relative;
-  padding: 10px 50px 40px 50px;
-  // border-left: solid 2px $cyan;
-  border-radius: 12px;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  scroll-snap-stop: always;
-  overscroll-behavior-x: contain;
-  transform: translateY(20px);
-
-  & .Item {
-    position: relative;
-    min-width: 400px;
-    padding: 5px 20px;
-    text-align: center;
-    margin: 20px;
-    border-radius: 12px;
-    border-top: solid 2px $sec-color-transparent-less;
-    border-bottom: solid 2px $sec-color-transparent-less;
-    scroll-snap-align: center;
-    background-color: white;
-
-    & .TopHandle,
-    .BottomHandle {
-      position: absolute;
-      left: 50%;
-      margin-left: -60px;
-      width: 120px;
-      height: 20px;
-      background-color: $light-color;
-      border-left: solid 2px $sec-color-transparent-less;
-      border-right: solid 2px $sec-color-transparent-less;
-    }
-    & .TopHandle {
-      top: -20px;
-      border-radius: 28px 28px 0px 0px;
-      border-top: solid 2px $sec-color-transparent-less;
-      border-left: solid 2px $sec-color-transparent-less;
-      border-right: solid 2px $sec-color-transparent-less;
-    }
-    & .BottomHandle {
-      bottom: -20px;
-      border-radius: 0px 0px 28px 28px;
-      border-bottom: solid 2px $sec-color-transparent-less;
-      border-left: solid 2px $sec-color-transparent-less;
-      border-right: solid 2px $sec-color-transparent-less;
-    }
-  }
-}
-
 .HomeFootNote {
   font-size: 16px;
   text-align: center;
   color: $pri-color;
-  background-color: $sec-color-transparent;
+  background-color: $sec-color-trans-1;
   padding: 15px;
   & a {
     // color:$pri-color;
@@ -750,12 +381,6 @@ export default {
         position: relative;
         top: 40px;
       }
-    }
-  }
-
-  .TestimonialContRef {
-    & .Item {
-      min-width: 300px;
     }
   }
 }
@@ -784,18 +409,6 @@ export default {
       }
     }
   }
-
-  .Gallery {
-    & .Pc {
-      min-height: 190px;
-    }
-  }
-
-  .TestimonialContRef {
-    & .Item {
-      min-width: 220px;
-    }
-  }
 }
 @include xxs-only {
   .Top {
@@ -816,28 +429,6 @@ export default {
         max-width: 91.66%;
       }
     }
-  }
-  .Gallery {
-    & .Pc {
-      min-height: 150px;
-    }
-  }
-}
-
-@keyframes pc {
-  from {
-    top: 600px;
-  }
-  to {
-    top: 0;
-  }
-}
-@keyframes mobiles {
-  from {
-    top: 600px;
-  }
-  to {
-    top: 20px;
   }
 }
 </style>

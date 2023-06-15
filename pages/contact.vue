@@ -2,7 +2,7 @@
   <GlobalWrapper :header="true" :footNote="true">
     <template #Title> Get In Touch </template>
     <template #SubText>
-      Let’s help you reach and engage your target audience where they are
+      Let me help you reach and engage your target audience where they are
     </template>
 
     <template #WrapperBody>

@@ -98,13 +98,13 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .Cont {
   min-height: 350px;
   padding-left: 20px;
 }
 .Header {
-  background-color: $sec-color-transparent-more;
+  background-color: $sec-color-trans-2;
   background: linear-gradient(
     to right,
     rgb(39, 64, 96, 0.5),

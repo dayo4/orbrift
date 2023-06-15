@@ -235,9 +235,9 @@ export default {
 }
 .AB_SubHead {
   padding: 10px;
-  background-color: $sec-color-transparent;
+  background-color: $sec-color-trans-1;
   color: $pri-color;
-  border-bottom: solid $sec-color-transparent-more 3px;
+  border-bottom: solid $sec-color-trans-2 3px;
   border-radius: 10px;
 }
 
@@ -250,7 +250,7 @@ export default {
     left: 0;
     height: 180px;
     width: 100%;
-    background-color: $sec-color-transparent;
+    background-color: $sec-color-trans-1;
     background-image: url("/defaults/pgs/orbrift_pfbg.jpg");
     background-blend-mode: overlay;
     background-attachment: fixed;

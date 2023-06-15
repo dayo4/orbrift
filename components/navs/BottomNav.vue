@@ -50,7 +50,7 @@ export default {
   z-index: 7;
   display: flex;
   align-items: center;
-  background-color: $sec-color-transparent-less;
+  background-color: $sec-color-trans;
   border-radius: 28px 28px 1px 1px;
   height: 44px;
   animation: show 0.6s;

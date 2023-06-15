@@ -2,34 +2,21 @@
 
 $ter-color: #90afc5;
 
-$pri-color-bolder: #ff9900;
-$pri-color: #fab95b;
-$pri-color-transparent: rgba(39, 64, 96, 0.75);
+$pri-color-bolder: rgb(255, 153, 0);
+$pri-color: rgb(250, 185, 91);
+$pri-color-trans: rgba(250, 185, 91, 0.90);
+$pri-color-trans-1: rgba(250, 185, 91, 0.75);
+$pri-color-trans-2: rgba(250, 185, 91, 0.5);
+$pri-color-trans-3: rgba(250, 185, 91, 0.25);
+
 // $sec-color: rgb(2, 41, 61); //prussian blue
 // $sec-color: rgb(47, 72, 88);  //charcoal
 $sec-color: rgb(39, 64, 96);
-$sec-color-transparent: rgba(39, 64, 96, 0.75);
-$sec-color-transparent-less: rgba(39, 64, 96, 0.9);
-$sec-color-transparent-more: rgba(39, 64, 96, 0.5);
-$sec-color-transparent-alot: rgba(39, 64, 96, 0.25);
+$sec-color-trans: rgba(39, 64, 96, 0.9);
+$sec-color-trans-1: rgba(39, 64, 96, 0.75);
+$sec-color-trans-2: rgba(39, 64, 96, 0.5);
+$sec-color-trans-3: rgba(39, 64, 96, 0.25);
 
 $light-color: white;
 $dark-color: black;
 $dark-text-color: rgba(0, 0, 0, 0.65);
-
-@mixin anim-list-gradient {
-	background-color: rgba(0, 97, 100, 0.4);
-	background: linear-gradient(to right, rgba(0, 131, 143, 0.4), rgba(0, 97, 100, 0) 90%);
-}
-@mixin anim-list-style {
-	content: "";
-	display: inline-block;
-	position: relative;
-	left: -15px;
-	width: 3px;
-	height: 10px;
-	border-top: 5px solid transparent;
-	border-bottom: 13px solid transparent;
-	border-right: 7px solid $sec-color-transparent;
-	transform: rotateZ(55deg);
-}
