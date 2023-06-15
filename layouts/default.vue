@@ -2,7 +2,6 @@
   <div>
     <div
       class="GBLMContainer"
-      :class="$route.name === 'samuel-adeniyi' ? 'PrfBg bg-img-masked' : ''"
     >
       <TopNav @search="searchOn = !searchOn" />
       <HoverPanel />
@@ -80,11 +79,5 @@ onMounted(()=>$aos())
   & > .Routes {
     padding-bottom: 50px;
   }
-}
-.PrfBg {
-  background-color: $sec-color-transparent;
-  background-image: url("/defaults/pgs/orbrift_pfbg.jpg");
-  background-blend-mode: overlay;
-  background-attachment: fixed;
 }
 </style>
