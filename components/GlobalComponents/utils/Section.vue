@@ -10,7 +10,6 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 
 export default {};
 </script>
@@ -21,13 +20,15 @@ export default {};
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  background-color: $sec-color-transparent-less;
-  border-radius: 4px 20px 4px 4px;
-  color: white;
-  font-size: 15px;
+  // background-color: $sec-color-transparent-less;
+  background-color: $pri-color;
+  border-radius: 4px;
+  // border-radius: 4px 20px 4px 4px;
+  color: $sec-color;
+  font-size: 16px;//
   letter-spacing: 0.5px;
   font-weight: bold;
-  padding: 8px 12px 8px 12px;
+  padding: 8px 12px 8px 16px;
   margin-bottom: 8px;
 }
 

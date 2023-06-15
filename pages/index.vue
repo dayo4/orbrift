@@ -81,6 +81,14 @@
       </div>
     </section>
 
+      <section class="slider-container">
+        <ul class="slider-list" ref="sliderListRef">
+          <li v-for="(image, index) in images" :key="index">
+            <img :src="image.src" :alt="image.alt" />
+          </li>
+        </ul>
+      </section>
+      
     <section class="SubText flex j-c-center">
       <div class="xs12 md6">
         A virtual online profile that makes your live simple. Just do it here.
@@ -133,7 +141,7 @@
 
       <div class="Gallery img-masked-00 flex wrap j-c-center px-3">
         <transition name="slide-down-fade">
-          <div v-if="showPc" class="Pc xs12 sm6 md5  m-1">
+          <div v-if="showPc" class="Pc xs12 sm6 md5 m-1">
             <img
               class="shadow-5"
               :src="'/defaults/gal/' + galImageList[activeGal].pc + '.jpg'"
@@ -198,25 +206,40 @@
 
     <h3 class="SectionSubHead">
       <span class="icon-mail mr-3"></span>
-      <span>
-        Get Started
-      </span>
+      <span> Get Started </span>
     </h3>
     <!-- Contact Component -->
 
-      <div>
-        <MainContact></MainContact>
-      </div>
+    <div>
+      <MainContact></MainContact>
+    </div>
 
+    <!-- FootNoteGBL class ia in the GlobalWrapper component -->
+    <section class="FootNoteGBL mt-10">
+      <div data-aos="zoom-in" data-aos-once="true" class="flex j-c-center">
+        <div class="xs12 md7 lg6">
+          If you would love to have a more streamlined project discussion to
+          request an estimate, use the button below
+          <div class="flex j-c-center my-5">
+            <Button
+              @clicked="$router.push({ path: '/create' })"
+              type="cta"
+              size="large"
+            >
+              Get A Quote
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 <script lang="ts">
-
 export default {
   name: "Home",
 
   setup() {
-        const { $myMetaInfo } = useNuxtApp();
+    const { $myMetaInfo } = useNuxtApp();
 
     useSeoMeta($myMetaInfo({}));
 
@@ -245,7 +268,7 @@ export default {
         img: "scale",
         text: "Performant and Easily Scalable Apps",
         detail:
-          "A successful web application should be reliable, well-planned and seemlessly accommodate growth. With me, Web Apps are designed to welcome subsequent growths without friction. And I technically avoid anything that can get my apps stuck in a hole.",
+          "A successful web application should be reliable, well-planned and seamlessly accommodate growth. With me, Web Apps are designed to welcome subsequent growths without friction. And I technically avoid anything that can get my apps stuck in a hole.",
       },
       {
         img: "",
@@ -277,6 +300,26 @@ export default {
       },
     ];
 
+// Tech stack slider props
+    const images = [
+      { src: "/defaults/logo/orbrift-cy.png", alt: "Image 1" },
+      { src: "/defaults/logo/orbrift-cy.png", alt: "Image 2" },
+      { src: "/defaults/logo/orbrift-cy.png", alt: "Image 3" },
+      // Add more images as needed
+    ];
+
+    const sliderListRef = ref(null);
+    const listItemWidth = ref(0);
+    let sliderInterval;
+
+    const animateSlider = () => {
+      if (sliderListRef.value) {
+        sliderListRef.value.style.transform = `translateX(-${listItemWidth.value}px)`;
+      }
+    };
+
+
+//  proj gallery
     const galImageList = [
       { pc: "1", tablet: "2", phone: "3" },
       { pc: "4", tablet: "5", phone: "6" },
@@ -342,6 +385,36 @@ export default {
     };
 
     onMounted(() => {
+      // Icons slider
+              if (sliderListRef.value) {
+        listItemWidth.value = sliderListRef.value.firstElementChild.clientWidth;
+      }
+
+      const handleTransitionEnd = () => {
+        if (sliderListRef.value) {
+          sliderListRef.value.appendChild(
+            sliderListRef.value.firstElementChild
+          );
+          sliderListRef.value.style.transition = "none";
+          sliderListRef.value.style.transform = "translateX(0)";
+
+          setTimeout(() => {
+            sliderListRef.value.style.transition =
+              "transform 10s linear infinite";
+          });
+        }
+      };
+
+      if (sliderListRef.value) {
+        sliderListRef.value.addEventListener(
+          "transitionend",
+          handleTransitionEnd
+        );
+      }
+
+      sliderInterval = setInterval(animateSlider, 10000); // Adjust the duration based on your preference
+
+      //Gallery
       loopGallery();
       interval.value = setInterval(() => {
         loopGallery();
@@ -369,6 +442,10 @@ export default {
     onUnmounted(() => {
       clearInterval(interval.value);
       clearInterval(topInfoInterval.value);
+      
+      if (sliderInterval) {
+        clearInterval(sliderInterval);
+      }
     });
 
     return {
@@ -387,6 +464,9 @@ export default {
       loopGallery,
       TSTclickLeft,
       TSTclickRight,
+      
+            images,
+      sliderListRef,
     };
   },
 };
@@ -422,7 +502,7 @@ export default {
   width: 100%;
   padding-top: 60px;
   padding-bottom: 20px;
-  margin-bottom: 50px;
+  // margin-bottom: 50px;
   background-color: $sec-color;
   background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
   background-attachment: fixed;
@@ -521,6 +601,44 @@ export default {
     margin-top: 40px;
     z-index: 2;
   }
+}
+
+//icons slider
+.slider-container {
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+  // background-color: red;
+    margin-bottom: 50px;
+}
+
+.slider-list {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  // background-color: yellow;
+  animation: scroll 10s linear infinite;
+}
+
+.slider-list li {
+  list-style: none;
+  width: 70px;
+  height: 70px;
+  margin-right: 10px;
+}
+
+.slider-list li img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
 .Section_2 {
