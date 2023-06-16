@@ -4,15 +4,30 @@ interface Posts {
   nextPost: Object | any;
 }
 import { defineStore } from "pinia";
-import { $contentApi } from "~/addons/utils/Axios";
+import { $contentApi, $gqlApi } from "~/addons/utils/Axios";
+import gql from "graphql-tag";
 
 export const usePosts = defineStore("posts", {
   state: (): Posts => ({
     posts: [],
     prevPost: null,
     nextPost: null,
+    gq: null,
   }),
   actions: {
+    async gqlFetch() {
+      const query = gql`
+      query {
+        \`Landing Page\` {
+          ...
+          // Add more fields you need from the Contentful schema
+        }
+      }
+    `;
+      const { data } = await $gqlApi.post("posts/", { query });
+      this.gq = data;
+      return data;
+    },
     async fetchPosts() {
       if (this.posts?.length > 0) {
         return this.posts;
@@ -29,13 +44,13 @@ export const usePosts = defineStore("posts", {
         const index = this.posts.indexOf(post);
         const prev = index + 1;
         const next = index - 1;
-        
+
         if (prev > 0 && prev < this.posts.length) {
           this.setPrevPost(this.posts[prev]);
         } else {
           this.setPrevPost(null);
         }
-        
+
         if (next >= 0 && next < this.posts.length) {
           this.setNextPost(this.posts[next]);
         } else {
