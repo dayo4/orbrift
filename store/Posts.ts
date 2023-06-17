@@ -4,39 +4,57 @@ interface Posts {
   nextPost: Object | any;
 }
 import { defineStore } from "pinia";
-import { $contentApi, $gqlApi } from "~/addons/utils/Axios";
-import gql from "graphql-tag";
+import { $contentApi, defineGqlRequest } from "~/addons/utils/Axios";
+// import gql from "graphql-tag";
 
 export const usePosts = defineStore("posts", {
   state: (): Posts => ({
     posts: [],
     prevPost: null,
     nextPost: null,
-    gq: null,
   }),
   actions: {
-    async gqlFetch() {
-      const query = gql`
-      query {
-        \`Landing Page\` {
-          ...
-          // Add more fields you need from the Contentful schema
+    async fetchPosts(config) {
+      const query = `
+        query NecCollection {
+          necCollection {
+            items {
+              title
+              sys {
+                id
+                publishedAt
+              }
+            }
+          }
         }
-      }
-    `;
-      const { data } = await $gqlApi.post("posts/", { query });
-      this.gq = data;
-      return data;
-    },
-    async fetchPosts() {
+      `;
+
       if (this.posts?.length > 0) {
         return this.posts;
       } else {
-        const { data } = await $contentApi.get("posts/");
+        const { data } = await defineGqlRequest(config).post("", {
+          // "operationName": "Nec",
+          query: query,
+          variables: {
+            necId: "nec",
+          },
+        });
+        // console.log(data.data.necCollection.items);
         this.setPosts(data);
-        return data;
+        return data.data.necCollection.items;
       }
     },
+
+    // async fetchPosts() {
+    //   if (this.posts?.length > 0) {
+    //     return this.posts;
+    //   } else {
+    //     const { data } = await $contentApi.get("posts/");
+    //     this.setPosts(data);
+    //     return data;
+    //   }
+    // },
+    
     async fetchPost(slug: String) {
       const processPost = () => {
         const post = this.posts.find((p) => p.slug === slug);

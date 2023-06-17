@@ -1,11 +1,9 @@
 <template>
   <GlobalWrapper>
-<template #Title>
-  Explore
-  </template>
-<template #SubText>
-  A Collection of inspiring contents to keep you informed
-  </template>
+    <template #Title> Explore </template>
+    <template #SubText>
+      A Collection of inspiring contents to keep you informed
+    </template>
     <!-- ListOfPosts Component -->
     <template #WrapperBody>
       <section v-if="posts && posts.length > 0">
@@ -18,8 +16,9 @@
 import { usePosts } from "@/store";
 
 export default {
-
   setup() {
+    const config = useRuntimeConfig()
+
     const { $myMetaInfo } = useNuxtApp();
     const $Posts = usePosts();
 
@@ -37,10 +36,17 @@ export default {
     });
 
     /* posts properties */
-    const { data:posts, error, pending } = useAsyncData(async () => {
-      const res = await $Posts.fetchPosts()
-      return res
+    const { data: posts } = useAsyncData(async () => {
+      const res = await $Posts.fetchPosts(config.public);
+
+      return res;
     });
+
+    // console.log(posts)
+    // const { data:posts, error, pending } = useAsyncData(async () => {
+    // const res = await $Posts.fetchPosts()
+    // return res
+    // });
 
     const sortBy = (txt, v: string[]) => {
       // this.query.sort = v
@@ -58,6 +64,7 @@ export default {
       // 	})
       // }
     };
+    // onMounted(() => {    });
 
     return {
       pagin,
@@ -70,5 +77,4 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
