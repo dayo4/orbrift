@@ -41,11 +41,18 @@ export default defineNuxtConfig({
     "~/globalStyles/deploy/transitions.css",
 
     "~/globalStyles/deploy/theme/main.scss",
-    'aos/dist/aos.css'
+    "aos/dist/aos.css",
   ],
+  runtimeConfig: {
+    public: {
+      contentfulSpaceId: process.env.NUXT_CONTENTFUL_SPACE_ID,
+      contentfulDeliveryKey: process.env.NUXT_CONTENTFUL_DELIVERY_KEY,
+      contentfulPreviewKey: process.env.NUXT_CONTENTFUL_PREVIEW_KEY,
+    },
+  },
   plugins: [
     // "~/plugins/navs/index.ts"
-],
+  ],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: [
     {
@@ -71,7 +78,27 @@ export default defineNuxtConfig({
   // }
   // ]
   // ],
-
-  build: {},
+  modules: ["@nuxtjs/apollo"],
+  apollo: {
+    clients: {
+      default: {
+        httpEndpoint: `https://graphql.contentful.com/content/v1/spaces/${process.env.NUXT_CONTENTFUL_SPACE_ID}/environments/master`,
+        httpLinkOptions: {
+          headers: {
+            authorization: `Bearer ${process.env.NUXT_PUBLIC_CONTENTFUL_DELIVERY_KEY}`,
+          },
+        },
+      },
+      preview: {
+        httpEndpoint: `https://graphql.contentful.com/content/v1/spaces/${process.env.NUXT_PUBLIC_CONTENTFUL_SPACE_ID}/environments/master`,
+        httpLinkOptions: {
+          headers: {
+            authorization: `Bearer ${process.env.NUXT_PUBLIC_CONTENTFUL_PREVIEW_KEY}`,
+          },
+        },
+      },
+    },
+  },
+  // build: {},
   // loading: '~/components/GlobalComponents/notification/Loading.vue',
 });
