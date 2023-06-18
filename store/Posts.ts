@@ -16,8 +16,8 @@ export const usePosts = defineStore("posts", {
   actions: {
     async fetchPosts(config) {
       const query = `
-        query NecCollection {
-          necCollection {
+        query {
+          blogPostCollection {
             items {
               title
               sys {
@@ -40,8 +40,8 @@ export const usePosts = defineStore("posts", {
           },
         });
         // console.log(data.data.necCollection.items);
-        this.setPosts(data);
-        return data.data.necCollection.items;
+        this.setPosts(data.data.blogPostCollection.items);
+        return data.data.blogPostCollection.items;
       }
     },
 
