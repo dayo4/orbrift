@@ -15,35 +15,53 @@ export const usePosts = defineStore("posts", {
   }),
   actions: {
     async fetchPosts(config) {
-      const query = `
-        query {
-          blogPostCollection {
-            items {
-              title
-              sys {
-                id
-                publishedAt
-              }
-            }
-          }
-        }
-      `;
 
-      if (this.posts?.length > 0) {
-        return this.posts;
-      } else {
-        const { data } = await defineGqlRequest(config).post("", {
+      // if (this.posts?.length > 0) {
+      //   return this.posts;
+      // } else {
+        const { data } = await defineGqlRequest(config).get("")
           // "operationName": "Nec",
-          query: query,
-          variables: {
-            necId: "nec",
-          },
-        });
+        //   query: query,
+        //   variables: {
+        //     necId: "nec",
+        //   },
+        // });
         // console.log(data.data.necCollection.items);
-        this.setPosts(data.data.blogPostCollection.items);
-        return data.data.blogPostCollection.items;
-      }
+        // this.setPosts(data.data.blogPostCollection.items);
+        return data;
+      // }
+      
     },
+    // async fetchPosts(config) {
+    //   const query = `
+    //     query {
+    //       blogPostCollection {
+    //         items {
+    //           title
+    //           sys {
+    //             id
+    //             publishedAt
+    //           }
+    //         }
+    //       }
+    //     }
+    //   `;
+
+    //   if (this.posts?.length > 0) {
+    //     return this.posts;
+    //   } else {
+    //     const { data } = await defineGqlRequest(config).post("", {
+    //       // "operationName": "Nec",
+    //       query: query,
+    //       variables: {
+    //         necId: "nec",
+    //       },
+    //     });
+    //     // console.log(data.data.necCollection.items);
+    //     this.setPosts(data.data.blogPostCollection.items);
+    //     return data.data.blogPostCollection.items;
+    //   }
+    // },
 
     // async fetchPosts() {
     //   if (this.posts?.length > 0) {

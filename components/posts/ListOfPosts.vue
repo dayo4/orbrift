@@ -12,7 +12,7 @@
             />
           </div>
           <h2 class="Title">
-            {{ post.title }}
+            {{ post.title?.rendered }}
           </h2>
         </div>
         <div class="Author">
@@ -26,7 +26,7 @@
         </div>
         <p
           class="Excerpt"
-          v-html="post.excerpt"
+          v-html="post.excerpt?.rendered"
           @click="openPost(post.slug)"
         ></p>
       </div>

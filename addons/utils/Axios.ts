@@ -5,10 +5,12 @@ import axios from "axios";
 const devMode = process.env.NODE_ENV === 'development'
 
 const $baseApi = axios.create({ baseURL: 'https://baseapi.orbrift.com/rift-v1/', })
+// const $contentApi = axios.create({ baseURL: `https://cdn.contentful.comspaces/${appConfig.contentfulSpaceId}/environments/master`, })
 const $contentApi = axios.create({ baseURL: 'https://api.orbrift.com/wp-json/wp/v2/', })
 
 const defineGqlRequest = (appConfig)=>{
-  const $gqlApi = axios.create({ baseURL: `https://graphql.contentful.com/content/v1/spaces/${appConfig.contentfulSpaceId}/environments/master`})
+  const $gqlApi = axios.create({ baseURL: `https://cdn.contentful.comspaces/${appConfig.contentfulSpaceId}/environments/master`})
+  // const $gqlApi = axios.create({ baseURL: `https://graphql.contentful.com/content/v1/spaces/${appConfig.contentfulSpaceId}/environments/master`})
   $gqlApi.defaults.headers.common['Authorization'] = `Bearer ${appConfig.contentfulDeliveryKey}`
 
   $gqlApi.interceptors.request.use(
