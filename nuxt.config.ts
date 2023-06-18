@@ -45,9 +45,9 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      contentfulSpaceId: process.env.NUXT_CONTENTFUL_SPACE_ID,
-      contentfulDeliveryKey: process.env.NUXT_CONTENTFUL_DELIVERY_KEY,
-      contentfulPreviewKey: process.env.NUXT_CONTENTFUL_PREVIEW_KEY,
+      contentfulSpaceId: process.env.NUXT_PUBLIC_CONTENTFUL_SPACE_ID,
+      contentfulDeliveryKey: process.env.NUXT_PUBLIC_CONTENTFUL_DELIVERY_KEY,
+      contentfulPreviewKey: process.env.NUXT_PUBLIC_CONTENTFUL_PREVIEW_KEY,
     },
   },
   plugins: [
@@ -82,7 +82,7 @@ export default defineNuxtConfig({
   apollo: {
     clients: {
       default: {
-        httpEndpoint: `https://graphql.contentful.com/content/v1/spaces/${process.env.NUXT_CONTENTFUL_SPACE_ID}/environments/master`,
+        httpEndpoint: `https://graphql.contentful.com/content/v1/spaces/${process.env.NUXT_PUBLIC_CONTENTFUL_SPACE_ID}/environments/master`,
         httpLinkOptions: {
           headers: {
             authorization: `Bearer ${process.env.NUXT_PUBLIC_CONTENTFUL_DELIVERY_KEY}`,

@@ -5,14 +5,14 @@
         <div class="TopSection" @click="openPost(post.slug)">
           <div class="PostImageWrapper">
             <img
-              :src="'post.featuredImage'"
+              :src="post.featuredImageCollection.items[0].url"
               alt="Featured Image"
               class="PostImage"
               draggable="false"
             />
           </div>
           <h2 class="Title">
-            {{ post.title?.rendered }}
+            {{ post.title }}
           </h2>
         </div>
         <div class="Author">
@@ -26,7 +26,7 @@
         </div>
         <p
           class="Excerpt"
-          v-html="post.excerpt?.rendered"
+          v-html="post.excerpt"
           @click="openPost(post.slug)"
         ></p>
       </div>
