@@ -58,8 +58,7 @@ export default {
     // });
     // console.log(data);
     return {
-      // posts,
-      // data
+
     };
   },
 };
