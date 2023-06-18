@@ -35,14 +35,15 @@ export default {
       sort: ["created_at", "desc"],
     });
     /* posts properties */
-    const { data: posts } = useAsyncData(async () => {
-      const res = await $Posts.fetchPosts(config.public);
+    // const { data: posts, error, pending } = useAsyncData(async () => {
+    //   const res = await $Posts.fetchPosts(config.public);
 
-      return res;
-    });
-if (posts.value){
-          document.write(posts.value);
-}
+    //       console.log(posts.value);
+    //   return res;
+    // });
+
+    // console.log(posts);
+
     // console.log(posts)
     // const { data:posts, error, pending } = useAsyncData(async () => {
     // const res = await $Posts.fetchPosts()
@@ -56,6 +57,11 @@ if (posts.value){
             title
             slug
             excerpt
+            featuredImageCollection {
+              items {
+                url
+              }
+            }
             sys {
               id
               publishedAt
@@ -64,20 +70,25 @@ if (posts.value){
         }
       }
     `;
-
-    // const { data } = useAsyncQuery(gqlQuery, {
-    //   id: "blogPost",
-    // });
-
-    // const posts = computed(() => {
-    //   if (data.value) {
-    //     document.write(data.value);
-    //     document.write(data.value?.blogPostCollection.items);
-    //     return data.value?.blogPostCollection.items;
+    // featuredImageCollection {
+    //   items {
+    //     url
     //   }
-    // });
+    // }
+    const { data, error, pending } = useAsyncQuery(gqlQuery, {
+      id: "blogPost",
+    });
+
+    const posts = computed(() => {
+      if (data.value) {
+        console.log(data.value?.blogPostCollection.items);
+        return data.value?.blogPostCollection.items;
+      }
+    });
 
     console.log(posts);
+    console.log(error);
+    console.log(pending);
 
     const sortBy = (txt, v: string[]) => {
       // this.query.sort = v

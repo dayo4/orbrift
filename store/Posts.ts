@@ -14,54 +14,55 @@ export const usePosts = defineStore("posts", {
     nextPost: null,
   }),
   actions: {
-    async fetchPosts(config) {
-
-      // if (this.posts?.length > 0) {
-      //   return this.posts;
-      // } else {
-        const { data } = await defineGqlRequest(config).get("")
-          // "operationName": "Nec",
-        //   query: query,
-        //   variables: {
-        //     necId: "nec",
-        //   },
-        // });
-        // console.log(data.data.necCollection.items);
-        // this.setPosts(data.data.blogPostCollection.items);
-        return data;
-      // }
-      
-    },
     // async fetchPosts(config) {
-    //   const query = `
-    //     query {
-    //       blogPostCollection {
-    //         items {
-    //           title
-    //           sys {
-    //             id
-    //             publishedAt
-    //           }
-    //         }
-    //       }
-    //     }
-    //   `;
 
-    //   if (this.posts?.length > 0) {
-    //     return this.posts;
-    //   } else {
-    //     const { data } = await defineGqlRequest(config).post("", {
+    //   // if (this.posts?.length > 0) {
+    //   //   return this.posts;
+    //   // } else {
+    //     const { data } = await defineGqlRequest(config).get("")
     //       // "operationName": "Nec",
-    //       query: query,
-    //       variables: {
-    //         necId: "nec",
-    //       },
-    //     });
+    //     //   query: query,
+    //     //   variables: {
+    //     //     necId: "nec",
+    //     //   },
+    //     // });
     //     // console.log(data.data.necCollection.items);
-    //     this.setPosts(data.data.blogPostCollection.items);
-    //     return data.data.blogPostCollection.items;
-    //   }
+    //     // this.setPosts(data.data.blogPostCollection.items);
+    //     return data;
+    //   // }
+      
     // },
+    
+    async fetchPosts(config) {
+      const query = `
+        query {
+          blogPostCollection {
+            items {
+              title
+              sys {
+                id
+                publishedAt
+              }
+            }
+          }
+        }
+      `;
+
+      if (this.posts?.length > 0) {
+        return this.posts;
+      } else {
+        const { data } = await defineGqlRequest(config).post("", {
+          // "operationName": "Nec",
+          query: query,
+          variables: {
+            // necId: "nec",
+          },
+        });
+        // console.log(data.data.necCollection.items);
+        this.setPosts(data.data.blogPostCollection.items);
+        return data.data.blogPostCollection.items;
+      }
+    },
 
     // async fetchPosts() {
     //   if (this.posts?.length > 0) {
@@ -99,7 +100,7 @@ export const usePosts = defineStore("posts", {
       if (this.posts?.length > 0) {
         return processPost();
       } else {
-        const posts = await this.fetchPosts();
+        const posts = await this.fetchPosts({});
         if (posts) {
           return processPost();
         }
