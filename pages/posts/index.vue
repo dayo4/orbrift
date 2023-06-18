@@ -17,7 +17,7 @@ import { usePosts } from "@/store";
 
 export default {
   setup() {
-    const config = useRuntimeConfig()
+    const config = useRuntimeConfig();
 
     const { $myMetaInfo } = useNuxtApp();
     const $Posts = usePosts();
@@ -34,19 +34,49 @@ export default {
       offset: 0,
       sort: ["created_at", "desc"],
     });
-
     /* posts properties */
-    const { data: posts } = useAsyncData(async () => {
-      const res = await $Posts.fetchPosts(config.public);
+    // const { data: posts } = useAsyncData(async () => {
+    //   const res = await $Posts.fetchPosts(config.public);
 
-      return res;
-    });
+    //   return res;
+    // });
 
     // console.log(posts)
     // const { data:posts, error, pending } = useAsyncData(async () => {
     // const res = await $Posts.fetchPosts()
     // return res
     // });
+
+    const gqlQuery = gql`
+      query {
+        blogPostCollection {
+          items {
+            title
+            slug
+            excerpt
+            tags
+            content
+            sys {
+              id
+              publishedAt
+            }
+          }
+        }
+      }
+    `;
+
+    const { data } = useAsyncQuery(gqlQuery, {
+      id: "blogPost",
+    });
+
+    const posts = computed(() => {
+      if (data.value) {
+        console.log(data.value?.blogPostCollection.items);
+        return data.value?.blogPostCollection.items;
+      }
+    });
+
+    // console.log(posts);
 
     const sortBy = (txt, v: string[]) => {
       // this.query.sort = v
