@@ -1,67 +1,45 @@
 <template>
   <div class="TestTop">
     <div>
-      <h1>GraphQL Example</h1>
-      <!-- <ul v-if="posts"> -->
-      <!-- {{
-          posts
-        }} -->
-      <!-- </ul> -->
+      <h1>Testing ground</h1>
+      <div>
+        <ul>
+          <li v-for="item in items" :key="item">{{ item }}</li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { usePosts } from "@/store";
+// import { usePosts } from "@/store";
 
 export default {
   setup() {
-    // const { clients } = useApollo()
-    // const $Posts = usePosts();
+    const items = ref(["item1", "item2", "item3", "item4"]);
+    let interval;
 
-    // const {
-    //   data: posts,
-    //   error,
-    //   pending,
-    // } = useAsyncData(async () => {
-    //   const res = await $Posts.gqlFetch();
-    //   console.log(res);
-    //   return res;
-    // });
+    const rotateItems = () => {
+      items.value.push(items.value.shift());
+    };
 
-    // const query = gql`
-    //   query BlogPost {
-    //     blogPostCollection {
-    //       items {
-    //         title
-    //         slug
-    //         featuredMedia
-    //       }
-    //     }
-    //   }
-    // `;
-    // const query = gql`
-    //   query {
-    //     necCollection {
-    //       items {
-    //         title
-    //         sys {
-    //           id
-    //           publishedAt
-    //         }
-    //       }
-    //     }
-    //   }
-    // `;
+    onMounted(() => {
+      interval = setInterval(rotateItems, 2000);
+    });
 
-    // const { data } = useAsyncQuery(query, {
-    //   necId: "nec",
-    // });
-    // console.log(data);
+    onUnmounted(() => {
+      clearInterval(interval);
+    });
+
     return {
-
+      items,
     };
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.FFT {
+  max-width: 100%;
+  overflow: scroll !important;
+}
+</style>
