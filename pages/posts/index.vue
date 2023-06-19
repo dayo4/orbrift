@@ -9,6 +9,7 @@
       <section v-if="posts && posts.length > 0">
         <ListOfPosts :posts="posts" :pagin="pagin" @switchPage="switchPage" />
       </section>
+      {{error}}
     </template>
   </GlobalWrapper>
 </template>
@@ -17,7 +18,6 @@ import { usePosts } from "@/store";
 
 export default {
   setup() {
-    const config = useRuntimeConfig();
 
     const { $myMetaInfo } = useNuxtApp();
     const $Posts = usePosts();
@@ -28,92 +28,25 @@ export default {
       pages: 1,
       current: 1,
     });
-    const sort = ref("Newest");
-    const query = ref({
-      limit: 10,
-      offset: 0,
-      sort: ["created_at", "desc"],
-    });
-    /* posts properties */
-    // const { data: posts, error, pending } = useAsyncData(async () => {
-    //   const res = await $Posts.fetchPosts(config.public);
-
-    //       console.log(posts.value);
-    //   return res;
-    // });
-
-    // console.log(posts);
-
-    // console.log(posts)
-    // const { data:posts, error, pending } = useAsyncData(async () => {
-    // const res = await $Posts.fetchPosts()
-    // return res
-    // });
-
-    const gqlQuery = gql`
-      query {
-        blogPostCollection {
-          items {
-            title
-            slug
-            excerpt
-            featuredImageCollection {
-              items {
-                url
-              }
-            }
-            sys {
-              id
-              publishedAt
-            }
-          }
-        }
-      }
-    `;
-    // featuredImageCollection {
-    //   items {
-    //     url
-    //   }
-    // }
-    const { data, error, pending } = useAsyncQuery(gqlQuery, {
-      id: "blogPost",
-    });
+    
+        const { data, error, pending } = useAsyncQuery(gql($Posts.postsQuery));
 
     const posts = computed(() => {
       if (data.value) {
-        console.log(data.value?.blogPostCollection.items);
-        return data.value?.blogPostCollection.items;
+        $Posts.setPosts(data.value.posts.items)
+        return data.value.posts.items; //?.blogPostCollection.items;
       }
     });
 
-    console.log(posts);
-    console.log(error);
-    console.log(pending);
-
-    const sortBy = (txt, v: string[]) => {
-      // this.query.sort = v
-      // this.sort = txt
-      // $Posts.fetchAll(this.query)
-    };
 
     const switchPage = (v: number) => {
-      // if (this.pagin.pages > 1 && v > 0 && v <= this.pagin.pages) {
-      // 	this.query.offset = (v - 1) * this.query.limit
-      // 	$Posts.fetchAll(this.query).then(loaded => {
-      // 		if (loaded) {
-      // 			this.pagin.current = v
-      // 		}
-      // 	})
-      // }
+      
     };
-    // onMounted(() => {    });
 
     return {
       pagin,
-      sort,
-      query,
       posts,
-      sortBy,
+      error,
       switchPage,
     };
   },

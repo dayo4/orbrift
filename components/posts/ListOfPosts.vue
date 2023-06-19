@@ -5,8 +5,8 @@
         <div class="TopSection" @click="openPost(post.slug)">
           <div class="PostImageWrapper">
             <img
-              :src="post.featuredImageCollection.items[0].url"
-              alt="Featured Image"
+              :src="post.images?.items[0].url"
+              alt="post.images?.items[0].title"
               class="PostImage"
               draggable="false"
             />
