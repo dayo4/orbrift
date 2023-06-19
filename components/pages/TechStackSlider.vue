@@ -13,16 +13,21 @@ export default {
     
   setup() {
     // Tech stack slider props
-    const images = [
+    const images = ref([
       { src: "/defaults/logo/orbrift-cy.png", alt: "Image 1" },
-      { src: "/defaults/logo/orbrift-cy.png", alt: "Image 2" },
-      { src: "/defaults/logo/orbrift-cy.png", alt: "Image 3" },
+      { src: "/defaults/logo/orbrift-fill.jpg", alt: "Image 2" },
+      { src: "/defaults/logo/orbrift.png", alt: "Image 3" },
       // Add more images as needed
-    ];
+    ]);
 
+ const rotateItems = () => {
+      images.value.push(images.value.shift());
+    };
+    
     const sliderRef = ref(null);
     const listItemWidth = ref(0);
     let sliderInterval;
+    let rotateInterval;
 
     const animateSlider = () => {
       if (sliderRef.value) {
@@ -61,11 +66,16 @@ export default {
 
       sliderInterval = setInterval(animateSlider, 10000); // Adjust the duration based on your preference
 
+      rotateInterval = setInterval(rotateItems, 2000);
+
     });
 
     onUnmounted(() => {
       if (sliderInterval) {
         clearInterval(sliderInterval);
+      }
+      if (rotateInterval) {
+        clearInterval(rotateInterval);
       }
     });
 
