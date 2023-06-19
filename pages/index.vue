@@ -83,7 +83,7 @@
           icon="icon-right"
           iconPos="right"
         >
-          More Info
+          About Me
         </Button>
       </div>
     </section>
