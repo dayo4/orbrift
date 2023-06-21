@@ -104,7 +104,7 @@ export default {
           expanded.value = true;
           startSearching.value = false;
           $Process.hide();
-          searchResult.value = data.value.result.result.items;
+          searchResult.value = data.value.result?.result.items;
         } else if (gqlError.value) {
           expanded.value = true;
           startSearching.value = false;
