@@ -6,8 +6,6 @@ interface Posts {
   postsQuery: String;
 }
 import { defineStore } from "pinia";
-// import { $contentApi, defineGqlRequest } from "~/addons/utils/Axios";
-// import gql from "graphql-tag";
 
 export const usePosts = defineStore("posts", {
   state: (): Posts => ({
@@ -80,10 +78,6 @@ export const usePosts = defineStore("posts", {
       }
       else {
         return null
-      //   const posts = await this.fetchPosts({});
-      //   if (posts) {
-      //     return processPost();
-      //   }
       }
     },
     setPosts(value: [Object] | any) {
