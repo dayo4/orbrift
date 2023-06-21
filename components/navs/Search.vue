@@ -1,99 +1,127 @@
 <template>
-  <div
-    :class="expanded ? 'Expanded' : ''"
-    class="SearchBox flex j-c-center shadow-3"
-  >
-    <i @click="$emit('searchoff')" class="icon-cancel"></i>
-    <div class="Search xs12 sm10 md9 lg7">
-      <div class="InputBox">
-        <input
-          @keydown.enter.prevent="search"
-          v-model="searchText"
-          type="search"
-          name="search"
-        />
-        <i @click="search(searchText)" class="icon-search"></i>
-      </div>
-
-      <!-- SEARCH RESULT DISPLAYS HERE -->
-      <div v-show="searchResult" class="SearchResult">
-        <h3 class="text-center">
-          Search Result - {{ searchResult?.length || "0" }}
-        </h3>
-        <div v-for="(result, i) in searchResult" :key="i">
-          <h5
-            @click="open(result.url)"
-            class="ResultList font-5 m-5 cursor-pointer"
-          >
-           - {{ result.title }}
-          </h5>
+  <transition name="fade-in">
+    <div
+      :class="expanded ? 'Expanded' : ''"
+      class="SearchBox flex j-c-center shadow-3"
+    >
+      <i @click="$emit('searchoff')" class="icon-cancel"></i>
+      <div class="Search xs12 sm10 md9 lg7">
+        <div class="InputBox">
+          <input
+            @keydown.enter.prevent="search"
+            v-model="searchText"
+            type="search"
+            name="search"
+          />
+          <i @click="search()" class="icon-search"></i>
         </div>
-        <div v-if="searchResult && searchResult.length === 0">
-          <h5 class="font-5 m-5 t-blue--3">
-            No search result found for the text you entered. Try searching
-            something else.
-          </h5>
-        </div>
-        <div v-if="error">
-          <h5 class="font-5 m-5 t-red--3">
-            Unable to connect. Try checking your internet connection.
-          </h5>
+        <!-- SEARCH RESULT DISPLAYS HERE -->
+        <div v-show="searchResult" class="SearchResult">
+          <h3 class="text-center">
+            Search Result - {{ searchResult?.length || "0" }}
+          </h3>
+          <div v-for="(result, i) in searchResult" :key="i">
+            <h5
+              @click="open(result.slug)"
+              class="ResultList font-5 m-5 cursor-pointer"
+            >
+              - {{ result.title }}
+            </h5>
+          </div>
+          <div v-if="searchResult && searchResult.length === 0">
+            <h5 class="font-5 m-5 t-blue--3">
+              No search result found for the text you entered. Try searching
+              something else.
+            </h5>
+          </div>
+          <div v-if="error">
+            <h5 class="font-5 m-5 t-red--3">
+              Unable to connect. Try checking your internet connection.
+            </h5>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 <script lang="ts">
-import { $contentApi } from "~/addons/utils/Axios";
 import { useProcess } from "@/store";
 
 export default {
   setup(_, { emit }) {
     const $Process = useProcess();
     const searchText = ref("");
-    const searchResult = ref(null);
-    const expanded = ref(false);
-    const error = ref(false);
+
+    const expanded = ref(true);
+    const startSearching = ref(false);
 
     const route = useRoute();
     const router = useRouter();
 
+    const gqlVariables = ref({
+      searchText,
+    });
+
+    const searchResult = ref(null);
+    const error = ref(false);
+
     const search = async () => {
-      try {
-        if (searchText.value) {
-          $Process.add("Searching!");
+      if (searchText.value && !startSearching.value) {
+        $Process.add("Searching!");
+        startSearching.value = true;
+        expanded.value = false;
 
-          error.value = false;
-          expanded.value = false;
+        const { data, error: gqlError } = await useAsyncData(async () => {
+          if (searchText.value && startSearching.value) {
+            const { result, error } = useQuery(
+              gql`
+                query SearchPosts($searchText: String) {
+                  result: blogPostCollection(
+                    limit: 10
+                    where: {
+                      OR: [
+                        { content_contains: $searchText }
+                        { title_contains: $searchText }
+                      ]
+                    }
+                  ) {
+                    items {
+                      title
+                      slug
+                    }
+                  }
+                }
+              `,
+              gqlVariables
+            );
 
-          const { data } = await $contentApi.get(
-            `search/?search=${searchText.value}&per_page=10`
-          );
-
-          if (data) {
-            searchResult.value = data;
-            expanded.value = true;
+            return { result, error };
           }
-
-          $Process.hide();
           return;
+        });
+
+        if (data.value) {
+          expanded.value = true;
+          startSearching.value = false;
+          $Process.hide();
+          searchResult.value = data.value.result.result.items;
+        } else if (gqlError.value) {
+          expanded.value = true;
+          startSearching.value = false;
+          $Process.add("An Error Occured");
+          $Process.resolve();
+          error.value = true;
         }
-      } catch (err) {
-        error.value = true;
-        expanded.value = true;
-        $Process.add("An Error Occured");
-        $Process.resolve();
       }
     };
 
-    const open = (url: string) => {
-      const slug = url.split(".com/")[1];
-      router.push({ path: "/posts/" + slug });
+    const open = (slug: string) => {
+      router.push({ path: "/posts/" + slug , force: true, replace: route.params.slug === slug ? true : false, });
     };
 
     watch(
       () => route.path,
-      (newPath, oldPath) => {
+      (newPathc, oldPath) => {
         emit("searchoff");
       }
     );
@@ -102,13 +130,13 @@ export default {
       searchText,
       searchResult,
       expanded,
+      startSearching,
       error,
       search,
       open,
     };
   },
 };
-
 </script>
 <style lang="scss" scoped>
 .SearchBox {
@@ -127,13 +155,13 @@ export default {
 
   & > i {
     position: absolute;
-    font-size: 35px;
+    font-size: 25px;
     right: 5px;
     top: 2px;
-    color: $light-color;
+    color: $pri-color;
     cursor: pointer;
     z-index: 101;
-    border: solid 0.5px $light-color;
+    border: solid 0.5px $pri-color;
     border-radius: 3px;
   }
 }
@@ -149,19 +177,22 @@ export default {
     color: black;
     & input {
       width: calc(100% - 10px);
-      background-color: $light-color;
-      color: $dark-color;
+      background-color: white;
+      color: black;
     }
     & > i {
       position: absolute;
-      right: 15px;
-      top: 7px;
+      right: 13px;
+      top: 3px;
       font-size: 20px;
       margin: 0px 3px;
+      padding: 3px;
       border-radius: 3px;
       cursor: pointer;
+      color: $pri-color;
+      background-color: $sec-color-trans;
       &:active {
-        background-color: $sec-color;
+        background-color: $sec-color-trans-2;
       }
     }
   }
@@ -215,9 +246,9 @@ export default {
   }
 }
 
-@include xs-and-up {
-}
+// @include xs-and-up {
+// }
 
-@include xxs-only {
-}
+// @include xxs-only {
+// }
 </style>

@@ -5,8 +5,8 @@
         <div class="TopSection" @click="openPost(post.slug)">
           <div class="PostImageWrapper">
             <img
-              :src="post.featuredImageCollection.items[0].url"
-              alt="Featured Image"
+              :src="post.images?.items[0].url"
+              alt="post.images?.items[0].title"
               class="PostImage"
               draggable="false"
             />
@@ -70,6 +70,7 @@ export default {
 
   setup(props) {
     const router = useRouter();
+    const route = useRoute();
 
     const posts = computed(() =>
       props.posts
@@ -79,7 +80,7 @@ export default {
     );
 
     const openPost = (slug: string) => {
-      router.push({ path: "/posts/" + slug });
+      router.push({ path: "/posts/" + slug , force: true, replace: route.params.slug === slug ? true : false, });
     };
 
     return {

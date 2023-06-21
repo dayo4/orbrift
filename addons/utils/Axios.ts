@@ -7,44 +7,6 @@ const devMode = process.env.NODE_ENV === 'development'
 const $baseApi = axios.create({ baseURL: 'https://baseapi.orbrift.com/rift-v1/', })
 const $contentApi = axios.create({ baseURL: 'https://api.orbrift.com/wp-json/wp/v2/', })
 
-const defineGqlRequest = (appConfig)=>{
-  // const $gqlApi = axios.create({ baseURL: `https://cdn.contentful.com/spaces/${appConfig.contentfulSpaceId}/environments/master/entries?content_type=blogPost`})
-  const $gqlApi = axios.create({ baseURL: `https://graphql.contentful.com/content/v1/spaces/fjmwmd7cfr3e/environments/master`})
-  $gqlApi.defaults.headers.common['Authorization'] = `Bearer ${appConfig.contentfulDeliveryKey}`
-
-  $gqlApi.interceptors.request.use(
-    function (config) {
-      return config
-    },
-    function (error) {
-      // Do something with request error
-      return Promise.reject(error)
-    }
-  )
-
-  // Add a response interceptor
-  $gqlApi.interceptors.response.use(
-    function (response) {
-      if (devMode)
-        console.log(response)
-  
-      return response
-    },
-  
-    /* if error */
-    function ({ response }) {
-      if (devMode)
-        console.log(response)
-  
-      return Promise.reject(response)
-    }
-  )
-
-  console.log($gqlApi)
-
-  return $gqlApi
-}
-
 // $baseApi.defaults.headers.common['Authorization'] = 'Bearer '
 // $contentApi.defaults.headers.common['Authorization'] = 'Bearer '
 
@@ -107,5 +69,4 @@ $contentApi.interceptors.response.use(
 export {
   $baseApi,
   $contentApi,
-  defineGqlRequest
 }

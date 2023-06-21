@@ -2,7 +2,7 @@
   <transition name="slide-fade" mode="out-in">
     <div id="GBLMWrapper">
       <!-- At The very Top -->
-      <section v-if="header" class="HeaderGBL bg-img-masked br1">
+      <section v-if="header" class="HeaderGBL bg-img-masked br1 noselect">
         <h2 class="Title">
           <slot name="Title"></slot>
         </h2>

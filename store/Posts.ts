@@ -1,80 +1,56 @@
 interface Posts {
   posts: [Object] | any;
+  parsedContent: String | any;
   prevPost: Object | any;
   nextPost: Object | any;
+  postsQuery: String;
 }
 import { defineStore } from "pinia";
-import { $contentApi, defineGqlRequest } from "~/addons/utils/Axios";
-// import gql from "graphql-tag";
 
 export const usePosts = defineStore("posts", {
   state: (): Posts => ({
     posts: [],
+    parsedContent: null, //Contentful CMS content comes in split nodes JSON format 
     prevPost: null,
     nextPost: null,
-  }),
-  actions: {
-    // async fetchPosts(config) {
-
-    //   // if (this.posts?.length > 0) {
-    //   //   return this.posts;
-    //   // } else {
-    //     const { data } = await defineGqlRequest(config).get("")
-    //       // "operationName": "Nec",
-    //     //   query: query,
-    //     //   variables: {
-    //     //     necId: "nec",
-    //     //   },
-    //     // });
-    //     // console.log(data.data.necCollection.items);
-    //     // this.setPosts(data.data.blogPostCollection.items);
-    //     return data;
-    //   // }
-      
-    // },
-    
-    async fetchPosts(config) {
-      const query = `
-        query {
-          blogPostCollection {
-            items {
-              title
-              sys {
+    postsQuery: `
+      query {
+        posts: blogPostCollection(limit: 10) {
+          items {
+            title
+            slug
+            excerpt
+            tags
+            content {
+              json
+            }
+            meta: contentfulMetadata {
+              tags {
                 id
-                publishedAt
+                name
               }
+            }
+            images: featuredImageCollection {
+              items {
+                title
+                url
+              }
+            }
+            sys {
+              id
             }
           }
         }
-      `;
-
-      if (this.posts?.length > 0) {
-        return this.posts;
-      } else {
-        const { data } = await defineGqlRequest(config).post("", {
-          // "operationName": "Nec",
-          query: query,
-          variables: {
-            // necId: "nec",
-          },
-        });
-        // console.log(data.data.necCollection.items);
-        this.setPosts(data.data.blogPostCollection.items);
-        return data.data.blogPostCollection.items;
       }
-    },
-
-    // async fetchPosts() {
-    //   if (this.posts?.length > 0) {
-    //     return this.posts;
-    //   } else {
-    //     const { data } = await $contentApi.get("posts/");
-    //     this.setPosts(data);
-    //     return data;
-    //   }
-    // },
-    
-    async fetchPost(slug: String) {
+      `
+  }),
+  getters: {
+    getPosts(){
+      return this.posts
+    }
+  },
+  actions: {
+     fetchPost(slug: String) {
       const processPost = () => {
         const post = this.posts.find((p) => p.slug === slug);
 
@@ -99,15 +75,19 @@ export const usePosts = defineStore("posts", {
 
       if (this.posts?.length > 0) {
         return processPost();
-      } else {
-        const posts = await this.fetchPosts({});
-        if (posts) {
-          return processPost();
-        }
+      }
+      else {
+        return null
       }
     },
     setPosts(value: [Object] | any) {
       this.posts = value;
+    },
+    // setCurrentPost(value: String | any) {
+    //   this.currentPost = value;
+    // },
+    setParsedContent(value: String | any) {
+      this.parsedContent = value;
     },
     setPrevPost(value: Object | null) {
       this.prevPost = value;

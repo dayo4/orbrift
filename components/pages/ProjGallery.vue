@@ -1,5 +1,5 @@
 <template>
-  <div class="Gallery img-masked-00 flex wrap j-c-center px-3">
+  <div class="Gallery img-masked-00 flex wrap j-c-center px-3 noselect">
     <transition name="slide-down-fade">
       <div v-if="showPc" class="Pc xs12 sm6 md5 m-1">
         <img

@@ -1,27 +1,25 @@
 <template>
   <GlobalWrapper :header="true" :subText="true">
-    <template #Title>
-      Discover
-    </template>
+    <template #Title> Discover </template>
     <template v-if="post" #SubText>
-      {{ post.title.rendered }}
+    {{ post.title }}
     </template>
 
     <template #WrapperBody>
-      <div v-if="post" class="PostContainer">
+      <div class="PostContainer">
         <!-- HEAD -->
         <div class="BlogPost xs12 sm10 md7">
           <div class="TopSection">
             <div class="PostImageWrapper">
               <img
-                :src="post.featured_media_src_url"
-                alt="post.title?.rendered"
+                :src="post.images.items[0].url"
+                alt="post.images.items[0].title"
                 class="PostImage"
                 draggable="false"
               />
             </div>
             <h2 class="Title">
-              {{ post.title?.rendered }}
+              {{ post.title }}
             </h2>
           </div>
           <div class="Author">
@@ -40,7 +38,7 @@
 
         <!-- BODY -->
         <section
-          v-html="post.content?.rendered"
+          v-html="parsedContent"
           class="Body xs12 sm10 md7 p-5"
         ></section>
 
@@ -48,7 +46,7 @@
         <ShareIcons />
 
         <!-- Next - Prev Buttons -->
-        <div class="NP_postNavigation ml-2 mt-20">
+        <div data-aos="fade-right" data-aos-once="true" class="NP_postNavigation ml-2 mt-20">
           <router-link
             v-if="prevPost"
             :to="`/posts/${prevPost.slug}`"
@@ -57,8 +55,8 @@
             <div class="NP_thumbnailCont">
               <div class="NP_thumbnail">
                 <img
-                  :src="prevPost.featured_media_src_url"
-                  :alt="prevPost.title?.rendered"
+                  :src="prevPost.images.items[0].url"
+                  :alt="prevPost.images.items[0].title"
                   class="NP_thumbnailImage"
                 />
               </div>
@@ -67,11 +65,11 @@
                 Prev Post
               </div>
             </div>
-            <div class="NP_title">{{ prevPost.title?.rendered }}</div>
+            <div class="NP_title">{{ prevPost.title }}</div>
           </router-link>
         </div>
 
-        <div class="NP_postNavigation j-c-end mr-2">
+        <div data-aos="fade-left" data-aos-once="true" class="NP_postNavigation j-c-end mr-2">
           <router-link
             v-if="nextPost"
             :to="`/posts/${nextPost.slug}`"
@@ -84,13 +82,13 @@
               </div>
               <div class="NP_thumbnail">
                 <img
-                  :src="nextPost.featured_media_src_url"
-                  :alt="nextPost.title?.rendered"
+                  :src="nextPost.images.items[0].url"
+                  :alt="nextPost.images.items[0].title"
                   class="NP_thumbnailImage"
                 />
               </div>
             </div>
-            <div class="NP_title">{{ nextPost.title?.rendered }}</div>
+            <div class="NP_title">{{ nextPost.title }}</div>
           </router-link>
         </div>
       </div>
@@ -98,8 +96,8 @@
   </GlobalWrapper>
 </template>
 <script lang="ts">
-
 import { usePosts } from "@/store";
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 export default {
   setup() {
@@ -108,47 +106,71 @@ export default {
     const route = useRoute();
     const $Posts = usePosts();
 
-    const {
-      data: post,
-    } = useAsyncData(async () => {
-      const data = await $Posts.fetchPost(route.params.slug);
-      return data;
-    });
-    
-    // watch(() => route.params.slug, async (slug) => {
-    //   console.log('slug')
-    //   console.log(slug)
-    //   await refresh()
-    // }, { immediate: true })
 
-    useSeoMeta(
-      $myMetaInfo({
-        title: post.value?.title.rendered,
-        content: post.value?.excerpt.rendered,
-        image: post.value?.featured_media_src_url,
-        url: "https://orbrift.com" + route.path,
-        type: "article",
-      })
-    );
+    // const variables = ref({
+    //   slug: route.params.slug,
+    // });
+
+    const { data, error, pending } = useAsyncData(async () => {
+      if ($Posts.posts?.length > 0) {
+        return { data: { posts: { items: $Posts.posts } } };
+      } else {
+        const { data, error, pending } = useAsyncQuery(gql($Posts.postsQuery));
+        return { data, error, pending };
+      }
+    });
 
     const openPost = (slug: string) => {
       router.push({ path: "/posts/" + slug });
     };
 
-    const prevPost = computed(() =>
-        $Posts.prevPost
-    );
-    const nextPost = computed(() =>
-        $Posts.nextPost
-    );
+    const parsedContent = computed(() => $Posts.parsedContent);
+    const prevPost = computed(() => $Posts.prevPost);
+    const nextPost = computed(() => $Posts.nextPost);
 
+    const post = computed(() => {
+      const posts = data.value?.data?.posts?.items; //data.value.data?.posts.items || data.value.existingData;
+      const currentPost = posts.find((p) => p.slug === route.params.slug);
+
+      const index = posts.indexOf(currentPost);
+      const prev = index + 1;
+      const next = index - 1;
+
+      if (prev > 0 && prev < posts.length) {
+        $Posts.setPrevPost(posts[prev]);
+      } else {
+        $Posts.setPrevPost(null);
+      }
+
+      if (next >= 0 && next < posts.length) {
+        $Posts.setNextPost(posts[next]);
+      } else {
+        $Posts.setNextPost(null);
+      }
+
+      useSeoMeta(
+        $myMetaInfo({
+          title: currentPost?.title,
+          content: currentPost?.excerpt,
+          image: currentPost?.images.items[0].url,
+          url: "https://orbrift.com" + route.path,
+          type: "article",
+        })
+      );
+      
+      $Posts.setParsedContent(documentToHtmlString(currentPost.content.json)) 
+      
+      return currentPost;
+    });
     return {
       post,
+      parsedContent,
+      pending,
+      error,
       openPost,
       prevPost,
       nextPost,
       href: "https://orbrift.com" + route.path,
-
     };
   },
 };

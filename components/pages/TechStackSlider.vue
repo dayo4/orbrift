@@ -1,124 +1,80 @@
 <template>
-    <section class="Slider flex">
-      <ul class="SliderList xs12" ref="sliderRef">
-        <li v-for="(image, index) in images" :key="index">
-          <img :src="image.src" :alt="image.alt" />
-        </li>
-      </ul>
-    </section>
+<div class="marquee">
+  <div class="marquee-content"> 
+    <div v-for="(icon, i) in icons" :key="i" class="marquee-item">
+      <img :src="icon" alt="">
+    </div>
+  </div>
+</div>
+    <!-- <Test/> -->
 </template>
 
 <script lang="ts">
 export default {
     
   setup() {
-    // Tech stack slider props
-    const images = [
-      { src: "/defaults/logo/orbrift-cy.png", alt: "Image 1" },
-      { src: "/defaults/logo/orbrift-cy.png", alt: "Image 2" },
-      { src: "/defaults/logo/orbrift-cy.png", alt: "Image 3" },
-      // Add more images as needed
+const icons = [
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      "/defaults/logo/orbrift-cy.png",
+      // "/defaults/logo/orbrift-cy.png",
+      // "/defaults/logo/orbrift-cy.png",
+      // "/defaults/logo/orbrift-cy.png",
+      // "/defaults/logo/orbrift-cy.png",
+      // "/defaults/logo/orbrift-cy.png",
     ];
-
-    const sliderRef = ref(null);
-    const listItemWidth = ref(0);
-    let sliderInterval;
-
-    const animateSlider = () => {
-      if (sliderRef.value) {
-        sliderRef.value.style.transform = `translateX(-${listItemWidth.value}px)`;
-      }
-    };
-
-
-    onMounted(() => {
-      // Icons slider
-      if (sliderRef.value) {
-        listItemWidth.value = sliderRef.value.firstElementChild.clientWidth;
-      }
-
-      const handleTransitionEnd = () => {
-        if (sliderRef.value) {
-          sliderRef.value.appendChild(
-            sliderRef.value.firstElementChild
-          );
-          sliderRef.value.style.transition = "none";
-          sliderRef.value.style.transform = "translateX(0)";
-
-          setTimeout(() => {
-            sliderRef.value.style.transition =
-              "transform 10s linear infinite";
-          });
-        }
-      };
-
-      if (sliderRef.value) {
-        sliderRef.value.addEventListener(
-          "transitionend",
-          handleTransitionEnd
-        );
-      }
-
-      sliderInterval = setInterval(animateSlider, 10000); // Adjust the duration based on your preference
-
-    });
-
-    onUnmounted(() => {
-      if (sliderInterval) {
-        clearInterval(sliderInterval);
-      }
-    });
-
     return {
-      images,
-      sliderRef,
+      icons
     };
   },
 };
 </script>
 
 <style lang="scss" scoped>
-//icons slider
-.Slider {
-  width: 100%;
-  height: 100px;
+.marquee {
   overflow: hidden;
-  position: relative;
-  // background-color: red;
-  margin-bottom: 50px;
 }
 
-.SliderList {
+.marquee-content {
   display: flex;
-  align-items: center;
+  animation: scrolling 10s linear infinite;
+}
+
+.marquee-item {
+  flex: 0 0 10vw;
+  margin: 0 1vw;
+/*   flex: 0 0 20vw; */
+/*   margin: 0 2vw; */
+}
+
+.marquee-item img {
+  display: block;
   width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  // background-color: yellow;
-  animation: scroll 10s linear infinite;
+/*   padding: 0 20px; */
 }
 
-.SliderList li {
-  list-style: none;
-  width: 70px;
-  height: 70px;
-  margin-right: 10px;
+@keyframes scrolling {
+  0% { transform: translateX(0); }
+  100% { transform: translatex(-144vw); }
 }
-
-.SliderList li img {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
 
 </style>

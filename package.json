@@ -17,7 +17,7 @@
     "sass-loader": "^13.2.2"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.13.6",
+    "@contentful/rich-text-html-renderer": "^16.1.0",
     "aos": "^2.3.4",
     "axios": "^1.4.0",
     "graphql": "^16.6.0",

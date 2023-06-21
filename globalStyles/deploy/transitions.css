@@ -17,21 +17,12 @@
 
 /* fadE-in  -> USED IN: App.vue */
 
-.fade-in-enter-active {
-    transition: all 0.8s ease;
-}
-
-.fade-in-leave-active {
+.fade-in-leave-active, .fade-in-enter-active {
     transition: all 0.2s ease-in-out;
 }
 
-.fade-in-enter-from {
-    /* transform: translateY(20px); */
-    opacity: 0;
-}
-
-.fade-in-leave-to {
-    transform: translateX(-100px);
+.fade-in-leave-to, .fade-in-enter-from {
+    transform: translateX(-50px);
     opacity: 0;
 }
 
