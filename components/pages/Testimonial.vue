@@ -1,6 +1,6 @@
 
 <template>
-    <section class="TST bg-img-masked flex wrap j-c-center my-3">
+    <section class="TST bg-img-masked flex wrap j-c-center my-3 noselect">
       <div
         id="ContRef"
         ref="ContRef"
