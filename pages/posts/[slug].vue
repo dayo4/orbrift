@@ -2,7 +2,7 @@
   <GlobalWrapper :header="true" :subText="true">
     <template #Title> Discover </template>
     <template v-if="post" #SubText>
-    {{ post.title }}
+      {{ post.title }}
     </template>
 
     <template #WrapperBody>
@@ -12,14 +12,14 @@
           <div class="TopSection">
             <div class="PostImageWrapper">
               <img
-                :src="post.images.items[0].url"
+                :src="post?.images.items[0].url"
                 alt="post.images.items[0].title"
                 class="PostImage"
                 draggable="false"
               />
             </div>
             <h2 class="Title">
-              {{ post.title }}
+              {{ post?.title }}
             </h2>
           </div>
           <div class="Author">
@@ -46,7 +46,11 @@
         <ShareIcons />
 
         <!-- Next - Prev Buttons -->
-        <div data-aos="fade-right" data-aos-once="true" class="NP_postNavigation ml-2 mt-20">
+        <div
+          data-aos="fade-right"
+          data-aos-once="true"
+          class="NP_postNavigation ml-2 mt-20"
+        >
           <router-link
             v-if="prevPost"
             :to="`/posts/${prevPost.slug}`"
@@ -69,7 +73,11 @@
           </router-link>
         </div>
 
-        <div data-aos="fade-left" data-aos-once="true" class="NP_postNavigation j-c-end mr-2">
+        <div
+          data-aos="fade-left"
+          data-aos-once="true"
+          class="NP_postNavigation j-c-end mr-2"
+        >
           <router-link
             v-if="nextPost"
             :to="`/posts/${nextPost.slug}`"
@@ -97,7 +105,7 @@
 </template>
 <script lang="ts">
 import { usePosts } from "@/store";
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 
 export default {
   setup() {
@@ -105,7 +113,6 @@ export default {
     const router = useRouter();
     const route = useRoute();
     const $Posts = usePosts();
-
 
     // const variables = ref({
     //   slug: route.params.slug,
@@ -129,38 +136,44 @@ export default {
     const nextPost = computed(() => $Posts.nextPost);
 
     const post = computed(() => {
-      const posts = data.value?.data?.posts?.items; //data.value.data?.posts.items || data.value.existingData;
-      const currentPost = posts.find((p) => p.slug === route.params.slug);
+      if (data.value) {
+        const posts = data.value?.data?.posts.items; //data.value.data?.posts.items || data.value.existingData;
+        if (posts) {
+          const currentPost = posts.find((p) => p.slug === route.params.slug);
 
-      const index = posts.indexOf(currentPost);
-      const prev = index + 1;
-      const next = index - 1;
+          const index = posts.indexOf(currentPost);
+          const prev = index + 1;
+          const next = index - 1;
 
-      if (prev > 0 && prev < posts.length) {
-        $Posts.setPrevPost(posts[prev]);
-      } else {
-        $Posts.setPrevPost(null);
+          if (prev > 0 && prev < posts.length) {
+            $Posts.setPrevPost(posts[prev]);
+          } else {
+            $Posts.setPrevPost(null);
+          }
+
+          if (next >= 0 && next < posts.length) {
+            $Posts.setNextPost(posts[next]);
+          } else {
+            $Posts.setNextPost(null);
+          }
+
+          useSeoMeta(
+            $myMetaInfo({
+              title: currentPost?.title,
+              content: currentPost?.excerpt,
+              image: currentPost?.images.items[0].url,
+              url: "https://orbrift.com" + route.path,
+              type: "article",
+            })
+          );
+
+          $Posts.setParsedContent(
+            documentToHtmlString(currentPost.content.json)
+          );
+
+          return currentPost;
+        }
       }
-
-      if (next >= 0 && next < posts.length) {
-        $Posts.setNextPost(posts[next]);
-      } else {
-        $Posts.setNextPost(null);
-      }
-
-      useSeoMeta(
-        $myMetaInfo({
-          title: currentPost?.title,
-          content: currentPost?.excerpt,
-          image: currentPost?.images.items[0].url,
-          url: "https://orbrift.com" + route.path,
-          type: "article",
-        })
-      );
-      
-      $Posts.setParsedContent(documentToHtmlString(currentPost.content.json)) 
-      
-      return currentPost;
     });
     return {
       post,
