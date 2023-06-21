@@ -14,33 +14,10 @@ export default {
     
   setup() {
 const icons = [
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      "/defaults/logo/orbrift-cy.png",
-      // "/defaults/logo/orbrift-cy.png",
-      // "/defaults/logo/orbrift-cy.png",
-      // "/defaults/logo/orbrift-cy.png",
-      // "/defaults/logo/orbrift-cy.png",
-      // "/defaults/logo/orbrift-cy.png",
+      "/defaults/stk/svg/javascript.svg",
+      "/defaults/stk/svg/react-native.svg",
+      "/defaults/stk/svg/typescript.svg",
+      "/defaults/stk/svg/vue.svg",
     ];
     return {
       icons
