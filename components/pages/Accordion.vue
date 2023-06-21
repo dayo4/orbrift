@@ -33,7 +33,7 @@ export default {
         expanded: false,
       },
       {
-        title: "Elevate E-commerce",
+        title: "Elevate Your E-commerce",
         content: `Drive online success with tailored e-commerce solutions that boost sales and customer satisfaction.`,
         expanded: false,
       },
