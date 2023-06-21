@@ -70,6 +70,7 @@ export default {
 
   setup(props) {
     const router = useRouter();
+    const route = useRoute();
 
     const posts = computed(() =>
       props.posts
@@ -79,7 +80,7 @@ export default {
     );
 
     const openPost = (slug: string) => {
-      router.push({ path: "/posts/" + slug });
+      router.push({ path: "/posts/" + slug , force: true, replace: route.params.slug === slug ? true : false, });
     };
 
     return {
