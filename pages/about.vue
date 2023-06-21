@@ -22,7 +22,7 @@
       </section>
       <section class="AB_MainBody flex j-c-center">
         <section class="xs11 sm9 md8 bg-white mb-10 br4">
-          <section>
+          <section class="noselect">
             <h2 class="AB_Head pl-8 pr-2">About Me</h2>
             <p>
               I'm an enthusiastic explorer, driven by a deep curiosity for
@@ -55,7 +55,7 @@
               empower businesses to streamline their operations, expand their
               reach, and achieve online success.
             </p>
-            <p data-aos="fade-up-left">
+            <p v-aos="'fade-up-left'">
               Beyond my technical endeavors, I find immense joy in engaging in
               intuitive conversations and exploring the abstract design of
               nature. I'm constantly inspired by how these principles shape the
@@ -66,15 +66,15 @@
 
           <section>
             <h2 class="AB_Head">My Expertise</h2>
-            <p data-aos="zoom-in">
+            <p v-aos="'zoom-in'">
               As a web developer committed to providing exceptional digital
               solutions, I bring a wide range of skills to the table
             </p>
             <article>
-              <h3 data-aos="fade-right" class="AB_SubHead">
+              <h3 v-aos="'fade-right'" class="AB_SubHead">
                 Custom Web Design and Development
               </h3>
-              <p data-aos="fade-up-left">
+              <p v-aos="'fade-up-left'">
                 Imagine a website that seamlessly blends stunning aesthetics
                 with effortless functionality. That's precisely what I bring to
                 the table. Using industry-leading design tools like Figma and
@@ -87,10 +87,10 @@
             </article>
 
             <article>
-              <h3 data-aos="fade-right" class="AB_SubHead">
+              <h3 v-aos="'fade-right'" class="AB_SubHead">
                 Front-end Development: Elevating User Engagement
               </h3>
-              <p data-aos="fade-up-left">
+              <p v-aos="'fade-up-left'">
                 When it comes to front-end development, I'm more than just a
                 coder. I'm a storyteller. I utilize the power of JavaScript and
                 TypeScript, combined with my expertise in Vue.js and React.js,
@@ -103,10 +103,10 @@
             </article>
 
             <article>
-              <h3 data-aos="fade-right" class="AB_SubHead">
+              <h3 v-aos="'fade-right'" class="AB_SubHead">
                 Back-end Development
               </h3>
-              <p data-aos="fade-up-left">
+              <p v-aos="'fade-up-left'">
                 Behind every great website lies a robust and scalable back-end
                 infrastructure. With expertise in frameworks like Express.js,
                 Fastify, and Koa, I architect and develop powerful web
@@ -119,10 +119,10 @@
             </article>
 
             <article>
-              <h3 data-aos="fade-right" class="AB_SubHead">
+              <h3 v-aos="'fade-right'" class="AB_SubHead">
                 Servers and Hosting
               </h3>
-              <p data-aos="fade-up-left">
+              <p v-aos="'fade-up-left'">
                 Your website deserves a reliable and secure home for your data.
                 I am well-versed in managing servers and hosting platforms such
                 as Google Cloud Platforms, AWS, and DigitalOcean. With an eye
@@ -133,10 +133,10 @@
             </article>
 
             <article>
-              <h3 data-aos="fade-right" class="AB_SubHead">
+              <h3 v-aos="'fade-right'" class="AB_SubHead">
                 Version Control and Collaboration
               </h3>
-              <p data-aos="fade-up-left">
+              <p v-aos="'fade-up-left'">
                 To ensure efficient and collaborative development processes, I
                 utilize systems like GitHub, Basecamp, Discord, Slack, etc. This
                 allows for seamless code management, easy collaboration with
@@ -145,10 +145,10 @@
             </article>
 
             <article>
-              <h3 data-aos="fade-right" class="AB_SubHead">
+              <h3 v-aos="'fade-right'" class="AB_SubHead">
                 Blockchain Development: Embracing the Future
               </h3>
-              <p data-aos="fade-up-left">
+              <p v-aos="'fade-up-left'">
                 The blockchain revolution is upon us, and I'm here to guide you
                 through it. With hands-on experience in Web3.js and Solidity, I
                 help businesses leverage the power of decentralized applications
@@ -161,11 +161,11 @@
           </section>
 
           <section>
-            <h2 data-aos="fade-right" class="AB_Head">
-              Still, Why You Should Choose Me?
+            <h2 v-aos="'fade-right'" class="AB_Head">
+              Still, Why Choose Me?
             </h2>
             <ul>
-              <li data-aos="fade-up-left">
+              <li v-aos="'fade-up-left'">
                 <strong class="t-blue-grey--1"
                   >Advanced Technical Skills:</strong
                 >
@@ -174,7 +174,7 @@
                 implement cutting-edge solutions and deliver high-quality
                 results that align with industry standards.
               </li>
-              <li data-aos="fade-up-left">
+              <li v-aos="'fade-up-left'">
                 <strong class="t-blue-grey--1"
                   >Analytical and Divergent Thinking:
                 </strong>
@@ -183,7 +183,7 @@
                 solutions. I thrive on finding creative and efficient ways to
                 overcome obstacles and achieve optimal outcomes.
               </li>
-              <li data-aos="fade-up-left">
+              <li v-aos="'fade-up-left'">
                 <strong class="t-blue-grey--1"
                   >Effective Communication and Collaboration:</strong
                 >
@@ -198,7 +198,7 @@
             </ul>
           </section>
 
-          <section data-aos="zoom-in">
+          <section v-aos="'zoom-in'">
             <h2 class="AB_Head">Let's Create Something Extraordinary</h2>
             <p>
               Are you ready to elevate your brand's digital presence?
@@ -238,7 +238,7 @@ export default {
   background-color: $sec-color-trans-1;
   color: $pri-color;
   border-bottom: solid $sec-color-trans-2 3px;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .AB_MainHead {
