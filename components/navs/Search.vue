@@ -116,7 +116,7 @@ export default {
     };
 
     const open = (slug: string) => {
-      router.push({ path: "/posts/" + slug , force: true, replace: route.params.slug === slug ? true : false, });
+      router.push({ path: "/posts/" + slug });
     };
 
     watch(
