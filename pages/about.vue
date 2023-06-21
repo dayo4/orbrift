@@ -13,10 +13,14 @@
       </section>
 
       <section class="AB_MainHead">
-        <div class="ContentCont flex j-c-center bg-img-masked">
-          <div class="Content xs11 sm9 md8">
-            <div class="Text">Samuel Adeniyi</div>
-            <img src="/defaults/usr/me.jpg" alt="Samuel Adeniyi" />
+        <div class="ContentCont flex j-c-center a-i-center bg-img-masked">
+          <img
+            src="/defaults/usr/m1.png"
+            alt="Samuel Adeniyi"
+            draggable="false"
+          />
+          <div class="Content xs11 sm9 md8 flex j-c-center a-i-center">
+            <h2 class="Text">Samuel Adeniyi</h2>
           </div>
         </div>
       </section>
@@ -161,9 +165,7 @@
           </section>
 
           <section>
-            <h2 v-aos="'fade-right'" class="AB_Head">
-              Still, Why Choose Me?
-            </h2>
+            <h2 v-aos="'fade-right'" class="AB_Head">Still, Why Choose Me?</h2>
             <ul>
               <li v-aos="'fade-up-left'">
                 <strong class="t-blue-grey--1"
@@ -246,7 +248,7 @@ export default {
   height: 180px;
   & .ContentCont {
     position: absolute;
-    bottom: -40px; 
+    bottom: -40px;
     left: 0;
     height: 180px;
     width: 100%;
@@ -255,25 +257,24 @@ export default {
     background-blend-mode: overlay;
     background-attachment: fixed;
     z-index: 0;
+
+    & img {
+      position: absolute;
+      left: -10px;
+      bottom: -10px;
+      height: 150px;
+      width: 150px;
+    }
   }
   & .Content {
     position: relative;
-    padding: 20px;
-    padding-left: 10px;
+    padding: 0 20px;
     & .Text {
-      // text-align: center;
-      max-width: 200px;
-      white-space: wrap;
-      font-size: 24px;
+      text-align: center;
+      padding-bottom: 70px;
+      font-size: 30px;
       font-weight: bold;
       color: $pri-color;
-    }
-    & img {
-      position: absolute;
-      right: 0px;
-      top: 0px;
-      height: 150px;
-      width: 150px;
     }
   }
 }
@@ -283,8 +284,8 @@ export default {
 }
 
 @include xs-only {
-  .ContentCont{
-  & .Text {
+  .ContentCont {
+    & .Text {
       max-width: 180px !important;
     }
   }
