@@ -113,11 +113,9 @@ export default {
 
     const { data, error, pending } = useAsyncData(async () => {
       if ($Posts.posts?.length > 0) {
-        // return $Posts.posts ;
         return { data: { posts: { items: $Posts.posts } } };
       } else {
         const { data, error, pending } = useAsyncQuery(gql($Posts.postsQuery));
-        // const { data, error, pending } = useAsyncQuery(postQuery, variables);
         return { data, error, pending };
       }
     });
