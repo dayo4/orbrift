@@ -12,6 +12,7 @@ function initAOS(){
 
   // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
   duration: 600,
+  once: true,
   offset: 150, // offset (in px) from the original trigger point
   anchorPlacement: 'top-top', // defines which position of the element regarding to window should trigger the animation
 });
