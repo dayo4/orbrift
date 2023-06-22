@@ -16,8 +16,8 @@
               <div class="ImgWrap">
                 <img
                   :src="project.images?.items[0].url"
-                  alt="project.images?.items[0].title"
-                  class="PostImage"
+                  :alt="project.images?.items[0].title"
+                  class="ProjImg"
                   draggable="false"
                 />
               </div>
@@ -26,16 +26,13 @@
               </h2>
             </div>
             <div class="flex j-c-center a-i-center">
-                <div class="Techs">
-                  <object class="SVG" data="defaults/stk/svg/vue.svg" type="image/svg+xml"></object>
-                  </div>
-              <!-- <img
-                src="/defaults/usr/me.jpg"
-                alt="Samuel Adeniyi"
-                class="AutImg"
-                draggable="false"
-              /> -->
-              <!-- <span class="AutName">Samuel Adeniyi</span> -->
+              <div v-for="(tech, i) in project.techs" :key="i" class="Techs">
+                <object
+                  class="SVG"
+                  :data="'defaults/stk/svg/' + tech + '.svg'"
+                  type="image/svg+xml"
+                ></object>
+              </div>
             </div>
             <p
               class="Summary"
@@ -79,7 +76,7 @@
 <script lang="ts">
 export default {
   setup() {
-            const router = useRouter();
+    const router = useRouter();
 
     const { $myMetaInfo } = useNuxtApp();
 
@@ -92,12 +89,12 @@ export default {
 
     const projectsQuery = gql`
       query {
-        projects: projectsCollection (limit: 5, order:order_ASC) {
+        projects: projectsCollection(limit: 5, order: order_ASC) {
           items {
             title
             slug
             summary
-            order
+            techs: technologies
             description {
               json
             }
@@ -163,7 +160,7 @@ export default {
   padding-top: 56.25%; /* 16:9 aspect ratio (9 divided by 16, multiplied by 100) */
   position: relative;
 }
-.PostImage {
+.ProjImg {
   position: absolute;
   top: 0;
   left: 0;
@@ -181,18 +178,23 @@ export default {
 }
 
 .Techs {
-    width: 60px;
-    height: 60px;
-    & .SVG {
-        width: 100%;
-        height: 100%;
-    }
+  width: 60px;
+  height: 60px;
+  // border: solid 3px $pri-color;
+  // border-radius: 50%;
+  margin: 0 5px;
+  & .SVG {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .Summary {
   margin-top: 10px;
   font-size: 14px;
-  color: rgb(59, 59, 59);
+  font-weight: 500;
+  color: $blue-grey;
+  // color: rgb(59, 59, 59);
   cursor: pointer;
 }
 
