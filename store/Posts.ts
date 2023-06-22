@@ -44,48 +44,11 @@ export const usePosts = defineStore("posts", {
       }
       `
   }),
-  getters: {
-    getPosts(){
-      return this.posts
-    }
-  },
+  
   actions: {
-     fetchPost(slug: String) {
-      const processPost = () => {
-        const post = this.posts.find((p) => p.slug === slug);
-
-        const index = this.posts.indexOf(post);
-        const prev = index + 1;
-        const next = index - 1;
-
-        if (prev > 0 && prev < this.posts.length) {
-          this.setPrevPost(this.posts[prev]);
-        } else {
-          this.setPrevPost(null);
-        }
-
-        if (next >= 0 && next < this.posts.length) {
-          this.setNextPost(this.posts[next]);
-        } else {
-          this.setNextPost(null);
-        }
-
-        return post;
-      };
-
-      if (this.posts?.length > 0) {
-        return processPost();
-      }
-      else {
-        return null
-      }
-    },
     setPosts(value: [Object] | any) {
       this.posts = value;
     },
-    // setCurrentPost(value: String | any) {
-    //   this.currentPost = value;
-    // },
     setParsedContent(value: String | any) {
       this.parsedContent = value;
     },
