@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div class="BlogPosts">
-      <div v-for="(post, i) in posts" :key="i" class="BlogPost xs12 sm10 md7">
-        <div class="TopSection" @click="openPost(post.slug)">
+    <section class="Posts">
+      <article v-for="(post, i) in posts" :key="i" class="Post xs12 sm10 md7">
+        <div class="TopSect" @click="openPost(post.slug)">
           <div class="PostImageWrapper">
             <img
               :src="post.images?.items[0].url"
               alt="post.images?.items[0].title"
-              class="PostImage"
+              class="PostImg"
               draggable="false"
             />
           </div>
@@ -15,22 +15,22 @@
             {{ post.title }}
           </h2>
         </div>
-        <div class="Author">
+        <div class="Aut">
           <img
             src="/defaults/usr/me.jpg"
-            alt="Author Image"
-            class="AuthorImage"
+            alt="Samuel Adeniyi"
+            class="AutImg"
             draggable="false"
           />
-          <span class="AuthorName">Samuel Adeniyi</span>
+          <span class="AutName">Samuel Adeniyi</span>
         </div>
         <p
           class="Excerpt"
           v-html="post.excerpt"
           @click="openPost(post.slug)"
         ></p>
-      </div>
-    </div>
+      </article>
+    </section>
 
     <!-- Pagination -->
     <section class="flex j-c-center">
@@ -92,23 +92,23 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.BlogPosts {
+.Posts {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
 }
 
-.BlogPost {
+.Post {
   padding: 16px;
   background-color: #f5f5f5;
   // background-color: $sec-color;
   border-radius: 4px;
 }
 
-.TopSection {
+.TopSect {
   background-color: #333; /* Dark background color for the featured image and title */
-  background-color: $sec-color-trans-1;
+  background-color: $sec-color-trans;
   border-radius: 4px;
   padding: 10px;
   margin-bottom: 10px;
@@ -119,7 +119,7 @@ export default {
   padding-top: 56.25%; /* 16:9 aspect ratio (9 divided by 16, multiplied by 100) */
   position: relative;
 }
-.PostImage {
+.PostImg {
   position: absolute;
   top: 0;
   left: 0;
@@ -135,12 +135,12 @@ export default {
   font-weight: bold;
   color: $pri-color;
 }
-.Author {
+.Aut {
   display: flex;
   align-items: center;
   margin-top: 10px;
 }
-.AuthorImage {
+.AutImg {
   width: 30px;
   height: 30px;
   object-fit: cover;
@@ -149,7 +149,7 @@ export default {
   cursor: pointer;
 }
 
-.AuthorName {
+.AutName {
   font-size: 14px;
   font-weight: bold;
   color: #777;
@@ -196,7 +196,4 @@ export default {
     }
   }
 }
-
-// @include sm-and-up {}
-// @include sm-and-down {}
 </style>
