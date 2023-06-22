@@ -13,7 +13,7 @@
             <div class="PostImageWrapper">
               <img
                 :src="post?.images.items[0].url"
-                alt="post.images.items[0].title"
+                :alt="post.images.items[0].title"
                 class="PostImage"
                 draggable="false"
               />
@@ -25,7 +25,7 @@
           <div class="Author">
             <img
               src="/defaults/usr/me.jpg"
-              alt="Author Image"
+              alt="Samuel Adeniyif"
               class="AuthorImage"
               draggable="false"
             />

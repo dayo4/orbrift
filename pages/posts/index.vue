@@ -9,7 +9,6 @@
       <section v-if="posts && posts.length > 0">
         <ListOfPosts :posts="posts" :pagin="pagin" @switchPage="switchPage" />
       </section>
-      {{error}}
     </template>
   </GlobalWrapper>
 </template>

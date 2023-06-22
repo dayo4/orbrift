@@ -1,5 +1,5 @@
 interface Posts {
-  posts: [Object] | any;
+  projects: [Object] | any;
   parsedContent: String | any;
   prevPost: Object | any;
   nextPost: Object | any;
@@ -7,15 +7,15 @@ interface Posts {
 }
 import { defineStore } from "pinia";
 
-export const usePosts = defineStore("posts", {
+export const usePosts = defineStore("projects", {
   state: (): Posts => ({
-    posts: [],
+    projects: [],
     parsedContent: null, //Contentful CMS content comes in split nodes JSON format 
     prevPost: null,
     nextPost: null,
     postsQuery: `
       query {
-        posts: blogPostCollection(limit: 10) {
+        projects: blogPostCollection(limit: 10) {
           items {
             title
             slug
@@ -44,11 +44,48 @@ export const usePosts = defineStore("posts", {
       }
       `
   }),
-  
+  getters: {
+    getPosts(){
+      return this.projects
+    }
+  },
   actions: {
-    setPosts(value: [Object] | any) {
-      this.posts = value;
+     fetchPost(slug: String) {
+      const processPost = () => {
+        const post = this.projects.find((p) => p.slug === slug);
+
+        const index = this.projects.indexOf(post);
+        const prev = index + 1;
+        const next = index - 1;
+
+        if (prev > 0 && prev < this.projects.length) {
+          this.setPrevPost(this.projects[prev]);
+        } else {
+          this.setPrevPost(null);
+        }
+
+        if (next >= 0 && next < this.projects.length) {
+          this.setNextPost(this.projects[next]);
+        } else {
+          this.setNextPost(null);
+        }
+
+        return post;
+      };
+
+      if (this.projects?.length > 0) {
+        return processPost();
+      }
+      else {
+        return null
+      }
     },
+    setPosts(value: [Object] | any) {
+      this.projects = value;
+    },
+    // setCurrentPost(value: String | any) {
+    //   this.currentPost = value;
+    // },
     setParsedContent(value: String | any) {
       this.parsedContent = value;
     },

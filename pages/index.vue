@@ -102,7 +102,7 @@
       <!-- Projects Gallery Component -->
 
       <div class="flex j-c-center mb-10">
-        <Button size="medium" icon="icon-right" iconPos="right">
+        <Button @clicked="$router.push('/portfolio')" size="medium" icon="icon-right" iconPos="right">
           Projects
         </Button>
       </div>
