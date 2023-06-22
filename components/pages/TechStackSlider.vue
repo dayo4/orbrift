@@ -2,7 +2,7 @@
 <div class="marquee">
   <div class="marquee-content"> 
     <div v-for="(icon, i) in icons" :key="i" class="marquee-item">
-      <img :src="icon" alt="">
+      <img :src="'defaults/stk/svg/' + icon + '.svg'" :alt="icon">
     </div>
   </div>
 </div>
@@ -14,10 +14,20 @@ export default {
     
   setup() {
 const icons = [
-      "/defaults/stk/svg/javascript.svg",
-      "/defaults/stk/svg/react-native.svg",
-      "/defaults/stk/svg/typescript.svg",
-      "/defaults/stk/svg/vue.svg",
+      "javascript",
+      "react-native",
+      "typescript",
+      "vue",
+      "nuxt",
+      "next",
+      "nodejs",
+      "google-cloud",
+      "graphql",
+      "firebase",
+      "vercel",
+      "wordpress",
+      "mysql",
+      "ember",
     ];
     return {
       icons
@@ -37,7 +47,10 @@ const icons = [
 }
 
 .marquee-item {
-  flex: 0 0 10vw;
+  flex: 0 0 16vw;
+  height: 80px;
+  // width: 120px;
+  padding: 5px 0;
   margin: 0 1vw;
 /*   flex: 0 0 20vw; */
 /*   margin: 0 2vw; */
@@ -45,7 +58,8 @@ const icons = [
 
 .marquee-item img {
   display: block;
-  width: 100%;
+  height: 100%;
+  max-width: 100%;
 /*   padding: 0 20px; */
 }
 
