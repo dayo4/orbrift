@@ -6,7 +6,7 @@
           <div class="PostImageWrapper">
             <img
               :src="post.images?.items[0].url"
-              alt="post.images?.items[0].title"
+              :alt="post.images?.items[0].title"
               class="PostImg"
               draggable="false"
             />
