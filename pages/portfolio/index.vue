@@ -95,9 +95,6 @@ export default {
             slug
             summary
             techs: technologies
-            description {
-              json
-            }
             images: imagesCollection {
               items {
                 url

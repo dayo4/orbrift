@@ -6,6 +6,7 @@
     </template>
     <!-- ListOfPosts Component -->
     <template #WrapperBody>
+      {{error}}
       <section v-if="posts && posts.length > 0">
         <ListOfPosts :posts="posts" :pagin="pagin" @switchPage="switchPage" />
       </section>
@@ -28,7 +29,11 @@ export default {
       current: 1,
     });
     
-        const { data, error, pending } = useAsyncQuery(gql($Posts.postsQuery));
+        const { data, error, pending } = useAsyncQuery({
+          query: gql($Posts.postsQuery),
+          variables: {},
+          cache: false
+        });
 
     const posts = computed(() => {
       if (data.value) {

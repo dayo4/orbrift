@@ -53,6 +53,7 @@ export default {
     };
 
     return {
+      href: "https://orbrift.com" + useRoute().path,
       shareIconsTooltip,
       setTooltip,
     };

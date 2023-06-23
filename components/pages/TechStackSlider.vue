@@ -1,19 +1,24 @@
 <template>
-<div class="marquee">
-  <div class="marquee-content"> 
-    <div v-for="(icon, i) in icons" :key="i" class="marquee-item">
-      <img :src="'defaults/stk/svg/' + icon + '.svg'" :alt="icon">
+  <div class="Wrapr">
+    <div class="Main">
+      <div v-for="(icon, i) in icons" :key="i" class="Item">
+        <object class="SVG" :data="'/defaults/stk/svg/' + icon + '.svg'" type="image/svg+xml"></object>
+      </div>
+    </div>
+    <div class="Deco" aria-hidden="true">
+      <div v-for="(icon, i) in icons" :key="i" class="Item">
+        <object class="SVG" :data="'/defaults/stk/svg/' + icon + '.svg'" type="image/svg+xml"></object>
+      </div>
     </div>
   </div>
-</div>
-    <!-- <Test/> -->
+  <!-- <Test/> -->
 </template>
-
+			
 <script lang="ts">
 export default {
-    
+
   setup() {
-const icons = [
+    const icons = [
       "javascript",
       "react-native",
       "typescript",
@@ -35,37 +40,87 @@ const icons = [
   },
 };
 </script>
-
+  
 <style lang="scss" scoped>
-.marquee {
+.Wrapr {
   overflow: hidden;
+  position: relative;
 }
 
-.marquee-content {
+.Main {
   display: flex;
-  animation: scrolling 10s linear infinite;
+  animation: main 40s linear infinite;
+}
+.Deco {
+  position: absolute;
+  top: 0;
+  right:0;
+  display: flex;
+  animation: deco 40s linear infinite;
+  animation-delay: 10s;
 }
 
-.marquee-item {
-  flex: 0 0 16vw;
-  height: 80px;
-  // width: 120px;
+.Item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 14vw;
+  height: 70px;
   padding: 5px 0;
   margin: 0 1vw;
-/*   flex: 0 0 20vw; */
-/*   margin: 0 2vw; */
 }
 
-.marquee-item img {
+.SVG {
   display: block;
   height: 100%;
   max-width: 100%;
-/*   padding: 0 20px; */
 }
 
-@keyframes scrolling {
-  0% { transform: translateX(0); }
-  100% { transform: translatex(-144vw); }
+@keyframes main {
+  0% {
+    transform: translateX(112vw);
+  }
+
+  100% {
+    transform: translatex(-336vw);
+  }
 }
 
+@keyframes deco {
+  0% {
+    transform: translateX(224vw);
+  }
+
+  100% {
+    transform: translatex(-224vw);
+  }
+}
+
+@include xs-only {
+.Item {
+  flex: 0 0 18vw ;
+  margin: 0 2vw;
+}
+
+@keyframes main {
+  0% {
+    transform: translateX(154vw);
+  }
+
+  100% {
+    transform: translatex(-462vw);
+  }
+}
+
+@keyframes deco {
+  0% {
+    transform: translateX(308vw);
+  }
+
+  100% {
+    transform: translatex(-308vw);
+  }
+}
+}
 </style>
+  
