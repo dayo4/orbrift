@@ -49,15 +49,15 @@ export default {
 
 .Main {
   display: flex;
-  animation: main 20s linear infinite;
+  animation: main 40s linear infinite;
 }
 .Deco {
   position: absolute;
   top: 0;
   right:0;
   display: flex;
-  animation: deco 20s linear infinite;
-  animation-delay: 5s;
+  animation: deco 40s linear infinite;
+  animation-delay: 10s;
 }
 
 .Item {
