@@ -22,6 +22,13 @@ export const usePosts = defineStore("posts", {
             excerpt
             tags
             content {
+              links {
+                assets {
+                  block {
+                    url
+                  }
+                }
+              }
               json
             }
             meta: contentfulMetadata {
@@ -35,9 +42,6 @@ export const usePosts = defineStore("posts", {
                 title
                 url
               }
-            }
-            sys {
-              id
             }
           }
         }
