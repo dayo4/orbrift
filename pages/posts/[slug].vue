@@ -47,8 +47,7 @@
 
         <!-- Next - Prev Buttons -->
         <div
-          data-aos="fade-right"
-          data-aos-once="true"
+          v-aos="'fade-right'"
           class="NP_postNavigation ml-2 mt-20"
         >
           <router-link
@@ -74,8 +73,7 @@
         </div>
 
         <div
-          data-aos="fade-left"
-          data-aos-once="true"
+          v-aos="'fade-left'"
           class="NP_postNavigation j-c-end mr-2"
         >
           <router-link
