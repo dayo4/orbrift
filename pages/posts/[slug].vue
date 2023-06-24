@@ -6,7 +6,6 @@
     </template>
 
     <template #WrapperBody>
-      {{ rr }}
       <div class="PostContainer">
         <!-- HEAD -->
         <div class="BlogPost xs12 sm10 md7">
@@ -29,7 +28,7 @@
         <ShareIcons />
 
         <!-- BODY -->
-        <section v-html="post?.title2" class="Body xs12 sm10 md7 p-5"></section>
+        <section v-html="post?.body" class="Body xs12 sm10 md7 p-5"></section>
         <section v-html="parsedContent" class="Body xs12 sm10 md7 p-5"></section>
 
         <!-- Bottom Meta -->
@@ -102,17 +101,15 @@ export default {
       router.push({ path: "/posts/" + slug });
     };
 
-    const rr = ref([])
     const parsedContent = computed(() => $Posts.parsedContent);
     const prevPost = computed(() => $Posts.prevPost);
     const nextPost = computed(() => $Posts.nextPost);
 
     const post = computed(() => {
       if (data.value) {
-        console.log(data.value)
+
         const posts = data.value?.data?.posts.items; //data.value.data?.posts.items || data.value.existingData;
         if (posts) {
-          console.log(posts)
           const currentPost = posts.find((p) => p.slug === route.params.slug);
 
           const index = posts.indexOf(currentPost);
@@ -141,12 +138,12 @@ export default {
             })
           );
 
-          // let options = {
+           //let options = {
             // renderNode: {
               // 'embedded-asset-block': (node) => {
                 // return currentPost.content?.links.assets.block
                 //   .forEach((blk) => {
-                //     rr.value.push(blk.url)
+                 //    rr.value.push(currentPost.content?.links)
 
                 //     return `<img src="${blk.url}"/>`//.target.fields.file.url
                 //   })
@@ -165,7 +162,6 @@ export default {
       }
     });
     return {
-      rr,
       post,
       parsedContent,
       pending,
