@@ -29,7 +29,6 @@
 
         <!-- BODY -->
         <section v-html="post?.body" class="Body xs12 sm10 md7 p-5"></section>
-        <section v-html="parsedContent" class="Body xs12 sm10 md7 p-5"></section>
 
         <!-- Bottom Meta -->
         <ShareIcons />
@@ -72,7 +71,6 @@
 </template>
 <script lang="ts">
 import { usePosts } from "@/store";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 
 export default {
   setup() {
@@ -101,7 +99,6 @@ export default {
       router.push({ path: "/posts/" + slug });
     };
 
-    const parsedContent = computed(() => $Posts.parsedContent);
     const prevPost = computed(() => $Posts.prevPost);
     const nextPost = computed(() => $Posts.nextPost);
 
@@ -138,32 +135,12 @@ export default {
             })
           );
 
-           //let options = {
-            // renderNode: {
-              // 'embedded-asset-block': (node) => {
-                // return currentPost.content?.links.assets.block
-                //   .forEach((blk) => {
-                 //    rr.value.push(currentPost.content?.links)
-
-                //     return `<img src="${blk.url}"/>`//.target.fields.file.url
-                //   })
-                //  rr.value.push(currentPost)
-
-              // }
-            // }
-          // }
-
-          $Posts.setParsedContent(
-            documentToHtmlString(currentPost.content.json)
-          );
-
           return currentPost;
         }
       }
     });
     return {
       post,
-      parsedContent,
       pending,
       error,
       openPost,
