@@ -29,6 +29,7 @@
         <ShareIcons />
 
         <!-- BODY -->
+        <section v-html="post?.title2" class="Body xs12 sm10 md7 p-5"></section>
         <section v-html="parsedContent" class="Body xs12 sm10 md7 p-5"></section>
 
         <!-- Bottom Meta -->
