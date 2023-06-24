@@ -88,10 +88,13 @@ export default {
 
     const { data, error, pending } = useAsyncData(async () => {
       if ($Posts.posts?.length > 0) {
-        return { data: { posts: { items: $Posts.posts } } };
+        return { data: { posts: { items: $Posts.posts }, de: "jkjk" } };
       } else {
-        const {result: data, error, } = useQuery(gql($Posts.postsQuery));
-        return { data, error, };
+        const {data, error, pending } = useAsyncQuery({
+          query: gql($Posts.postsQuery),
+          cache: false
+        });
+        return { data, error, pending};
       }
     });
 
@@ -106,8 +109,10 @@ export default {
 
     const post = computed(() => {
       if (data.value) {
+        console.log(data.value)
         const posts = data.value?.data?.posts.items; //data.value.data?.posts.items || data.value.existingData;
         if (posts) {
+          console.log(posts)
           const currentPost = posts.find((p) => p.slug === route.params.slug);
 
           const index = posts.indexOf(currentPost);
@@ -136,23 +141,23 @@ export default {
             })
           );
 
-          let options = {
-            renderNode: {
-              'embedded-asset-block': (node) => {
-                return currentPost.content?.links.assets.block
-                  .forEach((blk) => {
-                    rr.value.push(blk.url)
+          // let options = {
+            // renderNode: {
+              // 'embedded-asset-block': (node) => {
+                // return currentPost.content?.links.assets.block
+                //   .forEach((blk) => {
+                //     rr.value.push(blk.url)
 
-                    return `<img src="${blk.url}"/>`//.target.fields.file.url
-                  })
+                //     return `<img src="${blk.url}"/>`//.target.fields.file.url
+                //   })
                 //  rr.value.push(currentPost)
 
-              }
-            }
-          }
+              // }
+            // }
+          // }
 
           $Posts.setParsedContent(
-            documentToHtmlString(currentPost.content.json, options)
+            documentToHtmlString(currentPost.content.json)
           );
 
           return currentPost;
@@ -168,7 +173,6 @@ export default {
       openPost,
       prevPost,
       nextPost,
-      href: "https://orbrift.com" + route.path,
     };
   },
 };
@@ -242,52 +246,6 @@ export default {
   color: #777;
 }
 
-.Meta {
-  padding-left: 20px;
-
-  & .ShareIcons {
-    & a {
-      text-decoration: none;
-    }
-
-    position: relative;
-
-    & div:first-child {
-      width: 50px;
-      height: 50px;
-      z-index: 2;
-      background-color: $sec-color;
-      color: $pri-color;
-    }
-
-    & div:nth-child(2) {
-      position: absolute;
-      left: 20px;
-      top: 1px;
-      min-width: 250px;
-      border: solid $sec-color 3px;
-      z-index: 1;
-
-      & .Tooltip {
-        position: absolute;
-        content: "";
-        bottom: -21px;
-        left: 25%;
-        min-width: 100px;
-        height: 20px;
-        background-color: $sec-color;
-        color: white;
-        border-radius: 0 0 5px 5px;
-        transform: rotateX(0deg);
-        transition: transform 0.1s ease-in-out;
-
-        &.transform {
-          transform: rotateX(90deg);
-        }
-      }
-    }
-  }
-}
 
 .Body {
   width: 100%;

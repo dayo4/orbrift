@@ -75,16 +75,8 @@ export default {
 
     const project = computed(() => {
       if (data.value) {
-
-        let options = {
-            renderNode: {
-              'embedded-asset-block': (node) =>
-                `<img src="${node.data.target.fields.file.url}"/>`
-            }
-          }
-          
       
-       parsedContent.value = documentToHtmlString(data.value.project?.items[0].description.json, options)
+       parsedContent.value = documentToHtmlString(data.value.project?.items[0].description.json)
 
         return data.value.project.items[0];
       }
