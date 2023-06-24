@@ -29,7 +29,7 @@
 
         <!-- BODY -->
         <div class="flex j-c-center">
-          <section v-html="parsedContent" class="Body xs12 sm10 md7 p-5"></section>
+          <section v-html="project.body" class="Body xs12 sm10 md7 p-5"></section>
         </div>
 
       </template>
@@ -37,11 +37,9 @@
   </GlobalWrapper>
 </template>
 <script lang="ts">
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 
 export default {
   setup() {
-    const router = useRouter();
     const route = useRoute();
 
     const gqlVariables = ref({
@@ -55,9 +53,7 @@ export default {
             title
             slug
             techs: technologies
-            description {
-              json
-            }
+            body
             images: imagesCollection {
               items {
                 url
@@ -71,20 +67,15 @@ export default {
 
     const { data, pending } = useAsyncQuery(projectQuery, gqlVariables);
 
-    const parsedContent = ref(null);
-
     const project = computed(() => {
       if (data.value) {
       
-       parsedContent.value = documentToHtmlString(data.value.project?.items[0].description.json)
-
         return data.value.project.items[0];
       }
     });
 
     return {
       project,
-      parsedContent
     };
   },
 };
