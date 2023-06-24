@@ -18,7 +18,7 @@ export const usePosts = defineStore("posts", {
         posts: blogPostCollection(limit: 10) {
           items {
             title
-            title2
+            body
             slug
             excerpt
             tags
@@ -42,13 +42,7 @@ export const usePosts = defineStore("posts", {
       }
       `
   }),
-  // links {
-  //   assets {
-  //     block {
-  //       url
-  //     }
-  //   }
-  // }
+   
   actions: {
     setPosts(value: [Object] | any) {
       this.posts = value;
