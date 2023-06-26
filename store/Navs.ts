@@ -45,7 +45,7 @@ export const useNavs = defineStore("navs", {
       if (e.isTrusted) {
         var subsequentScrollPos = this.container?.pageYOffset;
 
-        if (subsequentScrollPos > 1000) {
+        if (subsequentScrollPos > 700) {
           this.scrolled = true;
         } else {
           this.scrolled = false;

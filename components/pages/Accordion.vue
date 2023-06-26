@@ -75,12 +75,12 @@ export default {
     const directToggle = (index) => {
       clearInterval(intervalId);
       toggleAccordion(index);
-      intervalId = setInterval(expandAccordionAutomatically, 4000);
+      intervalId = setInterval(expandAccordionAutomatically, 5000);
     };
 
     onMounted(() => {
       accordionItems.value[0].expanded = true;
-      intervalId = setInterval(expandAccordionAutomatically, 4000);
+      intervalId = setInterval(expandAccordionAutomatically, 5000);
     });
 
     onUnmounted(() => {
