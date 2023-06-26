@@ -75,10 +75,10 @@ export class General {
     /* vue-meta abstraction method */
     metaInfo(data: MyMetaInfo) {
         const defaults = {
-            title: 'orbrift - websites and web app development',
-            content: "orbrift - Genuine web apps solutions for artists and designers. Have your personal and business website's UI professionally designed for the best user experience and satisfaction.",
-            image: 'https://www.orbrift.com/defaults/pgs/orbrift_websites_design_and_web_apps_development.jpg',
-            url: '',
+            title: 'Samuel Adeniyi - Fullstack Developer - ',
+            content: "Crafting innovative websites, applications, and digital solutions for creative brands. Enhanced user experiences with stunning, user-friendly interfaces that engage and convert.",
+            image: 'https://orbrift.com/defaults/pgs/software_websites_design_web_apps_development.jpg',
+            url: 'https://orbrift.com/',
             type: 'website'
         }
 
