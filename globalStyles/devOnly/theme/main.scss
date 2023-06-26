@@ -1,7 +1,5 @@
-//Variable definitions (Find the classname definitions in the deploy folder)
 
-$ter-color: #90afc5;
-
+// Primary Color
 $pri-color-bolder: rgb(255, 153, 0);
 $pri-color: rgb(250, 185, 91);
 $pri-color-trans: rgba(250, 185, 91, 0.90);
@@ -9,13 +7,15 @@ $pri-color-trans-1: rgba(250, 185, 91, 0.75);
 $pri-color-trans-2: rgba(250, 185, 91, 0.5);
 $pri-color-trans-3: rgba(250, 185, 91, 0.25);
 
-// $sec-color: rgb(2, 41, 61); //prussian blue
-// $sec-color: rgb(47, 72, 88);  //charcoal
+// Secondary Color
 $sec-color: rgb(39, 64, 96);
 $sec-color-trans: rgba(39, 64, 96, 0.9);
 $sec-color-trans-1: rgba(39, 64, 96, 0.75);
 $sec-color-trans-2: rgba(39, 64, 96, 0.5);
 $sec-color-trans-3: rgba(39, 64, 96, 0.25);
+
+// Extra
+$ter-color: #90afc5;
 
 $light-color: white;
 $dark-color: black;
