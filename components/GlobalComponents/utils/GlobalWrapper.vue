@@ -7,7 +7,7 @@
           <slot name="Title"></slot>
         </h2>
         <section v-if="subText" class="SubText flex j-c-center">
-          <div class="xs12 md6">
+          <div class="xs12 sm11 md6">
             <slot name="SubText"></slot>
           </div>
         </section>
@@ -121,7 +121,6 @@ export default {
   background-color: $sec-color-trans-1;
   padding: 15px;
   & a {
-    // color:$pri-color;
     color: lightblue;
   }
 }
