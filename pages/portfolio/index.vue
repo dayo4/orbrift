@@ -106,7 +106,10 @@ export default {
       }
     `;
 
-    const { data, pending } = useAsyncQuery(projectsQuery);
+    const { data, pending } = useAsyncQuery({
+      query: projectsQuery,
+      // cache: false
+    });
 
     const projects = computed(() => {
       if (data.value) {

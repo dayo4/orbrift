@@ -71,13 +71,10 @@ export default {
       }
     `;
 
-    // if(!process.server){
-
-    // }
     const { data, pending } = useAsyncQuery({
       query: projectQuery,
       variables: gqlVariables,
-      cache: false,
+      // cache: false,
     });
 
     const project = computed(() => {
@@ -103,13 +100,11 @@ export default {
 .Proj {
   padding: 16px;
   background-color: #f5f5f5;
-  // background-color: $sec-color;
   border-radius: 4px;
 }
 
 .TopSect {
   background-color: #333;
-  /* Dark background color for the featured image and title */
   background-color: $sec-color-trans;
   border-radius: 4px;
   padding: 10px;

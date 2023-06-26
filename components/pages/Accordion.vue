@@ -24,7 +24,7 @@ export default {
     const accordionItems = ref([
       {
         title: "Intuitive UI Designs",
-        content: `Enhance user experiences with stunning, user-friendly interfaces that captivate and convert.`,
+        content: `Enhance user experiences with stunning, user-friendly interfaces that engage and convert.`,
         expanded: false,
       },
       {

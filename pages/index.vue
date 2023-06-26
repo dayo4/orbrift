@@ -311,7 +311,7 @@ export default {
     & .Img {
       position: absolute;
       right: 0;
-      top: 180px;
+      top: 220px;
       height: 350px;
       & img {
         width: 100%;

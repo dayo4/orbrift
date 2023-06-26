@@ -38,7 +38,7 @@ export default {
     const posts = computed(() => {
       if (data.value) {
         $Posts.setPosts(data.value.posts.items)
-        return data.value.posts.items; //?.blogPostCollection.items;
+        return data.value.posts.items;
       }
     });
 

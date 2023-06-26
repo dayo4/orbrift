@@ -35,40 +35,42 @@
         <!-- LINKS FOR VERY SMALL SCREENS  -->
 
         <!-- LINKS FOR WIDE SCREENS  -->
-       <ClientOnly>
-        <router-link
-          :class="`hide-xs ${link.subLinks ? 'MenuDropBtn NoLowerBorder' : ''}`"
-          :to="{ name: link.a }"
-          v-for="(link, i) in navLinks"
-          :key="i"
-        >
-          <a v-if="link.subLinks" @click="openDropdown(link.dropdownType)">
-            <span class="Icon" :class="link.icon"></span>
-            <span class="Name" :class="`${link.subLinks ? 'DdArrow' : ''}`">{{
-              link.name
-            }}</span>
-            <div
-              v-show="dropdowns.infoDropdown"
-              :ref="link.dropdownType + 'DropdownRef'"
-              class="DropdownMenu t-white bg-trans p-2 br2"
-            >
-              <a
-                class="Hidden flex shadow-3"
-                v-for="(subLink, i) in link.subLinks"
-                :key="i"
-                @click.prevent="changeRoute(subLink.a)"
+        <ClientOnly>
+          <router-link
+            :class="`hide-xs ${
+              link.subLinks ? 'MenuDropBtn NoLowerBorder' : ''
+            }`"
+            :to="{ name: link.a }"
+            v-for="(link, i) in navLinks"
+            :key="i"
+          >
+            <a v-if="link.subLinks" @click="openDropdown(link.dropdownType)">
+              <span class="Icon" :class="link.icon"></span>
+              <span class="Name" :class="`${link.subLinks ? 'DdArrow' : ''}`">{{
+                link.name
+              }}</span>
+              <div
+                v-show="dropdowns.infoDropdown"
+                :ref="link.dropdownType + 'DropdownRef'"
+                class="DropdownMenu t-white bg-trans p-2 br2"
               >
-                <div class="Icon" :class="subLink.icon"></div>
-                <div class="name">{{ subLink.name }}</div>
-              </a>
-            </div>
-          </a>
-          <a v-else>
-            <span class="Icon" :class="link.icon"></span>
-            <span class="Name">{{ link.name }}</span>
-          </a>
-        </router-link>
-       </ClientOnly>
+                <a
+                  class="Hidden flex shadow-3"
+                  v-for="(subLink, i) in link.subLinks"
+                  :key="i"
+                  @click.prevent="changeRoute(subLink.a)"
+                >
+                  <div class="Icon" :class="subLink.icon"></div>
+                  <div class="name">{{ subLink.name }}</div>
+                </a>
+              </div>
+            </a>
+            <a v-else>
+              <span class="Icon" :class="link.icon"></span>
+              <span class="Name">{{ link.name }}</span>
+            </a>
+          </router-link>
+        </ClientOnly>
         <!-- LINKS FOR WIDE SCREENS  -->
       </div>
 
@@ -118,7 +120,6 @@ export default {
         subLinks: [
           { a: "contact", name: "contact", icon: "icon-mail" },
           { a: "about", name: "about", icon: "icon-info" },
-          
         ],
       },
       { a: "posts", name: "blog", icon: "icon-doc" },
@@ -246,7 +247,6 @@ nav {
   &.FullTrans > div {
     background-color: transparent !important;
     box-shadow: none !important;
-    
   }
   & a:not(.MenuDropBtn) {
     position: relative;
