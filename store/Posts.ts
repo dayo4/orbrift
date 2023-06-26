@@ -13,7 +13,7 @@ export const usePosts = defineStore("posts", {
     nextPost: null,
     postsQuery: `
       query {
-        posts: blogPostCollection(limit: 10) {
+        posts: blogPostCollection(limit: 10, order:sys_firstPublishedAt_DESC) {
           items {
             title
             body
