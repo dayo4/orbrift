@@ -17,6 +17,7 @@ export const usePosts = defineStore("posts", {
           items {
             title
             body
+            body2
             slug
             excerpt
             tags
