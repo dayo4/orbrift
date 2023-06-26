@@ -97,7 +97,6 @@ export default {
   },
 
   setup(props) {
-    // const { $baseApi } = useNuxtApp();
     const $Mailer = useMailer();
     const $Process = useProcess();
 

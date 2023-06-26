@@ -13,14 +13,18 @@
       </section>
 
       <section class="AB_MainHead">
-        <div class="ContentCont flex j-c-center a-i-center bg-img-masked">
-          <img
-            src="/defaults/usr/m1.png"
-            alt="Samuel Adeniyi"
-            draggable="false"
-          />
+        <div
+          class="ContentCont flex j-c-center a-i-center bg-img-masked noselect"
+        >
+          <div class="Img img-maske">
+            <img
+              src="/defaults/usr/m1.png"
+              alt="Samuel Adeniyi"
+              draggable="false"
+            />
+          </div>
           <div class="Content xs11 sm9 md8 flex j-c-center a-i-center">
-            <h2 class="Text">Samuel Adeniyi</h2>
+            <h2 class="Text">Samuel A. Adeniyi</h2>
           </div>
         </div>
       </section>
@@ -256,14 +260,25 @@ export default {
     background-image: url("/defaults/pgs/orbrift_pfbg.jpg");
     background-blend-mode: overlay;
     background-attachment: fixed;
+    overflow: hidden;
     z-index: 0;
 
-    & img {
+    & .Img {
       position: absolute;
       left: -10px;
       bottom: -10px;
       height: 150px;
       width: 150px;
+      // &::after {
+      //   content: "";
+      //   position: absolute;
+      //   top: 0;
+      //   bottom: 0;
+      //   right: 0;
+      //   left: 0;
+      //   z-index: 1;
+      //   background-color: transparent;
+      // }
     }
   }
   & .Content {

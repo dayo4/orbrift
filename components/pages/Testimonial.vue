@@ -179,6 +179,5 @@ export default {
     }
   }
 }
-// @include xxs-only {}
 
 </style>

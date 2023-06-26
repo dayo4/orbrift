@@ -18,19 +18,21 @@
             <h3 class="text-center t-white letter-space-1">
               It starts with a simple request
             </h3>
-            <!-- <div class="text-center font-7 t-white">Just A Few Details</div> -->
           </section>
 
           <section>
-<p>
-You might be expecting to see a list of options with price tags, but NO. 
-</p>
-<p>
-  Your company and brand is unique. Please provide some specific details of the values you want, so that i can provide you with result that truely matters to you. I usually reply within a day.
-</p>
-</section>
-  
-<!-- Email -->
+            <p>
+              You might be expecting to see a list of options with price tags,
+              but NO.
+            </p>
+            <p>
+              Your company and brand is unique. Please provide some specific
+              details of the values you want, so that i can provide you with
+              result that truely matters to you. I usually reply within a day.
+            </p>
+          </section>
+
+          <!-- Email -->
           <Section class="mb-5">
             <template #SectHead>
               <span>Your Email</span>
@@ -97,8 +99,8 @@ You might be expecting to see a list of options with price tags, but NO.
           <Section class="mb-5">
             <template #SectHead>
               <span
-                >Tell me all the specific details, values and features that you would
-                like to get from this.
+                >Tell me all the specific details, values and features that you
+                would like to get from this.
               </span>
             </template>
             <template #SectBody>

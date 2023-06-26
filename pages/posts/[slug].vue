@@ -89,7 +89,7 @@ export default {
       } else {
         const {data, error, pending } = useAsyncQuery({
           query: gql($Posts.postsQuery),
-          cache: false
+          // cache: false
         });
         return { data, error, pending};
       }
