@@ -79,8 +79,8 @@ const Deco: Ref<HTMLElement> = ref(null)
   animation: deco 40s linear infinite;
   animation-delay: 10s;
   &.Invis {
-    // visibility: hidden;
-    display: none;
+    visibility: hidden;
+    // display: none;
   }
 }
 
