@@ -325,7 +325,9 @@ nav {
 
 .ExtraLink {
   font-size: 18px ;
-  border: solid $pri-color 3px;
+  & a {
+    border: solid $pri-color 1.5px;
+  }
   & .Name {
       font-size: 18px !important;
   }
