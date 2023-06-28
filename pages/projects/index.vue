@@ -80,7 +80,7 @@ export default {
 
     const { $myMetaInfo } = useNuxtApp();
 
-    useSeoMeta($myMetaInfo({ title: "portfolio" }));
+    useSeoMeta($myMetaInfo({ title: "projects" }));
 
     const pagin = ref({
       pages: 1,
@@ -118,7 +118,7 @@ export default {
     });
 
     const openProject = (slug: string) => {
-      router.push({ path: "/portfolio/" + slug });
+      router.push({ path: "/projects/" + slug });
     };
 
     const switchPage = (v: number) => {};
