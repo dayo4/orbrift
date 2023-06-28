@@ -350,8 +350,9 @@ nav {
     cursor: default;
     & a {
       margin-bottom: 5px;
-      padding: 10px;
+      padding: 7px;
       padding-right: 20px;
+      font-weight: bold;
       cursor: pointer;
       text-transform: capitalize;
       background-color: $sec-color-trans;
