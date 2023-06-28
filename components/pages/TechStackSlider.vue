@@ -1,5 +1,5 @@
 <template>
-  <div class="Wrapr Invis" ref="Wrapr">
+  <div class="Wrapr">
     <div class="Main">
       <div v-for="(icon, i) in icons" :key="i" class="Item">
         <object
@@ -9,7 +9,7 @@
         ></object>
       </div>
     </div>
-    <div class="Deco" aria-hidden="true">
+    <div class="Deco Invis" ref="Deco" aria-hidden="true">
       <div v-for="(icon, i) in icons" :key="i" class="Item">
         <object
           class="SVG"
@@ -27,7 +27,7 @@ export default {
   setup() {
 let delayTimeout;
 
-const Wrapr: Ref<HTMLElement> = ref(null)
+const Deco: Ref<HTMLElement> = ref(null)
 
     const icons = [
       "javascript",
@@ -50,7 +50,7 @@ const Wrapr: Ref<HTMLElement> = ref(null)
 
     onMounted(() => {
       delayTimeout = setTimeout(() => {
-        Wrapr.value.classList.remove("Invis")
+        Deco.value.classList.remove("Invis")
       }, 10000);
     });
 
