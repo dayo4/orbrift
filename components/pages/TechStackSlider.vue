@@ -79,7 +79,8 @@ const Wrapr: Ref<HTMLElement> = ref(null)
   animation: deco 40s linear infinite;
   animation-delay: 10s;
   &.Invis {
-    visibility: hidden;
+    // visibility: hidden;
+    display: none;
   }
 }
 
