@@ -8,7 +8,7 @@
     <template #WrapperBody>
       <div v-if="project">
         <section class="Projs">
-          <article class="Proj xs12 sm8 md7 lg6">
+          <article class="Proj xs12 sm9 md7 lg6">
             <div class="TopSect">
               <div class="ImgWrap">
                 <img

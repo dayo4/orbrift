@@ -10,7 +10,7 @@
           <article
             v-for="(project, i) in projects"
             :key="i"
-            class="Proj xs12 sm10 md7"
+            class="Proj xs12 sm9 md7 lg6"
           >
             <div class="TopSect" @click="openProject(project.slug)">
               <div class="ImgWrap">
