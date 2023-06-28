@@ -37,7 +37,7 @@
 
       <!-- BODY -->
       <div class="flex j-c-center">
-        <section v-html="project.body" class="Body xs12 sm10 md7 p-5"></section>
+        <section v-html="project?.body" class="Body xs12 sm10 md7 p-5"></section>
       </div>
     </template>
     <!-- </ClientOnly> -->
