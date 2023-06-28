@@ -22,7 +22,7 @@
             class="DropdownMenu t-white bg-trans p-2 br2"
           >
             <a
-              class="Hidden flex shadow-3"
+              class="Hidden flex shadow-6"
               v-for="(link, i) in mobileNavLinks"
               :key="i"
               @click.prevent="changeRoute(link.a)"
@@ -55,7 +55,7 @@
                 class="DropdownMenu t-white bg-trans p-2 br2"
               >
                 <a
-                  class="Hidden flex shadow-3"
+                  class="Hidden flex shadow-6"
                   v-for="(subLink, i) in link.subLinks"
                   :key="i"
                   @click.prevent="changeRoute(subLink.a)"
@@ -120,7 +120,7 @@ export default {
         subLinks: [
           { a: "contact", name: "contact", icon: "icon-mail" },
           { a: "about", name: "about", icon: "icon-info" },
-          { a: "projects", name: "my works", icon: "icon-star-empty" },
+          { a: "projects", name: "projects", icon: "icon-star-empty" },
         ],
       },
       { a: "posts", name: "blog", icon: "icon-doc" },
@@ -131,7 +131,7 @@ export default {
       { a: "contact", name: "contact", icon: "icon-mail" },
       { a: "about", name: "about", icon: "icon-info" },
       { a: "posts", name: "blog", icon: "icon-doc" },
-      { a: "projects", name: "my works", icon: "icon-star-empty" },
+      { a: "projects", name: "projects", icon: "icon-star-empty" },
       { a: "create", name: "create your website", icon: "icon-diamond" },
     ];
 
@@ -290,7 +290,7 @@ nav {
 .ExtraLink {
   height: 100%;
   & a {
-    padding: 7px;
+    padding: 5px;
     margin-right: 13px;
     white-space: nowrap;
     transition: 0.3s;
@@ -323,6 +323,17 @@ nav {
   }
 }
 
+.ExtraLink {
+  font-size: 18px ;
+  margin-right: 8px;
+  // & a {
+    // border: solid $pri-color 1.5px;
+  // }
+  & .Name {
+      font-size: 18px !important;
+  }
+}
+
 .MainNavLinks {
   & .MenuDropBtn {
     position: relative;
@@ -336,8 +347,8 @@ nav {
       font-weight: normal;
       content: "\e858";
       position: absolute;
-      right: -6px;
-      top: 9px;
+      right: -10px;
+      top: 3px;
       font-size: 14px;
     }
   }
@@ -346,10 +357,12 @@ nav {
     position: absolute;
     right: 0;
     top: 35px;
+    font-size: 20px;
     cursor: default;
     & a {
       margin-bottom: 5px;
-      padding-right: 20px;
+      padding: 5px 20px 5px 10px;
+      font-weight: bold;
       cursor: pointer;
       text-transform: capitalize;
       background-color: $sec-color-trans;

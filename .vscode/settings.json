@@ -2,5 +2,6 @@
     "githubPullRequests.ignoredPullRequestBranches": [
         "v1.0"
     ],
-    "vue.codeActions.enabled": false
+    "vue.codeActions.enabled": false,
+    "gitdoc.enabled": true
 }

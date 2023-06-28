@@ -2,22 +2,33 @@
   <div class="Wrapr">
     <div class="Main">
       <div v-for="(icon, i) in icons" :key="i" class="Item">
-        <object class="SVG" :data="'/defaults/stk/svg/' + icon + '.svg'" type="image/svg+xml"></object>
+        <object
+          class="SVG"
+          :data="'/defaults/stk/svg/' + icon + '.svg'"
+          type="image/svg+xml"
+        ></object>
       </div>
     </div>
-    <div class="Deco" aria-hidden="true">
+    <div class="Deco Invis" ref="Deco" aria-hidden="true">
       <div v-for="(icon, i) in icons" :key="i" class="Item">
-        <object class="SVG" :data="'/defaults/stk/svg/' + icon + '.svg'" type="image/svg+xml"></object>
+        <object
+          class="SVG"
+          :data="'/defaults/stk/svg/' + icon + '.svg'"
+          type="image/svg+xml"
+        ></object>
       </div>
     </div>
   </div>
   <!-- <Test/> -->
 </template>
-			
+
 <script lang="ts">
 export default {
-
   setup() {
+let delayTimeout;
+
+const Deco: Ref<HTMLElement | null> = ref(null);
+
     const icons = [
       "javascript",
       "react-native",
@@ -27,20 +38,34 @@ export default {
       "next",
       "nodejs",
       "google-cloud",
+      // "gatsby",
       "graphql",
+      // "jamstack",
       "firebase",
       "vercel",
       "wordpress",
       "mysql",
       "ember",
     ];
+
+    onMounted(() => {
+      delayTimeout = setTimeout(() => {
+        Deco.value.classList.remove("Invis")
+      }, 10000);
+    });
+
+    onUnmounted(()=>{
+      clearTimeout(delayTimeout)
+    })
+
     return {
-      icons
+      icons,
+      Deco
     };
   },
 };
 </script>
-  
+
 <style lang="scss" scoped>
 .Wrapr {
   overflow: hidden;
@@ -54,10 +79,14 @@ export default {
 .Deco {
   position: absolute;
   top: 0;
-  right:0;
+  right: 0;
   display: flex;
   animation: deco 40s linear infinite;
   animation-delay: 10s;
+  &.Invis {
+    visibility: hidden;
+    // display: none;
+  }
 }
 
 .Item {
@@ -97,30 +126,29 @@ export default {
 }
 
 @include xs-only {
-.Item {
-  flex: 0 0 18vw ;
-  margin: 0 2vw;
-}
-
-@keyframes main {
-  0% {
-    transform: translateX(154vw);
+  .Item {
+    flex: 0 0 18vw;
+    margin: 0 2vw;
   }
 
-  100% {
-    transform: translatex(-462vw);
-  }
-}
+  @keyframes main {
+    0% {
+      transform: translateX(154vw);
+    }
 
-@keyframes deco {
-  0% {
-    transform: translateX(308vw);
+    100% {
+      transform: translatex(-462vw);
+    }
   }
 
-  100% {
-    transform: translatex(-308vw);
+  @keyframes deco {
+    0% {
+      transform: translateX(308vw);
+    }
+
+    100% {
+      transform: translatex(-308vw);
+    }
   }
-}
 }
 </style>
-  

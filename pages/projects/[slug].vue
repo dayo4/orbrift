@@ -37,7 +37,7 @@
 
       <!-- BODY -->
       <div class="flex j-c-center">
-        <section v-html="project.body" class="Body xs12 sm10 md7 p-5"></section>
+        <section v-html="project?.body" class="Body xs12 sm10 md7 p-5"></section>
       </div>
     </template>
     <!-- </ClientOnly> -->
@@ -79,6 +79,7 @@ export default {
 
     const project = computed(() => {
       if (data.value) {
+        // console.log(data.value)
         return data.value.project.items[0];
       }
     });

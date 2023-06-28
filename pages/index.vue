@@ -44,7 +44,9 @@
     </section>
 
     <!-- Tech Stack Icons Slider Component -->
-    <TechStackSlider />
+    <ClientOnly>
+      <TechStackSlider />
+    </ClientOnly>
     <!-- Tech Stack Icons Slider Component -->
 
     <section class="SubText flex j-c-center">
@@ -59,7 +61,12 @@
         <span>My Approach.. </span>
       </h3>
       <div class="Tiles bg-img-masked flex wrap j-c-center py-4 noselect">
-        <article v-aos="'fade-left'" class="xs11 sm10 md9 lg7 shadow-3" v-for="(L, i) in list" :key="i">
+        <article
+          v-aos="'fade-left'"
+          class="xs11 sm10 md9 lg7 shadow-3"
+          v-for="(L, i) in list"
+          :key="i"
+        >
           <div class="noselect">
             <img
               :src="L.link ? L.link : '/defaults/pgs/icons/' + L.img + '.jpg'"
@@ -102,7 +109,12 @@
       <!-- Projects Gallery Component -->
 
       <div class="flex j-c-center mb-10">
-        <Button @clicked="$router.push('/portfolio')" size="medium" icon="icon-right" iconPos="right">
+        <Button
+          @clicked="$router.push('/projects')"
+          size="medium"
+          icon="icon-right"
+          iconPos="right"
+        >
           Projects
         </Button>
       </div>
