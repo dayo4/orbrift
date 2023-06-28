@@ -292,7 +292,6 @@ nav {
   & a {
     padding: 5px;
     margin-right: 13px;
-    // font-size: 18px;
     white-space: nowrap;
     transition: 0.3s;
     &:not(.MenuDropBtn):hover {
@@ -325,7 +324,7 @@ nav {
 }
 
 .ExtraLink {
-  
+    font-size: 18px;
 }
 
 .MainNavLinks {
