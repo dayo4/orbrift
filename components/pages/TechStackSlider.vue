@@ -49,6 +49,7 @@ const Deco: Ref<HTMLElement> = ref(null)
     ];
 
     onMounted(() => {
+      console.log(Deco.value)
       delayTimeout = setTimeout(() => {
         Deco.value.classList.remove("Invis")
       }, 10000);
