@@ -348,7 +348,7 @@ nav {
       content: "\e858";
       position: absolute;
       right: -6px;
-      top: 7px;
+      top: 3px;
       font-size: 14px;
     }
   }
