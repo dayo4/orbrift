@@ -55,6 +55,10 @@ const Deco: Ref<HTMLElement | null> = ref(null);
       }, 10000);
     });
 
+    onUnmounted(()=>{
+      clearTimeout(delayTimeout)
+    })
+
     return {
       icons,
       Deco
