@@ -323,7 +323,7 @@ nav {
   }
 }
 
-.ExtraLink .Name {
+.ExtraLink, .ExtraLink .Name {
     font-size: 18px !important;
 }
 
