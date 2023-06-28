@@ -208,7 +208,7 @@
             <h2 class="AB_Head">Let's Create Something Extraordinary</h2>
             <p>
               Are you ready to elevate your brand's digital presence?
-              <NuxtLink to="hire-me"> Hire me</NuxtLink>. Get in touch with me
+              <NuxtLink to="/create"> Hire me</NuxtLink>. Get in touch with me
               today, to discuss your web development goals. Together, we'll
               embark on a journey to create a captivating online experience that
               sets you apart from the competition and drives measurable success.
@@ -267,8 +267,8 @@ export default {
       position: absolute;
       left: -10px;
       bottom: -10px;
-      height: 150px;
-      width: 150px;
+      height: 200px;
+      width: 200px;
       // &::after {
       //   content: "";
       //   position: absolute;
