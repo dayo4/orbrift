@@ -327,7 +327,7 @@ nav {
   font-size: 18px ;
   margin-right: 8px;
   & a {
-    border: solid $pri-color 1.5px;
+    // border: solid $pri-color 1.5px;
   }
   & .Name {
       font-size: 18px !important;
