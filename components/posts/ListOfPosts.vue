@@ -17,7 +17,7 @@
         </div>
         <div class="Aut">
           <img
-            src="/defaults/usr/m1.png"
+            src="/defaults/usr/me1.jpg"
             alt="Samuel Adeniyi"
             class="AutImg"
             draggable="false"

@@ -19,7 +19,7 @@
             </h2>
           </div>
           <div class="Author">
-            <img src="/defaults/usr/m1.png" alt="Samuel Adeniyif" class="AuthorImage" draggable="false" />
+            <img src="/defaults/usr/me1.jpg" alt="Samuel Adeniyif" class="AuthorImage" draggable="false" />
             <span class="AuthorName">Samuel Adeniyi</span>
           </div>
         </div>
