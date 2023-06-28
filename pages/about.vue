@@ -7,8 +7,8 @@
 
     <template #WrapperBody>
       <section class="AB_HeadImg flex j-c-center">
-        <div class="xs5 sm4 md3 mb-5">
-          <!-- <img src="/defaults/pgs/orbrift_ab2.jpg" draggable="false" /> -->
+        <div class="TopImg xs4 sm3 md2 mb-5">
+          <img src="/defaults/pgs/orbrift_ab2.jpg" draggable="false" />
         </div>
       </section>
 
@@ -16,7 +16,7 @@
         <div
           class="ContentCont flex j-c-center a-i-center bg-img-masked noselect"
         >
-          <div class="Img img-maske">
+          <div class="Img">
             <img
               src="/defaults/usr/m1.png"
               alt="Samuel Adeniyi"
@@ -231,6 +231,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.TopImg {
+  min-height: 80px;
+}
 .AB_HeadImg {
   & p {
     font-size: 16px;

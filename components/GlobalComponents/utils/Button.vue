@@ -1,18 +1,25 @@
 <template>
-<div class="GenBtnCont" @click="handleClick">
-<div 
-class="GenBtnWrapper" 
-:class="wrapperClasses"
->
-  <button ref="GenBtn" :class="classes" class="GenBtn">
-    <span>
-      <span v-if="icon && iconPos !== 'right'" :class="icon" class="BtnIcon mr-3"> </span>
-        <slot></slot>
-      <span v-if="icon && iconPos === 'right'" :class="icon" class="BtnIcon ml-3"> </span>
-    </span>
-  </button>
-</div>
-</div>
+  <div class="GenBtnCont" @click="handleClick">
+    <div class="GenBtnWrapper" :class="wrapperClasses">
+      <button ref="GenBtn" :class="classes" class="GenBtn">
+        <span>
+          <span
+            v-if="icon && iconPos !== 'right'"
+            :class="icon"
+            class="BtnIcon mr-3"
+          >
+          </span>
+          <slot></slot>
+          <span
+            v-if="icon && iconPos === 'right'"
+            :class="icon"
+            class="BtnIcon ml-3"
+          >
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
 </template>
 <script lang="ts">
 export default {
@@ -41,19 +48,18 @@ export default {
       Large: props.size === "large",
       Medium: props.size === "medium",
       Small: props.size === "small",
+      Xsmall: props.size === "xsmall",
     }));
-        const wrapperClasses = computed(() => ({
+    const wrapperClasses = computed(() => ({
       CtaBtn: props.type === "cta",
       BasicBtn: props.type === "basic",
       ActionBtn: props.type === "action",
-      loading: props.loading
+      loading: props.loading,
     }));
     const icon = computed(() =>
       props.loading ? "icon-spin6 gen-btn-animate-spin" : props.icon
     );
-    const iconPos = computed(() =>
-      props.iconPos
-    );
+    const iconPos = computed(() => props.iconPos);
     // const loading = compruted(() =>
     //   props.loading
     // );
@@ -70,7 +76,7 @@ export default {
       handleClick,
 
       icon,
-      iconPos
+      iconPos,
     };
   },
 };
@@ -89,28 +95,30 @@ export default {
   background-color: $pri-color;
   border-radius: 3px;
   overflow: hidden;
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
+    0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
   transition: 0.2s;
   z-index: 0;
-  &::after, &::before {
+  &::after,
+  &::before {
     content: "";
     position: absolute;
     background-color: $sec-color;
     transition: 0.6s;
     z-index: -1;
   }
-    &::after {
+  &::after {
     top: -6px;
     bottom: -6px;
     width: 70%;
     // transition:  2s;
   }
-      &::before {
+  &::before {
     left: -6px;
     right: -6px;
     height: 60%;
   }
-    &:not(.loading):hover {
+  &:not(.loading):hover {
     opacity: 0.9;
   }
   &:not(.loading):active {
@@ -125,23 +133,23 @@ export default {
     // height: 50%;
     animation: loading-b 0.4s alternate infinite linear;
   }
-      &.CtaBtn::after {
+  &.CtaBtn::after {
     animation: cta-a 0.5s alternate infinite linear;
   }
-        &.CtaBtn::before {
+  &.CtaBtn::before {
     animation: cta-b 0.5s alternate infinite linear;
   }
-    &.CtaBtn:hover::after {
+  &.CtaBtn:hover::after {
     animation: cta-a-hover 0.2s alternate infinite linear;
   }
-    &.CtaBtn:hover::before {
+  &.CtaBtn:hover::before {
     animation: cta-b-hover 0.2s alternate infinite linear;
   }
-      &.BasicBtn:hover::after {
-        width:30%
+  &.BasicBtn:hover::after {
+    width: 30%;
   }
-    &.BasicBtn:hover::before {
-      height:20%
+  &.BasicBtn:hover::before {
+    height: 20%;
   }
 }
 .GenBtn {
@@ -163,15 +171,18 @@ export default {
   background-color: $sec-color;
   margin: 2px;
   transition: 0.1s;
+  &.Xsmall {
+    padding: none !important;
+  }
   &.Small {
     min-height: 30px;
     min-width: 110px;
   }
-    &.Medium {
+  &.Medium {
     min-height: 40px;
     min-width: 120px;
   }
-    &.Large {
+  &.Large {
     min-height: 50px;
     min-width: 130px;
   }
@@ -186,7 +197,7 @@ export default {
     width: 45%;
   }
   100% {
-    width:40%
+    width: 40%;
   }
 }
 @keyframes loading-b {
@@ -194,7 +205,7 @@ export default {
     height: 50%;
   }
   100% {
-    height:40%
+    height: 40%;
   }
 }
 
@@ -203,7 +214,7 @@ export default {
     width: 70%;
   }
   100% {
-    width:60%
+    width: 60%;
   }
 }
 @keyframes cta-b {
@@ -211,7 +222,7 @@ export default {
     height: 50%;
   }
   100% {
-    height:40%
+    height: 40%;
   }
 }
 @keyframes cta-a-hover {
@@ -219,7 +230,7 @@ export default {
     width: 25%;
   }
   100% {
-    width:15%
+    width: 15%;
   }
 }
 @keyframes cta-b-hover {
@@ -227,7 +238,7 @@ export default {
     height: 25%;
   }
   100% {
-    height:15%
+    height: 15%;
   }
 }
 
@@ -240,5 +251,4 @@ export default {
     transform: rotate(359deg);
   }
 }
-
 </style>

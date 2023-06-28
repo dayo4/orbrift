@@ -23,7 +23,7 @@ export class General {
     // !Load google recaptcha
     loadScript(scriptUrl: string = "https://www.google.com/recaptcha/api.js?render=6LfWRMQbAAAAAG0QCV3Blkn1lFuPB64l-zjYnRmU", tagId: string = "gRcptSrt") {
         return new Promise(function (resolve, reject) {
-            if (!devMode) {
+            // if (!devMode) {
                 let script = document.createElement('script');
                 script.src = scriptUrl;
                 script.id = tagId;
@@ -36,8 +36,8 @@ export class General {
                     oldTag.parentNode.replaceChild(script, oldTag)
                 } else
                     document.head.appendChild(script);
-            }
-            reject//('dev')
+            // }
+            // reject//('dev')
         })
     }
 

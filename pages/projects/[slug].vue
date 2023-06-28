@@ -1,15 +1,15 @@
 <template>
   <GlobalWrapper :subText="false">
     <!-- <ClientOnly> -->
-    <template #Title> Portfolio </template>
-    <template #SubText> A Collection of Some of my Projects </template>
+    <template #Title> Project </template>
+    <!-- <template #SubText> A Collection of Some of my Projects </template> -->
 
     <!-- ListOfPosts Component -->
     <template #WrapperBody>
       <div v-if="project">
         <section class="Projs">
           <article class="Proj xs12 sm9 md7 lg6">
-            <div class="TopSect">
+            <div class="TopSect noselect">
               <div class="ImgWrap">
                 <img
                   :src="project.images?.items[0].url"
@@ -22,15 +22,15 @@
                 {{ project.title }}
               </h2>
             </div>
-            <div class="flex j-c-center a-i-center">
+            <!-- <div class="flex j-c-center a-i-center">
               <div v-for="(tech, i) in project.techs" :key="i" class="Techs">
-                <object
+                <img
                   class="SVG"
-                  :data="'/defaults/stk/svg/' + tech + '.svg'"
+                  :src="'/defaults/stk/svg/' + tech + '.svg'"
                   type="image/svg+xml"
-                ></object>
+                />
               </div>
-            </div>
+            </div> -->
           </article>
         </section>
       </div>
@@ -49,12 +49,12 @@ export default {
     const route = useRoute();
 
     const gqlVariables = ref({
-      slug: route.params.slug,
+      Slug: route.params.slug,
     });
 
     const projectQuery = gql`
-      query FetchProject($slug: String) {
-        project: projectsCollection(limit: 1, where: { slug: $slug }) {
+      query FetchProject($Slug: String) {
+        project: projectsCollection(limit: 1, where: { slug: $Slug }) {
           items {
             title
             slug
@@ -73,13 +73,12 @@ export default {
 
     const { data, pending } = useAsyncQuery({
       query: projectQuery,
-      variables: gqlVariables,
+      variables: gqlVariables.value,
       // cache: false,
     });
 
     const project = computed(() => {
       if (data.value) {
-        // console.log(data.value)
         return data.value.project.items[0];
       }
     });
@@ -132,21 +131,21 @@ export default {
 .Title {
   margin-top: 10px;
   margin-bottom: 10px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   color: $pri-color;
 }
 
-.Techs {
-  width: 60px;
-  height: 60px;
-  // border: solid 3px $pri-color;
-  // border-radius: 50%;
-  margin: 0 5px;
+// .Techs {
+//   width: 60px;
+//   height: 60px;
+//   // border: solid 3px $pri-color;
+//   // border-radius: 50%;
+//   margin: 0 5px;
 
-  & .SVG {
-    width: 100%;
-    height: 100%;
-  }
-}
+//   & .SVG {
+//     width: 100%;
+//     height: 100%;
+//   }
+// }
 </style>

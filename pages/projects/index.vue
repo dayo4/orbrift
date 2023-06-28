@@ -1,6 +1,6 @@
 <template>
   <GlobalWrapper>
-    <template #Title> Portfolio </template>
+    <template #Title> Projects </template>
     <template #SubText> A Collection of Some of my Projects </template>
 
     <!-- ListOfPosts Component -->
@@ -12,7 +12,7 @@
             :key="i"
             class="Proj xs12 sm9 md7 lg6"
           >
-            <div class="TopSect" @click="openProject(project.slug)">
+            <div class="TopSect noselect">
               <div class="ImgWrap">
                 <img
                   :src="project.images?.items[0].url"
@@ -25,33 +25,38 @@
                 {{ project.title }}
               </h2>
             </div>
-            <div class="flex j-c-center a-i-center">
+
+            <!-- <div class="flex j-c-center a-i-center">
               <div v-for="(tech, i) in project.techs" :key="i" class="Techs">
-                <object
+                <img
                   class="SVG"
-                  :data="'defaults/stk/svg/' + tech + '.svg'"
+                  :src="'defaults/stk/svg/' + tech + '.svg'"
                   type="image/svg+xml"
-                ></object>
+                />
               </div>
+            </div> -->
+            <p class="Summary" v-html="project.summary"></p>
+            <div class="flex j-c-end mt-6 mr-8">
+              <button
+                @click="openProject(project.slug)"
+                class="ViewBtn"
+              >
+                <span class="icon-right"></span>
+              </button>
             </div>
-            <p
-              class="Summary"
-              v-html="project.summary"
-              @click="openProject(project.slug)"
-            ></p>
           </article>
         </section>
 
         <!-- Pagination -->
         <section class="flex j-c-center">
           <div class="Pagins xs12 sm11 md8">
-            <button
+            <!-- <button
               @click="switchPage(pagin.current - 1)"
               class="btn bg-trans-4"
             >
               <span class="icon-angle-double-left font-6"></span>
               <span class="font-1 mt-1">PREV</span>
-            </button>
+            </button> -->
             <button class="Nums btn bg-white" v-for="i in pagin.pages" :key="i">
               <span
                 @click="switchPage(i)"
@@ -59,13 +64,13 @@
                 >{{ i }}</span
               >
             </button>
-            <button
+            <!-- <button
               @click="switchPage(pagin.current + 1)"
               class="btn bg-trans-4"
             >
               <span class="font-1 mt-1">NEXT</span>
               <span class="Icon icon-angle-double-right font-6"></span>
-            </button>
+            </button> -->
           </div>
         </section>
         <!-- Pagination -->
@@ -83,13 +88,13 @@ export default {
     useSeoMeta($myMetaInfo({ title: "projects" }));
 
     const pagin = ref({
-      pages: 1,
+      pages: 4,
       current: 1,
     });
 
     const projectsQuery = gql`
       query {
-        projects: projectsCollection(limit: 5, order: order_ASC) {
+        projects: projectsCollection(limit: 10, order: order_ASC) {
           items {
             title
             slug
@@ -118,7 +123,12 @@ export default {
     });
 
     const openProject = (slug: string) => {
-      router.push({ path: "/projects/" + slug });
+      if(String(slug).startsWith("https://")){
+        window.open(slug, '_blank')
+      }
+      else{
+        router.push({ path: "/projects/" + slug });
+      }
     };
 
     const switchPage = (v: number) => {};
@@ -153,7 +163,6 @@ export default {
   border-radius: 4px;
   padding: 10px;
   margin-bottom: 10px;
-  cursor: pointer;
 }
 .ImgWrap {
   width: 100%;
@@ -172,46 +181,68 @@ export default {
 .Title {
   margin-top: 10px;
   margin-bottom: 10px;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: bold;
   color: $pri-color;
 }
 
-.Techs {
-  width: 60px;
-  height: 60px;
-  // border: solid 3px $pri-color;
-  // border-radius: 50%;
-  margin: 0 5px;
-  & .SVG {
-    width: 100%;
-    height: 100%;
+.ViewBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding:3px 20px;
+  cursor: pointer;
+  outline: none;
+  color: $pri-color;
+  // font-size: 18px;
+  font-weight: bold;
+  border-radius: 4px;
+  box-shadow:   $shadow-3; 
+  background-color: $sec-color;
+  &:active {
+    box-shadow: none;
   }
 }
+// .Techs {
+//   width: 60px;
+//   height: 60px;
+//   // border: solid 3px $pri-color;
+//   // border-radius: 50%;
+//   margin: 0 5px;
+//   & .SVG {
+//     width: 100%;
+//     height: 100%;
+//   }
+// }
 
 .Summary {
-  margin-top: 10px;
+  margin-top: 15px;
   font-size: 14px;
   font-weight: 500;
   color: $blue-grey;
   // color: rgb(59, 59, 59);
-  cursor: pointer;
 }
 
 .Pagins {
   display: flex;
-  justify-content: space-between;
-  margin: 30px 20px 10px 20px;
+  justify-content: center;
+  margin: 60px 20px 10px 20px;
   padding: 5px;
   width: 100%;
-  border-bottom: rgb(45, 45, 45) solid 2px;
-  border-top: rgb(45, 45, 45) solid 2px;
+  border-bottom: rgba(45, 45, 45, 0.25) solid 2px;
+  border-top: rgb(45, 45, 45, 0.25) solid 2px;
   border-radius: 10px;
-  & button {
-    box-shadow: none;
-  }
+  // & button {
+  //   box-shadow: none;
+  // }
   & .Nums {
     padding: 0;
+    margin: 0 7px;
     box-shadow: none;
     text-align: center;
     & span {

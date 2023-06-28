@@ -9,7 +9,7 @@
       <div class="flex j-c-center">
         <div class="xs11 sm10 md8 lg6">
           <section class="flex j-c-center">
-            <div class="xs4 sm3 md2 mb-7">
+            <div class="TopImg xs4 sm3 md2 mb-7">
               <img src="/defaults/pgs/orbrift_ab3.jpg" draggable="false" />
             </div>
           </section>
@@ -190,9 +190,8 @@ export default {
     const { email_err, name_err, description_err, features_err, budget_err } =
       toRefs(errorRefs);
 
-    let error = $Mailer.error;
-
-    let success = $Mailer.success;
+    const error = computed(() => $Mailer.error);
+    const success = computed(() => $Mailer.success);
 
     const changeBudget = (e: Event) => {
       budget_err.value = "";
@@ -352,6 +351,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 /* NOTE: "GenFormStyle GenFormWrapper" shared classes are found in the main "Auth" components */
+.TopImg {
+  min-height: 80px;
+}
 .TopInfo {
   border-radius: 4px 4px 15px 15px;
   background-color: $sec-color;

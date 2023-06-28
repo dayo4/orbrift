@@ -362,7 +362,7 @@ nav {
     & a {
       margin-bottom: 5px;
       padding: 5px 20px 5px 10px;
-      font-weight: bold;
+      // font-weight: bold;
       cursor: pointer;
       text-transform: capitalize;
       background-color: $sec-color-trans;

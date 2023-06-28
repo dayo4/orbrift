@@ -1,43 +1,54 @@
 <template>
   <div class="Wrapr">
-    <div class="Main">
+    <div
+      class="Main"
+      v-for="(chunk, i) in 4"
+      :key="i"
+      :aria-hidden="i === 1 ? false : true"
+    >
       <div v-for="(icon, i) in icons" :key="i" class="Item">
-        <object
-          class="SVG"
-          :data="'/defaults/stk/svg/' + icon + '.svg'"
-          type="image/svg+xml"
-        ></object>
+        <div class="SvgCont">
+          <img
+            class="SVG"
+            :src="'/defaults/stk/svg/' + icon + '.svg'"
+            draggable="false"
+            type="image/svg+xml"
+          />
+        </div>
+        <div class="Text">{{ icon }}</div>
       </div>
     </div>
-    <div class="Deco Invis" ref="Deco" aria-hidden="true">
+    <!-- <div class="Deco Invis" ref="Deco" aria-hidden="true">
       <div v-for="(icon, i) in icons" :key="i" class="Item">
-        <object
-          class="SVG"
-          :data="'/defaults/stk/svg/' + icon + '.svg'"
-          type="image/svg+xml"
-        ></object>
+        <div class="SvgCont">
+          <img
+            class="SVG"
+            :src="'/defaults/stk/svg/' + icon + '.svg'"
+            draggable="false"
+          />
+        </div>
+        <div class="Text">{{icon}}</div>
       </div>
-    </div>
+    </div> -->
   </div>
-  <!-- <Test/> -->
 </template>
 
 <script lang="ts">
 export default {
   setup() {
-let delayTimeout;
+    let delayTimeout;
 
-const Deco: Ref<HTMLElement | null> = ref(null);
+    const Deco: Ref<HTMLElement | null> = ref(null);
 
     const icons = [
       "javascript",
-      "react-native",
+      "vue.js",
       "typescript",
-      "vue",
+      "react",
       "nuxt",
       "next",
       "nodejs",
-      "google-cloud",
+      "g-Cloud",
       // "gatsby",
       "graphql",
       // "jamstack",
@@ -45,22 +56,22 @@ const Deco: Ref<HTMLElement | null> = ref(null);
       "vercel",
       "wordpress",
       "mysql",
-      "ember",
+      // "ember",
     ];
 
     onMounted(() => {
-      delayTimeout = setTimeout(() => {
-        Deco.value.classList.remove("Invis")
-      }, 10000);
+      // delayTimeout = setTimeout(() => {
+      //   Deco.value.classList.remove("Invis");
+      // }, 10000);
     });
 
-    onUnmounted(()=>{
-      clearTimeout(delayTimeout)
-    })
+    onUnmounted(() => {
+      clearTimeout(delayTimeout);
+    });
 
     return {
       icons,
-      Deco
+      Deco,
     };
   },
 };
@@ -68,37 +79,44 @@ const Deco: Ref<HTMLElement | null> = ref(null);
 
 <style lang="scss" scoped>
 .Wrapr {
-  overflow: hidden;
   position: relative;
+  display: flex;
+  overflow: hidden !important;
+  margin-bottom: 10px;
+  width: 100vw;
 }
 
 .Main {
   display: flex;
-  animation: main 40s linear infinite;
-}
-.Deco {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  animation: deco 40s linear infinite;
-  animation-delay: 10s;
-  &.Invis {
-    visibility: hidden;
-    // display: none;
-  }
+  min-width: 182vw;
+  animation: main 120s linear infinite;
 }
 
 .Item {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   flex: 0 0 14vw;
-  height: 70px;
+  height: 65px;
   padding: 5px 0;
-  margin: 0 1vw;
+  // margin: 0 1vw;
 }
-
+.SvgCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+}
+.Text {
+  text-align: center;
+  width: 100%;
+  font-size: 16px;
+  // font-weight: bold;
+  text-transform: capitalize;
+  color: $blue-grey--3;
+}
 .SVG {
   display: block;
   height: 100%;
@@ -107,48 +125,33 @@ const Deco: Ref<HTMLElement | null> = ref(null);
 
 @keyframes main {
   0% {
-    transform: translateX(112vw);
+    transform: translateX(100vw);
   }
 
   100% {
-    transform: translatex(-336vw);
-  }
-}
-
-@keyframes deco {
-  0% {
-    transform: translateX(224vw);
-  }
-
-  100% {
-    transform: translatex(-224vw);
+    transform: translatex(-728vw);
   }
 }
 
 @include xs-only {
+  .Main {
+  min-width: 260vw;
+}
+
   .Item {
     flex: 0 0 18vw;
-    margin: 0 2vw;
+    margin: 0 1vw ;
   }
 
   @keyframes main {
     0% {
-      transform: translateX(154vw);
+      transform: translateX(100vw);
     }
 
     100% {
-      transform: translatex(-462vw);
+      transform: translatex(-1040vw);
     }
   }
 
-  @keyframes deco {
-    0% {
-      transform: translateX(308vw);
-    }
-
-    100% {
-      transform: translatex(-308vw);
-    }
-  }
 }
 </style>
