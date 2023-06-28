@@ -346,6 +346,7 @@ nav {
     position: absolute;
     right: 0;
     top: 35px;
+    font-size: 20px;
     cursor: default;
     & a {
       margin-bottom: 5px;
