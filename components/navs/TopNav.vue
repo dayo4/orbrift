@@ -290,7 +290,7 @@ nav {
 .ExtraLink {
   height: 100%;
   & a {
-    // padding: 5px;
+    padding: 5px;
     margin-right: 13px;
     white-space: nowrap;
     transition: 0.3s;
