@@ -120,7 +120,7 @@ export default {
         subLinks: [
           { a: "contact", name: "contact", icon: "icon-mail" },
           { a: "about", name: "about", icon: "icon-info" },
-          { a: "projects", name: "my works", icon: "icon-star-empty" },
+          { a: "projects", name: "projects", icon: "icon-star-empty" },
         ],
       },
       { a: "posts", name: "blog", icon: "icon-doc" },
@@ -131,7 +131,7 @@ export default {
       { a: "contact", name: "contact", icon: "icon-mail" },
       { a: "about", name: "about", icon: "icon-info" },
       { a: "posts", name: "blog", icon: "icon-doc" },
-      { a: "projects", name: "my works", icon: "icon-star-empty" },
+      { a: "projects", name: "projects", icon: "icon-star-empty" },
       { a: "create", name: "create your website", icon: "icon-diamond" },
     ];
 
