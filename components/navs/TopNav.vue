@@ -323,8 +323,12 @@ nav {
   }
 }
 
-.ExtraLink, .ExtraLink .Name {
-    font-size: 18px !important;
+.ExtraLink {
+  font-size: 18px ;
+  border: solid $pri-color 3px;
+  & .Name {
+      font-size: 18px !important;
+  }
 }
 
 .MainNavLinks {
