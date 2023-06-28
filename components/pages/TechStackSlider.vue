@@ -57,6 +57,7 @@ const Deco: Ref<HTMLElement | null> = ref(null);
 
     return {
       icons,
+      Deco
     };
   },
 };
