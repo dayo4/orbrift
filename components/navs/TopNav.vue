@@ -55,7 +55,7 @@
                 class="DropdownMenu t-white bg-trans p-2 br2"
               >
                 <a
-                  class="Hidden flex shadow-3"
+                  class="Hidden flex shadow-6"
                   v-for="(subLink, i) in link.subLinks"
                   :key="i"
                   @click.prevent="changeRoute(subLink.a)"
