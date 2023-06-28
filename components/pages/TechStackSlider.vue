@@ -27,7 +27,7 @@ export default {
   setup() {
 let delayTimeout;
 
-const Deco: Ref<HTMLElement> = ref(null)
+const Deco: Ref<HTMLElement | null> = ref(null);
 
     const icons = [
       "javascript",
