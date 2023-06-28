@@ -347,8 +347,8 @@ nav {
       font-weight: normal;
       content: "\e858";
       position: absolute;
-      right: -10px;
-      top: 3px;
+      right: -6px;
+      top: 6px;
       font-size: 14px;
     }
   }
