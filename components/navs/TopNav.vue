@@ -349,6 +349,7 @@ nav {
     cursor: default;
     & a {
       margin-bottom: 5px;
+      padding: 10px;
       padding-right: 20px;
       cursor: pointer;
       text-transform: capitalize;
