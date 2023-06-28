@@ -350,7 +350,7 @@ nav {
     cursor: default;
     & a {
       margin-bottom: 5px;
-      padding: 7px;
+      padding: 5px 20px 5px 10px;
       padding-right: 20px;
       font-weight: bold;
       cursor: pointer;
