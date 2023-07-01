@@ -113,8 +113,9 @@ export default {
 .Text {
   text-align: center;
   width: 100%;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
+  text-transform: capitalize;
 }
 .SVG {
   display: block;
