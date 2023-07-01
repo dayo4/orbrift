@@ -56,9 +56,9 @@ export default {
     ];
 
     onMounted(() => {
-      delayTimeout = setTimeout(() => {
-        // Deco.value.classList.remove("Invis");
-      }, 10000);
+      // delayTimeout = setTimeout(() => {
+      //   Deco.value.classList.remove("Invis");
+      // }, 10000);
     });
 
     onUnmounted(() => {
@@ -93,7 +93,7 @@ export default {
   animation: deco 8s linear infinite;
   // animation-delay: 13s;
   &.Invis {
-    visibility: hidden;
+    // visibility: hidden;
     // display: none;
   }
 }
@@ -143,7 +143,7 @@ export default {
 
 @keyframes deco {
   0% {
-    transform: translateX(112vw);
+    transform: translateX(224vw);
     // transform: translateX(224vw);
   }
 
