@@ -43,7 +43,7 @@ export default {
       "nuxt",
       "next",
       "nodejs",
-      "google-cloud",
+      "g-Cloud",
       "gatsby",
       "graphql",
       // "jamstack",
