@@ -78,7 +78,7 @@ export default {
   overflow: hidden !important;
   position: relative;
   margin-bottom: 10px;
-  max-width: 100vw;
+  // max-width: 100vw;
 }
 
 .Main {
