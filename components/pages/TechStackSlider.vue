@@ -77,7 +77,6 @@ export default {
 .Wrapr {
   overflow: hidden !important;
   position: relative;
-  min-height: 70px;
   margin-bottom: 10px;
   max-width: 100vw;
 }
