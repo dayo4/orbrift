@@ -9,7 +9,7 @@
       <div class="flex j-c-center">
         <div class="xs11 sm10 md8 lg6">
           <section class="flex j-c-center">
-            <div class="xs4 sm3 md2 mb-7">
+            <div class="TopImg xs4 sm3 md2 mb-7">
               <img src="/defaults/pgs/orbrift_ab3.jpg" draggable="false" />
             </div>
           </section>

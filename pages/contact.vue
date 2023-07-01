@@ -7,7 +7,7 @@
 
     <template #WrapperBody>
       <section class="flex j-c-center">
-        <div class="TopImg xs5 sm3 md2 mb-7">
+        <div class="TopImg xs4 sm3 md2 mb-7">
           <img src="/defaults/pgs/orbrift_ab1.jpg" draggable="false" />
         </div>
       </section>
