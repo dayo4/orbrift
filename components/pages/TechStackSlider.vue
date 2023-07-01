@@ -1,6 +1,11 @@
 <template>
   <div class="Wrapr">
-    <div class="Main">
+    <div
+      class="Main"
+      v-for="(chunk, i) in 4"
+      :key="i"
+      :aria-hidden="i === 1 ? false : true"
+    >
       <div v-for="(icon, i) in icons" :key="i" class="Item">
         <div class="SvgCont">
           <img
@@ -10,7 +15,7 @@
             type="image/svg+xml"
           />
         </div>
-        <div class="Text">{{icon}}</div>
+        <div class="Text">{{ icon }}</div>
       </div>
     </div>
     <!-- <div class="Deco Invis" ref="Deco" aria-hidden="true">
@@ -77,12 +82,12 @@ export default {
   overflow: hidden !important;
   position: relative;
   margin-bottom: 10px;
-  max-width: 100vw;
+  width: 100vw;
 }
 
 .Main {
   display: flex;
-  // animation: main 40s linear infinite;
+  animation: main 10s linear infinite;
 }
 .Deco {
   position: absolute;
@@ -107,7 +112,7 @@ export default {
   padding: 5px 0;
   margin: 0 1vw;
 }
-.SvgCont{
+.SvgCont {
   display: flex;
   justify-content: center;
   align-items: center;
