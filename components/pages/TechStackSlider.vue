@@ -91,7 +91,7 @@ export default {
   right: 0;
   display: flex;
   animation: deco 40s linear infinite;
-  animation-delay: 12.3s;
+  animation-delay: 12.5s;
   &.Invis {
     visibility: hidden;
     // display: none;
