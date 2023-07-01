@@ -99,7 +99,7 @@ export default {
   align-items: center;
   flex-wrap: wrap;
   flex: 0 0 14vw;
-  height: 70px;
+  height: 80px;
   padding: 5px 0;
   margin: 0 1vw;
 }
