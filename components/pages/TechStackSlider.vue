@@ -113,7 +113,7 @@ export default {
   text-align: center;
   width: 100%;
   font-size: 16px;
-  // font-weight: 500;
+  // font-weight: bold;
   text-transform: capitalize;
   color: $blue-grey--3;
 }
@@ -126,19 +126,16 @@ export default {
 @keyframes main {
   0% {
     transform: translateX(100vw);
-    // transform: translateX(112vw);
   }
 
   100% {
-    transform: translatex(-896vw);
-    // transform: translatex(-336vw);
+    transform: translatex(-728vw);
   }
 }
 
 @include xs-only {
   .Main {
   min-width: 308vw;
-  // animation: main 10s linear infinite;
 }
 
   .Item {
@@ -152,7 +149,7 @@ export default {
     }
 
     100% {
-      transform: translatex(-1232vw);
+      transform: translatex(-988vw);
     }
   }
 
