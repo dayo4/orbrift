@@ -118,7 +118,7 @@ export default {
   text-align: center;
   width: 100%;
   font-size: 16px;
-  font-weight: bold;
+  // font-weight: 500;
   text-transform: capitalize;
   color: $blue-grey--3;
 }
