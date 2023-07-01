@@ -7,8 +7,8 @@
 
     <template #WrapperBody>
       <section class="AB_HeadImg flex j-c-center">
-        <div class="xs5 sm4 md3 mb-5">
-          <img src="/defaults/pgs/orbrift_ab2.jpg" draggable="false" />
+        <div class="TopImg xs5 sm4 md3 mb-5">
+          <!-- <img src="/defaults/pgs/orbrift_ab2.jpg" draggable="false" /> -->
         </div>
       </section>
 
@@ -231,6 +231,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.TopImg {
+  min-height: 100px;
+}
 .AB_HeadImg {
   & p {
     font-size: 16px;
