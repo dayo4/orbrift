@@ -38,14 +38,14 @@ const Deco: Ref<HTMLElement | null> = ref(null);
       "next",
       "nodejs",
       "google-cloud",
-      // "gatsby",
+      "gatsby",
       "graphql",
-      // "jamstack",
+      "jamstack",
       "firebase",
       "vercel",
       "wordpress",
       "mysql",
-      "ember",
+      // "ember",
     ];
 
     onMounted(() => {
@@ -109,20 +109,24 @@ const Deco: Ref<HTMLElement | null> = ref(null);
 @keyframes main {
   0% {
     transform: translateX(112vw);
+    // transform: translateX(112vw);
   }
 
   100% {
     transform: translatex(-336vw);
+    // transform: translatex(-336vw);
   }
 }
 
 @keyframes deco {
   0% {
     transform: translateX(224vw);
+    // transform: translateX(224vw);
   }
 
   100% {
     transform: translatex(-224vw);
+    // transform: translatex(-224vw);
   }
 }
 
