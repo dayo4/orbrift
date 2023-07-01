@@ -24,11 +24,11 @@
             </div>
             <div class="flex j-c-center a-i-center">
               <div v-for="(tech, i) in project.techs" :key="i" class="Techs">
-                <object
+                <img
                   class="SVG"
-                  :data="'/defaults/stk/svg/' + tech + '.svg'"
+                  :src="'/defaults/stk/svg/' + tech + '.svg'"
                   type="image/svg+xml"
-                ></object>
+                />
               </div>
             </div>
           </article>
