@@ -100,7 +100,7 @@ export default {
   flex: 0 0 14vw;
   height: 85px;
   padding: 5px 0;
-  margin: 0 1vw;
+  // margin: 0 1vw;
 }
 .SvgCont {
   display: flex;
@@ -143,7 +143,7 @@ export default {
 
   .Item {
     flex: 0 0 18vw;
-    // margin: 0 2vw;
+    margin: 0 1vw;
   }
 
   @keyframes main {
