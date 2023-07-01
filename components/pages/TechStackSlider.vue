@@ -2,11 +2,11 @@
   <div class="Wrapr">
     <div class="Main">
       <div v-for="(icon, i) in icons" :key="i" class="Item">
-        <object
+        <img
           class="SVG"
-          :data="'/defaults/stk/svg/' + icon + '.svg'"
+          :src="'/defaults/stk/svg/' + icon + '.svg'"
           type="image/svg+xml"
-        ></object>
+        />
       </div>
     </div>
     <div class="Deco Invis" ref="Deco" aria-hidden="true">
