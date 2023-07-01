@@ -116,6 +116,7 @@ export default {
   font-size: 14px;
   font-weight: bold;
   text-transform: capitalize;
+  color: $blue-grey--3;
 }
 .SVG {
   display: block;
