@@ -2,11 +2,14 @@
   <div class="Wrapr">
     <div class="Main">
       <div v-for="(icon, i) in icons" :key="i" class="Item">
-        <img
-          class="SVG"
-          :src="'/defaults/stk/svg/' + icon + '.svg'"
-          type="image/svg+xml"
-        />
+        <div>
+          <img
+            class="SVG"
+            :src="'/defaults/stk/svg/' + icon + '.svg'"
+            type="image/svg+xml"
+          />
+        </div>
+        <div>Icon Name</div>
       </div>
     </div>
     <div class="Deco Invis" ref="Deco" aria-hidden="true">
@@ -25,9 +28,9 @@
 <script lang="ts">
 export default {
   setup() {
-let delayTimeout;
+    let delayTimeout;
 
-const Deco: Ref<HTMLElement | null> = ref(null);
+    const Deco: Ref<HTMLElement | null> = ref(null);
 
     const icons = [
       "javascript",
@@ -50,17 +53,17 @@ const Deco: Ref<HTMLElement | null> = ref(null);
 
     onMounted(() => {
       delayTimeout = setTimeout(() => {
-        Deco.value.classList.remove("Invis")
+        Deco.value.classList.remove("Invis");
       }, 10000);
     });
 
-    onUnmounted(()=>{
-      clearTimeout(delayTimeout)
-    })
+    onUnmounted(() => {
+      clearTimeout(delayTimeout);
+    });
 
     return {
       icons,
-      Deco
+      Deco,
     };
   },
 };
@@ -103,7 +106,7 @@ const Deco: Ref<HTMLElement | null> = ref(null);
 .SVG {
   display: block;
   height: 100%;
-  width: 100%;
+  max-width: 100%;
 }
 
 @keyframes main {
