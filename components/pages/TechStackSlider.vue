@@ -42,9 +42,9 @@ export default {
 
     const icons = [
       "javascript",
-      "react",
-      "typescript",
       "vue.js",
+      "typescript",
+      "react",
       "nuxt",
       "next",
       "nodejs",
