@@ -113,19 +113,19 @@ const Deco: Ref<HTMLElement | null> = ref(null);
   }
 
   100% {
-    transform: translatex(-352vw);
+    transform: translatex(-368vw);
     // transform: translatex(-336vw);
   }
 }
 
 @keyframes deco {
   0% {
-    transform: translateX(224vw);
+    transform: translateX(240vw);
     // transform: translateX(224vw);
   }
 
   100% {
-    transform: translatex(-224vw);
+    transform: translatex(-240vw);
     // transform: translatex(-224vw);
   }
 }
