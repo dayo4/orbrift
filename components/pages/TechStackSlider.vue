@@ -135,7 +135,7 @@ export default {
 
 @include xs-only {
   .Main {
-  min-width: 308vw;
+  min-width: 247vw;
 }
 
   .Item {
