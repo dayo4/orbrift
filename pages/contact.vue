@@ -8,7 +8,7 @@
     <template #WrapperBody>
       <section class="flex j-c-center">
         <div class="TopImg xs5 sm3 md2 mb-7">
-          <!-- <img src="/defaults/pgs/orbrift_ab1.jpg" draggable="false" /> -->
+          <img src="/defaults/pgs/orbrift_ab1.jpg" draggable="false" />
         </div>
       </section>
 
@@ -50,6 +50,6 @@ export default {
 <style lang="scss" scoped>
 //
 .TopImg {
-  min-height: 150px;
+  min-height: 100px;
 }
 </style>
