@@ -108,7 +108,7 @@ const Deco: Ref<HTMLElement | null> = ref(null);
 
 @keyframes main {
   0% {
-    transform: translateX(112vw);
+    transform: translateX(128vw);
     // transform: translateX(112vw);
   }
 
