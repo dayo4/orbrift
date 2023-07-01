@@ -78,7 +78,7 @@ export default {
   overflow: hidden !important;
   position: relative;
   margin-bottom: 10px;
-  // max-width: 100vw;
+  max-width: 100vw;
 }
 
 .Main {
@@ -136,7 +136,7 @@ export default {
   }
 
   100% {
-    transform: translatex(-336vw);
+    transform: translatex(-372vw);
     // transform: translatex(-336vw);
   }
 }
