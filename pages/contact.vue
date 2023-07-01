@@ -50,6 +50,6 @@ export default {
 <style lang="scss" scoped>
 //
 .TopImg {
-  min-height: 100px;
+  min-height: 80px;
 }
 </style>

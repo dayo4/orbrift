@@ -352,6 +352,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 /* NOTE: "GenFormStyle GenFormWrapper" shared classes are found in the main "Auth" components */
+.TopImg {
+  min-height: 80px;
+}
 .TopInfo {
   border-radius: 4px 4px 15px 15px;
   background-color: $sec-color;
