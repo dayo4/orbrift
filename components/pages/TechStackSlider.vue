@@ -83,15 +83,15 @@ export default {
 
 .Main {
   display: flex;
-  animation: main 8s linear infinite;
+  animation: main 40s linear infinite;
 }
 .Deco {
   position: absolute;
   top: 0;
   right: 0;
   display: flex;
-  animation: deco 8s linear infinite;
-  animation-delay: 2.6s;
+  animation: deco 40s linear infinite;
+  animation-delay: 13s;
   &.Invis {
     // visibility: hidden;
     // display: none;
