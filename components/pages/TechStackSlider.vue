@@ -137,31 +137,31 @@ export default {
 
 @keyframes main {
   0% {
-    transform: translateX(0vw);
+    transform: translateX(100vw);
     // transform: translateX(112vw);
   }
 
   100% {
-    transform: translatex(-896vw);
+    transform: translatex(-796vw);
     // transform: translatex(-336vw);
   }
 }
 
 @include xs-only {
   .Item {
-    // flex: 0 0 18vw;
-    // margin: 0 2vw;
+    flex: 0 0 18vw;
+    margin: 0 2vw;
   }
 
-  // @keyframes main {
-  //   0% {
-  //     transform: translateX(154vw);
-  //   }
+  @keyframes main {
+    0% {
+      transform: translateX(154vw);
+    }
 
-  //   100% {
-  //     transform: translatex(-462vw);
-  //   }
-  // }
+    100% {
+      transform: translatex(-462vw);
+    }
+  }
 
 }
 </style>
