@@ -97,6 +97,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   flex: 0 0 14vw;
   height: 70px;
   padding: 5px 0;
