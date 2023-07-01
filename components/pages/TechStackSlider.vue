@@ -57,7 +57,7 @@ export default {
 
     onMounted(() => {
       delayTimeout = setTimeout(() => {
-        Deco.value.classList.remove("Invis");
+        // Deco.value.classList.remove("Invis");
       }, 10000);
     });
 
