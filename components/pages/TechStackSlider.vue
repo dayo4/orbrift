@@ -113,7 +113,7 @@ const Deco: Ref<HTMLElement | null> = ref(null);
   }
 
   100% {
-    transform: translatex(-336vw);
+    transform: translatex(-352vw);
     // transform: translatex(-336vw);
   }
 }
