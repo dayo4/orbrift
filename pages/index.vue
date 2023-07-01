@@ -45,7 +45,7 @@
 
     <!-- Tech Stack Icons Slider Component -->
     <ClientOnly>
-      <TechStackSlider class="TStack" />
+      <TechStackSlider  />
     </ClientOnly>
     <!-- Tech Stack Icons Slider Component -->
 
@@ -338,9 +338,9 @@ export default {
   }
 }
 
-.TStack {
-  min-width: 65px;
-}
+// .TStack {
+//   min-width: 65px;
+// }
 .Section_2 {
   margin-bottom: 50px;
   & .Tiles {
