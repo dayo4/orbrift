@@ -2,14 +2,14 @@
   <div class="Wrapr">
     <div class="Main">
       <div v-for="(icon, i) in icons" :key="i" class="Item">
-        <div>
+        <div class="SvgCont">
           <img
             class="SVG"
             :src="'/defaults/stk/svg/' + icon + '.svg'"
             type="image/svg+xml"
           />
         </div>
-        <div>Icon Name</div>
+        <div class="Text">Icon Name</div>
       </div>
     </div>
     <div class="Deco Invis" ref="Deco" aria-hidden="true">
@@ -102,7 +102,12 @@ export default {
   padding: 5px 0;
   margin: 0 1vw;
 }
-
+.SvgCont{
+  width: 100%;
+}
+.Text {
+  width: 100%;
+}
 .SVG {
   display: block;
   height: 100%;
