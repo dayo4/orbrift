@@ -91,7 +91,7 @@ export default {
   right: 0;
   display: flex;
   animation: deco 40s linear infinite;
-  animation-delay: 10s;
+  animation-delay: 12s;
   &.Invis {
     visibility: hidden;
     // display: none;
@@ -136,7 +136,7 @@ export default {
   }
 
   100% {
-    transform: translatex(-372vw);
+    transform: translatex(-336vw);
     // transform: translatex(-336vw);
   }
 }
