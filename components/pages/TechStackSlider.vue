@@ -1,6 +1,6 @@
 <template>
   <div class="Wrapr">
-    <!-- <div class="Main">
+    <div class="Main">
       <div v-for="(icon, i) in icons" :key="i" class="Item">
         <div class="SvgCont">
           <img
@@ -11,7 +11,7 @@
         </div>
         <div class="Text">{{icon}}</div>
       </div>
-    </div> -->
+    </div>
     <div class="Deco Invis" ref="Deco" aria-hidden="true">
       <div v-for="(icon, i) in icons" :key="i" class="Item">
         <div class="SvgCont">
@@ -78,6 +78,7 @@ export default {
   position: relative;
   min-height: 70px;
   margin-bottom: 10px;
+  max-width: 100%;
 }
 
 .Main {
