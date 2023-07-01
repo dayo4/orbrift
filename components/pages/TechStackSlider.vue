@@ -83,9 +83,10 @@ export default {
 .Main {
   display: flex;
   animation: main 40s linear infinite;
-  overflow: hidden
+  overflow: hidden;
 }
 .Deco {
+  overflow: hidden;
   position: absolute;
   top: 0;
   right: 0;
