@@ -42,7 +42,7 @@ export default {
 
     const icons = [
       "javascript",
-      "react-native",
+      "react",
       "typescript",
       "vue.js",
       "nuxt",
