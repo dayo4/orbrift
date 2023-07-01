@@ -88,7 +88,7 @@ export default {
 
 .Main {
   display: flex;
-  min-width: 224vw;
+  min-width: 182vw;
   animation: main 120s linear infinite;
 }
 
