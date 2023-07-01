@@ -78,7 +78,7 @@ export default {
   position: relative;
   min-height: 70px;
   margin-bottom: 10px;
-  max-width: 100vw;
+  max-width: 112vw;
 }
 
 .Main {
