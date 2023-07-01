@@ -13,7 +13,7 @@
         <div class="Text">{{icon}}</div>
       </div>
     </div>
-    <div class="Deco Invis" ref="Deco" aria-hidden="true">
+    <!-- <div class="Deco Invis" ref="Deco" aria-hidden="true">
       <div v-for="(icon, i) in icons" :key="i" class="Item">
         <div class="SvgCont">
           <img
@@ -24,9 +24,8 @@
         </div>
         <div class="Text">{{icon}}</div>
       </div>
-    </div>
+    </div> -->
   </div>
-  <!-- <Test/> -->
 </template>
 
 <script lang="ts">
@@ -83,7 +82,7 @@ export default {
 
 .Main {
   display: flex;
-  animation: main 40s linear infinite;
+  // animation: main 40s linear infinite;
 }
 .Deco {
   position: absolute;
