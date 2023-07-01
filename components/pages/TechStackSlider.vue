@@ -88,6 +88,7 @@ export default {
 
 .Main {
   display: flex;
+  width: fit-content;
   animation: main 10s linear infinite;
 }
 .Deco {
