@@ -16,7 +16,7 @@
         <div
           class="ContentCont flex j-c-center a-i-center bg-img-masked noselect"
         >
-          <div class="Img img-maske">
+          <div class="Img">
             <img
               src="/defaults/usr/m1.png"
               alt="Samuel Adeniyi"
