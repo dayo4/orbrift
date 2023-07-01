@@ -79,9 +79,7 @@ export default {
   margin-bottom: 10px;
   max-width: 100vw;
 }
-.fff {
-  
-}
+
 .Main {
   display: flex;
   // animation: main 40s linear infinite;
