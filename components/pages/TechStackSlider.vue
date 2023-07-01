@@ -77,6 +77,7 @@ export default {
   overflow: hidden;
   position: relative;
   min-height: 70px;
+  margin-bottom: 10px;
 }
 
 .Main {
