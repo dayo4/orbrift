@@ -14,11 +14,14 @@
     </div>
     <div class="Deco Invis" ref="Deco" aria-hidden="true">
       <div v-for="(icon, i) in icons" :key="i" class="Item">
-        <object
-          class="SVG"
-          :data="'/defaults/stk/svg/' + icon + '.svg'"
-          type="image/svg+xml"
-        ></object>
+        <div class="SvgCont">
+          <img
+            class="SVG"
+            :src="'/defaults/stk/svg/' + icon + '.svg'"
+            type="image/svg+xml"
+          />
+        </div>
+        <div class="Text">Icon Name</div>
       </div>
     </div>
   </div>
@@ -113,7 +116,7 @@ export default {
 .Text {
   text-align: center;
   width: 100%;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   text-transform: capitalize;
   color: $blue-grey--3;
