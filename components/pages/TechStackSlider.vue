@@ -103,7 +103,7 @@ const Deco: Ref<HTMLElement | null> = ref(null);
 .SVG {
   display: block;
   height: 100%;
-  max-width: 100%;
+  width: 100%;
 }
 
 @keyframes main {
