@@ -74,7 +74,7 @@ export default {
 
 <style lang="scss" scoped>
 .Wrapr {
-  overflow: hidden;
+  overflow: hidden !important;
   position: relative;
   min-height: 70px;
   margin-bottom: 10px;
@@ -83,10 +83,8 @@ export default {
 .Main {
   display: flex;
   animation: main 40s linear infinite;
-  overflow: hidden;
 }
 .Deco {
-  overflow: hidden;
   position: absolute;
   top: 0;
   right: 0;
