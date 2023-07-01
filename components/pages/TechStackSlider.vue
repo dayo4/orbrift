@@ -70,6 +70,7 @@ const Deco: Ref<HTMLElement | null> = ref(null);
 .Wrapr {
   overflow: hidden;
   position: relative;
+  min-height: 50px;
 }
 
 .Main {
