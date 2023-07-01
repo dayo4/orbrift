@@ -91,18 +91,6 @@ export default {
   min-width: 224vw;
   animation: main 10s linear infinite;
 }
-.Deco {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  animation: deco 40s linear infinite;
-  animation-delay: 13s;
-  &.Invis {
-    // visibility: hidden;
-    // display: none;
-  }
-}
 
 .Item {
   display: flex;
@@ -148,6 +136,11 @@ export default {
 }
 
 @include xs-only {
+  .Main {
+  min-width: 308vw;
+  // animation: main 10s linear infinite;
+}
+
   .Item {
     flex: 0 0 18vw;
     margin: 0 2vw;
@@ -155,11 +148,11 @@ export default {
 
   @keyframes main {
     0% {
-      transform: translateX(154vw);
+      transform: translateX(100vw);
     }
 
     100% {
-      transform: translatex(-462vw);
+      transform: translatex(-1232vw);
     }
   }
 
