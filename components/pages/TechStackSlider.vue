@@ -140,7 +140,7 @@ export default {
 
   .Item {
     flex: 0 0 18vw;
-    margin: 0 1vw !important;
+    margin: 0 1vw ;
   }
 
   @keyframes main {
