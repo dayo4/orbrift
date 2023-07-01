@@ -79,8 +79,9 @@ export default {
 
 <style lang="scss" scoped>
 .Wrapr {
-  overflow: hidden !important;
   position: relative;
+  display: flex;
+  overflow: hidden !important;
   margin-bottom: 10px;
   width: 100vw;
 }
