@@ -89,7 +89,7 @@ export default {
 .Main {
   display: flex;
   min-width: 224vw;
-  animation: main 80s linear infinite;
+  animation: main 160s linear infinite;
 }
 
 .Item {
