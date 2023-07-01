@@ -104,6 +104,9 @@ export default {
   margin: 0 1vw;
 }
 .SvgCont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 65px;
 }
