@@ -99,7 +99,7 @@ export default {
   align-items: center;
   flex-wrap: wrap;
   flex: 0 0 14vw;
-  height: 80px;
+  height: 85px;
   padding: 5px 0;
   margin: 0 1vw;
 }
@@ -113,7 +113,7 @@ export default {
 .Text {
   text-align: center;
   width: 100%;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   text-transform: capitalize;
 }
