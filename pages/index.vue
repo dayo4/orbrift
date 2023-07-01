@@ -339,7 +339,7 @@ export default {
 }
 
 .TStack {
-  min-width: 70px;
+  min-width: 65px;
 }
 .Section_2 {
   margin-bottom: 50px;
