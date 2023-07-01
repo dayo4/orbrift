@@ -232,7 +232,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .TopImg {
-  min-height: 100px;
+  min-height: 80px;
 }
 .AB_HeadImg {
   & p {
