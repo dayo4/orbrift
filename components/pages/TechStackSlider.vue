@@ -132,7 +132,7 @@ export default {
 
 @keyframes main {
   0% {
-    transform: translateX(100vw);
+    transform: translateX(112vw);
     // transform: translateX(112vw);
   }
 
@@ -144,7 +144,7 @@ export default {
 
 @keyframes deco {
   0% {
-    transform: translateX(200vw);
+    transform: translateX(224vw);
     // transform: translateX(224vw);
   }
 
