@@ -147,18 +147,6 @@ export default {
   }
 }
 
-@keyframes deco {
-  0% {
-    transform: translateX(224vw);
-    // transform: translateX(224vw);
-  }
-
-  100% {
-    transform: translatex(-224vw);
-    // transform: translatex(-224vw);
-  }
-}
-
 @include xs-only {
   .Item {
     flex: 0 0 18vw;
@@ -175,14 +163,5 @@ export default {
     }
   }
 
-  @keyframes deco {
-    0% {
-      transform: translateX(308vw);
-    }
-
-    100% {
-      transform: translatex(-308vw);
-    }
-  }
 }
 </style>
