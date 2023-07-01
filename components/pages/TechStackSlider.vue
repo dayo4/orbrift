@@ -40,7 +40,7 @@ const Deco: Ref<HTMLElement | null> = ref(null);
       "google-cloud",
       "gatsby",
       "graphql",
-      "jamstack",
+      // "jamstack",
       "firebase",
       "vercel",
       "wordpress",
@@ -108,25 +108,21 @@ const Deco: Ref<HTMLElement | null> = ref(null);
 
 @keyframes main {
   0% {
-    transform: translateX(128vw);
-    // transform: translateX(112vw);
+    transform: translateX(112vw);
   }
 
   100% {
-    transform: translatex(-368vw);
-    // transform: translatex(-336vw);
+    transform: translatex(-336vw);
   }
 }
 
 @keyframes deco {
   0% {
-    transform: translateX(240vw);
-    // transform: translateX(224vw);
+    transform: translateX(224vw);
   }
 
   100% {
-    transform: translatex(-240vw);
-    // transform: translatex(-224vw);
+    transform: translatex(-224vw);
   }
 }
 
