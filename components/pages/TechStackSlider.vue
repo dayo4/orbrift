@@ -21,7 +21,7 @@
             type="image/svg+xml"
           />
         </div>
-        <div class="Text">Icon Name</div>
+        <div class="Text">{{icon}}</div>
       </div>
     </div>
   </div>
