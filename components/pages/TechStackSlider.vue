@@ -49,7 +49,7 @@ export default {
       "next",
       "nodejs",
       "g-Cloud",
-      "gatsby",
+      // "gatsby",
       "graphql",
       // "jamstack",
       "firebase",
@@ -98,7 +98,7 @@ export default {
   align-items: center;
   flex-wrap: wrap;
   flex: 0 0 14vw;
-  height: 85px;
+  height: 65px;
   padding: 5px 0;
   // margin: 0 1vw;
 }
