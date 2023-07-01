@@ -137,7 +137,7 @@ export default {
   }
 
   100% {
-    transform: translatex(-360vw);
+    transform: translatex(-372vw);
     // transform: translatex(-336vw);
   }
 }
