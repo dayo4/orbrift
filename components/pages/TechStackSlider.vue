@@ -107,7 +107,7 @@ export default {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 60px;
+  height: 40px;
 }
 .Text {
   text-align: center;
