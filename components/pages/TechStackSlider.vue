@@ -39,7 +39,7 @@ export default {
       "javascript",
       "react-native",
       "typescript",
-      "vue",
+      "vue.js",
       "nuxt",
       "next",
       "nodejs",
