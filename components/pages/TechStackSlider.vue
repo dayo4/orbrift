@@ -105,8 +105,10 @@ export default {
 }
 .SvgCont{
   width: 100%;
+  height: 65px;
 }
 .Text {
+  text-align: center;
   width: 100%;
 }
 .SVG {
