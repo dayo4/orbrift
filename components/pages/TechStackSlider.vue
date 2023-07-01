@@ -88,7 +88,7 @@ export default {
 
 .Main {
   display: flex;
-  width: 344vw;
+  min-width: 344vw;
   animation: main 10s linear infinite;
 }
 .Deco {
@@ -137,7 +137,7 @@ export default {
 
 @keyframes main {
   0% {
-    transform: translateX(112vw);
+    transform: translateX(0vw);
     // transform: translateX(112vw);
   }
 
