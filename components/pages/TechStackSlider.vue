@@ -6,6 +6,7 @@
           <img
             class="SVG"
             :src="'/defaults/stk/svg/' + icon + '.svg'"
+            draggable="false"
             type="image/svg+xml"
           />
         </div>
@@ -18,7 +19,7 @@
           <img
             class="SVG"
             :src="'/defaults/stk/svg/' + icon + '.svg'"
-            type="image/svg+xml"
+            draggable="false"
           />
         </div>
         <div class="Text">{{icon}}</div>
