@@ -1,6 +1,6 @@
 <template>
   <GlobalWrapper>
-    <template #Title> Portfolio </template>
+    <template #Title> Projects </template>
     <template #SubText> A Collection of Some of my Projects </template>
 
     <!-- ListOfPosts Component -->
