@@ -49,7 +49,7 @@ export default {
     const route = useRoute();
 
     const gqlVariables = ref({
-      slug: route.params.slug,
+      Slug: route.params.slug,
     });
 
     const projectQuery = gql`
