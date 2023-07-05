@@ -38,7 +38,7 @@
             <p class="Summary" v-html="project.summary"></p>
             <div class="flex j-c-end mt-6 mr-8">
               <button
-                @click="openProject(pagin.current - 1)"
+                @click="openProject(project.slug)"
                 class="ViewBtn"
               >
                 <span class="icon-right"></span>
