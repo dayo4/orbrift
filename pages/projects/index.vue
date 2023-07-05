@@ -216,7 +216,7 @@ export default {
   // }
   & .Nums {
     padding: 0;
-    margin-right: ;
+    margin: 5px;
     box-shadow: none;
     text-align: center;
     & span {
