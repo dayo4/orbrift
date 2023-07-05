@@ -202,7 +202,7 @@ export default {
   color: $pri-color;
 }
 
-tn {
+.ViewBtn {
   display: flex;
   align-items: center;
   justify-content: center;
