@@ -50,7 +50,7 @@
           icon="icon-right"
           iconPos="right"
         >
-          About Me
+          <!-- About Me -->
         </Button>
       </div>
           </article>
