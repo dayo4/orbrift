@@ -124,7 +124,7 @@ export default {
 
     const openProject = (slug: string) => {
       if(String(slug).startsWith("https://")){
-        window.open(.href, '_blank')
+        window.open(slug, '_blank')
       }
       else{
         router.push({ path: "/projects/" + slug });
