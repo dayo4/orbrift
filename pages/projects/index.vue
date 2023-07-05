@@ -126,7 +126,9 @@ export default {
       if(String(slug).startsWith("https://")){
         
       }
-      router.push({ path: "/projects/" + slug });
+      else{
+        router.push({ path: "/projects/" + slug });
+      }
     };
 
     const switchPage = (v: number) => {};
