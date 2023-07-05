@@ -117,7 +117,6 @@ export default {
     const error = computed(() => $Mailer.error);
     const success = computed(() => $Mailer.success);
 
-
     const setMsg = (e: any) => {
       msg.value = (e.target as HTMLElement).textContent;
       if (msg_err.value) {
