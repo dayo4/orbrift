@@ -40,6 +40,13 @@
               @click="openProject(project.slug)"
             ></p>
                   <div class="flex j-c-center mt-6">
+                                <!-- <button
+              @click="switchPage(pagin.current - 1)"
+              class="btn bg-trans-4"
+            >
+              <span class="icon-angle-double-left font-6"></span>
+              <span class="font-1 mt-1">PREV</span>
+            </button> -->
         <!-- <Button
           @clicked="
             $router.push({
