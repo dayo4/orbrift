@@ -131,7 +131,7 @@ export default {
 .Title {
   margin-top: 10px;
   margin-bottom: 10px;
-  font-size: 20px;
+  font-size: 26px;
   font-weight: bold;
   color: $pri-color;
 }
