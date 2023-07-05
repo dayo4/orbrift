@@ -9,7 +9,7 @@
       <div v-if="project">
         <section class="Projs">
           <article class="Proj xs12 sm9 md7 lg6">
-            <div class="TopSect">
+            <div class="TopSect noselect">
               <div class="ImgWrap">
                 <img
                   :src="project.images?.items[0].url"
