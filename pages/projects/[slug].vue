@@ -73,7 +73,7 @@ export default {
 
     const { data, pending } = useAsyncQuery({
       query: projectQuery,
-      variables: gqlVariables,
+      variables: gqlVariables.value,
       // cache: false,
     });
 
