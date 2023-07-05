@@ -46,6 +46,20 @@
                 <span class="Icon icon-right"></span>
                 <span class="font-1 mt-1"></span>
               </button> -->
+                    <div class="flex j-c-center mt-6">
+        <Button
+          @clicked="
+            $router.push({
+              name: 'about',
+            })
+          "
+          size="medium"
+          icon="icon-right"
+          iconPos="right"
+        >
+          <!-- About Me -->
+        </Button>
+      </div>
             </div>
           </article>
         </section>
