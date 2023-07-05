@@ -115,7 +115,11 @@ export default {
     const { email_err, name_err, msg_err } = toRefs(errorRefs);
 
     let error = $Mailer.error;
-
+    const error = computed(() => {
+      if (data.value) {
+        return data.value.project.items[0];
+      }
+    });
     let success = $Mailer.success;
 
     const setMsg = (e: any) => {
