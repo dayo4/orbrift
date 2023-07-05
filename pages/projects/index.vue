@@ -12,7 +12,7 @@
             :key="i"
             class="Proj xs12 sm9 md7 lg6"
           >
-            <div class="TopSect" @click="openProject(project.slug)">
+            <div class="TopSect">
               <div class="ImgWrap">
                 <img
                   :src="project.images?.items[0].url"
