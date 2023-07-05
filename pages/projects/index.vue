@@ -121,7 +121,9 @@ export default {
       router.push({ path: "/projects/" + slug });
     };
 
-    const switchPage = (v: number) => {};
+    const switchPage = (v: number) => {
+      
+    };
 
     return {
       pagin,
