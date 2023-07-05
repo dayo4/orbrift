@@ -203,7 +203,7 @@ export default {
   cursor: pointer;
   outline: none;
   color: $pri-color;
-  font-size: ;
+  font-size: 18px;
   font-weight: bold;
   border-radius: 4px;
   box-shadow:   $shadow-3; 
