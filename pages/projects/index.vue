@@ -160,7 +160,6 @@ export default {
   border-radius: 4px;
   padding: 10px;
   margin-bottom: 10px;
-  cursor: pointer;
 }
 .ImgWrap {
   width: 100%;
