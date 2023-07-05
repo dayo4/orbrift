@@ -223,7 +223,6 @@ export default {
   font-weight: 500;
   color: $blue-grey;
   // color: rgb(59, 59, 59);
-  cursor: pointer;
 }
 
 .Pagins {
