@@ -36,7 +36,7 @@
               </div>
             </div> -->
             <p class="Summary" v-html="project.summary"></p>
-            <div class="flex j-c-end mt-6 mr">
+            <div class="flex j-c-end mt-6 mr-8">
               <Button
                 size="xsmall"
                 icon="icon-right"
