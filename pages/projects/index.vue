@@ -205,7 +205,7 @@ export default {
   color: $pri-color;
   font-weight: bold;
   border-radius: 4px;
-  box-shadow:   shadow-3 
+  box-shadow:   $shadow-3; 
   background-color: $sec-color;
 }
 // .Techs {
