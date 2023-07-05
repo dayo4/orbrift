@@ -1,8 +1,8 @@
 <template>
   <GlobalWrapper :subText="false">
     <!-- <ClientOnly> -->
-    <template #Title> Portfolio </template>
-    <template #SubText> A Collection of Some of my Projects </template>
+    <template #Title> Project </template>
+    <!-- <template #SubText> A Collection of Some of my Projects </template> -->
 
     <!-- ListOfPosts Component -->
     <template #WrapperBody>
