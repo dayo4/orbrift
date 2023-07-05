@@ -36,16 +36,16 @@
               </div>
             </div> -->
             <p class="Summary" v-html="project.summary"></p>
-\              <div class="flex j-c-center mt-6">
-                <Button
-                  size="xsmall"
-                  icon="icon-right"
-                  iconPos="right"
-                  type="action"
-                >
-                  <!-- About Me -->
-                </Button>
-              </div>
+            <div class="flex j-c-right mt-6">
+              <Button
+                size="xsmall"
+                icon="icon-right"
+                iconPos="right"
+                type="action"
+              >
+                <!-- About Me -->
+              </Button>
+            </div>
           </article>
         </section>
 
