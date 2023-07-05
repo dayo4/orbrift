@@ -37,14 +37,6 @@
             </div> -->
             <p class="Summary" v-html="project.summary"></p>
             <div class="flex j-c-end mt-6 mr-8">
-              <!-- <Button
-                size="xsmall"
-                icon="icon-right"
-                iconPos="right"
-                type="action"
-              >
-                About Me
-              </Button> -->
               <button
                 @click="switchPage(pagin.current - 1)"
                 class="ViewBtn"
