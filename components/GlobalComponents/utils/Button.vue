@@ -182,6 +182,10 @@ export default {
     min-height: 50px;
     min-width: 130px;
   }
+  &.No {
+    min-height: 50px;
+    min-width: 130px;
+  }
 }
 .gen-btn-animate-spin {
   animation: spin 1s infinite linear;
