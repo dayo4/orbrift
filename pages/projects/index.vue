@@ -208,7 +208,9 @@ export default {
   border-radius: 4px;
   box-shadow:   $shadow-3; 
   background-color: $sec-color;
-  &
+  &:active {
+    bo
+  }
 }
 // .Techs {
 //   width: 60px;
