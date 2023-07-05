@@ -44,8 +44,8 @@
               @click="switchPage(pagin.current - 1)"
               class="btn bg-trans-4"
             >
-              <span class="icon-angle-double-left font-6"></span>
-              <span class="font-1 mt-1">PREV</span>
+              <span class="icon-right font-6"></span>
+              <!-- <span class="font-1 mt-1"></span> -->
             </button>
         <!-- <Button
           @clicked="
