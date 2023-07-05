@@ -199,7 +199,7 @@ export default {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  padding: 6px 10px;
+  padding: 6px 20px;
   cursor: pointer;
   outline: none;
   color: $pri-color;
