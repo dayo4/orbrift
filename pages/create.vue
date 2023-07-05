@@ -190,9 +190,8 @@ export default {
     const { email_err, name_err, description_err, features_err, budget_err } =
       toRefs(errorRefs);
 
-    let error = $Mailer.error;
-
-    let success = $Mailer.success;
+    const error = computed(() => $Mailer.error);
+    const success = computed(() => $Mailer.success);
 
     const changeBudget = (e: Event) => {
       budget_err.value = "";
