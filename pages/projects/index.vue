@@ -209,7 +209,7 @@ export default {
   padding: 5px;
   width: 100%;
   border-bottom: rgba(45, 45, 45, 0.25) solid 2px;
-  border-top: rgb(45, 45, 45) solid 2px;
+  border-top: rgb(45, 45, 45, 0.25) solid 2px;
   border-radius: 10px;
   // & button {
   //   box-shadow: none;
