@@ -202,7 +202,7 @@ export default {
   padding: 6px 10px;
   cursor: pointer;
   outline: none;
-  color: white;
+  color: rgba(90, 90, 90, 0.295);
   font-weight: bold;
   border-radius: 4px;
   box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
