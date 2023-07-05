@@ -38,10 +38,9 @@
             <p class="Summary" v-html="project.summary"></p>
             <div class="flex j-c-end mt-6 mr-8">
               <button
-                @click="switchPage(pagin.current - 1)"
+                @click="op(pagin.current - 1)"
                 class="ViewBtn"
               >
-                <!-- <span class="font-1 mt-1">View</span> -->
                 <span class="icon-right"></span>
               </button>
             </div>
