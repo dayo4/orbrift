@@ -123,6 +123,7 @@ export default {
     });
 
     const openProject = (slug: string) => {
+      if(slug)
       router.push({ path: "/projects/" + slug });
     };
 
