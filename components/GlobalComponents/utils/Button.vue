@@ -48,7 +48,7 @@ export default {
       Large: props.size === "large",
       Medium: props.size === "medium",
       Small: props.size === "small",
-      Xsmall: props.size === "small",
+      Xsmall: props.size === "x-small",
     }));
     const wrapperClasses = computed(() => ({
       CtaBtn: props.type === "cta",
