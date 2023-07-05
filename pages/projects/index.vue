@@ -48,11 +48,6 @@
               </button> -->
                     <div class="flex j-c-center mt-6">
         <Button
-          @clicked="
-            $router.push({
-              name: 'about',
-            })
-          "
           size="x-small"
           icon="icon-right"
           iconPos="right"
