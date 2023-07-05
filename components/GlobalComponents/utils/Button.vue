@@ -183,8 +183,7 @@ export default {
     min-width: 130px;
   }
   &.NoLimit {
-    min-height: 50px;
-    min-width: 130px;
+    pad
   }
 }
 .gen-btn-animate-spin {
