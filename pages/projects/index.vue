@@ -47,7 +47,7 @@
               </Button> -->
               <button
                 @click="switchPage(pagin.current - 1)"
-                class="btn bg-trans-4"
+                class="btn"
               >
                 <span class="icon-right"></span>
                 <span class="font-1 mt-1">View</span>
