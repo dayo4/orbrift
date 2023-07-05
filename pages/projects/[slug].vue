@@ -137,16 +137,16 @@ export default {
   color: $pri-color;
 }
 
-.Techs {
-  width: 60px;
-  height: 60px;
-  // border: solid 3px $pri-color;
-  // border-radius: 50%;
-  margin: 0 5px;
+// .Techs {
+//   width: 60px;
+//   height: 60px;
+//   // border: solid 3px $pri-color;
+//   // border-radius: 50%;
+//   margin: 0 5px;
 
-  & .SVG {
-    width: 100%;
-    height: 100%;
-  }
-}
+//   & .SVG {
+//     width: 100%;
+//     height: 100%;
+//   }
+// }
 </style>
