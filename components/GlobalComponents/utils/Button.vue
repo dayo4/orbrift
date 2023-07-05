@@ -172,7 +172,7 @@ export default {
   margin: 2px;
   transition: 0.1s;
   &.Xsmall {
-    padding: none;
+    padding: none !important;
   }
   &.Small {
     min-height: 30px;
