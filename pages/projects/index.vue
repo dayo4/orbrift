@@ -39,6 +39,20 @@
               v-html="project.summary"
               @click="openProject(project.slug)"
             ></p>
+                  <div class="flex j-c-center mt-6">
+        <Button
+          @clicked="
+            $router.push({
+              name: 'about',
+            })
+          "
+          size="medium"
+          icon="icon-right"
+          iconPos="right"
+        >
+          About Me
+        </Button>
+      </div>
           </article>
         </section>
 
