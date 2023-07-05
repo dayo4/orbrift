@@ -170,6 +170,9 @@ export default {
   background-color: $sec-color;
   margin: 2px;
   transition: 0.1s;
+  &.Xsmall {
+    padding: none;
+  }
   &.Small {
     min-height: 30px;
     min-width: 110px;
@@ -181,9 +184,6 @@ export default {
   &.Large {
     min-height: 50px;
     min-width: 130px;
-  }
-  &.Xsmall {
-    padding: none;
   }
 }
 .gen-btn-animate-spin {
