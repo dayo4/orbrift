@@ -49,8 +49,8 @@
                 @click="switchPage(pagin.current - 1)"
                 class="btn"
               >
-                <span class="icon-right"></span>
                 <span class="font-1 mt-1">View</span>
+                <span class="icon-right"></span>
               </button>
             </div>
           </article>
