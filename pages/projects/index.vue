@@ -53,7 +53,7 @@
               name: 'about',
             })
           "
-          size="medium"
+          size=""
           icon="icon-right"
           iconPos="right"
         >
