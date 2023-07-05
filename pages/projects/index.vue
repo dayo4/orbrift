@@ -123,7 +123,7 @@ export default {
     });
 
     const openProject = (slug: string) => {
-      console.log(lug)
+      console.log(slug)
       if(String(slug).startsWith("https://")){
         window.open(slug, '_blank')
       }
