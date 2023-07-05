@@ -94,7 +94,7 @@ export default {
 
     const projectsQuery = gql`
       query {
-        projects: projectsCollection(limit: 5, order: order_ASC) {
+        projects: projectsCollection(limit: 10, order: order_ASC) {
           items {
             title
             slug
