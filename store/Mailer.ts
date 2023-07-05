@@ -22,7 +22,8 @@ export const useMailer = defineStore('mailer', {
                 this.success = data
                 return data
             }
-            catch ({ response }) {
+            catch ( response ) {
+                coonsole.log(response)
                 $Process.add('Request Failed!')
                 this.error = response.data.message
             }
