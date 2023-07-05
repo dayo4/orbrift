@@ -205,10 +205,10 @@ export default {
 .Pagins {
   display: flex;
   justify-content: center;
-  margin: 30px 20px 10px 20px;
+  margin: 60px 20px 10px 20px;
   padding: 5px;
   width: 100%;
-  border-bottom: rgb(45, 45, 45) solid 2px;
+  border-bottom: rgba(45, 45, 45, 0.274) solid 2px;
   border-top: rgb(45, 45, 45) solid 2px;
   border-radius: 10px;
   // & button {
