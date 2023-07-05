@@ -209,7 +209,7 @@ export default {
   box-shadow:   $shadow-3; 
   background-color: $sec-color;
   &:active {
-    bo
+    box-shadow: none;
   }
 }
 // .Techs {
