@@ -78,7 +78,7 @@ export default {
     });
 
     const project = computed(() => {
-      console
+      console.log(gqlVariables)
       if (data.value) {
         // console.log(data.value)
         return data.value.project.items[0];
