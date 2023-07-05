@@ -59,13 +59,13 @@
                 >{{ i }}</span
               >
             </button>
-            <button
+            <!-- <button
               @click="switchPage(pagin.current + 1)"
               class="btn bg-trans-4"
             >
               <span class="font-1 mt-1">NEXT</span>
               <span class="Icon icon-angle-double-right font-6"></span>
-            </button>
+            </button> -->
           </div>
         </section>
         <!-- Pagination -->
