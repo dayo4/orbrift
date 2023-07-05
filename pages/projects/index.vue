@@ -83,7 +83,7 @@ export default {
     useSeoMeta($myMetaInfo({ title: "projects" }));
 
     const pagin = ref({
-      pages: 1,
+      pages: 4,
       current: 1,
     });
 
