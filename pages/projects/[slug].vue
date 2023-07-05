@@ -22,14 +22,14 @@
                 {{ project.title }}
               </h2>
             </div>
-            <!-- <div class="flex j-c-center a-i-center">
+            <div class="flex j-c-center a-i-center">
               <div v-for="(tech, i) in project.techs" :key="i" class="Techs">
                 <img
                   class="SVG"
                   :src="'/defaults/stk/svg/' + tech + '.svg'"
                   type="image/svg+xml"
                 />
-              </div> -->
+              </div>
             </div>
           </article>
         </section>
