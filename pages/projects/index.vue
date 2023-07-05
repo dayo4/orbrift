@@ -51,6 +51,7 @@
           size="x-small"
           icon="icon-right"
           iconPos="right"
+          type="action"
         >
           <!-- About Me -->
         </Button>
