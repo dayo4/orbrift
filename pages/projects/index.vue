@@ -41,7 +41,7 @@
             <div class="flex j-c-center mt-6">
               <button
                 @click="openProject(project.slug)"
-                class="ViewBtn bg-trans-4"
+                class="ViewBtn"
               >
                 <span class="Icon icon-right"></span>
                 <!-- <span class="font-1 mt-1"></span> -->
