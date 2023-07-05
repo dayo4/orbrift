@@ -194,7 +194,7 @@ export default {
 // }
 
 .Summary {
-  margin-top: 10px;
+  margin-top: 15px;
   font-size: 14px;
   font-weight: 500;
   color: $blue-grey;
