@@ -211,9 +211,9 @@ export default {
   border-bottom: rgb(45, 45, 45) solid 2px;
   border-top: rgb(45, 45, 45) solid 2px;
   border-radius: 10px;
-  & button {
-    box-shadow: none;
-  }
+  // & button {
+  //   box-shadow: none;
+  // }
   & .Nums {
     padding: 0;
     box-shadow: none;
