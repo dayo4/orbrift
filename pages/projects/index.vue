@@ -45,13 +45,13 @@
         <!-- Pagination -->
         <section class="flex j-c-center">
           <div class="Pagins xs12 sm11 md8">
-            <button
+            <!-- <button
               @click="switchPage(pagin.current - 1)"
               class="btn bg-trans-4"
             >
               <span class="icon-angle-double-left font-6"></span>
               <span class="font-1 mt-1">PREV</span>
-            </button>
+            </button> -->
             <button class="Nums btn bg-white" v-for="i in pagin.pages" :key="i">
               <span
                 @click="switchPage(i)"
