@@ -25,7 +25,7 @@
                 {{ project.title }}
               </h2>
             </div>
-            
+
             <!-- <div class="flex j-c-center a-i-center">
               <div v-for="(tech, i) in project.techs" :key="i" class="Techs">
                 <img
@@ -35,28 +35,18 @@
                 />
               </div>
             </div> -->
-            <p
-              class="Summary"
-              v-html="project.summary"
-            ></p>
+            <p class="Summary" v-html="project.summary"></p>
             <div class="flex j-c-center mt-6">
-              <!-- <button
-                @click="openProject(project.slug)"
-                class="ViewBtn"
-              >
-                <span class="Icon icon-right"></span>
-                <span class="font-1 mt-1"></span>
-              </button> -->
-                    <div class="flex j-c-center mt-6">
-        <Button
-          size="xsmall"
-          icon="icon-right"
-          iconPos="right"
-          type="action"
-        >
-          <!-- About Me -->
-        </Button>
-      </div>
+              <div class="flex j-c-center mt-6">
+                <Button
+                  size="xsmall"
+                  icon="icon-right"
+                  iconPos="right"
+                  type="action"
+                >
+                  <!-- About Me -->
+                </Button>
+              </div>
             </div>
           </article>
         </section>
