@@ -123,7 +123,7 @@ export default {
     });
 
     const openProject = (slug: string) => {
-      if(String(slug).startsWith("")){
+      if(String(slug).startsWith("https://")){
         
       }
       router.push({ path: "/projects/" + slug });
