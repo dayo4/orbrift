@@ -204,7 +204,7 @@ export default {
 
 .Pagins {
   display: flex;
-  justify-content: space-between;
+  justify-content: ;
   margin: 30px 20px 10px 20px;
   padding: 5px;
   width: 100%;
