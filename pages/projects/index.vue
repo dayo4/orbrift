@@ -40,7 +40,7 @@
             ></p>
             <div class="flex j-c-center mt-6">
               <button
-                @click="switchPage(pagin.current - 1)"
+                @click="openProject(project.slug)"
                 class="ViewBtn bg-trans-4"
               >
                 <span class="Icon icon-right"></span>
