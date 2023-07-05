@@ -48,7 +48,7 @@
               </button> -->
                     <div class="flex j-c-center mt-6">
         <Button
-          size="x-small"
+          size="xsmall"
           icon="icon-right"
           iconPos="right"
           type="action"
