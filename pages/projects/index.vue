@@ -208,7 +208,7 @@ export default {
   margin: 60px 20px 10px 20px;
   padding: 5px;
   width: 100%;
-  border-bottom: rgba(45, 45, 45, 0.274) solid 2px;
+  border-bottom: rgba(45, 45, 45, 0.25) solid 2px;
   border-top: rgb(45, 45, 45) solid 2px;
   border-radius: 10px;
   // & button {
