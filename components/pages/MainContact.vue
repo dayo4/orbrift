@@ -115,9 +115,8 @@ export default {
     const { email_err, name_err, msg_err } = toRefs(errorRefs);
 
     const error = computed(() => $Mailer.error);
-    const success = computed(() => $Mailer.error);
+    const success = computed(() => $Mailer.success);
 
-    let success = $Mailer.success;
 
     const setMsg = (e: any) => {
       msg.value = (e.target as HTMLElement).textContent;
