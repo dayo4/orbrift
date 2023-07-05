@@ -53,8 +53,8 @@ export default {
     });
 
     const projectQuery = gql`
-      query FetchProject($slug: String) {
-        project: projectsCollection(limit: 1, where: { slug: $slug }) {
+      query FetchProject($Slug: String) {
+        project: projectsCollection(limit: 1, where: { slug: $Slug }) {
           items {
             title
             slug
