@@ -39,27 +39,15 @@
               v-html="project.summary"
               @click="openProject(project.slug)"
             ></p>
-                  <div class="flex j-c-center mt-6">
-                                <button
-              @click="switchPage(pagin.current - 1)"
-              class="btn bg-trans-4"
-            >
-              <span class="icon-right font-6"></span>
-              <!-- <span class="font-1 mt-1"></span> -->
-            </button>
-        <!-- <Button
-          @clicked="
-            $router.push({
-              name: 'about',
-            })
-          "
-          size="medium"
-          icon="icon-right"
-          iconPos="right"
-        >
-          About Me
-        </Button> -->
-      </div>
+            <div class="flex j-c-center mt-6">
+              <button
+                @click="switchPage(pagin.current - 1)"
+                class="btn bg-trans-4"
+              >
+                <span class="icon-right font-6"></span>
+                <!-- <span class="font-1 mt-1"></span> -->
+              </button>
+            </div>
           </article>
         </section>
 
@@ -142,11 +130,7 @@ export default {
       router.push({ path: "/projects/" + slug });
     };
 
-
-
-    const switchPage = (v: number) => {
-
-    };
+    const switchPage = (v: number) => {};
 
     return {
       pagin,
@@ -217,11 +201,13 @@ export default {
   color: white;
   font-weight: bold;
   border-radius: 4px;
-  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
+    0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
   /* shadow-3 */
   background-color: #00838f;
   /* cyan--3 */
-  transition: 0.1s; }
+  transition: 0.1s;
+}
 // .Techs {
 //   width: 60px;
 //   height: 60px;
