@@ -182,7 +182,7 @@ export default {
     min-height: 50px;
     min-width: 130px;
   }
-  &.NoLimit {
+  &.Icon {
     padding: none;
   }
 }
