@@ -37,7 +37,6 @@
             <p
               class="Summary"
               v-html="project.summary"
-              @click="openProject(project.slug)"
             ></p>
             <div class="flex j-c-center mt-6">
               <button
