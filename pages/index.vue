@@ -353,8 +353,8 @@ export default {
       background-color: $light-color;
       border-radius: 28px;
       margin: 0px 30px 30px 20px;
-      border-top: solid 3px $pri-color;
-      border-bottom: solid 3px $pri-color;
+//      border-top: solid 3px $pri-color;
+//      border-bottom: solid 3px $pri-color;
       & img {
         width: 90px;
         height: 90px;
