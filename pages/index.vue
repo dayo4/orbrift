@@ -242,7 +242,7 @@ export default {
   text-align: center;
   font-size: 24px;
   color: $pri-color;
-  background-color: $sec-color-trans-1;
+  background-color: $sec-color-trans;
   padding: 15px;
   margin-bottom: 40px;
 }
