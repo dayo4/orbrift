@@ -2,7 +2,7 @@
   <GlobalWrapper>
     <template #Title> Request My Service </template>
     <template #SubText>
-      A seamless web experience that will make your business stand out
+      A seamless web experience to make your business stand out
     </template>
 
     <template #WrapperBody>
@@ -20,7 +20,7 @@
             </h3>
           </section>
 
-          <section>
+          <section class="bg-white">
             <p>
               You might be expecting to see a list of options with price tags,
               but NO.
@@ -359,6 +359,7 @@ export default {
   background-color: $sec-color;
 }
 
+
 .TextArea {
   min-height: 150px;
   max-height: 200px;
@@ -378,6 +379,7 @@ export default {
   border-right: none;
   border-radius: 3px;
   overflow-x: hidden;
+  background-color: white;
   overflow-y: auto;
 }
 

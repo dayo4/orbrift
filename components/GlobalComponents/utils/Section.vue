@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-white">
     <section class="SectHead">
       <slot name="SectHead"></slot>
     </section>
