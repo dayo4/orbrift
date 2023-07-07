@@ -286,7 +286,8 @@ export default {
   }
 }
 .GenFormStyle {
-  border-radius: 12%;
+  background-color: white;
+  border-radius: 5px;
   & .Error {
     font-weight: 400;
   }

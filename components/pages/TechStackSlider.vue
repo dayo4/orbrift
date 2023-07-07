@@ -1,21 +1,11 @@
 <template>
   <div class="Wrapr">
-    <div
-      class="Main"
-      v-for="(chunk, i) in 4"
-      :key="i"
-      :aria-hidden="i === 1 ? false : true"
-    >
-      <div v-for="(icon, i) in icons" :key="i" class="Item">
+    <div class="Main" v-for="(chunk, i) in 4" :key="i" :aria-hidden="i === 1 ? false : true">
+      <div v-for="(icon, i) in icons" :key="i" class="Item" :class="icon.t ? 'hasText' : ''">
         <div class="SvgCont">
-          <img
-            class="SVG"
-            :src="'/defaults/stk/svg/' + icon + '.svg'"
-            draggable="false"
-            type="image/svg+xml"
-          />
+          <img class="SVG" :src="'/defaults/stk/svg/' + icon.i + '.svg'" draggable="false" type="image/svg+xml" />
         </div>
-        <div class="Text">{{ icon }}</div>
+        <div v-if="icon.t" class="Text">{{ icon.t }}</div>
       </div>
     </div>
     <!-- <div class="Deco Invis" ref="Deco" aria-hidden="true">
@@ -36,38 +26,32 @@
 <script lang="ts">
 export default {
   setup() {
-    let delayTimeout;
 
     const Deco: Ref<HTMLElement | null> = ref(null);
 
     const icons = [
-      "javascript",
-      "vue.js",
-      "typescript",
-      "react",
-      "nuxt",
-      "next",
-      "nodejs",
-      "g-Cloud",
-      // "gatsby",
-      "graphql",
-      // "jamstack",
-      "firebase",
-      "vercel",
-      "wordpress",
-      "mysql",
-      // "ember",
+      { i: "vue" },
+      { i: "typescript" },
+      { i: "react", t: "ReactJs" },
+      { i: "nuxt" },
+      { i: "nodejs" },
+      { i: "next" },
+      { i: "docker_", t: "Docker" },
+      { i: "web3" },
+      { i: "gcloud", t: "G-cloud" },
+      { i: "jamstack" },
+      { i: "graphql", t: "Graphql" },
+      // "firebase",
+      // "vercel",
+      { i: "wordpress", t: "Wordpress" },
+      { i: "mysql", t: "Mysql" },
     ];
 
-    onMounted(() => {
-      // delayTimeout = setTimeout(() => {
-      //   Deco.value.classList.remove("Invis");
-      // }, 10000);
-    });
-
-    onUnmounted(() => {
-      clearTimeout(delayTimeout);
-    });
+    //onMounted(() => {
+    // delayTimeout = setTimeout(() => {
+    //   Deco.value.classList.remove("Invis");
+    // }, 10000);
+    //});
 
     return {
       icons,
@@ -84,11 +68,13 @@ export default {
   overflow: hidden !important;
   margin-bottom: 10px;
   width: 100vw;
+  background-color: white;
 }
+
 
 .Main {
   display: flex;
-  min-width: 182vw;
+  min-width: 196vw;
   animation: main 120s linear infinite;
 }
 
@@ -100,27 +86,35 @@ export default {
   flex: 0 0 14vw;
   height: 65px;
   padding: 5px 0;
-  // margin: 0 1vw;
+  margin: 0 1vw;
+
+  &.hasText .SvgCont {
+    height: 35px;
+  }
+
 }
+
 .SvgCont {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 40px;
+  height: 60px;
 }
+
 .Text {
   text-align: center;
   width: 100%;
-  font-size: 16px;
+  font-size: 15px;
   // font-weight: bold;
   text-transform: capitalize;
   color: $blue-grey--3;
 }
+
 .SVG {
   display: block;
   height: 100%;
-  max-width: 100%;
+  width: 100%;
 }
 
 @keyframes main {
@@ -129,18 +123,24 @@ export default {
   }
 
   100% {
-    transform: translatex(-728vw);
+    transform: translatex(-742vw);
+  }
+}
+
+@include sm-and-up {
+  .Item.hasText {
+    margin: 0;
   }
 }
 
 @include xs-only {
   .Main {
-  min-width: 270vw;
-}
+    min-width: 286vw;
+  }
 
   .Item {
     flex: 0 0 18vw;
-    margin: 0 1vw ;
+    margin: 0 2vw;
   }
 
   @keyframes main {
@@ -149,7 +149,7 @@ export default {
     }
 
     100% {
-      transform: translatex(-1040vw);
+      transform: translatex(-1066vw);
     }
   }
 

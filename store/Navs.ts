@@ -17,6 +17,7 @@ export const useNavs = defineStore("navs", {
   state: () => ({
     container: null,
     topNav: null,
+    parallaxElem: null,
     bottomNav: null,
     scrolled: false,
     scrollEventHandler: null,
@@ -52,6 +53,9 @@ export const useNavs = defineStore("navs", {
         }
 
         if (subsequentScrollPos > 200) {
+          let parallaxEffect = subsequentScrollPos * 0.5;
+          //this.parallaxElem?.style.transform = `translateY(${parallaxEffect}px)`;
+    
           const diff = subsequentScrollPos - this.prevScrollPos;
           if (subsequentScrollPos > this.prevScrollPos) {
             if (diff > 50) {
@@ -86,6 +90,10 @@ export const useNavs = defineStore("navs", {
 
     setTopNav(value) {
       this.topNav = value;
+    },
+
+    setParallaxElem(value) {
+      this.parallaxElem = value;
     },
 
     setBottomNav(value) {
