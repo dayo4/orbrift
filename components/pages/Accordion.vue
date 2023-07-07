@@ -24,7 +24,7 @@ export default {
     const accordionItems = ref([
       {
         title: "Intuitive UI Designs",
-        content: `Enhance user experiences with stunning, user-friendly interfaces that engage and convert.`,
+        content: `Enhance user experiences with user-friendly interfaces that engage and convert.`,
         expanded: false,
       },
       {
@@ -33,18 +33,18 @@ export default {
         expanded: false,
       },
       {
-        title: "Elevate Your E-commerce",
+        title: "Elevated E-commerce",
         content: `Drive online success with tailored e-commerce solutions that boost sales and customer satisfaction.`,
         expanded: false,
       },
       {
         title: "Robust Back-end Solutions",
-        content: `Empower your applications with fast, scalable Node.js frameworks on cutting-edge Cloud Platforms.`,
+        content: `Empower your applications with fast Node.js frameworks on cutting-edge Cloud Platforms.`,
         expanded: false,
       },
       {
         title: "Strategic Content Management",
-        content: `Boost visibility and attract organic traffic through SEO-optimized content with popular CMS platforms.`,
+        content: `Boost organic traffic through SEO-optimized content with popular CMS platforms.`,
         expanded: false,
       },
     ]);
