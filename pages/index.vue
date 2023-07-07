@@ -297,8 +297,8 @@ export default {
           content: "";
           bottom: -2px;
           left: 50%;
-          margin-left: -110px;
-          width: 210px;
+          margin-left: -120px;
+          width: 240px;
           height: 15px;
           background-color: $pri-color-trans-3;
           z-index: -1;
