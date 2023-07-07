@@ -5,7 +5,7 @@
         <!-- Intro -->
         <div class="Intro text-center">
           <h2 class="MyName">SAMUEL ADENIYI</h2>
-          <h5 class="MyRole">Fullstack Developer</h5>
+          <h5 class="MyRole">Fullstack Web Developer</h5>
           <h3 class="Sdesc">Innovative Digital Solutions</h3>
           <h5 class="Targ">For Creative Brands</h5>
         </div>
@@ -297,8 +297,8 @@ export default {
           content: "";
           bottom: -2px;
           left: 50%;
-          margin-left: -95px;
-          width: 190px;
+          margin-left: -110px;
+          width: 210px;
           height: 15px;
           background-color: $pri-color-trans-3;
           z-index: -1;
