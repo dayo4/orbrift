@@ -101,7 +101,7 @@
       <span> Some Designs gallery.. </span>
     </h3>
 
-    <section>
+    <section class="GalCont">
       <h2 class="text-center t-blue-grey--1"></h2>
 
       <!-- Projects Gallery Component -->
@@ -389,6 +389,10 @@ export default {
       }
     }
   }
+}
+
+.GalCont {
+  background-color: white;
 }
 
 .HomeFootNote {
