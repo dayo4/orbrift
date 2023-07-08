@@ -328,7 +328,8 @@ export default {
 }
 
 .FormCont {
-  back
+  background-color: white;
+  
 }
 
 .TextArea {
