@@ -4,7 +4,7 @@
 
     <template #WrapperBody>
       <section class="flex j-c-center">
-        <div class="xs12 sm12 md8 px-5 py-3">
+        <div class="xs12 sm12 md8 bg-white px-5 py-3">
           <h4 class="t-blue-grey--2">
             We are committed to protecting the privacy of those who visit this
             ORBRIFT Website and/or use our services.
