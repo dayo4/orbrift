@@ -290,7 +290,7 @@ export default {
     height: 100%;
     background-color: $sec-color;
     background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
-    background-attachment: fixed;
+    // background-attachment: fixed;
   }
   & .Detail {
     position: relative;
