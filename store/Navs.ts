@@ -54,7 +54,7 @@ export const useNavs = defineStore("navs", {
           (this.parallaxElem as HTMLElement).style.transform = `translateY(${parallaxEffect}px)`;
         }
         if (this.setParallaxElemHome1) {
-          (this.parallaxElem as HTMLElement).style.transform = `translateY(${parallaxEffect}px)`;
+          (this.setParallaxElemHome1 as HTMLElement).style.transform = `translateY(${parallaxEffect}px)`;
         }
 
         if (subsequentScrollPos > 500) {
@@ -105,7 +105,7 @@ export const useNavs = defineStore("navs", {
       this.parallaxElem = value;
     },
     setParallaxElemHome1(value) {
-      this.parallaxElem = value;
+      this.setParallaxElemHome1 = value;
     },
 
     setBottomNav(value) {
