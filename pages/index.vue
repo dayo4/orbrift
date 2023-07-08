@@ -274,7 +274,8 @@ export default {
 
 .Top {
   position: relative;
-  min-height: 500px;
+  // min-height: 500px;
+  min-height: 100vh;
   width: 100%;
   padding-top: 60px;
   padding-bottom: 20px;
