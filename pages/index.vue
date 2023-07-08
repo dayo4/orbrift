@@ -101,7 +101,7 @@
       <span> Some Designs gallery.. </span>
     </h3>
 
-    <section class="GalCont">
+    <section class="bg-white p-2">
       <h2 class="text-center t-blue-grey--1"></h2>
 
       <!-- Projects Gallery Component -->
@@ -143,14 +143,14 @@
       <div v-aos="'zoom-in'" class="flex j-c-center">
         <div class="xs12 md7 lg6">
           If you would love to have a more streamlined project discussion with
-          me to request an estimate, use the button below
+          me on a potential job or to request an estimate, use the button below
           <div class="flex j-c-center my-5">
             <Button
               @clicked="$router.push({ path: '/create' })"
               type="cta"
               size="large"
             >
-              Get A Quote
+              START NOW
             </Button>
           </div>
         </div>
@@ -391,15 +391,11 @@ export default {
   }
 }
 
-.GalCont {
-  background-color: white;
-}
-
 .HomeFootNote {
   font-size: 16px;
   text-align: center;
   color: $pri-color;
-  background-color: $sec-color-trans-1;
+  background-color: $sec-color-trans;
   padding: 15px;
   & a {
     // color:$pri-color;
