@@ -174,7 +174,7 @@ export default {
     const parallaxBg = ref(null)
 
     const $Navs = useNavs();
-    
+
     /* Element Refs */
 
     /* Other Static properties  */
@@ -235,7 +235,9 @@ export default {
       },
     ];
 
-    // onMounted(() => {});
+    onMounted(() => {
+            $Navs.setParallaxElem2(parallaxBg.value)
+    });
 
     // onUnmounted(() => { });
 
