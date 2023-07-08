@@ -15,17 +15,16 @@ export const useMailer = defineStore('mailer', {
             this.success = this.error = ''
             try {
 
-                const data = await $baseApi.post("sendMail", {
+                const response = await $baseApi.post("sendMail", {
                     ...payload
                 })
                 $Process.add('Successful!')
-                this.success = data
-                return data
+                this.success = response.data
+                return response.data
             }
             catch ( response ) {
-                console.log(response)
                 $Process.add('Request Failed!')
-                this.error = response.data.message
+                this.error = response?.data.message
             }
             finally {
                 $Process.resolve()
@@ -37,15 +36,15 @@ export const useMailer = defineStore('mailer', {
             $Process.add('Sending Message...')
             this.success = this.error = ''
             try {
-                const data = await $baseApi.post("sendProjectEnq", {
+                const response = await $baseApi.post("sendProjectEnq", {
                     ...payload
                 })
-                this.success = data
+                this.success = response.data
                 $Process.add('Successful!')
-                return data
+                return response.data
             }
             catch ( response ) {
-                this.error = response.data.message
+                this.error = response?.data.message
                 $Process.add('Request Failed!')
             }
             finally {

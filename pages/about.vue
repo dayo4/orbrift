@@ -210,8 +210,7 @@
               Are you ready to elevate your brand's digital presence?
               <NuxtLink to="/create"> Hire me</NuxtLink>. Get in touch with me
               today, to discuss your web development goals. Together, we'll
-              embark on a journey to create a captivating online experience that
-              sets you apart from the competition and drives measurable success.
+              embark on a journey to create a captivating online experience that drives measurable success.
             </p>
           </section>
         </section>

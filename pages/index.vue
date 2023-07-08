@@ -1,6 +1,7 @@
 <template>
   <div>
     <section class="Top bg-img-masked noselect br1">
+      <div ref="parallaxBg" class="Parall bg-img-masked"></div>
       <div class="Detail xs12 md8 noselect br1">
         <!-- Intro -->
         <div class="Intro text-center">
@@ -45,7 +46,7 @@
 
     <!-- Tech Stack Icons Slider Component -->
     <ClientOnly>
-      <TechStackSlider  />
+      <TechStackSlider />
     </ClientOnly>
     <!-- Tech Stack Icons Slider Component -->
 
@@ -101,7 +102,7 @@
       <span> Some Designs gallery.. </span>
     </h3>
 
-    <section class="GalCont">
+    <section class="bg-white p-2">
       <h2 class="text-center t-blue-grey--1"></h2>
 
       <!-- Projects Gallery Component -->
@@ -143,14 +144,14 @@
       <div v-aos="'zoom-in'" class="flex j-c-center">
         <div class="xs12 md7 lg6">
           If you would love to have a more streamlined project discussion with
-          me to request an estimate, use the button below
+          me on a potential job or to request an estimate, use the button below
           <div class="flex j-c-center my-5">
             <Button
               @clicked="$router.push({ path: '/create' })"
               type="cta"
               size="large"
             >
-              Get A Quote
+              START NOW
             </Button>
           </div>
         </div>
@@ -159,6 +160,9 @@
   </div>
 </template>
 <script lang="ts">
+import { useNavs } from "@/store";
+
+
 export default {
   name: "Home",
 
@@ -166,6 +170,10 @@ export default {
     const { $myMetaInfo } = useNuxtApp();
 
     useSeoMeta($myMetaInfo({}));
+
+    const parallaxBg = ref(null)
+
+    const $Navs = useNavs();
 
     /* Element Refs */
 
@@ -212,9 +220,9 @@ export default {
           "Maximize the functionality of your apps by easily integrating it with third-party services. From e-commerce platforms to payment gateways and CRM systems, I ensure smooth integration to enhance your users experience and business operations.",
       },
       {
-        img: "",
+        img: "effect",
         text: "Streamlined Project Management",
-        link: "/defaults/pgs/icons/secure.png",
+        // link: "/defaults/pgs/icons/secure.png",
         detail:
           "I employ user-friendly tools and streamlined processes to make communication and payment hassle-free. You can focus on your business while I handle the technicalities, ensuring a secure and efficient workflow.",
       },
@@ -227,12 +235,15 @@ export default {
       },
     ];
 
-    // onMounted(() => {});
+    // onMounted(() => {
+    //         $Navs.setParallaxElemHome1(parallaxBg.value)
+    // });
 
     // onUnmounted(() => { });
 
     return {
       list,
+      parallaxBg
     };
   },
 };
@@ -264,15 +275,27 @@ export default {
 
 .Top {
   position: relative;
+  overflow: hidden;
   min-height: 500px;
   width: 100%;
   padding-top: 60px;
   padding-bottom: 20px;
   // margin-bottom: 50px;
-  background-color: $sec-color;
-  background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
-  background-attachment: fixed;
+  // background-color: $sec-color;
+  // background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
+  // background-attachment: fixed;
+  & .Parall {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $sec-color;
+    background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
+    background-attachment: fixed;
+  }
   & .Detail {
+    position: relative;
     z-index: 1;
     & .Intro {
       padding: 5px 0 0 0;
@@ -353,8 +376,8 @@ export default {
       background-color: $light-color;
       border-radius: 28px;
       margin: 0px 30px 30px 20px;
-//      border-top: solid 3px $pri-color;
-//      border-bottom: solid 3px $pri-color;
+      //      border-top: solid 3px $pri-color;
+      //      border-bottom: solid 3px $pri-color;
       & img {
         width: 90px;
         height: 90px;
@@ -391,15 +414,11 @@ export default {
   }
 }
 
-.GalCont {
-  background-color: white;
-}
-
 .HomeFootNote {
   font-size: 16px;
   text-align: center;
   color: $pri-color;
-  background-color: $sec-color-trans-1;
+  background-color: $sec-color-trans;
   padding: 15px;
   & a {
     // color:$pri-color;

@@ -50,7 +50,7 @@
                 type="cta"
                 size="large"
               >
-                Get A Quote
+                HIRE ME
               </Button>
             </div>
           </div>
@@ -118,7 +118,7 @@ export default {
   font-size: 16px;
   text-align: center;
   color: $pri-color;
-  background-color: $sec-color-trans-1;
+  background-color: $sec-color-trans;
   padding: 15px;
   & a {
     color: lightblue;

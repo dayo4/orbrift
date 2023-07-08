@@ -5,6 +5,8 @@ interface Navs {
     | Window
     | HTMLElement
     | null /* This will be used to point to the MainContainer component from other components */;
+  parallaxElem: HTMLElement | null;
+  setParallaxElemHome1: HTMLElement | null;
   topNav: HTMLElement | null;
   bottomNav: HTMLElement | null;
   scrolled: boolean;
@@ -18,6 +20,7 @@ export const useNavs = defineStore("navs", {
     container: null,
     topNav: null,
     parallaxElem: null,
+    setParallaxElemHome1: null,
     bottomNav: null,
     scrolled: false,
     scrollEventHandler: null,
@@ -45,6 +48,14 @@ export const useNavs = defineStore("navs", {
     handler(e) {
       if (e.isTrusted) {
         var subsequentScrollPos = this.container?.pageYOffset;
+        
+        let parallaxEffect = subsequentScrollPos * 0.7;
+        if (this.parallaxElem) {
+          (this.parallaxElem as HTMLElement).style.transform = `translateY(${parallaxEffect}px)`;
+        }
+        // if (this.setParallaxElemHome1) {
+        //   (this.setParallaxElemHome1 as HTMLElement).style.transform = `translateY(${parallaxEffect}px)`;
+        // }
 
         if (subsequentScrollPos > 500) {
           this.scrolled = true;
@@ -53,9 +64,7 @@ export const useNavs = defineStore("navs", {
         }
 
         if (subsequentScrollPos > 200) {
-          let parallaxEffect = subsequentScrollPos * 0.5;
-          //this.parallaxElem?.style.transform = `translateY(${parallaxEffect}px)`;
-    
+
           const diff = subsequentScrollPos - this.prevScrollPos;
           if (subsequentScrollPos > this.prevScrollPos) {
             if (diff > 50) {
@@ -94,6 +103,9 @@ export const useNavs = defineStore("navs", {
 
     setParallaxElem(value) {
       this.parallaxElem = value;
+    },
+    setParallaxElemHome1(value) {
+      this.setParallaxElemHome1 = value;
     },
 
     setBottomNav(value) {
