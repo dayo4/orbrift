@@ -275,6 +275,7 @@ export default {
 
 .Top {
   position: relative;
+  overflow: hidden;
   min-height: 500px;
   width: 100%;
   padding-top: 60px;
