@@ -6,6 +6,7 @@ interface Navs {
     | HTMLElement
     | null /* This will be used to point to the MainContainer component from other components */;
   parallaxElem: HTMLElement | null;
+  setParallaxElemHome1: HTMLElement | null;
   topNav: HTMLElement | null;
   bottomNav: HTMLElement | null;
   scrolled: boolean;
