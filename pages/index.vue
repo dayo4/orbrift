@@ -243,6 +243,7 @@ export default {
 
     return {
       list,
+      parallaxBg
     };
   },
 };
