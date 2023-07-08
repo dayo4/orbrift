@@ -329,7 +329,7 @@ export default {
 
 .FormCont {
   background-color: white;
-  
+  padding: 5px;
 }
 
 .TextArea {
