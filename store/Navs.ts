@@ -19,6 +19,7 @@ export const useNavs = defineStore("navs", {
     container: null,
     topNav: null,
     parallaxElem: null,
+    setParallaxElemHome1: null,
     bottomNav: null,
     scrolled: false,
     scrollEventHandler: null,
