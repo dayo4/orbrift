@@ -235,9 +235,9 @@ export default {
       },
     ];
 
-    onMounted(() => {
-            $Navs.setParallaxElemHome1(parallaxBg.value)
-    });
+    // onMounted(() => {
+    //         $Navs.setParallaxElemHome1(parallaxBg.value)
+    // });
 
     // onUnmounted(() => { });
 
