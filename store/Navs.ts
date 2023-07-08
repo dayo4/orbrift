@@ -46,7 +46,12 @@ export const useNavs = defineStore("navs", {
     handler(e) {
       if (e.isTrusted) {
         var subsequentScrollPos = this.container?.pageYOffset;
-
+        
+        let parallaxEffect = subsequentScrollPos * 0.5;
+        if (this.parallaxElem) {
+          (this.parallaxElem as HTMLElement).style.transform = `translateY(${parallaxEffect}px)`;
+        }
+        
         if (subsequentScrollPos > 500) {
           this.scrolled = true;
         } else {
@@ -54,10 +59,6 @@ export const useNavs = defineStore("navs", {
         }
 
         if (subsequentScrollPos > 200) {
-          let parallaxEffect = subsequentScrollPos * 0.5;
-          if (this.parallaxElem) {
-            (this.parallaxElem as HTMLElement).style.transform = `translateY(${parallaxEffect}px)`;
-          }
 
           const diff = subsequentScrollPos - this.prevScrollPos;
           if (subsequentScrollPos > this.prevScrollPos) {
