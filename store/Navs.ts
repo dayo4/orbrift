@@ -5,6 +5,7 @@ interface Navs {
     | Window
     | HTMLElement
     | null /* This will be used to point to the MainContainer component from other components */;
+  parallaxElem: HTMLElement | null;
   topNav: HTMLElement | null;
   bottomNav: HTMLElement | null;
   scrolled: boolean;
@@ -54,10 +55,10 @@ export const useNavs = defineStore("navs", {
 
         if (subsequentScrollPos > 200) {
           let parallaxEffect = subsequentScrollPos * 0.5;
-          if(this.parallaxElem) {
+          if (this.parallaxElem) {
             this.parallaxElem?.style.transform = `translateY(${parallaxEffect}px)`;
           }
-    
+
           const diff = subsequentScrollPos - this.prevScrollPos;
           if (subsequentScrollPos > this.prevScrollPos) {
             if (diff > 50) {
