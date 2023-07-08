@@ -171,6 +171,10 @@ export default {
 
     useSeoMeta($myMetaInfo({}));
 
+    const parallaxBg = ref(null)
+
+    const $Navs = useNavs();
+    
     /* Element Refs */
 
     /* Other Static properties  */
