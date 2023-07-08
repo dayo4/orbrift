@@ -99,7 +99,7 @@ export const useNavs = defineStore("navs", {
     setParallaxElem(value) {
       this.parallaxElem = value;
     },
-    setParallaxElem(value) {
+    setParallaxElemHome1(value) {
       this.parallaxElem = value;
     },
 
