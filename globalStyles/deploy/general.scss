@@ -11,6 +11,7 @@ div[contenteditable="true"]:empty::before {
 
 div[contenteditable="true"] {
   max-height: 250px;
+  white-space: pre-wrap;
   overflow-y: scroll !important;
 }
 div[contenteditable="true"].shorter {
