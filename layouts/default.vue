@@ -99,8 +99,8 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/defaults/pgs/hexgold.png'); /* Replace '~/assets/background.jpg' with your image path */
-  //background-image: url('defaults/pgs/goldlines.png'); /* Replace '~/assets/background.jpg' with your image path */
+  // background-image: url('/defaults/pgs/hexgold.png'); /* Replace '~/assets/background.jpg' with your image path */
+  background-image: url('defaults/pgs/goldlines.png'); /* Replace '~/assets/background.jpg' with your image path */
   //background-image: url('defaults/pgs/patternbg.png'); /* Replace '~/assets/background.jpg' with your image path */
   background-size: contain;
   background-repeat: repeat;
