@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="Top bg-img-masked noselect br1">
-      <div class="bg-img-masked"></div>
+      <div class="Parall bg-img-masked"></div>
       <div class="Detail xs12 md8 noselect br1">
         <!-- Intro -->
         <div class="Intro text-center">
