@@ -46,7 +46,7 @@
 
     <!-- Tech Stack Icons Slider Component -->
     <ClientOnly>
-      <TechStackSlider  />
+      <TechStackSlider />
     </ClientOnly>
     <!-- Tech Stack Icons Slider Component -->
 
@@ -270,9 +270,14 @@ export default {
   padding-top: 60px;
   padding-bottom: 20px;
   // margin-bottom: 50px;
-  background-color: $sec-color;
-  background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
-  background-attachment: fixed;
+  // background-color: $sec-color;
+  // background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
+  // background-attachment: fixed;
+  & .Parall {
+    background-color: $sec-color;
+    background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
+    background-attachment: fixed;
+  }
   & .Detail {
     z-index: 1;
     & .Intro {
@@ -354,8 +359,8 @@ export default {
       background-color: $light-color;
       border-radius: 28px;
       margin: 0px 30px 30px 20px;
-//      border-top: solid 3px $pri-color;
-//      border-bottom: solid 3px $pri-color;
+      //      border-top: solid 3px $pri-color;
+      //      border-bottom: solid 3px $pri-color;
       & img {
         width: 90px;
         height: 90px;
