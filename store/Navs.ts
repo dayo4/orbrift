@@ -56,7 +56,7 @@ export const useNavs = defineStore("navs", {
         if (subsequentScrollPos > 200) {
           let parallaxEffect = subsequentScrollPos * 0.5;
           if (this.parallaxElem) {
-            (this.parallaxElem as HTMLElement).style.transform = 
+            (this.parallaxElem as HTMLElement).style.transform = ''
           }
 
           const diff = subsequentScrollPos - this.prevScrollPos;
