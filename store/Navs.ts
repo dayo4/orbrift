@@ -15,7 +15,7 @@ interface Navs {
 }
 
 export const useNavs = defineStore("navs", {
-  state: Na() => ({
+  state: () => ({
     container: null,
     topNav: null,
     parallaxElem: null,
