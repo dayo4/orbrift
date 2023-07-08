@@ -212,9 +212,9 @@ export default {
           "Maximize the functionality of your apps by easily integrating it with third-party services. From e-commerce platforms to payment gateways and CRM systems, I ensure smooth integration to enhance your users experience and business operations.",
       },
       {
-        img: "",
+        img: "effect",
         text: "Streamlined Project Management",
-        link: "/defaults/pgs/icons/effect.png",
+        // link: "/defaults/pgs/icons/secure.png",
         detail:
           "I employ user-friendly tools and streamlined processes to make communication and payment hassle-free. You can focus on your business while I handle the technicalities, ensuring a secure and efficient workflow.",
       },
