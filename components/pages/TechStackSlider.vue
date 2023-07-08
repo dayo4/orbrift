@@ -1,25 +1,13 @@
 <template>
   <div class="Wrapr">
     <div class="Main" v-for="(chunk, i) in 4" :key="i" :aria-hidden="i === 1 ? false : true">
-      <div v-for="(icon, i) in icons" :key="i" class="Item" :class="icon.t ? 'hasText' : ''">
+      <div v-for="(icon, i) in icons" :key="i" class="Item" :class="icon.t ? 'HasText' : ''">
         <div class="SvgCont">
           <img class="SVG" :src="'/defaults/stk/svg/' + icon.i + '.svg'" draggable="false" type="image/svg+xml" />
         </div>
         <div v-if="icon.t" class="Text">{{ icon.t }}</div>
       </div>
     </div>
-    <!-- <div class="Deco Invis" ref="Deco" aria-hidden="true">
-      <div v-for="(icon, i) in icons" :key="i" class="Item">
-        <div class="SvgCont">
-          <img
-            class="SVG"
-            :src="'/defaults/stk/svg/' + icon + '.svg'"
-            draggable="false"
-          />
-        </div>
-        <div class="Text">{{icon}}</div>
-      </div>
-    </div> -->
   </div>
 </template>
 
@@ -41,17 +29,11 @@ export default {
       { i: "gcloud", t: "G-cloud" },
       { i: "jamstack" },
       { i: "graphql", t: "Graphql" },
-      // "firebase",
-      // "vercel",
       { i: "wordpress", t: "Wordpress" },
       { i: "mysql", t: "Mysql" },
+      // "firebase",
+      // "vercel",
     ];
-
-    //onMounted(() => {
-    // delayTimeout = setTimeout(() => {
-    //   Deco.value.classList.remove("Invis");
-    // }, 10000);
-    //});
 
     return {
       icons,
@@ -66,7 +48,7 @@ export default {
   position: relative;
   display: flex;
   overflow: hidden !important;
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
   width: 100vw;
   background-color: white;
 }
@@ -88,7 +70,7 @@ export default {
   padding: 5px 0;
   margin: 0 1vw;
 
-  &.hasText .SvgCont {
+  &.HasText .SvgCont {
     height: 35px;
   }
 
@@ -128,7 +110,7 @@ export default {
 }
 
 @include sm-and-up {
-  .Item.hasText {
+  .Item.HasText {
     margin: 0;
   }
 }
