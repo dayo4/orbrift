@@ -160,6 +160,9 @@
   </div>
 </template>
 <script lang="ts">
+import { useNavs } from "@/store";
+
+
 export default {
   name: "Home",
 
