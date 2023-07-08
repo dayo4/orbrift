@@ -327,6 +327,9 @@ export default {
   background-color: $sec-color;
 }
 
+.FormCont {
+  back
+}
 
 .TextArea {
   min-height: 150px;
