@@ -47,11 +47,11 @@ export const useNavs = defineStore("navs", {
       if (e.isTrusted) {
         var subsequentScrollPos = this.container?.pageYOffset;
         
-        let parallaxEffect = subsequentScrollPos * 0.5;
+        let parallaxEffect = subsequentScrollPos * 0.7;
         if (this.parallaxElem) {
           (this.parallaxElem as HTMLElement).style.transform = `translateY(${parallaxEffect}px)`;
         }
-        
+
         if (subsequentScrollPos > 500) {
           this.scrolled = true;
         } else {
