@@ -214,7 +214,7 @@ export default {
       {
         img: "",
         text: "Streamlined Project Management",
-        link: "/defaults/pgs/icons/secure.png",
+        link: "/defaults/pgs/icons/effect.png",
         detail:
           "I employ user-friendly tools and streamlined processes to make communication and payment hassle-free. You can focus on your business while I handle the technicalities, ensuring a secure and efficient workflow.",
       },
