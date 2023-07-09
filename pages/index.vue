@@ -15,7 +15,7 @@
         <div class="Img flex md6 j-c-center mb-9">
           <div class="xs10 sm7">
             <img
-              src="/defaults/pgs/wpages2.png"
+              src="/defaults/pgs/wpages1.png"
               alt="apps-tiles-collage"
               draggable="false"
             />
