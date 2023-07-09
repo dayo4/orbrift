@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="Top noselect br1">
+    <section class="Top noselect">
       <div ref="parallaxBg" class="Parall bg-img-masked"></div>
       <div class="Detail xs12 md8 noselect br1">
         <!-- Intro -->
