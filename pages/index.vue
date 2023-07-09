@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="Top noselect">
-      <div ref="homeTopBgParall" class="Parall bg-img-masked"></div>
+      <div ref="homeTopBgParallax" class="Parall bg-img-masked"></div>
       <div class="Detail xs12 md8 noselect br1">
         <!-- Intro -->
         <div class="Intro text-center">
@@ -170,7 +170,7 @@ export default {
 
     useSeoMeta($myMetaInfo({}));
 
-    const homeTopBgParall = ref(null);
+    const homeTopBgParallax = ref(null);
 
     const $Navs = useNavs();
 
@@ -235,14 +235,14 @@ export default {
     ];
 
     // onMounted(() => {
-    //         $Navs.setParallaxElemHome1(homeTopBgParall.value)
+    //         $Navs.setParallaxElemHome1(homeTopBgParallax.value)
     // });
 
     // onUnmounted(() => { });
 
     return {
       list,
-      homeTopBgParall,
+      homeTopBgParallax,
     };
   },
 };
