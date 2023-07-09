@@ -329,15 +329,15 @@ export default {
         }
       }
       & > .Sdesc {
-        // font-family: "Itim", "Roboto", sans-serif;
+        position: relative;
         color: $pri-color;
-        // color: white;
         font-size: 35px;
         margin-top: 50px;
         margin-bottom: 8px;
         padding: 0 10px;
       }
       & > .Targ {
+        position: relative;
         font-size: 15px;
         margin-top: 0px;
         color: $light-color;
