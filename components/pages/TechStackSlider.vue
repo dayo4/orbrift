@@ -41,10 +41,10 @@ export default {
       { i: "gcloud", t: "G-cloud" },
       { i: "jamstack" },
       { i: "graphql", t: "Graphql" },
-      // "firebase",
-      // "vercel",
       { i: "wordpress", t: "Wordpress" },
       { i: "mysql", t: "Mysql" },
+      // "firebase",
+      // "vercel",
     ];
 
     //onMounted(() => {
