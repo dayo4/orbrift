@@ -102,7 +102,6 @@ export default {
   background-image: url('/defaults/pgs/hgt3.png'); /* Replace '~/assets/background.jpg' with your image path */
   background-size: contain;
   background-repeat: repeat;
-  //background-position: center;
  // transform: translateZ(-1px) scale(1.5);
 }
 </style>
