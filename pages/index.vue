@@ -63,11 +63,12 @@
       </h3>
       <div class="Tiles bg-img-masked flex wrap j-c-center py-4 noselect">
         <article
+          v-aos="'zoom-in'"
           class="xs11 sm10 md9 lg7"
           v-for="(L, i) in list"
           :key="i"
         >
-          <div class="noselect" v-aos="'fade-right'">
+          <div class="noselect">
             <img
               :src="L.link ? L.link : '/defaults/pgs/icons/' + L.img + '.jpg'"
               :alt="L.text"
