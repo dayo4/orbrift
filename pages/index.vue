@@ -63,19 +63,20 @@
       </h3>
       <div class="Tiles bg-img-masked flex wrap j-c-center py-4 noselect">
         <article
-          v-aos="'fade-left'"
           class="xs11 sm10 md9 lg7 shadow-3"
           v-for="(L, i) in list"
           :key="i"
         >
-          <div class="noselect">
+          <div class="noselect"
+          v-aos="'fade-right'"
+          >
             <img
               :src="L.link ? L.link : '/defaults/pgs/icons/' + L.img + '.jpg'"
               :alt="L.text"
               draggable="false"
             />
           </div>
-          <h2>{{ L.text }}</h2>
+          <h2 >{{ L.text }}</h2>
           <p>{{ L.detail }}</p>
         </article>
       </div>
