@@ -254,7 +254,7 @@ export default {
   color: $pri-color;
   background-color: $sec-color-trans;
   padding: 15px;
-  margin-bottom: 40px;
+  // margin-bottom: 40px;
 }
 
 .SectionSubHead {
