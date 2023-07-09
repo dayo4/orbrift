@@ -12,9 +12,9 @@
       </ClientOnly>
 
       <section class="Routes">
-        <transition name="slide-fade" mode="out-in">
+        <!-- <transition name="slide-fade" mode="out-in"> -->
           <slot />
-        </transition>
+        <!-- </transition> -->
       </section>
 
       <Footer />
