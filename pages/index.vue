@@ -343,7 +343,6 @@ export default {
       }
     }
 
-  }
     & .Img {
       position: absolute;
       right: 0;
@@ -354,6 +353,7 @@ export default {
         height: 100%;
       }
     }
+  }
 
   & button {
     margin-top: 40px;
