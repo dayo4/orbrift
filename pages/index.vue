@@ -304,6 +304,7 @@ export default {
         font-weight: bold;
       }
       & > .MyName {
+        position: relative;
         color: rgba(204, 235, 238, 0.7);
         font-size: 35px;
         margin-bottom: 0;
