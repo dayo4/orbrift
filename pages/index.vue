@@ -361,9 +361,6 @@ export default {
   }
 }
 
-// .TStack {
-//   min-width: 65px;
-// }
 .Section_2 {
   margin-bottom: 50px;
   & .Tiles {
