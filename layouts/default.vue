@@ -65,15 +65,15 @@ export default {
 </script>
 
 <style lang="scss">
-.slide-fade-leave-active,
-.slide-fade-enter-active {
+.main-layout-leave-active,
+.main-layout-enter-active {
   transition: all 0.3s ease-in-out;
 }
-.slide-fade-enter-from {
+.main-layout-enter-from {
   transform: translateX(20px);
   opacity: 0;
 }
-.slide-fade-leave-to {
+.main-layout-leave-to {
   transform: translateX(20px);
   opacity: 0;
 }
