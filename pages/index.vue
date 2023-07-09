@@ -367,8 +367,8 @@ export default {
   margin-bottom: 50px;
   & .Tiles {
     background-color: $sec-color;
-    // background-attachment: fixed;
-    // background-image: url("/defaults/pgs/orbrift_pfbg.jpg");
+    background-attachment: fixed;
+    background-image: url("/defaults/pgs/orbrift_pfbg.jpg");
     & > article {
       z-index: 2;
       min-height: 330px;
