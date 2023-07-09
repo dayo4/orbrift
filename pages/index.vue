@@ -77,7 +77,7 @@
             />
           </div>
           <h2 v-aos="'zoom-in'">{{ L.text }}</h2>
-          <p>{{ L.detail }}</p>
+          <p v-aos="'fade-left'">{{ L.detail }}</p>
         </article>
       </div>
 
