@@ -75,6 +75,10 @@ export default {
   transform: translateX(20px);
   opacity: 0;
 }
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
 .App {
   position: relative;
   overflow: hidden;
