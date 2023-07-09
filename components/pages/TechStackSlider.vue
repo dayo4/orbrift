@@ -1,7 +1,7 @@
 <template>
   <div class="Wrapr">
     <div class="Main" v-for="(chunk, i) in 4" :key="i" :aria-hidden="i === 1 ? false : true">
-      <div v-for="(icon, i) in icons" :key="i" class="Item" :class="icon.t ? 'hasText' : ''">
+      <div v-for="(icon, i) in icons" :key="i" class="Item" :class="icon.t ? 'HasText' : ''">
         <div class="SvgCont">
           <img class="SVG" :src="'/defaults/stk/svg/' + icon.i + '.svg'" draggable="false" type="image/svg+xml" />
         </div>
@@ -88,7 +88,7 @@ export default {
   padding: 5px 0;
   margin: 0 1vw;
 
-  &.hasText .SvgCont {
+  &.HasText .SvgCont {
     height: 35px;
   }
 
@@ -128,7 +128,7 @@ export default {
 }
 
 @include sm-and-up {
-  .Item.hasText {
+  .Item.HasText {
     margin: 0;
   }
 }
