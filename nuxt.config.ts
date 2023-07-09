@@ -17,10 +17,10 @@ export default defineNuxtConfig({
       ]
     },
     pageTransition: {
-      name: 'slide-fade', mode: 'out-in'
+      name: 'slide-fade', mode: 'in-out'
     },
     layoutTransition: {
-      name: 'slide-fade', mode: 'out-in'
+      name: 'slide-fade', mode: 'in-out'
     }
   },
   ssr: true,
