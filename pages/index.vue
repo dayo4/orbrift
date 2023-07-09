@@ -63,7 +63,7 @@
       </h3>
       <div class="Tiles bg-img-masked flex wrap j-c-center py-4 noselect">
         <article
-          class="xs11 sm10 md9 lg7 shadow-3h"
+          class="xs11 sm10 md9 lg7"
           v-for="(L, i) in list"
           :key="i"
         >
