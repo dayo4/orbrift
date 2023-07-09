@@ -48,7 +48,7 @@ export default {
   position: relative;
   display: flex;
   overflow: hidden !important;
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
   width: 100vw;
   background-color: white;
 }
