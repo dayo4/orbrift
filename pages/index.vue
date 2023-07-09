@@ -1,7 +1,7 @@
 <template>
   <div>
-    <section class="Top bg-img-masked noselect br1">
-      <div ref="parallaxBg" class="Parall bg-img-masked"></div>
+    <section class="Top noselect">
+      <div ref="homeTopBgParallax" class="Parall bg-img-masked"></div>
       <div class="Detail xs12 md8 noselect br1">
         <!-- Intro -->
         <div class="Intro text-center">
@@ -63,8 +63,8 @@
       </h3>
       <div class="Tiles bg-img-masked flex wrap j-c-center py-4 noselect">
         <article
-          v-aos="'fade-left'"
-          class="xs11 sm10 md9 lg7 shadow-3"
+          v-aos="'zoom-in'"
+          class="xs11 sm10 md9 lg7"
           v-for="(L, i) in list"
           :key="i"
         >
@@ -162,7 +162,6 @@
 <script lang="ts">
 import { useNavs } from "@/store";
 
-
 export default {
   name: "Home",
 
@@ -171,7 +170,7 @@ export default {
 
     useSeoMeta($myMetaInfo({}));
 
-    const parallaxBg = ref(null)
+    const homeTopBgParallax = ref(null);
 
     const $Navs = useNavs();
 
@@ -224,26 +223,26 @@ export default {
         text: "Streamlined Project Management",
         // link: "/defaults/pgs/icons/secure.png",
         detail:
-          "I employ user-friendly tools and streamlined processes to make communication and payment hassle-free. You can focus on your business while I handle the technicalities, ensuring a secure and efficient workflow.",
+          "I employ user-friendly tools and streamlined processes to make communication hassle-free. You can focus on your business while I handle the technicalities, ensuring a secure and efficient workflow.",
       },
-      {
-        img: "",
-        text: "Continuous Support and Maintenance",
-        link: "/defaults/pgs/icons/secure.png",
-        detail:
-          "I provide ongoing support and maintenance services to keep your website or application running smoothly. From updates and security enhancements to performance optimizations, I ensure your digital presence remains robust and up-to-date.",
-      },
+      // {
+      //   img: "",
+      //   text: "Continuous Support and Maintenance",
+      //   link: "/defaults/pgs/icons/secure.png",
+      //   detail:
+      //     "I provide ongoing support and maintenance services to keep your website or application running smoothly. From updates and security enhancements to performance optimizations, I ensure your digital presence remains robust and up-to-date.",
+      // },
     ];
 
     // onMounted(() => {
-    //         $Navs.setParallaxElemHome1(parallaxBg.value)
+    //         $Navs.setParallaxElemHome1(homeTopBgParallax.value)
     // });
 
     // onUnmounted(() => { });
 
     return {
       list,
-      parallaxBg
+      homeTopBgParallax,
     };
   },
 };
@@ -295,7 +294,7 @@ export default {
     background-attachment: fixed;
   }
   & .Detail {
-    position: relative;
+    // position: relative;
     z-index: 1;
     & .Intro {
       padding: 5px 0 0 0;
@@ -304,6 +303,7 @@ export default {
         font-weight: bold;
       }
       & > .MyName {
+        position: relative;
         color: rgba(204, 235, 238, 0.7);
         font-size: 35px;
         margin-bottom: 0;
@@ -328,15 +328,15 @@ export default {
         }
       }
       & > .Sdesc {
-        // font-family: "Itim", "Roboto", sans-serif;
+        position: relative;
         color: $pri-color;
-        // color: white;
         font-size: 35px;
         margin-top: 50px;
         margin-bottom: 8px;
         padding: 0 10px;
       }
       & > .Targ {
+        position: relative;
         font-size: 15px;
         margin-top: 0px;
         color: $light-color;
@@ -361,9 +361,6 @@ export default {
   }
 }
 
-// .TStack {
-//   min-width: 65px;
-// }
 .Section_2 {
   margin-bottom: 50px;
   & .Tiles {

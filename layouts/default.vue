@@ -12,9 +12,9 @@
       </ClientOnly>
 
       <section class="Routes">
-        <transition name="slide-fade" mode="out-in">
+        <!-- <transition name="slide-fade" mode="out-in"> -->
           <slot />
-        </transition>
+        <!-- </transition> -->
       </section>
 
       <Footer />
@@ -99,12 +99,9 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  // background-image: url('/defaults/pgs/hexgold.png'); /* Replace '~/assets/background.jpg' with your image path */
   background-image: url('/defaults/pgs/hgt3.png'); /* Replace '~/assets/background.jpg' with your image path */
-  // background-image: url('defaults/pgs/slines.png'); /* Replace '~/assets/background.jpg' with your image path */
   background-size: contain;
   background-repeat: repeat;
-  //background-position: center;
  // transform: translateZ(-1px) scale(1.5);
 }
 </style>
