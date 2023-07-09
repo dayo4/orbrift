@@ -32,7 +32,7 @@
         ></a>
         <a
           class="icon-linkedin mr-3 br5 b4"
-          href="https://www.linkedin.com/in/dayo-adeniyi-761498244"
+          href="https://www.linkedin.com/in/samuel-adeniyi-761498244"
           target="blank"
         ></a>
       </section>
