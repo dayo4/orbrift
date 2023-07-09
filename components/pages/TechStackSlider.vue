@@ -8,18 +8,6 @@
         <div v-if="icon.t" class="Text">{{ icon.t }}</div>
       </div>
     </div>
-    <!-- <div class="Deco Invis" ref="Deco" aria-hidden="true">
-      <div v-for="(icon, i) in icons" :key="i" class="Item">
-        <div class="SvgCont">
-          <img
-            class="SVG"
-            :src="'/defaults/stk/svg/' + icon + '.svg'"
-            draggable="false"
-          />
-        </div>
-        <div class="Text">{{icon}}</div>
-      </div>
-    </div> -->
   </div>
 </template>
 
