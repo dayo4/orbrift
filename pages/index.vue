@@ -76,7 +76,7 @@
               draggable="false"
             />
           </div>
-          <h2 >{{ L.text }}</h2>
+          <h2 v-aos="'zoom-in'">{{ L.text }}</h2>
           <p>{{ L.detail }}</p>
         </article>
       </div>
