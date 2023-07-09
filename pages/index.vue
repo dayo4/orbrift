@@ -295,7 +295,7 @@ export default {
     background-attachment: fixed;
   }
   & .Detail {
-    position: relative;
+    // position: relative;
     z-index: 1;
     & .Intro {
       padding: 5px 0 0 0;
