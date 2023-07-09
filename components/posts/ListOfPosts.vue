@@ -107,7 +107,6 @@ export default {
 }
 
 .TopSect {
-  background-color: #333; /* Dark background color for the featured image and title */
   background-color: $sec-color-trans;
   border-radius: 4px;
   padding: 10px;
