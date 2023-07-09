@@ -67,9 +67,7 @@
           v-for="(L, i) in list"
           :key="i"
         >
-          <div class="noselect"
-          v-aos="'fade-right'"
-          >
+          <div class="noselect" v-aos="'fade-right'">
             <img
               :src="L.link ? L.link : '/defaults/pgs/icons/' + L.img + '.jpg'"
               :alt="L.text"
@@ -163,7 +161,6 @@
 <script lang="ts">
 import { useNavs } from "@/store";
 
-
 export default {
   name: "Home",
 
@@ -172,7 +169,7 @@ export default {
 
     useSeoMeta($myMetaInfo({}));
 
-    const parallaxBg = ref(null)
+    const parallaxBg = ref(null);
 
     const $Navs = useNavs();
 
@@ -244,7 +241,7 @@ export default {
 
     return {
       list,
-      parallaxBg
+      parallaxBg,
     };
   },
 };
