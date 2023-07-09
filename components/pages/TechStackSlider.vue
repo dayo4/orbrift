@@ -47,12 +47,6 @@ export default {
       // "vercel",
     ];
 
-    //onMounted(() => {
-    // delayTimeout = setTimeout(() => {
-    //   Deco.value.classList.remove("Invis");
-    // }, 10000);
-    //});
-
     return {
       icons,
       Deco,
