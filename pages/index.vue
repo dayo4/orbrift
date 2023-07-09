@@ -225,13 +225,13 @@ export default {
         detail:
           "I employ user-friendly tools and streamlined processes to make communication hassle-free. You can focus on your business while I handle the technicalities, ensuring a secure and efficient workflow.",
       },
-      {
-        img: "",
-        text: "Continuous Support and Maintenance",
-        link: "/defaults/pgs/icons/secure.png",
-        detail:
-          "I provide ongoing support and maintenance services to keep your website or application running smoothly. From updates and security enhancements to performance optimizations, I ensure your digital presence remains robust and up-to-date.",
-      },
+      // {
+      //   img: "",
+      //   text: "Continuous Support and Maintenance",
+      //   link: "/defaults/pgs/icons/secure.png",
+      //   detail:
+      //     "I provide ongoing support and maintenance services to keep your website or application running smoothly. From updates and security enhancements to performance optimizations, I ensure your digital presence remains robust and up-to-date.",
+      // },
     ];
 
     // onMounted(() => {
