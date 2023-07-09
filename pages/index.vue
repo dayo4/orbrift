@@ -366,6 +366,7 @@ export default {
 .Section_2 {
   margin-bottom: 50px;
   & .Tiles {
+    background-color: white;
     // background-color: $sec-color;
     // background-attachment: fixed;
     // background-image: url("/defaults/pgs/orbrift_pfbg.jpg");
