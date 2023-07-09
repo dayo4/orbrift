@@ -61,7 +61,7 @@
         <span class="icon-check mr-2"></span>
         <span>My Approach.. </span>
       </h3>
-      <div class="Tiles bg-img-maske flex wrap j-c-center py-4 noselect">
+      <div class="Tiles bg-img-masked flex wrap j-c-center py-4 noselect">
         <article
           class="xs11 sm10 md9 lg7 shadow-3h"
           v-for="(L, i) in list"
