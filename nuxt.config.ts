@@ -17,7 +17,7 @@ export default defineNuxtConfig({
       ]
     },
     pageTransition: {
-      name: 'main-layout', mode: 'out-in'
+      name: 'main-route', mode: 'out-in'
     },
     // layoutTransition: {
     //   name: 'slide-fade', mode: 'in-out'
