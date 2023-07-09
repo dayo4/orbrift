@@ -70,7 +70,7 @@ export default {
   transition: all 0.3s ease-in-out;
 }
 .main-layout-enter-from {
-  transform: translateX(20px);
+  transform: translateX(-20px);
   opacity: 0;
 }
 .main-layout-leave-to {
