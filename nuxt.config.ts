@@ -18,6 +18,9 @@ export default defineNuxtConfig({
     },
     pageTransition: {
       name: 'slide-fade'
+    },
+    layoutTransition: {
+      name: 'slide-fade'
     }
   },
   ssr: true,
