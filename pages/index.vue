@@ -344,7 +344,7 @@ export default {
     }
 
     & .Img {
-      position: absolute;
+      position: relative;
       right: 0;
       top: 220px;
       height: 350px;
