@@ -277,7 +277,7 @@ export default {
   position: relative;
   overflow: hidden;
   min-height: 500px;
-  width: 100vw;
+  width: 100%;
   padding-top: 60px;
   padding-bottom: 20px;
   // margin-bottom: 50px;
