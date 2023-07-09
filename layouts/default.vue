@@ -1,6 +1,6 @@
 <template>
   <div class="App">
-<div ref="parallaxBg" class="ParallaxBg"></div>
+    <div ref="parallaxBg" class="ParallaxBg"></div>
 
     <div class="GBLMContainer">
       <TopNav @search="searchOn = !searchOn" />
@@ -13,7 +13,7 @@
 
       <section class="Routes">
         <!-- <transition name="slide-fade" mode="out-in"> -->
-          <slot />
+        <slot />
         <!-- </transition> -->
       </section>
 
@@ -32,14 +32,14 @@ export default {
   setup() {
     const { $aos } = useNuxtApp();
 
-    const parallaxBg = ref(null)
+    const parallaxBg = ref(null);
 
     const $Navs = useNavs();
     const searchOn = ref(false);
 
     onMounted(() => {
       $Navs.setContainer(window ? window : document.body);
-      $Navs.setParallaxElem(parallaxBg.value)
+      $Navs.setParallaxElem(parallaxBg.value);
       $Navs.setScrollEvent();
       $General.insertLinks();
       $General
@@ -58,7 +58,7 @@ export default {
 
     return {
       searchOn,
-      parallaxBg
+      parallaxBg,
     };
   },
 };
@@ -102,9 +102,19 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/defaults/pgs/hgt3.png'); /* Replace '~/assets/background.jpg' with your image path */
+  background-image: url("/defaults/pgs/hgt3.png"); /* Replace '~/assets/background.jpg' with your image path */
   background-size: contain;
   background-repeat: repeat;
- // transform: translateZ(-1px) scale(1.5);
+  // transform: translateZ(-1px) scale(1.5);
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1 !important;
+    background-color: rgb(255, 255, 255);
+  }
 }
 </style>
