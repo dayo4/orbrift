@@ -172,6 +172,7 @@ export default {
   border-bottom: rgb(45, 45, 45) solid 2px;
   border-top: rgb(45, 45, 45) solid 2px;
   border-radius: 10px;
+  background-color: white;
   & button {
     box-shadow: none;
   }
