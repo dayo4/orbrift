@@ -1,6 +1,6 @@
 <template>
   <div class="App">
-    <div ref="parallaxBg bg-img-masked" class="ParallaxBg"></div>
+    <div ref="parallaxBg" class="ParallaxBg bg-img-masked"></div>
 
     <div class="GBLMContainer">
       <TopNav @search="searchOn = !searchOn" />
