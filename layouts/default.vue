@@ -106,5 +106,15 @@ export default {
   background-size: contain;
   background-repeat: repeat;
   // transform: translateZ(-1px) scale(1.5);
+  &::after {
+    // content: "";
+    // position: absolute;
+    // top: 0;
+    // bottom: 0;
+    // right: 0;
+    // left: 0;
+    // z-index: -1 !important;
+    background-color: rgba(72, 72, 72, 0.7);
+  }
 }
 </style>
