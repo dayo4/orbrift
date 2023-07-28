@@ -114,7 +114,7 @@ export default {
     right: 0;
     left: 0;
     z-index: -1 !important;
-    background-color: rgba(243, 243, 243, 0.7);
+    background-color: rgba(219, 20, 20, 0.7);
   }
 }
 </style>
