@@ -51,7 +51,7 @@
       <transition name="expand">
         <div v-if="success || error" class="mt-5">
           <div
-            :class="error ? 'bg-pink-5 t-red-1' : 'bg-lime-4 t-green-1'"
+            :class="error ? 'bg-pink-5 t-red-1' : 'bg-white t-green-1'"
             class="Alert p-3 b1"
           >
             {{ success || error }}
@@ -61,12 +61,7 @@
 
       <!-- Send button -->
       <div class="flex j-c-center my-8">
-        <Button
-          @clicked="send"
-          type="action"
-          size="medium"
-          icon="icon-forward"
-        >
+        <Button @clicked="send" type="action" size="medium" icon="icon-forward">
           Send {{ target === "app" ? "Mail" : "" }}
         </Button>
       </div>
@@ -153,7 +148,7 @@ export default {
         //! Start sending message
         function start() {
           /* Refs to template elements */
-          const msgInput = ref(null);
+          const msgInput: Ref<HTMLElement | null> = ref(null);
 
           // @ts-ignore
           grecaptcha.ready(() => {
@@ -177,7 +172,6 @@ export default {
                 });
 
                 if (data) {
-
                   name.value = email.value = msg.value = "";
                   (msgInput.value as HTMLDivElement).textContent = "";
                 }
