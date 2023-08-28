@@ -24,7 +24,7 @@
             />
           </div>
           <div class="Content xs11 sm9 md8 flex j-c-center a-i-center">
-            <h2 class="Text">Samuel A. Adeniyi</h2>
+            <h2 class="Text">Adedayo Adeniyi</h2>
           </div>
         </div>
       </section>
