@@ -70,7 +70,7 @@ export default {
       {
         font: "icon-linkedin",
         text: "LinkedIn",
-        link: "https://www.linkedin.com/in/samuel-adeniyi-761498244",
+        link: "https://www.linkedin.com/in/adedayo-adeniyi-761498244",
       },
     ];
 
