@@ -5,7 +5,7 @@
       <div class="Detail xs12 md8 noselect br1">
         <!-- Intro -->
         <div class="Intro text-center">
-          <h2 class="MyName">SAMUEL ADENIYI</h2>
+          <h2 class="MyName">ADEDAYO ADENIYI</h2>
           <h5 class="MyRole">Fullstack Web Developer</h5>
           <h3 class="Sdesc">Innovative Digital Solutions</h3>
           <h5 class="Targ">For Creative Brands</h5>
