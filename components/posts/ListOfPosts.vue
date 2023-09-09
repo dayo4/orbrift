@@ -5,8 +5,8 @@
         <div class="TopSect" @click="openPost(post.slug)">
           <div class="PostImageWrapper">
             <img
-              :src="post.images?.items[0].url"
-              :alt="post.images?.items[0].title"
+              :src="post.images[0].fields.file.url"
+              :alt="post.images[0].fields.file.title"
               class="PostImg"
               draggable="false"
             />
@@ -22,7 +22,7 @@
             class="AutImg"
             draggable="false"
           />
-          <span class="AutName">Samuel Adeniyi</span>
+          <span class="AutName">Adedayo A.</span>
         </div>
         <p
           class="Excerpt"

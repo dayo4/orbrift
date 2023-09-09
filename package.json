@@ -17,8 +17,10 @@
     "sass-loader": "^13.2.2"
   },
   "dependencies": {
+    "@contentful/rich-text-html-renderer": "^16.1.1",
     "aos": "^2.3.4",
     "axios": "^1.4.0",
+    "contentful": "^10.5.1",
     "moment": "^2.29.4",
     "pinia": "^2.1.3"
   }

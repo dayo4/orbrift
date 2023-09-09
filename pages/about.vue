@@ -33,12 +33,14 @@
           <section class="noselect">
             <h2 class="AB_Head pl-8 pr-2">About Me</h2>
             <p>
-              I'm an enthusiastic explorer, driven by a deep curiosity for
-              design and a desire to explore the secrets of technology. With an
-              extensive understanding of the principles of Node.js, Databases,
-              User Interface (UI), User Experience (UX), and Application
-              Programming Interfaces (APIs), I thrive on creating exceptional
-              digital experiences.
+              When it comes to creating user-focused software solutions that
+              drive measurable success, I extend beyond the developer’s role. I
+              consider myself an explorer driven by a deep curiosity for
+              patterns and a holistic view of things. For years, I’ve been
+              creating, testing and deploying modern result-oriented User
+              Interfaces(UI), Web Applications, and Application Programming
+              Interfaces (APIs) for businesses. With this extensive
+              understanding, I thrive on creating amazing digital experiences.
             </p>
             <p>
               Throughout my journey, I've showcased my expertise by crafting
@@ -57,11 +59,10 @@
               technical excellence; I strive to enhance user experiences,
               improve efficiency, and drive business growth. By applying my deep
               understanding of UI/UX principles and advanced JavaScript
-              frameworks, I develop intuitive, visually appealing websites and
-              applications optimized for top-notch performance. Through seamless
-              integrations with E-commerce platforms and CMS solutions, I
-              empower businesses to streamline their operations, expand their
-              reach, and achieve online success.
+              frameworks, I develop intuitive websites and applications
+              optimized for top-notch performance. I empower businesses to
+              streamline their operations, expand their reach, and achieve
+              online success.
             </p>
             <p v-aos="'fade-up-left'">
               Beyond my technical endeavors, I find immense joy in engaging in
@@ -75,24 +76,9 @@
           <section>
             <h2 class="AB_Head">My Expertise</h2>
             <p v-aos="'zoom-in'">
-              As a web developer committed to providing exceptional digital
-              solutions, I bring a wide range of skills to the table
+              As a web developer committed to providing great digital solutions,
+              I possess a wide range of skills
             </p>
-            <article>
-              <h3 v-aos="'fade-right'" class="AB_SubHead">
-                Custom Web Design and Development
-              </h3>
-              <p v-aos="'fade-up-left'">
-                Imagine a website that seamlessly blends stunning aesthetics
-                with effortless functionality. That's precisely what I bring to
-                the table. Using industry-leading design tools like Figma and
-                Adobe Design Tools, I create visually captivating user
-                interfaces that not only grab attention but also guide visitors
-                through an intuitive and immersive experience. Let's take your
-                brand's story and turn it into a beautifully designed digital
-                masterpiece.
-              </p>
-            </article>
 
             <article>
               <h3 v-aos="'fade-right'" class="AB_SubHead">
@@ -117,7 +103,7 @@
               <p v-aos="'fade-up-left'">
                 Behind every great website lies a robust and scalable back-end
                 infrastructure. With expertise in frameworks like Express.js,
-                Fastify, and Koa, I architect and develop powerful web
+                Fastify, and others, I architect and develop powerful web
                 applications that bring your vision to life. From complex
                 database integrations to sophisticated logic and functionality,
                 I ensure that your website or application is not just
@@ -137,6 +123,20 @@
                 for performance optimization and scalable architecture, I ensure
                 that your website delivers lightning-fast load times and
                 operates seamlessly, even under heavy traffic.
+              </p>
+            </article>
+
+            <article>
+              <h3 v-aos="'fade-right'" class="AB_SubHead">Custom Web Design</h3>
+              <p v-aos="'fade-up-left'">
+                Imagine a website that seamlessly blends stunning aesthetics
+                with effortless functionality. That's precisely what I bring to
+                the table. While i do not actually specialize in UI designs, i
+                use industry-leading design tools like Figma and Adobe Design
+                tools when necessary to create visually appealing user
+                interfaces that not only grab attention but also guide visitors
+                through an immersive experience. Let's take your brand's story
+                and turn it into a beautifully designed digital masterpiece.
               </p>
             </article>
 
@@ -187,7 +187,7 @@
                 I possess strong problem-solving skills, enabling me to approach
                 challenges from different angles and provide innovative
                 solutions. I thrive on finding creative and efficient ways to
-                overcome obstacles and achieve optimal outcomes.
+                achieve optimal outcomes.
               </li>
               <li v-aos="'fade-up-left'">
                 <strong class="t-blue-grey--1"
@@ -210,7 +210,8 @@
               Are you ready to elevate your brand's digital presence?
               <NuxtLink to="/create"> Hire me</NuxtLink>. Get in touch with me
               today, to discuss your web development goals. Together, we'll
-              embark on a journey to create a captivating online experience that drives measurable success.
+              embark on a journey to create a great online experience that
+              drives measurable success.
             </p>
           </section>
         </section>

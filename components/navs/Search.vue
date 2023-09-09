@@ -18,7 +18,7 @@
         <!-- SEARCH RESULT DISPLAYS HERE -->
         <div v-show="searchResult" class="SearchResult">
           <h3 class="text-center">
-            Search Result - {{ searchResult?.length || "0" }}
+            Search Results - {{ searchResult?.length || "0" }}
           </h3>
           <div v-for="(result, i) in searchResult" :key="i">
             <h5
@@ -46,23 +46,28 @@
 </template>
 <script lang="ts">
 import { useProcess } from "@/store";
+import * as contentful from "contentful";
 
 export default {
   setup(_, { emit }) {
+    const runtimeConfig = useRuntimeConfig();
+
     const $Process = useProcess();
     const searchText = ref("");
 
-    const expanded = ref(true);
+    const expanded = ref(false);
     const startSearching = ref(false);
 
     const route = useRoute();
     const router = useRouter();
 
-    const gqlVariables = ref({
-      searchText,
+    const client = contentful.createClient({
+      space: runtimeConfig.public.contentfulSpaceId,
+      environment: "master",
+      accessToken: runtimeConfig.public.contentfulDeliveryKey,
     });
 
-    const searchResult = ref(null);
+    const searchResult = ref<any[] | null>(null);
     const error = ref(false);
 
     const search = async () => {
@@ -71,31 +76,24 @@ export default {
         startSearching.value = true;
         expanded.value = false;
 
-        const { data, error: gqlError } = await useAsyncData(async () => {
+        const { data, error: searchError } = await useAsyncData(async () => {
           if (searchText.value && startSearching.value) {
-            const { result, error } = useQuery(
-              gql`
-                query SearchPosts($searchText: String) {
-                  result: blogPostCollection(
-                    limit: 10
-                    where: {
-                      OR: [
-                        { content_contains: $searchText }
-                        { title_contains: $searchText }
-                      ]
-                    }
-                  ) {
-                    items {
-                      title
-                      slug
-                    }
-                  }
-                }
-              `,
-              gqlVariables
-            );
+            const { items } = await client.getEntries({
+              content_type: "blogPost",
+              limit: 10,
 
-            return { result, error };
+              select: ["fields.title", "fields.slug"],
+              order: ["-sys.createdAt"],
+              "fields.content[match]": searchText.value,
+            });
+
+            return items.map((item) => {
+              const { title, slug } = item.fields;
+              return {
+                title,
+                slug,
+              };
+            });
           }
           return;
         });
@@ -104,8 +102,8 @@ export default {
           expanded.value = true;
           startSearching.value = false;
           $Process.hide();
-          searchResult.value = data.value.result?.result.items;
-        } else if (gqlError.value) {
+          searchResult.value = data.value;
+        } else if (searchError.value) {
           expanded.value = true;
           startSearching.value = false;
           $Process.add("An Error Occured");
