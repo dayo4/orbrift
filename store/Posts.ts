@@ -12,44 +12,7 @@ export const usePosts = defineStore("posts", {
   state: (): Posts => ({
     posts: [],
     prevPost: null,
-    nextPost: null,
-    // postsQuery: `
-    //   query {
-    //     posts: blogPostCollection(limit: 10, order:sys_firstPublishedAt_DESC) {
-    //       items {
-    //         title
-    //         content {
-    //           json
-    //           links {
-    //             assets{
-    //               block {
-    //                 url
-    //                 title
-    //               }
-    //             }
-    //           }
-    //         }
-    //         body
-    //         body2
-    //         slug
-    //         excerpt
-    //         tags
-    //         meta: contentfulMetadata {
-    //           tags {
-    //             id
-    //             name
-    //           }
-    //         }
-    //         images: featuredImageCollection {
-    //           items {
-    //             title
-    //             url
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    //   `
+    nextPost: null
   }),
 
   actions: {

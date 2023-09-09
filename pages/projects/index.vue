@@ -15,8 +15,8 @@
             <div class="TopSect noselect">
               <div class="ImgWrap">
                 <img
-                  :src="project.images?.items[0].url"
-                  :alt="project.images?.items[0].title"
+                  :src="project.images[0].fields.file.url"
+                  :alt="project.images[0].fields.file.title"
                   class="ProjImg"
                   draggable="false"
                 />
@@ -37,10 +37,7 @@
             </div> -->
             <p class="Summary" v-html="project.summary"></p>
             <div class="flex j-c-end mt-6 mr-8">
-              <button
-                @click="openProject(project.slug)"
-                class="ViewBtn"
-              >
+              <button @click="openProject(project.slug)" class="ViewBtn">
                 <span class="icon-right"></span>
               </button>
             </div>
@@ -79,11 +76,20 @@
   </GlobalWrapper>
 </template>
 <script lang="ts">
+import * as contentful from "contentful";
+
 export default {
   setup() {
     const router = useRouter();
 
     const { $myMetaInfo } = useNuxtApp();
+    const runtimeConfig = useRuntimeConfig();
+
+    const client = contentful.createClient({
+      space: runtimeConfig.public.contentfulSpaceId,
+      environment: "master",
+      accessToken: runtimeConfig.public.contentfulDeliveryKey,
+    });
 
     useSeoMeta($myMetaInfo({ title: "projects" }));
 
@@ -92,41 +98,37 @@ export default {
       current: 1,
     });
 
-    const projectsQuery = gql`
-      query {
-        projects: projectsCollection(limit: 10, order: order_ASC) {
-          items {
-            title
-            slug
-            summary
-            techs: technologies
-            images: imagesCollection {
-              items {
-                url
-                title
-              }
-            }
-          }
-        }
-      }
-    `;
+    const { data, error } = useAsyncData(async () => {
+      const { items } = await client.getEntries({
+        content_type: "projects",
+        limit: 10,
 
-    const { data, pending } = useAsyncQuery({
-      query: projectsQuery,
-      // cache: false
+        select: ["fields.title", "fields.slug", "fields.images", "fields.summary"],
+        order: ["fields.order"],
+      });
+
+      return items.map((item) => {
+        const { title, slug, images, summary } = item.fields;
+        return {
+          title,
+          slug,
+          images,
+          summary
+        };
+      });
     });
 
+console.log(data)
     const projects = computed(() => {
       if (data.value) {
-        return data.value.projects.items; //?.blogPostCollection.items;
+        return data.value;
       }
     });
 
     const openProject = (slug: string) => {
-      if(String(slug).startsWith("https://")){
-        window.open(slug, '_blank')
-      }
-      else{
+      if (String(slug).startsWith("https://")) {
+        window.open(slug, "_blank");
+      } else {
         router.push({ path: "/projects/" + slug });
       }
     };
@@ -195,14 +197,14 @@ export default {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  padding:3px 20px;
+  padding: 3px 20px;
   cursor: pointer;
   outline: none;
   color: $pri-color;
   // font-size: 18px;
   font-weight: bold;
   border-radius: 4px;
-  box-shadow:   $shadow-3; 
+  box-shadow: $shadow-3;
   background-color: $sec-color;
   &:active {
     box-shadow: none;
