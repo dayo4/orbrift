@@ -5,7 +5,8 @@ interface Posts {
   // postsQuery: String;
 }
 import { defineStore } from "pinia";
-import * as contentful from "contentful";
+import {createClient} from "contentful";
+import contentful from "contentful";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 
 export const usePosts = defineStore("posts", {
@@ -17,7 +18,9 @@ export const usePosts = defineStore("posts", {
 
   actions: {
     async getPosts(runtimeConfig) {
-      const client = contentful.createClient({
+      const crClient =  process.env.NODE_ENV === 'development' ? createClient : contentful.createClient
+
+      const client = crClient({
         space: runtimeConfig.public.contentfulSpaceId,
         environment: "master",
         accessToken: runtimeConfig.public.contentfulDeliveryKey,
