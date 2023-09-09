@@ -6,7 +6,7 @@
     </template>
     <!-- ListOfPosts Component -->
     <template #WrapperBody>
-      {{error}}
+      {{ error }}
       <section v-if="posts && posts.length > 0">
         <ListOfPosts :posts="posts" :pagin="pagin" @switchPage="switchPage" />
       </section>
@@ -18,7 +18,7 @@ import { usePosts } from "@/store";
 
 export default {
   setup() {
-
+    const runtimeConfig = useRuntimeConfig();
     const { $myMetaInfo } = useNuxtApp();
     const $Posts = usePosts();
 
@@ -28,24 +28,19 @@ export default {
       pages: 1,
       current: 1,
     });
-    
-        const { data, error, pending } = useAsyncQuery({
-          query: gql($Posts.postsQuery),
-          variables: {},
-          cache: false
-        });
+
+    const { data, error, pending } = useAsyncData(async () => {
+      return await $Posts.getPosts(runtimeConfig);
+    });
 
     const posts = computed(() => {
       if (data.value) {
-        $Posts.setPosts(data.value.posts.items)
-        return data.value.posts.items;
+        $Posts.setPosts(data.value);
+        return data.value;
       }
     });
 
-
-    const switchPage = (v: number) => {
-      
-    };
+    const switchPage = (v: number) => {};
 
     return {
       pagin,

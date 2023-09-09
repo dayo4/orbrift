@@ -11,16 +11,25 @@
         <div class="BlogPost xs12 sm10 md7">
           <div class="TopSection">
             <div class="PostImageWrapper">
-              <img :src="post?.images.items[0].url" :alt="post?.images.items[0].title" class="PostImage"
-                draggable="false" />
+              <img
+                :src="post?.images[0].fields.file.url"
+                :alt="post?.images[0].fields.file.title"
+                class="PostImage"
+                draggable="false"
+              />
             </div>
             <h2 class="Title">
               {{ post?.title }}
             </h2>
           </div>
           <div class="Author">
-            <img src="/defaults/usr/me1.jpg" alt="Samuel Adeniyi" class="AuthorImage" draggable="false" />
-            <span class="AuthorName">Samuel Adeniyi</span>
+            <img
+              src="/defaults/usr/me1.jpg"
+              alt="Samuel Adeniyi"
+              class="AuthorImage"
+              draggable="false"
+            />
+            <span class="AuthorName">Adedayo A.</span>
           </div>
         </div>
 
@@ -28,18 +37,28 @@
         <ShareIcons />
 
         <!-- BODY -->
-        <section v-html="post?.body + (post?.body2 ? post?.body2 : '')" class="Body xs12 sm10 md7 p-5"></section>
+        <section
+          v-html="post?.content"
+          class="Body xs12 sm10 md7 p-5"
+        ></section>
 
         <!-- Bottom Meta -->
         <ShareIcons />
 
         <!-- Next - Prev Buttons -->
         <div v-aos="'fade-right'" class="NP_postNavigation ml-2 mt-20">
-          <router-link v-if="prevPost" :to="`/posts/${prevPost.slug}`" class="NP_navigationLink NP_previousLink">
+          <router-link
+            v-if="prevPost"
+            :to="`/posts/${prevPost.slug}`"
+            class="NP_navigationLink NP_previousLink"
+          >
             <div class="NP_thumbnailCont">
               <div class="NP_thumbnail">
-                <img :src="prevPost.images.items[0].url" :alt="prevPost.images.items[0].title"
-                  class="NP_thumbnailImage" />
+                <img
+                  :src="prevPost.images[0].fields.file.url"
+                  :alt="prevPost.images[0].fields.file.title"
+                  class="NP_thumbnailImage"
+                />
               </div>
               <div class="NP_label">
                 <i class="icon-left mr-2"></i>
@@ -51,15 +70,22 @@
         </div>
 
         <div v-aos="'fade-left'" class="NP_postNavigation j-c-end mr-2">
-          <router-link v-if="nextPost" :to="`/posts/${nextPost.slug}`" class="NP_navigationLink NP_nextLink">
+          <router-link
+            v-if="nextPost"
+            :to="`/posts/${nextPost.slug}`"
+            class="NP_navigationLink NP_nextLink"
+          >
             <div class="NP_thumbnailCont">
               <div class="NP_label">
                 Next Post
                 <i class="icon-right ml-2"></i>
               </div>
               <div class="NP_thumbnail">
-                <img :src="nextPost.images.items[0].url" :alt="nextPost.images.items[0].title"
-                  class="NP_thumbnailImage" />
+                <img
+                  :src="nextPost.images[0].fields.file.url"
+                  :alt="nextPost.images[0].fields.file.title"
+                  class="NP_thumbnailImage"
+                />
               </div>
             </div>
             <div class="NP_title">{{ nextPost.title }}</div>
@@ -79,20 +105,11 @@ export default {
     const route = useRoute();
     const $Posts = usePosts();
 
-    // const variables = ref({
-    //   slug: route.params.slug,
-    // });
+    const runtimeConfig = useRuntimeConfig();
+
 
     const { data, error, pending } = useAsyncData(async () => {
-      if ($Posts.posts?.length > 0) {
-        return { data: { posts: { items: $Posts.posts }, de: "jkjk" } };
-      } else {
-        const {data, error, pending } = useAsyncQuery({
-          query: gql($Posts.postsQuery),
-          // cache: false
-        });
-        return { data, error, pending};
-      }
+      return await $Posts.getPosts(runtimeConfig);
     });
 
     const openPost = (slug: string) => {
@@ -104,11 +121,10 @@ export default {
 
     const post = computed(() => {
       if (data.value) {
-
-        const posts = data.value?.data?.posts.items; //data.value.data?.posts.items || data.value.existingData;
+        const posts = data.value
         if (posts) {
           const currentPost = posts.find((p) => p.slug === route.params.slug);
-
+          
           const index = posts.indexOf(currentPost);
           const prev = index + 1;
           const next = index - 1;
@@ -118,7 +134,6 @@ export default {
           } else {
             $Posts.setPrevPost(null);
           }
-
           if (next >= 0 && next < posts.length) {
             $Posts.setNextPost(posts[next]);
           } else {
@@ -129,7 +144,7 @@ export default {
             $myMetaInfo({
               title: currentPost?.title,
               content: currentPost?.excerpt,
-              image: currentPost?.images.items[0].url,
+              image: currentPost?.images[0].fields.file.url,
               url: "https://orbrift.com" + route.path,
               type: "article",
             })
@@ -219,7 +234,6 @@ export default {
   font-weight: bold;
   color: #777;
 }
-
 
 .Body {
   width: 100%;
