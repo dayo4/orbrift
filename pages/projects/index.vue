@@ -76,7 +76,8 @@
   </GlobalWrapper>
 </template>
 <script lang="ts">
-import * as contentful from "contentful";
+import {createClient} from "contentful";
+import contentful from "contentful";
 
 export default {
   setup() {
@@ -84,8 +85,8 @@ export default {
 
     const { $myMetaInfo } = useNuxtApp();
     const runtimeConfig = useRuntimeConfig();
-
-    const client = contentful.createClient({
+const crClient =  process.env.NODE_ENV === 'development' ? createClient : contentful.createClient
+    const client = crClient({
       space: runtimeConfig.public.contentfulSpaceId,
       environment: "master",
       accessToken: runtimeConfig.public.contentfulDeliveryKey,
@@ -118,7 +119,7 @@ export default {
       });
     });
 
-console.log(data)
+// console.log(data)
     const projects = computed(() => {
       if (data.value) {
         return data.value;
