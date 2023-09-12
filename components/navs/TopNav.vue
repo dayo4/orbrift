@@ -83,7 +83,7 @@
       <div class="ExtraLink flex a-i-center j-c-center hide-xs">
         <router-link :to="{ name: 'create' }">
           <span class="Icon icon-diamond"></span>
-          <span class="Name">Start</span>
+          <span class="Name">Hire me</span>
         </router-link>
       </div>
     </div>
@@ -132,7 +132,7 @@ export default {
       { a: "about", name: "about", icon: "icon-info" },
       { a: "posts", name: "blog", icon: "icon-doc" },
       { a: "projects", name: "projects", icon: "icon-star-empty" },
-      { a: "create", name: "create your website", icon: "icon-diamond" },
+      { a: "create", name: "Hire Me", icon: "icon-diamond" },
     ];
 
     const identifyDropdownType = (type: string) => {

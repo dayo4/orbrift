@@ -25,12 +25,12 @@ export default {
       { i: "nodejs" },
       { i: "next" },
       { i: "docker_", t: "Docker" },
-      { i: "web3" },
+      // { i: "web3" },
       { i: "gcloud", t: "G-cloud" },
-      { i: "jamstack" },
+      // { i: "jamstack" },
       { i: "graphql", t: "Graphql" },
-      { i: "wordpress", t: "Wordpress" },
       { i: "mysql", t: "Mysql" },
+      { i: "wordpress", t: "Wordpress" },
       // "firebase",
       // "vercel",
     ];
@@ -56,8 +56,10 @@ export default {
 
 .Main {
   display: flex;
-  min-width: 196vw;
-  animation: main 120s linear infinite;
+  // min-width: 196vw;
+  min-width: 166vw;
+  // animation: main 120s linear infinite;
+  animation: main 104s linear infinite;
 }
 
 .Item {
@@ -117,7 +119,8 @@ export default {
 
 @include xs-only {
   .Main {
-    min-width: 286vw;
+    // min-width: 286vw;
+    min-width: 246vw;
   }
 
   .Item {
@@ -131,7 +134,8 @@ export default {
     }
 
     100% {
-      transform: translatex(-1066vw);
+      // transform: translatex(-1066vw);
+      transform: translatex(-906vw);
     }
   }
 

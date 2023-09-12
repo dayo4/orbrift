@@ -33,16 +33,15 @@
           <section class="noselect">
             <h2 class="AB_Head pl-8 pr-2">About Me</h2>
             <p>
-              When it comes to creating user-focused software solutions that
-              drive measurable success, I extend beyond the developer’s role. I
-              consider myself an explorer driven by a deep curiosity for
-              patterns and a holistic view of things. For years, I’ve been
-              creating, testing and deploying modern result-oriented User
-              Interfaces(UI), Web Applications, and Application Programming
-              Interfaces (APIs) for businesses. With this extensive
-              understanding, I thrive on creating amazing digital experiences.
+              A dedicated and result-oriented Front-end Developer with skills in
+              designing robust Nodejs APIs, and a passion for creating, testing
+              and deploying user-focused software solutions. Offering strong
+              attention to detail and accuracy, excellent problem-solving
+              skills, and the ability to thrive in fast-paced team environments.
+              A reliable professional committed to delivering outstanding
+              results.
             </p>
-            <p>
+            <!--       <p>
               Throughout my journey, I've showcased my expertise by crafting
               modern, cutting-edge websites, stunning designs, and robust
               Single-Page Applications (SPAs) and Progressive Web Applications
@@ -52,10 +51,9 @@
               Content Management Systems (CMS). My proficiency extends to
               managing Google Cloud Platforms (GCP) and utilizing Linux-based
               cloud hosting services, ensuring high-performance applications.
-            </p>
+            </p> -->
             <p>
-              However, my true passion lies in creating user-centric solutions
-              that captivate and engage. I believe in delivering more than just
+              I believe in delivering more than just
               technical excellence; I strive to enhance user experiences,
               improve efficiency, and drive business growth. By applying my deep
               understanding of UI/UX principles and advanced JavaScript
@@ -85,48 +83,45 @@
                 Front-end Development: Elevating User Engagement
               </h3>
               <p v-aos="'fade-up-left'">
-                When it comes to front-end development, I'm more than just a
-                coder. I'm a storyteller. I utilize the power of JavaScript and
-                TypeScript, combined with my expertise in Vue.js and React.js,
-                to craft interactive and responsive websites that captivate your
-                audience from the very first click. Whether it's implementing
-                eye-catching animations or designing seamless transitions, I
-                focus on creating a user experience that leaves a lasting
-                impression.
+                When it comes to front-end development, I utilize the power of
+                JavaScript and TypeScript, combined with my expertise in Vue.js
+                and React.js, to craft interactive and responsive websites that
+                engage your audiences. I am focused on creating a user
+                experience that leaves a lasting impression.
               </p>
             </article>
 
             <article>
               <h3 v-aos="'fade-right'" class="AB_SubHead">
-                Back-end Development
+                NodeJs Back-end Development
               </h3>
               <p v-aos="'fade-up-left'">
                 Behind every great website lies a robust and scalable back-end
-                infrastructure. With expertise in frameworks like Express.js,
-                Fastify, and others, I architect and develop powerful web
-                applications that bring your vision to life. From complex
-                database integrations to sophisticated logic and functionality,
-                I ensure that your website or application is not just
-                aesthetically pleasing, but also highly functional and
+                infrastructure. With expertise in frameworks like Express.js and
+                others, I architect and develop powerful web applications to
+                achieve your desire goal. From complex database integrations to
+                i designing and implementing complex API logic and
+                functionality, I ensure that your website or application is not
+                just aesthetically pleasing, but also highly functional and
                 efficient.
               </p>
             </article>
 
             <article>
               <h3 v-aos="'fade-right'" class="AB_SubHead">
-                Servers and Hosting
+                Hosting and Serverless Deployment
               </h3>
               <p v-aos="'fade-up-left'">
                 Your website deserves a reliable and secure home for your data.
-                I am well-versed in managing servers and hosting platforms such
-                as Google Cloud Platforms, AWS, and DigitalOcean. With an eye
-                for performance optimization and scalable architecture, I ensure
-                that your website delivers lightning-fast load times and
-                operates seamlessly, even under heavy traffic.
+                I am versed in managing and deploying containerized web apps and
+                microservices on platforms such as Google App Engine and AWS
+                Lambda. With an eye for performance optimization and scalable
+                architecture, I ensure that your web apps delivers fast load
+                times and operates seamlessly, even under heavy traffic.
               </p>
             </article>
 
-            <article>
+            <!-- <article>
               <h3 v-aos="'fade-right'" class="AB_SubHead">Custom Web Design</h3>
               <p v-aos="'fade-up-left'">
                 Imagine a website that seamlessly blends stunning aesthetics
@@ -138,9 +133,9 @@
                 through an immersive experience. Let's take your brand's story
                 and turn it into a beautifully designed digital masterpiece.
               </p>
-            </article>
+            </article> -->
 
-            <article>
+            <!-- <article>
               <h3 v-aos="'fade-right'" class="AB_SubHead">
                 Version Control and Collaboration
               </h3>
@@ -150,9 +145,9 @@
                 allows for seamless code management, easy collaboration with
                 team members, and efficient project tracking.
               </p>
-            </article>
+            </article> -->
 
-            <article>
+            <!-- <article>
               <h3 v-aos="'fade-right'" class="AB_SubHead">
                 Blockchain Development: Embracing the Future
               </h3>
@@ -165,11 +160,11 @@
                 blockchain-based solution, I have the expertise to bring your
                 ideas to life on this transformative technology.
               </p>
-            </article>
+            </article> -->
           </section>
 
           <section>
-            <h2 v-aos="'fade-right'" class="AB_Head">Still, Why Choose Me?</h2>
+            <h2 v-aos="'fade-right'" class="AB_Head">Why Choose Me?</h2>
             <ul>
               <li v-aos="'fade-up-left'">
                 <strong class="t-blue-grey--1"
@@ -177,17 +172,17 @@
                 >
                 I stay up to date with the latest industry trends and
                 continuously expand my technical skill set. This allows me to
-                implement cutting-edge solutions and deliver high-quality
-                results that align with industry standards.
+                implement modern solutions and deliver high-quality results that
+                align with industry standards.
               </li>
               <li v-aos="'fade-up-left'">
                 <strong class="t-blue-grey--1"
                   >Analytical and Divergent Thinking:
                 </strong>
                 I possess strong problem-solving skills, enabling me to approach
-                challenges from different angles and provide innovative
-                solutions. I thrive on finding creative and efficient ways to
-                achieve optimal outcomes.
+                challenges from different angles and provide solutions. I thrive
+                on finding creative and efficient ways to achieve optimal
+                outcomes.
               </li>
               <li v-aos="'fade-up-left'">
                 <strong class="t-blue-grey--1"
@@ -209,9 +204,10 @@
             <p>
               Are you ready to elevate your brand's digital presence?
               <NuxtLink to="/create"> Hire me</NuxtLink>. Get in touch with me
-              today, to discuss your web development goals. Together, we'll
+              today, to discuss your web development goals.
+              <!-- Together, we'll
               embark on a journey to create a great online experience that
-              drives measurable success.
+              drives measurable success. -->
             </p>
           </section>
         </section>

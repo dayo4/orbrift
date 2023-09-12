@@ -32,7 +32,7 @@
               <p>
                 Please provide specific details about the values and outcomes that you want, so that I can deliver results that truly matter to you.
               </p>
-              <p>I usually provide a personalized response within a day.</p>
+              <!-- <p>I usually provide a personalized response within a day.</p> -->
             </section>
 
             <!-- Email -->

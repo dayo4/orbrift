@@ -2,23 +2,23 @@
   <div>
     <section class="Top noselect">
       <div ref="homeTopBgParallax" class="Parall bg-img-masked"></div>
-      <div class="Detail xs12 md8 noselect br1">
+      <div class="Detail xs12 md7 noselect br1">
         <!-- Intro -->
         <div class="Intro text-center">
           <h2 class="MyName">ADEDAYO ADENIYI</h2>
-          <h5 class="MyRole">Fullstack Web Developer</h5>
-          <h3 class="Sdesc">Innovative Digital Solutions</h3>
-          <h5 class="Targ">For Creative Brands</h5>
+          <h5 class="MyRole">Web Developer</h5>
+          <h3 class="Sdesc">Creating Modern Software Solutions</h3>
+          <!-- <h5 class="Targ">For Creative Brands</h5> -->
         </div>
 
         <!-- image -->
-        <div class="Img flex md6 j-c-center mb-9">
-          <div class="xs10 sm7">
-            <img
-              src="/defaults/pgs/wpages.png"
+        <div class="Img flex xs12 sm md5 j-c-center">
+          <div class="xs10 sm8 md11 bg-img-masked">
+            <!-- <img
+              src="/defaults/pgs/23acdf.jpeg"
               alt="apps-tiles-collage"
               draggable="false"
-            />
+            /> -->
           </div>
         </div>
 
@@ -33,7 +33,7 @@
       ></div> -->
 
       <!-- CTA Button -->
-      <div class="flex j-c-center my-10">
+      <!-- <div class="flex j-c-center my-10">
         <Button
           @clicked="$router.push({ path: '/create' })"
           type="cta"
@@ -41,20 +41,25 @@
         >
           START HERE
         </Button>
-      </div>
+      </div> -->
     </section>
 
     <!-- Tech Stack Icons Slider Component -->
+    <h3 class="SectionSubHead">
+      <span class="icon-check mr-2"></span>
+      <span>Tech Stack </span>
+    </h3>
+
     <ClientOnly>
       <TechStackSlider />
     </ClientOnly>
     <!-- Tech Stack Icons Slider Component -->
 
-    <section class="SubText flex j-c-center">
+    <!-- <section class="SubText flex j-c-center">
       <div class="xs12 sm9 md4">
         Your Online Profile, Simplified and Elevated. Let's do it
       </div>
-    </section>
+    </section> -->
 
     <section class="Section_2">
       <h3 class="SectionSubHead">
@@ -90,8 +95,9 @@
           size="medium"
           icon="icon-right"
           iconPos="right"
+          type="cta"
         >
-          About Me
+          More About Me
         </Button>
       </div>
     </section>
@@ -132,7 +138,7 @@
 
     <h3 class="SectionSubHead">
       <span class="icon-mail mr-3"></span>
-      <span> Talk To Me </span>
+      <span> Contact Me </span>
     </h3>
     <!-- Contact Component -->
     <div>
@@ -144,14 +150,14 @@
       <div v-aos="'zoom-in'" class="flex j-c-center">
         <div class="xs12 md7 lg6">
           If you would love to have a more streamlined project discussion with
-          me on a potential job or to request an estimate, use the button below
+          me on a potential job or to request a quote, use the button below
           <div class="flex j-c-center my-5">
             <Button
               @clicked="$router.push({ path: '/create' })"
               type="cta"
               size="large"
             >
-              START NOW
+              Hire Me
             </Button>
           </div>
         </div>
@@ -180,50 +186,50 @@ export default {
     const list = [
       {
         img: "resp",
-        text: "Flawlessly Responsive Pages for Modern Devices",
+        text: "Responsive Pages for Modern Devices",
         detail:
-          "Experience webpages that are carefully designed to adapt easily to any screen size. Whether your audience is browsing on a desktop, tablet, or mobile device, your apps will look stunning and provide an exceptional user experience.",
+          "Experience webpages designed to adapt easily to any screen size, making your apps will be appealing and provide an exceptional user experience.",
       },
       {
         img: "scale",
-        text: "Performance-driven and Scalable Applications",
+        text: "Performance-driven Applications",
         detail:
-          "With a focus on reliability and smart planning, I design and develop applications that are not only fast and efficient but also have the ability to scale effortlessly as your business grows. Say goodbye to bottlenecks.and hello to possibilities.",
+          "With a focus on reliability and smart planning, I develop applications that are not only fast but also able to scale effortlessly as your business grows. Say goodbye to bottlenecks.and hello to possibilities.",
       },
       {
         img: "",
         text: "Intuitive Designs and Fluid Navigation",
         link: "/defaults/pgs/icons/clean.png",
         detail:
-          "From the layout and aesthetics to the underlying framework, every aspect of your website and app is carefully crafted to ensure smooth navigation and enhance user engagement. ",
+          "From the layout and aesthetics to the underlying framework, your website or app is carefully crafted to ensure smooth navigation and enhance user engagement. ",
       },
       {
         img: "flexb",
-        text: "Tailored Solutions that Capture Your Unique Identity",
+        text: "Solutions that Capture Your Unique Identity",
         // link: "/defaults/logo/orbrift-cy.png",
         detail:
-          "Your website should reflect your brand's personality. Whether you prefer a sleek and minimalist design or a fully customized visual experience, I take the time to understand your needs and create a design that showcases the value of your products or services effectively.",
+          "Your website and app should reflect your brand's personality. Whether you prefer a minimalist approach or a fully customized experience, I create solutions that showcase the value of your products or services effectively.",
       },
-      {
-        img: "",
-        text: "Agile Development Approach",
-        link: "/defaults/pgs/icons/secure.png",
-        detail:
-          "Through an agile development methodology, I deliver iterative solutions that evolve with your requirements. This approach allows for flexibility and quick adaptations on your software development projects.",
-      },
-      {
-        img: "",
-        text: "Integration with Third-Party Services",
-        link: "/defaults/pgs/icons/secure.png",
-        detail:
-          "Maximize the functionality of your apps by easily integrating it with third-party services. From e-commerce platforms to payment gateways and CRM systems, I ensure smooth integration to enhance your users experience and business operations.",
-      },
+      // {
+      //   img: "",
+      //   text: "Agile Development Approach",
+      //   link: "/defaults/pgs/icons/secure.png",
+      //   detail:
+      //     "Through an agile development methodology, I deliver iterative solutions that evolve with your requirements. This approach allows for flexibility and quick adaptations on your software development projects.",
+      // },
+      // {
+      //   img: "",
+      //   text: "Integration with Third-Party Services",
+      //   link: "/defaults/pgs/icons/secure.png",
+      //   detail:
+      //     "Maximize the functionality of your apps by easily integrating it with third-party services. From e-commerce platforms to payment gateways and CRM systems, I ensure smooth integration to enhance your users experience and business operations.",
+      // },
       {
         img: "effect",
-        text: "Streamlined Project Management",
+        text: "Streamlined Project Workflow",
         // link: "/defaults/pgs/icons/secure.png",
         detail:
-          "I employ user-friendly tools and streamlined processes to make communication hassle-free. You can focus on your business while I handle the technicalities, ensuring a secure and efficient workflow.",
+          "I employ user-friendly tools and streamlined processes to make communication hassle-free, ensuring a secure and efficient workflow.",
       },
       // {
       //   img: "",
@@ -290,8 +296,11 @@ export default {
     width: 100%;
     height: 100%;
     background-color: $sec-color;
-    background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
+    background-image: url("/defaults/pgs/orbrift_web_developer.jpg");
     background-attachment: fixed;
+    &::after {
+      background-color: rgba(72, 72, 72, 0.85);
+    }
   }
   & .Detail {
     // position: relative;
@@ -304,7 +313,8 @@ export default {
       }
       & > .MyName {
         position: relative;
-        color: rgba(204, 235, 238, 0.7);
+        // color: rgba(204, 235, 238, 0.7);
+        color: white;
         font-size: 35px;
         margin-bottom: 0;
       }
@@ -320,8 +330,8 @@ export default {
           content: "";
           bottom: -2px;
           left: 50%;
-          margin-left: -120px;
-          width: 240px;
+          margin-left: -80px;
+          width: 160px;
           height: 15px;
           background-color: $pri-color-trans-3;
           z-index: -1;
@@ -333,7 +343,7 @@ export default {
         font-size: 35px;
         margin-top: 50px;
         margin-bottom: 8px;
-        padding: 0 10px;
+        padding: 0 50px;
       }
       & > .Targ {
         position: relative;
@@ -348,10 +358,24 @@ export default {
       right: 0;
       top: 220px;
       height: 350px;
-      & img {
-        width: 100%;
-        height: 100%;
+      width: 100%;
+      margin-bottom: 80px;
+      & > div {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url("/defaults/pgs/23acdf.jpeg");
+        &::after {
+          background-color: rgba(72, 72, 72, 0.4);
+        }
       }
+      // & img {
+      //   // width: 100%;
+      //   height: 100%;
+      // }
     }
   }
 

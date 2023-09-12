@@ -48,6 +48,7 @@ export default defineNuxtConfig({
     "~/globalStyles/deploy/transitions.css",
 
     "~/globalStyles/deploy/theme/main.scss",
+    // "~/assets/css/main.css",
     "aos/dist/aos.css",
   ],
   runtimeConfig: {
@@ -72,6 +73,12 @@ export default defineNuxtConfig({
       crawlLinks: true,
       //   routes: ['/user/1', '/user/2'],
       // ignore: ['/dynamic']
+    },
+  },
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
     },
   },
   // modules: [
