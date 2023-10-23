@@ -85,25 +85,21 @@
                 Front-end Development: Elevating User Engagement
               </h3>
               <p v-aos="'fade-up-left'">
-                When it comes to front-end development, I'm more than just a
-                coder. I'm a storyteller. I utilize the power of JavaScript and
+                When it comes to front-end development, I utilize the power of JavaScript and
                 TypeScript, combined with my expertise in Vue.js and React.js,
-                to craft interactive and responsive websites that captivate your
-                audience from the very first click. Whether it's implementing
-                eye-catching animations or designing seamless transitions, I
-                focus on creating a user experience that leaves a lasting
+                to craft interactive and responsive websites that engage your
+                audiences. I am focused on creating a user experience that leaves a lasting
                 impression.
               </p>
             </article>
 
             <article>
               <h3 v-aos="'fade-right'" class="AB_SubHead">
-                Back-end Development
+                NodeJs Back-end Development
               </h3>
               <p v-aos="'fade-up-left'">
                 Behind every great website lies a robust and scalable back-end
-                infrastructure. With expertise in frameworks like Express.js,
-                Fastify, and others, I architect and develop powerful web
+                infrastructure. With expertise in frameworks like Express.js and others, I architect and develop powerful web
                 applications that bring your vision to life. From complex
                 database integrations to sophisticated logic and functionality,
                 I ensure that your website or application is not just
@@ -118,10 +114,10 @@
               </h3>
               <p v-aos="'fade-up-left'">
                 Your website deserves a reliable and secure home for your data.
-                I am well-versed in managing servers and hosting platforms such
-                as Google Cloud Platforms, AWS, and DigitalOcean. With an eye
+                I am versed in managing and deploying containerized web apps and microservices platforms such
+                as Google App Engine, AWS Lambda. With an eye
                 for performance optimization and scalable architecture, I ensure
-                that your website delivers lightning-fast load times and
+                that your website delivers fast load times and
                 operates seamlessly, even under heavy traffic.
               </p>
             </article>
