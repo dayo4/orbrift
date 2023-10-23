@@ -12,8 +12,8 @@
         </div>
 
         <!-- image -->
-        <div class="Img flex xs12 md5 j-c-center mb-9">
-          <div class="xs10 bg-img-masked">
+        <div class="Img flex xs12 md5 lg6 j-c-center mb-9">
+          <div class="xs10 md11 bg-img-masked">
             <img
               src="/defaults/pgs/23acdf.jpeg"
               alt="apps-tiles-collage"
@@ -361,6 +361,9 @@ export default {
         background-repeat: no-repeat;
         background-size: cover;
         background-image: url("/defaults/pgs/23acdf.jpeg");
+            &::after {
+        background-color: rgba(72, 72, 72, 0.322);
+    }
       }
       & img {
         // width: 100%;
