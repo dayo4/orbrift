@@ -14,7 +14,7 @@
       </div>
       <div class="mt-3">
         <span class="icon-briefcase mr-2"></span>
-        <a href="">dayo4@live.com</a>
+        <a href="#" target="_blank" class="t-white">Download Resume</a>
       </div>
       <div class="mt-7">
         <router-link class="Lnk no-deco" to="/privacy"
