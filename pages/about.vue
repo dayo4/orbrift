@@ -198,16 +198,16 @@
             </ul>
           </section>
 
-          <section v-aos="'zoom-in'">
-            <h2 class="AB_Head">Let's Create Something Extraordinary</h2>
-            <p>
+          <!-- <section v-aos="'zoom-in'"> -->
+            <!-- <h2 class="AB_Head">Let's Create Something Extraordinary</h2> -->
+            <!-- <p> -->
               <!-- Are you ready to elevate your brand's digital presence? -->
-              <NuxtLink to="/create"> Hire me</NuxtLink>. Get in touch, to discuss your web development goals.
+              <!-- <NuxtLink to="/contact"> Get in touch</NuxtLink>, to discuss your web development goals. -->
               <!-- Together, we'll
               embark on a journey to create a great online experience that
               drives measurable success. -->
-            </p>
-          </section>
+            <!-- </p> -->
+          <!-- </section> -->
         </section>
       </section>
     </template>
