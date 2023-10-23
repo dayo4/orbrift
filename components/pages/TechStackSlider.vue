@@ -119,7 +119,8 @@ export default {
 
 @include xs-only {
   .Main {
-    min-width: 286vw;
+    // min-width: 286vw;
+    min-width: 246vw;
   }
 
   .Item {
@@ -133,7 +134,8 @@ export default {
     }
 
     100% {
-      transform: translatex(-1066vw);
+      // transform: translatex(-1066vw);
+      transform: translatex(-906vw);
     }
   }
 

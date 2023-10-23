@@ -7,8 +7,8 @@
         <div class="Intro text-center">
           <h2 class="MyName">ADEDAYO ADENIYI</h2>
           <h5 class="MyRole">A Web Developer</h5>
-          <h3 class="Sdesc">Innovative Digital Solutions</h3>
-          <h5 class="Targ">For Creative Brands</h5>
+          <h3 class="Sdesc">Crafting Innovative Digital Solutions</h3>
+          <!-- <h5 class="Targ">For Creative Brands</h5> -->
         </div>
 
         <!-- image -->
@@ -45,16 +45,21 @@
     </section>
 
     <!-- Tech Stack Icons Slider Component -->
+    <h3 class="SectionSubHead">
+      <span class="icon-check mr-2"></span>
+      <span>My Tech Stack </span>
+    </h3>
+
     <ClientOnly>
       <TechStackSlider />
     </ClientOnly>
     <!-- Tech Stack Icons Slider Component -->
 
-    <section class="SubText flex j-c-center">
+    <!-- <section class="SubText flex j-c-center">
       <div class="xs12 sm9 md4">
         Your Online Profile, Simplified and Elevated. Let's do it
       </div>
-    </section>
+    </section> -->
 
     <section class="Section_2">
       <h3 class="SectionSubHead">
@@ -132,7 +137,7 @@
 
     <h3 class="SectionSubHead">
       <span class="icon-mail mr-3"></span>
-      <span> Talk To Me </span>
+      <span> Contact Me </span>
     </h3>
     <!-- Contact Component -->
     <div>
@@ -144,14 +149,14 @@
       <div v-aos="'zoom-in'" class="flex j-c-center">
         <div class="xs12 md7 lg6">
           If you would love to have a more streamlined project discussion with
-          me on a potential job or to request an estimate, use the button below
+          me on a potential job or to request a quote, use the button below
           <div class="flex j-c-center my-5">
             <Button
               @clicked="$router.push({ path: '/create' })"
               type="cta"
               size="large"
             >
-              START NOW
+              Hire Me
             </Button>
           </div>
         </div>
@@ -202,7 +207,7 @@ export default {
         text: "Solutions that Capture Your Unique Identity",
         // link: "/defaults/logo/orbrift-cy.png",
         detail:
-          "Your website should reflect your brand's personality. Whether you prefer a minimalist approach or a fully customized experience, I create apps that showcase the value of your products or services effectively.",
+          "Your website and app should reflect your brand's personality. Whether you prefer a minimalist approach or a fully customized experience, I create solutions that showcase the value of your products or services effectively.",
       },
       // {
       //   img: "",
