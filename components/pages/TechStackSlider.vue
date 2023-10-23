@@ -29,8 +29,8 @@ export default {
       { i: "gcloud", t: "G-cloud" },
       // { i: "jamstack" },
       { i: "graphql", t: "Graphql" },
-      { i: "wordpress", t: "Wordpress" },
       { i: "mysql", t: "Mysql" },
+      { i: "wordpress", t: "Wordpress" },
       // "firebase",
       // "vercel",
     ];
@@ -56,8 +56,10 @@ export default {
 
 .Main {
   display: flex;
-  min-width: 196vw;
-  animation: main 120s linear infinite;
+  // min-width: 196vw;
+  min-width: 166vw;
+  // animation: main 120s linear infinite;
+  animation: main 104s linear infinite;
 }
 
 .Item {
