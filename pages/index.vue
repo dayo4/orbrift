@@ -12,14 +12,14 @@
         </div>
 
         <!-- image -->
-        <div class="Img flex xs11 md5 j-c-center mb-9">
-          <!-- <div class="xs10 sm7"> -->
+        <div class="Img flex xs12 md5 j-c-center mb-9">
+          <div class="xs10 bg-img-masked">
             <img
               src="/defaults/pgs/23acdf.jpeg"
               alt="apps-tiles-collage"
               draggable="false"
             />
-          <!-- </div> -->
+          </div>
         </div>
 
         <!-- Summary Accordion Component -->
@@ -95,8 +95,9 @@
           size="medium"
           icon="icon-right"
           iconPos="right"
+          type="cta"
         >
-          About Me
+          More About Me
         </Button>
       </div>
     </section>
@@ -225,7 +226,7 @@ export default {
       // },
       {
         img: "effect",
-        text: "Streamlined Project Management",
+        text: "Streamlined Project Workflow",
         // link: "/defaults/pgs/icons/secure.png",
         detail:
           "I employ user-friendly tools and streamlined processes to make communication hassle-free, ensuring a secure and efficient workflow.",
@@ -353,6 +354,14 @@ export default {
       right: 0;
       top: 220px;
       max-height: 350px;
+      & > div {
+        border-radius: 28px;
+        overflow: hidden;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url("/defaults/pgs/23acdf.jpeg");
+      }
       & img {
         // width: 100%;
         height: 100%;
