@@ -15,7 +15,7 @@
         <div class="Img flex md6 j-c-center mb-9">
           <div class="xs10 sm7">
             <img
-              src="/defaults/pgs/wpages.png"
+              src="/defaults/pgs/23acdf.jpeg"
               alt="apps-tiles-collage"
               draggable="false"
             />
@@ -354,8 +354,8 @@ export default {
       top: 220px;
       height: 350px;
       & img {
-        width: 100%;
-        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
       }
     }
   }
