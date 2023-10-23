@@ -7,12 +7,12 @@
         <div class="Intro text-center">
           <h2 class="MyName">ADEDAYO ADENIYI</h2>
           <h5 class="MyRole">A Web Developer</h5>
-          <h3 class="Sdesc">Crafting Innovative Digital Solutions</h3>
+          <h3 class="Sdesc">Creating Modern Software Solutions</h3>
           <!-- <h5 class="Targ">For Creative Brands</h5> -->
         </div>
 
         <!-- image -->
-        <div class="Img flex xs12 md5 lg6 j-c-center mb-9">
+        <div class="Img flex xs12 md5 lg6 j-c-center">
           <div class="xs10 md11 bg-img-masked">
             <img
               src="/defaults/pgs/23acdf.jpeg"
@@ -339,7 +339,7 @@ export default {
         font-size: 35px;
         margin-top: 50px;
         margin-bottom: 8px;
-        padding: 0 10px;
+        padding: 0 50px;
       }
       & > .Targ {
         position: relative;
@@ -354,16 +354,17 @@ export default {
       right: 0;
       top: 220px;
       max-height: 350px;
+      margin-bottom: 80px;
       & > div {
-        border-radius: 28px;
+        border-radius: 16px;
         overflow: hidden;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         background-image: url("/defaults/pgs/23acdf.jpeg");
-            &::after {
-        background-color: rgba(72, 72, 72, 0.322);
-    }
+        &::after {
+          background-color: rgba(72, 72, 72, 0.322);
+        }
       }
       & img {
         // width: 100%;
