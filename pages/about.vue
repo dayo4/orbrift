@@ -35,14 +35,13 @@
             <p>
               A dedicated and result-oriented Front-end Developer with skills in
               designing robust Nodejs APIs, and a passion for creating, testing
-              and deploying user-focused software solutions. I consider myself
-              an explorer driven by a deep curiosity for patterns and a holistic
-              view of things. For years, I’ve been creating, testing and
-              deploying modern result-oriented User Interfaces(UI), Web
-              Applications, and Application Programming Interfaces (APIs) for
-              businesses.
+              and deploying user-focused software solutions. Offering strong
+              attention to detail and accuracy, excellent problem-solving
+              skills, and the ability to thrive in fast-paced team environments.
+              A reliable professional committed to delivering outstanding
+              results.
             </p>
-      <!--       <p>
+            <!--       <p>
               Throughout my journey, I've showcased my expertise by crafting
               modern, cutting-edge websites, stunning designs, and robust
               Single-Page Applications (SPAs) and Progressive Web Applications
@@ -54,8 +53,7 @@
               cloud hosting services, ensuring high-performance applications.
             </p> -->
             <p>
-              However, my true passion lies in creating user-centric solutions
-              that captivate and engage. I believe in delivering more than just
+              I believe in delivering more than just
               technical excellence; I strive to enhance user experiences,
               improve efficiency, and drive business growth. By applying my deep
               understanding of UI/UX principles and advanced JavaScript
