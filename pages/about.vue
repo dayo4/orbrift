@@ -17,11 +17,11 @@
           class="ContentCont flex j-c-center a-i-center bg-img-masked noselect"
         >
           <div class="Img">
-            <img
+            <!-- <img
               src="/defaults/usr/m1.png"
               alt="Samuel Adeniyi"
               draggable="false"
-            />
+            /> -->
           </div>
           <div class="Content xs11 sm9 md8 flex j-c-center a-i-center">
             <h2 class="Text">Adedayo Adeniyi</h2>
@@ -53,14 +53,13 @@
               cloud hosting services, ensuring high-performance applications.
             </p> -->
             <p>
-              I believe in delivering more than just
-              technical excellence; I strive to enhance user experiences,
-              improve efficiency, and drive business growth. By applying my deep
-              understanding of UI/UX principles and advanced JavaScript
-              frameworks, I develop intuitive websites and applications
-              optimized for top-notch performance. I empower businesses to
-              streamline their operations, expand their reach, and achieve
-              online success.
+              I believe in delivering more than just technical excellence; I
+              strive to enhance user experiences, improve efficiency, and drive
+              business growth. By applying my deep understanding of UI/UX
+              principles and advanced JavaScript frameworks, I develop intuitive
+              websites and applications optimized for top-notch performance. I
+              empower businesses to streamline their operations, expand their
+              reach, and achieve online success.
             </p>
             <p v-aos="'fade-up-left'">
               Beyond my technical endeavors, I find immense joy in engaging in
@@ -202,9 +201,8 @@
           <section v-aos="'zoom-in'">
             <h2 class="AB_Head">Let's Create Something Extraordinary</h2>
             <p>
-              Are you ready to elevate your brand's digital presence?
-              <NuxtLink to="/create"> Hire me</NuxtLink>. Get in touch with me
-              today, to discuss your web development goals.
+              <!-- Are you ready to elevate your brand's digital presence? -->
+              <NuxtLink to="/create"> Hire me</NuxtLink>. Get in touch, to discuss your web development goals.
               <!-- Together, we'll
               embark on a journey to create a great online experience that
               drives measurable success. -->
@@ -256,7 +254,11 @@ export default {
     height: 180px;
     width: 100%;
     background-color: $sec-color-trans-1;
-    background-image: url("/defaults/pgs/orbrift_pfbg.jpg");
+    // background-image: url("/defaults/pgs/orbrift_pfbg.jpg");
+    background-image: url("/defaults/pgs/orbrift_web_developer2.jpg");
+    &::after {
+      background-color: rgba(72, 72, 72, 0.80);
+    }
     background-blend-mode: overlay;
     background-attachment: fixed;
     overflow: hidden;

@@ -1,24 +1,19 @@
-
 <template>
-    <section class="TST bg-img-masked flex wrap j-c-center my-3 noselect">
-      <div
-        id="ContRef"
-        ref="ContRef"
-        class="ContRef flex sm11 md10 lg7"
-      >
-        <div class="Item" v-for="(item, i) in TSTList" :key="i">
-          <h3>{{ item.name }}</h3>
-          <h5>{{ item.info }}</h5>
-          <p>
-            {{ item.msg }}
-          </p>
-          <i class="TopHandle"></i>
-          <i class="BottomHandle"></i>
-        </div>
+  <section class="TST bg-img-masked flex wrap j-c-center my-3 noselect">
+    <div id="ContRef" ref="ContRef" class="ContRef flex sm11 md10 lg7">
+      <div class="Item" v-for="(item, i) in TSTList" :key="i">
+        <h3>{{ item.name }}</h3>
+        <h5>{{ item.info }}</h5>
+        <p>
+          {{ item.msg }}
+        </p>
+        <i class="TopHandle"></i>
+        <i class="BottomHandle"></i>
       </div>
-      <i @click="TSTclickLeft" class="LeftBtn icon-left"></i>
-      <i @click="TSTclickRight" class="RightBtn icon-right"></i>
-    </section>
+    </div>
+    <i @click="TSTclickLeft" class="LeftBtn icon-left"></i>
+    <i @click="TSTclickRight" class="RightBtn icon-right"></i>
+  </section>
 </template>
 
 <script lang="ts">
@@ -69,7 +64,7 @@ export default {
       ContRef,
 
       TSTList,
-      
+
       TSTclickLeft,
       TSTclickRight,
     };
@@ -85,7 +80,10 @@ export default {
   margin-bottom: 50px;
   background-color: $sec-color;
   background-attachment: fixed;
-  background-image: url("/defaults/pgs/orbrift_pfbg.jpg");
+  background-image: url("/defaults/pgs/orbrift_web_developer2.jpg");
+  &::after {
+    background-color: rgba(72, 72, 72, 0.85);
+  }
 
   & .LeftBtn,
   .RightBtn {
@@ -179,5 +177,4 @@ export default {
     }
   }
 }
-
 </style>
