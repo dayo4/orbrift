@@ -211,13 +211,13 @@ export default {
       //   detail:
       //     "Through an agile development methodology, I deliver iterative solutions that evolve with your requirements. This approach allows for flexibility and quick adaptations on your software development projects.",
       // },
-      {
-        img: "",
-        text: "Integration with Third-Party Services",
-        link: "/defaults/pgs/icons/secure.png",
-        detail:
-          "Maximize the functionality of your apps by easily integrating it with third-party services. From e-commerce platforms to payment gateways and CRM systems, I ensure smooth integration to enhance your users experience and business operations.",
-      },
+      // {
+      //   img: "",
+      //   text: "Integration with Third-Party Services",
+      //   link: "/defaults/pgs/icons/secure.png",
+      //   detail:
+      //     "Maximize the functionality of your apps by easily integrating it with third-party services. From e-commerce platforms to payment gateways and CRM systems, I ensure smooth integration to enhance your users experience and business operations.",
+      // },
       {
         img: "effect",
         text: "Streamlined Project Management",
