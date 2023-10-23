@@ -2,7 +2,7 @@
   <GlobalWrapper :header="true" :footNote="true">
     <template #Title> Get In Touch </template>
     <template #SubText>
-      Let me help you reach and engage your target audience where they are
+      Let's work together
     </template>
 
     <template #WrapperBody>
@@ -19,8 +19,8 @@
     <template #FootNote>
       <div data-aos="zoom-in" class="flex j-c-center">
         <div class="xs12 md7 lg6">
-          Thank you. If you would prefer to have a more streamlined project
-          discussion and request an estimate, use the button below
+          If you would prefer to have a more streamlined project
+          discussion and request a quote, use the button below
           <div class="flex j-c-center my-5">
             <Button
               @clicked="$router.push({ path: '/create' })"

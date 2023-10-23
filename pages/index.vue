@@ -367,7 +367,7 @@ export default {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        background-image: url("/defaults/pgs/23acdf.jpeg");
+        background-image: url("/defaults/pgs/dev.jpg");
         &::after {
           background-color: rgba(72, 72, 72, 0.4);
         }
@@ -390,7 +390,10 @@ export default {
   & .Tiles {
     background-color: $sec-color;
     background-attachment: fixed;
-    background-image: url("/defaults/pgs/orbrift_pfbg.jpg");
+    background-image: url("/defaults/pgs/orbrift_web_developer2.jpg");
+        &::after {
+      background-color: rgba(72, 72, 72, 0.85);
+    }
     & > article {
       z-index: 2;
       min-height: 330px;
