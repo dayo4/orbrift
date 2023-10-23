@@ -180,37 +180,37 @@ export default {
     const list = [
       {
         img: "resp",
-        text: "Flawlessly Responsive Pages for Modern Devices",
+        text: "Responsive Pages for Modern Devices",
         detail:
-          "Experience webpages that are carefully designed to adapt easily to any screen size. Whether your audience is browsing on a desktop, tablet, or mobile device, your apps will look stunning and provide an exceptional user experience.",
+          "Experience webpages designed to adapt easily to any screen size, making your apps will be appealing and provide an exceptional user experience.",
       },
       {
         img: "scale",
-        text: "Performance-driven and Scalable Applications",
+        text: "Performance-driven Applications",
         detail:
-          "With a focus on reliability and smart planning, I design and develop applications that are not only fast and efficient but also have the ability to scale effortlessly as your business grows. Say goodbye to bottlenecks.and hello to possibilities.",
+          "With a focus on reliability and smart planning, I develop applications that are not only fast but also able to scale effortlessly as your business grows. Say goodbye to bottlenecks.and hello to possibilities.",
       },
       {
         img: "",
         text: "Intuitive Designs and Fluid Navigation",
         link: "/defaults/pgs/icons/clean.png",
         detail:
-          "From the layout and aesthetics to the underlying framework, every aspect of your website and app is carefully crafted to ensure smooth navigation and enhance user engagement. ",
+          "From the layout and aesthetics to the underlying framework, your website or app is carefully crafted to ensure smooth navigation and enhance user engagement. ",
       },
       {
         img: "flexb",
-        text: "Tailored Solutions that Capture Your Unique Identity",
+        text: "Solutions that Capture Your Unique Identity",
         // link: "/defaults/logo/orbrift-cy.png",
         detail:
-          "Your website should reflect your brand's personality. Whether you prefer a sleek and minimalist design or a fully customized visual experience, I take the time to understand your needs and create a design that showcases the value of your products or services effectively.",
+          "Your website should reflect your brand's personality. Whether you prefer a minimalist approach or a fully customized experience, I create apps that showcase the value of your products or services effectively.",
       },
-      {
-        img: "",
-        text: "Agile Development Approach",
-        link: "/defaults/pgs/icons/secure.png",
-        detail:
-          "Through an agile development methodology, I deliver iterative solutions that evolve with your requirements. This approach allows for flexibility and quick adaptations on your software development projects.",
-      },
+      // {
+      //   img: "",
+      //   text: "Agile Development Approach",
+      //   link: "/defaults/pgs/icons/secure.png",
+      //   detail:
+      //     "Through an agile development methodology, I deliver iterative solutions that evolve with your requirements. This approach allows for flexibility and quick adaptations on your software development projects.",
+      // },
       {
         img: "",
         text: "Integration with Third-Party Services",
@@ -223,7 +223,7 @@ export default {
         text: "Streamlined Project Management",
         // link: "/defaults/pgs/icons/secure.png",
         detail:
-          "I employ user-friendly tools and streamlined processes to make communication hassle-free. You can focus on your business while I handle the technicalities, ensuring a secure and efficient workflow.",
+          "I employ user-friendly tools and streamlined processes to make communication hassle-free, ensuring a secure and efficient workflow.",
       },
       // {
       //   img: "",
