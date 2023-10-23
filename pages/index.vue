@@ -2,7 +2,7 @@
   <div>
     <section class="Top noselect">
       <div ref="homeTopBgParallax" class="Parall bg-img-masked"></div>
-      <div class="Detail xs12 md8 noselect br1">
+      <div class="Detail xs12 md7 noselect br1">
         <!-- Intro -->
         <div class="Intro text-center">
           <h2 class="MyName">ADEDAYO ADENIYI</h2>
@@ -12,14 +12,14 @@
         </div>
 
         <!-- image -->
-        <div class="Img flex md6 j-c-center mb-9">
-          <div class="xs10 sm7">
+        <div class="Img flex xs11 md5 j-c-center mb-9">
+          <!-- <div class="xs10 sm7"> -->
             <img
               src="/defaults/pgs/23acdf.jpeg"
               alt="apps-tiles-collage"
               draggable="false"
             />
-          </div>
+          <!-- </div> -->
         </div>
 
         <!-- Summary Accordion Component -->
@@ -352,10 +352,10 @@ export default {
       position: absolute;
       right: 0;
       top: 220px;
-      height: 350px;
+      max-height: 350px;
       & img {
-        max-width: 100%;
-        max-height: 100%;
+        // width: 100%;
+        height: 100%;
       }
     }
   }
