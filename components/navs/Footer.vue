@@ -5,6 +5,18 @@
         <span class="icon-copyright mr-2">2023 orbrift</span>
       </div>
       <div class="mt-3">
+        <span class="icon-phone mr-2"></span>
+        <span>+2347064247522</span>
+      </div>
+      <div class="mt-3">
+        <span class="icon-mail mr-2"></span>
+        <span>dayo4@live.com</span>
+      </div>
+      <div class="mt-3">
+        <span class="icon-briefcase mr-2"></span>
+        <a href="">dayo4@live.com</a>
+      </div>
+      <div class="mt-7">
         <router-link class="Lnk no-deco" to="/privacy"
           >Privacy and Terms</router-link
         >
