@@ -32,21 +32,21 @@ export default {
         content: `Deliver mobile-app-like experiences with fast navigation and seamless user interactions.`,
         expanded: false,
       },
-      {
-        title: "Elevated E-commerce",
-        content: `Drive online success with tailored e-commerce solutions that boost sales and customer satisfaction.`,
-        expanded: false,
-      },
+      // {
+      //   title: "Elevated E-commerce",
+      //   content: `Drive online success with tailored e-commerce solutions that boost sales and customer satisfaction.`,
+      //   expanded: false,
+      // },
       {
         title: "Robust Back-end Solutions",
         content: `Empower your applications with fast Node.js frameworks on cutting-edge Cloud Platforms.`,
         expanded: false,
       },
-      {
-        title: "Strategic Content Management",
-        content: `Boost organic traffic through SEO-optimized content with popular CMS platforms.`,
-        expanded: false,
-      },
+      // {
+      //   title: "Strategic Content Management",
+      //   content: `Boost organic traffic through SEO-optimized content with popular CMS platforms.`,
+      //   expanded: false,
+      // },
     ]);
 
     let intervalId;
@@ -100,7 +100,8 @@ export default {
 
 <style lang="scss" scoped>
 .Cont {
-  min-height: 350px;
+  // min-height: 350px;
+  min-height: 270px;
   padding-left: 20px;
 }
 .Header {

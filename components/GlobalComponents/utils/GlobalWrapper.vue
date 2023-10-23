@@ -82,9 +82,12 @@ export default {
   padding-top: 60px;
   margin-bottom: 50px;
   background-color: $sec-color;
-  background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
+  background-image: url("/defaults/pgs/orbrift_web_developer.jpg");
   background-attachment: fixed;
   background-position: center;
+  &::after {
+    background-color: rgba(72, 72, 72, 0.8);
+  }
   & .Title {
     position: relative;
     text-align: center;

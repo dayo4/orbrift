@@ -6,19 +6,19 @@
         <!-- Intro -->
         <div class="Intro text-center">
           <h2 class="MyName">ADEDAYO ADENIYI</h2>
-          <h5 class="MyRole">A Web Developer</h5>
+          <h5 class="MyRole">Web Developer</h5>
           <h3 class="Sdesc">Creating Modern Software Solutions</h3>
           <!-- <h5 class="Targ">For Creative Brands</h5> -->
         </div>
 
         <!-- image -->
-        <div class="Img flex xs12 md5 lg6 j-c-center">
-          <div class="xs10 md11 bg-img-masked">
-            <img
+        <div class="Img flex xs12 sm md5 j-c-center">
+          <div class="xs10 sm8 md11 bg-img-masked">
+            <!-- <img
               src="/defaults/pgs/23acdf.jpeg"
               alt="apps-tiles-collage"
               draggable="false"
-            />
+            /> -->
           </div>
         </div>
 
@@ -33,7 +33,7 @@
       ></div> -->
 
       <!-- CTA Button -->
-      <div class="flex j-c-center my-10">
+      <!-- <div class="flex j-c-center my-10">
         <Button
           @clicked="$router.push({ path: '/create' })"
           type="cta"
@@ -41,13 +41,13 @@
         >
           START HERE
         </Button>
-      </div>
+      </div> -->
     </section>
 
     <!-- Tech Stack Icons Slider Component -->
     <h3 class="SectionSubHead">
       <span class="icon-check mr-2"></span>
-      <span>My Tech Stack </span>
+      <span>Tech Stack </span>
     </h3>
 
     <ClientOnly>
@@ -296,8 +296,11 @@ export default {
     width: 100%;
     height: 100%;
     background-color: $sec-color;
-    background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
+    background-image: url("/defaults/pgs/orbrift_web_developer.jpg");
     background-attachment: fixed;
+    &::after {
+      background-color: rgba(72, 72, 72, 0.85);
+    }
   }
   & .Detail {
     // position: relative;
@@ -310,7 +313,8 @@ export default {
       }
       & > .MyName {
         position: relative;
-        color: rgba(204, 235, 238, 0.7);
+        // color: rgba(204, 235, 238, 0.7);
+        color: white;
         font-size: 35px;
         margin-bottom: 0;
       }
@@ -326,8 +330,8 @@ export default {
           content: "";
           bottom: -2px;
           left: 50%;
-          margin-left: -120px;
-          width: 240px;
+          margin-left: -80px;
+          width: 160px;
           height: 15px;
           background-color: $pri-color-trans-3;
           z-index: -1;
@@ -353,9 +357,11 @@ export default {
       position: absolute;
       right: 0;
       top: 220px;
-      max-height: 350px;
+      height: 350px;
+      width: 100%;
       margin-bottom: 80px;
       & > div {
+        position: relative;
         border-radius: 16px;
         overflow: hidden;
         background-position: center;
@@ -363,13 +369,13 @@ export default {
         background-size: cover;
         background-image: url("/defaults/pgs/23acdf.jpeg");
         &::after {
-          background-color: rgba(72, 72, 72, 0.322);
+          background-color: rgba(72, 72, 72, 0.4);
         }
       }
-      & img {
-        // width: 100%;
-        height: 100%;
-      }
+      // & img {
+      //   // width: 100%;
+      //   height: 100%;
+      // }
     }
   }
 
