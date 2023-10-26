@@ -1,28 +1,28 @@
 <template>
-  <nav ref="topNav" id="TopNav" class="flex a-i-center noselect">
-    <div class="flex a-i-center j-c-between shadow-7">
-      <router-link to="/" class="Logo flex a-i-center px-2 mr-2">
+  <nav ref="topNav" id="TopNav" class="flex items-center select-none">
+    <div class="flex items-center justify-between shadow-lg">
+      <router-link to="/" class="Logo flex items-center px-2 mr-2">
         <div v-html="$appLogo('white', 'logo-x-small mr-2')"></div>
         orbrift
       </router-link>
 
       <!-- SEARCH ICON FOR MOBILE SCREEN -->
-      <div @click="$emit('search')" class="SearchIcon hide-sm-up">
+      <div @click="$emit('search')" class="SearchIcon sm:hidden">
         <i class="icon-search"></i>
       </div>
       <!-- SEARCH ICON FOR MOBILE SCREEN -->
 
-      <div class="MainNavLinks flex a-i-center j-c-center">
+      <div class="MainNavLinks flex items-center justify-center">
         <!-- LINKS FOR VERY SMALL SCREENS  -->
-        <a @click="openDropdown('mobile')" class="MenuDropBtn hide-sm-up">
+        <a @click="openDropdown('mobile')" class="MenuDropBtn sm:hidden">
           <span class="BtnIcon icon-list-nested"></span>
           <div
             v-show="dropdowns.mobileDropdown"
             ref="mobileDropdownRef"
-            class="DropdownMenu t-white bg-trans p-2 br2"
+            class="DropdownMenu text-white bg-opacity-0 p-2 rounded-lg"
           >
             <a
-              class="Hidden flex shadow-6"
+              class="Hidden flex shadow-sm"
               v-for="(link, i) in mobileNavLinks"
               :key="i"
               @click.prevent="changeRoute(link.a)"
@@ -52,10 +52,10 @@
               <div
                 v-show="dropdowns.infoDropdown"
                 :ref="link.dropdownType + 'DropdownRef'"
-                class="DropdownMenu t-white bg-trans p-2 br2"
+                class="DropdownMenu text-white bg-opacity-0 p-2 rounded-lg"
               >
                 <a
-                  class="Hidden flex shadow-6"
+                  class="Hidden flex shadow-sm"
                   v-for="(subLink, i) in link.subLinks"
                   :key="i"
                   @click.prevent="changeRoute(subLink.a)"
@@ -75,12 +75,12 @@
       </div>
 
       <!-- SEARCH ICON FOR WIDE SCREEN -->
-      <div @click="$emit('search')" class="SearchIcon hide-xs">
+      <div @click="$emit('search')" class="SearchIcon flex items-center justify-center xs:hidden sm:flex">
         <i class="icon-search"></i>
       </div>
       <!-- SEARCH ICON FOR WIDE SCREEN -->
 
-      <div class="ExtraLink flex a-i-center j-c-center hide-xs">
+      <div class="ExtraLink flex items-center justify-center xs:hidden sm:flex">
         <router-link :to="{ name: 'create' }">
           <span class="Icon icon-diamond"></span>
           <span class="Name">Hire me</span>
