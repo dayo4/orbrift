@@ -72,7 +72,7 @@
           v-for="(L, i) in list"
           :key="i"
         >
-          <div class="flex justify-center align-middle w-full h-[150px] pt-5">
+          <div class="flex justify-center items-center w-full h-[150px]">
             <img
             class="w-[90px] h-[90px]"
               :src="L.link ? L.link : '/defaults/pgs/icons/' + L.img + '.jpg'"
@@ -240,12 +240,6 @@ export default {
       // },
     ];
 
-    // onMounted(() => {
-    //         $Navs.setParallaxElemHome1(homeTopBgParallax.value)
-    // });
-
-    // onUnmounted(() => { });
-
     return {
       list,
       homeTopBgParallax,
@@ -254,14 +248,14 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.SubText {
-  text-align: center;
-  font-size: 24px;
-  color: $pri-color;
-  background-color: $sec-color-trans;
-  padding: 15px;
-  margin-bottom: 40px;
-}
+// .SubText {
+//   text-align: center;
+//   font-size: 24px;
+//   color: $pri-color;
+//   background-color: $sec-color-trans;
+//   padding: 15px;
+//   margin-bottom: 40px;
+// }
 
 .SectionSubHead {
   position: relative;
@@ -278,219 +272,4 @@ export default {
   }
 }
 
-.Top {
-  position: relative;
-  overflow: hidden;
-  min-height: 500px;
-  width: 100%;
-  padding-top: 60px;
-  padding-bottom: 20px;
-  // margin-bottom: 50px;
-  // background-color: $sec-color;
-  // background-image: url("/defaults/pgs/orbrift_web_design_and_development.jpg");
-  // background-attachment: fixed;
-  & .Parall {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: $sec-color;
-    background-image: url("/defaults/pgs/orbrift_web_developer.jpg");
-    background-attachment: fixed;
-    &::after {
-      background-color: rgba(72, 72, 72, 0.85);
-    }
-  }
-  & .Detail {
-    // position: relative;
-    z-index: 1;
-    & .Intro {
-      padding: 5px 0 0 0;
-      & > div {
-        letter-spacing: 1px;
-        font-weight: bold;
-      }
-      & > .MyName {
-        position: relative;
-        // color: rgba(204, 235, 238, 0.7);
-        color: white;
-        font-size: 35px;
-        margin-bottom: 0;
-      }
-      & > .MyRole {
-        position: relative;
-        color: white;
-        font-size: 20px;
-        margin-top: 10px;
-        margin-bottom: 0;
-        z-index: 0;
-        &::after {
-          position: absolute;
-          content: "";
-          bottom: -2px;
-          left: 50%;
-          margin-left: -80px;
-          width: 160px;
-          height: 15px; 
-          background-color: $pri-color-trans-3;
-          z-index: -1;
-        }
-      }
-      & > .Sdesc {
-        position: relative;
-        color: $pri-color;
-        font-size: 35px;
-        margin-top: 50px;
-        margin-bottom: 8px;
-        padding: 0 50px;
-      }
-      & > .Targ {
-        position: relative;
-        font-size: 15px;
-        margin-top: 0px;
-        color: $light-color;
-      }
-    }
-
-    & .Img {
-      position: absolute;
-      right: 0;
-      top: 220px;
-      height: 350px;
-      width: 100%;
-      margin-bottom: 80px;
-      & > div {
-        position: relative;
-        border-radius: 16px;
-        overflow: hidden;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-image: url("/defaults/pgs/dev.jpg");
-        &::after {
-          background-color: rgba(72, 72, 72, 0.4);
-        }
-      }
-      // & img {
-      //   // width: 100%;
-      //   height: 100%;
-      // }
-    }
-  }
-
-  & button {
-    margin-top: 40px;
-    z-index: 2;
-  }
-}
-
-.Section_2 {
-  margin-bottom: 50px;
-  & .Tiles {
-    background-color: $sec-color;
-    background-attachment: fixed;
-    background-image: url("/defaults/pgs/orbrift_web_developer2.jpg");
-        &::after {
-      background-color: rgba(72, 72, 72, 0.85);
-    }
-    & > article {
-      z-index: 2;
-      min-height: 330px;
-      background-color: $light-color;
-      border-radius: 28px;
-      margin: 0px 30px 30px 20px;
-      //      border-top: solid 3px $pri-color;
-      //      border-bottom: solid 3px $pri-color;
-      & img {
-        width: 90px;
-        height: 90px;
-      }
-
-      & > div:first-child {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 150px;
-      }
-
-      & > h2 {
-        padding: 12px 5px;
-        text-align: center;
-        font-weight: bold;
-        font-size: 18px;
-        // color: white;
-        color: $pri-color;
-        background-color: $sec-color;
-        // background-color: #0A2647;
-        // @include bg-gradient-2;
-      }
-      & > p {
-        padding: 10px 10px 15px 10px;
-        text-align: center;
-        font-weight: bold;
-        font-size: 16px;
-        // color: $blue-grey-2;
-        color: $dark-text-color;
-      }
-    }
-  }
-}
-
-.HomeFootNote {
-  font-size: 16px;
-  text-align: center;
-  color: $pri-color;
-  background-color: $sec-color-trans;
-  padding: 15px;
-  & a {
-    // color:$pri-color;
-    color: lightblue;
-  }
-}
-
-@include sm-and-down {
-  .Top {
-    & .Detail {
-      & .Img {
-        position: relative;
-        top: 40px;
-      }
-    }
-  }
-}
-
-@include xs-only {
-  .Top {
-    .Detail {
-      & .Intro {
-        & > .MyName {
-          font-size: 26px;
-        }
-        & > .Sdesc {
-          font-size: 28px;
-        }
-      }
-    }
-  }
-
-  .Section_2 {
-    & .Tiles {
-      & > article {
-        margin: 0px 8px 30px 8px;
-      }
-    }
-  }
-}
-@include xxs-only {
-  .Section_2 {
-    & .Tiles {
-      & > article {
-        flex: 0 0 91.66%;
-        max-width: 91.66%;
-      }
-    }
-  }
-}
 </style>
