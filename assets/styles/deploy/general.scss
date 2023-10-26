@@ -74,39 +74,27 @@ figure {
   max-width: 100% !important;
 }
 
-.bg-img-masked {
-  // position: relative;
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // z-index: 0;
-
-    &::after {
-        // content: "";
-        // position: absolute;
-        // top: 0;
-        // bottom: 0;
-        // right: 0;
-        // left: 0;
-        // z-index: -1 !important;
-        background-color: rgba(72, 72, 72, 0.70);
-    }
+.Masked-bg-img {
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+}
+.Masked-bg-img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1 !important;
+  background-color: rgba(72, 72, 72, 0.5);
 }
 
-// .img-masked-0 {
-//   position: relative;
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-
-
-//     &::after {
-//         content: "";
-//         position: absolute;
-//         top: 0;
-//         bottom: 0;
-//         right: 0;
-//         left: 0;
-//         background-color: transparent;
-//     }
-// }
+.Masked-bg-img.Mask-opacity-80::after {
+  background-color: rgba(72, 72, 72, 0.85);
+}
+.Masked-bg-img.Mask-opacity-85::after {
+  background-color: rgba(72, 72, 72, 0.85);
+}

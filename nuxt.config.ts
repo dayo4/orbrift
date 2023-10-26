@@ -30,9 +30,9 @@ export default defineNuxtConfig({
       preprocessorOptions: {
         scss: {
           additionalData: `
-                    @import "~/globalStyles/devOnly/_variables.scss";
-                    @import "~/globalStyles/devOnly/_mixins.scss";
-                    @import "~/globalStyles/devOnly/theme/main.scss";
+                    @import "~/assets/styles/devOnly/_variables.scss";
+                    @import "~/assets/styles/devOnly/_mixins.scss";
+                    @import "~/assets/styles/devOnly/theme/main.scss";
                     `,
         },
       },
@@ -41,14 +41,14 @@ export default defineNuxtConfig({
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    "~/globalStyles/deploy/myCssLibrary/greycore.css",
-    "~/globalStyles/deploy/icons/css/fontello.css",
-    "~/globalStyles/deploy/general.scss",
-    "~/globalStyles/deploy/logo.scss",
-    "~/globalStyles/deploy/transitions.css",
+    "~/assets/styles/deploy/myCssLibrary/greycore.css",
+    "~/assets/styles/deploy/icons/css/fontello.css",
+    "~/assets/styles/deploy/general.scss",
+    "~/assets/styles/deploy/logo.scss",
+    "~/assets/styles/deploy/transitions.css",
 
-    "~/globalStyles/deploy/theme/main.scss",
-    // "~/assets/css/main.css",
+    "~/assets/styles/deploy/theme/main.scss",
+    "~/assets/styles/main.css",
     "aos/dist/aos.css",
   ],
   runtimeConfig: {
