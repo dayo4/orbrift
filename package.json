@@ -1,6 +1,18 @@
 {
   "name": "orbrift",
+  "version": "2.0",
   "private": true,
+  "description": "My personal website build using VueJs and NodeJs.",
+  "author": "Adedayo Adeniyi",
+  "homepage": "https://orbrift.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dayo4/orbrift.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dayo4/orbrift/issues",
+    "email": "dayo4@live.com"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -25,5 +37,6 @@
     "contentful": "^10.5.1",
     "moment": "^2.29.4",
     "pinia": "^2.1.3"
-  }
+  },
+  "license": "MIT"
 }
