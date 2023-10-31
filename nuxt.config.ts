@@ -41,7 +41,6 @@ export default defineNuxtConfig({
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    "~/assets/styles/deploy/myCssLibrary/greycore.css",
     "~/assets/styles/deploy/icons/css/fontello.css",
     "~/assets/styles/deploy/general.scss",
     "~/assets/styles/deploy/logo.scss",
