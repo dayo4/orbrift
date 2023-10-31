@@ -1,30 +1,30 @@
 <template>
   <div
-    class="HPWrapper noselect bg-img-masked"
+    class="HPWrapper select-none Masked-bg-img"
     :class="collapsed ? 'Collapsed' : ''"
   >
     <div class="Panel">
-      <div class="Body flex wrap j-c-between p-2 mt-2">
+      <div class="Body flex flex-wrap justify-between p-2 mt-2">
         <div
           v-for="(icon, i) in pageIcons"
           :key="i"
           class="IconWrapper m-1 text-center"
           @click="click({ link: icon.link })"
         >
-          <router-link :to="{ name: icon.link }" class="t-white">
+          <router-link :to="{ name: icon.link }" class="text-white">
             <span :class="icon.font" class="Icon"></span>
             <span class="IconText">{{ icon.text }}</span>
           </router-link>
         </div>
       </div>
 
-      <div class="Body flex wrap j-c-between p-2">
+      <div class="Body flex flex-wrap justify-between p-2">
         <div
           v-for="(icon, i) in socialLinks"
           :key="i"
           class="IconWrapper m-1 text-center"
         >
-          <a :href="icon.link" target="_blank" class="t-white">
+          <a :href="icon.link" target="_blank" class="text-white">
             <span :class="icon.font" class="Icon"></span>
             <span class="IconText">{{ icon.text }}</span>
           </a>
@@ -35,7 +35,7 @@
     <!-- Handle -->
     <span
       @click="collapsed = !collapsed"
-      class="Handle t-white shadow-3 flex a-i-center j-c-end br5"
+      class="Handle text-white shadow-sm flex items-center justify-end rounded-full"
     >
       <span
         class="icon-right-open-big"

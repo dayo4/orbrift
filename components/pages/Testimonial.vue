@@ -1,6 +1,6 @@
 <template>
-  <section class="TST bg-img-masked flex wrap j-c-center my-3 noselect">
-    <div id="ContRef" ref="ContRef" class="ContRef flex sm11 md10 lg7">
+  <section class="TST Masked-bg-img flex flex-wrap justify-center my-3 select-none">
+    <div id="ContRef" ref="ContRef" class="ContRef flex basis-full sm:basis-11/12 md:basis-10/12 lg:basis-7/12">
       <div class="Item" v-for="(item, i) in TSTList" :key="i">
         <h3>{{ item.name }}</h3>
         <h5>{{ item.info }}</h5>
@@ -98,6 +98,7 @@ export default {
     font-size: 20px;
     font-weight: bolder;
     color: $pri-color;
+    cursor: pointer;
     background-color: rgba(53, 51, 51, 0.507);
   }
   & .LeftBtn:active,

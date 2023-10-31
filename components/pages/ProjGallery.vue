@@ -1,9 +1,9 @@
 <template>
-  <div class="Gallery img-masked-00 flex wrap j-c-center px-3 noselect">
+  <div class="Gallery flex flex-wrap justify-center px-3 select-none">
     <transition name="slide-down-fade">
-      <div v-if="showPc" class="Pc xs12 sm6 md5 m-1">
+      <div v-if="showPc" class="Pc basis-full sm:basis-6/12 md:basis-5/12 m-1">
         <img
-          class="shadow-5"
+          class="shadow-lg"
           :src="'/defaults/gal/' + galImageList[activeGal].pc + '.jpg'"
           alt="orbrift.com"
           draggable="false"
@@ -11,7 +11,7 @@
 
         <div v-if="showTablet" ref="Tablet" class="Tablet">
           <img
-            class="shadow-5"
+            class="shadow-lg"
             :src="'/defaults/gal/' + galImageList[activeGal].tablet + '.jpg'"
             alt="orbrift.com"
             draggable="false"
@@ -20,7 +20,7 @@
 
         <div v-if="showPhone" ref="Phone" class="Phone">
           <img
-            class="shadow-5"
+            class="shadow-lg"
             :src="'/defaults/gal/' + galImageList[activeGal].phone + '.jpg'"
             alt="orbrift.com"
             draggable="false"

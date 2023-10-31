@@ -2,12 +2,12 @@
   <transition name="slide-fade" mode="out-in">
     <div id="GBLMWrapper">
       <!-- At The very Top -->
-      <section v-if="header" class="HeaderGBL bg-img-masked br1 noselect">
+      <section v-if="header" class="HeaderGBL Masked-bg-img rounded noselect">
         <h2 class="Title">
           <slot name="Title"></slot>
         </h2>
-        <section v-if="subText" class="SubText flex j-c-center">
-          <div class="xs12 sm11 md6">
+        <section v-if="subText" class="SubText flex justify-center">
+          <div class="basis-full sm:basis-11/12 md:basis-6/12">
             <slot name="SubText"></slot>
           </div>
         </section>
@@ -15,7 +15,7 @@
 
       <div class="InnerWrapper">
         <!-- Main Container (START) -->
-        <article :class="rightPane ? 'xs12 md8' : 'xs12'" class="mb-5">
+        <article :class="rightPane ? 'basis-full md:basis-8/12' : 'basis-full'" class="mb-5">
           <!-- Main Container Header-->
           <section v-if="subHead" class="SubHeadGBL">
             <slot name="subHead"></slot>
@@ -27,7 +27,7 @@
         <!-- Main Container (END) -->
 
         <!-- Right Side Pane -->
-        <article v-if="rightPane" class="RightPane xs12 md3">
+        <article v-if="rightPane" class="RightPane basis-full md:basis-3/12">
           <slot name="RightPane"></slot>
         </article>
       </div>
@@ -37,14 +37,14 @@
         <div
           data-aos="zoom-in"
           v-if="useDefaultFootNote"
-          class="flex j-c-center"
+          class="flex justify-center"
         >
-          <div class="xs12 md7 lg6">
+          <div class="basis-full sm:basis-10/12 md:basis-7/12 lg:basis-6/12">
             If you would like to discuss a potential job or project,
             I would be delighted to hear from you.
             <NuxtLink to="/contact"> Contact me</NuxtLink>, or use the button
             below
-            <div class="flex j-c-center my-5">
+            <div class="flex justify-center my-5">
               <Button
                 @clicked="$router.push({ path: '/create' })"
                 type="cta"

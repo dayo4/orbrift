@@ -1,6 +1,6 @@
 <template>
   <section class="Cont flex">
-    <div class="xs12 sm11 md10">
+    <div class="basis-full sm:basis-11/12 md:basis-10/12">
       <div
         v-for="(item, index) in accordionItems"
         :key="index"

@@ -2,11 +2,11 @@
   <transition name="fade-in">
     <div
       :class="expanded ? 'Expanded' : ''"
-      class="SearchBox flex j-c-center shadow-3"
+      class="SearchBox flex justify-center items-center shadow-md"
     >
       <i @click="$emit('searchoff')" class="icon-cancel"></i>
-      <div class="Search xs12 sm10 md9 lg7">
-        <div class="InputBox">
+      <div class="Search basis-full sm:basis-10/12 md:basis-9/12 lg:basis-7/12">
+        <div class="InputBox flex">
           <input
             @keydown.enter.prevent="search"
             v-model="searchText"
@@ -23,19 +23,19 @@
           <div v-for="(result, i) in searchResult" :key="i">
             <h5
               @click="open(result.slug)"
-              class="ResultList font-5 m-5 cursor-pointer"
+              class="ResultList text-lg m-5 cursor-pointer"
             >
               - {{ result.title }}
             </h5>
           </div>
           <div v-if="searchResult && searchResult.length === 0">
-            <h5 class="font-5 m-5 t-blue--3">
+            <h5 class="text-lg m-5 text-blue-400">
               No search result found for the text you entered. Try searching
               something else.
             </h5>
           </div>
           <div v-if="error">
-            <h5 class="font-5 m-5 t-red--3">
+            <h5 class="text-lg m-5 text-red-400">
               Unable to connect. Try checking your internet connection.
             </h5>
           </div>
@@ -153,9 +153,9 @@ export default {
 
   & > i {
     position: absolute;
-    font-size: 25px;
+    font-size: 22px;
     right: 5px;
-    top: 2px;
+    top: 6px;
     color: $pri-color;
     cursor: pointer;
     z-index: 101;
@@ -167,13 +167,14 @@ export default {
 .Search {
   position: relative;
   width: 100%;
-
+  
   & .InputBox {
     position: relative;
     width: 100%;
     margin: 6px;
     color: black;
     & input {
+      border-radius: 4px;
       width: calc(100% - 10px);
       background-color: white;
       color: black;
@@ -184,7 +185,7 @@ export default {
       top: 3px;
       font-size: 20px;
       margin: 0px 3px;
-      padding: 3px;
+      padding: 1px;
       border-radius: 3px;
       cursor: pointer;
       color: $pri-color;
@@ -216,13 +217,6 @@ export default {
     }
   }
 
-  .SearchBox {
-    & > i {
-      font-size: 28px !important;
-      right: 5px;
-      top: 6px;
-    }
-  }
 }
 
 @include xs-only {
@@ -235,13 +229,6 @@ export default {
     }
   }
 
-  .SearchBox {
-    & > i {
-      font-size: 25px !important;
-      right: 5px;
-      top: 8px;
-    }
-  }
 }
 
 // @include xs-and-up {
