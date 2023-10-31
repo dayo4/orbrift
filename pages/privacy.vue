@@ -3,11 +3,11 @@
     <template #Title> Privacy Policy </template>
 
     <template #WrapperBody>
-      <section class="flex j-c-center">
-        <div class="xs12 sm12 md8 bg-white px-5">
-          <h4 class="t-blue-grey--2">
-            We are committed to protecting the privacy of those who visit this
-            ORBRIFT Website and/or use our services.
+      <section class="flex justify-center">
+        <div class="basis-full sm:basis-10/12 md:basis-8/12 bg-white px-5">
+          <h4 class="text-blue-gray-600">
+            I am committed to protecting the privacy of those who visit this
+            ORBRIFT Website and/or use my services.
           </h4>
 
           <i>Any adjustment to this statement will be updated to this page and will
