@@ -46,7 +46,6 @@ export default defineNuxtConfig({
     "~/assets/styles/deploy/logo.scss",
     "~/assets/styles/deploy/transitions.css",
 
-    "~/assets/styles/deploy/theme/main.scss",
     "~/assets/styles/main.css",
     "aos/dist/aos.css",
   ],
