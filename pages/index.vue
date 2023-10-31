@@ -109,7 +109,7 @@
     </h3>
 
     <section class="bg-white p-2">
-      <h2 class="text-center text-slate-700"></h2>
+      <h2 class="text-center text-blue-gray-700"></h2>
 
       <!-- Projects Gallery Component -->
       <ProjGallery />
