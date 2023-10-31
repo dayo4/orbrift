@@ -1,5 +1,5 @@
 <template>
-  <footer class="t-white text-center">
+  <footer class="text-white text-center">
     <section class="LNKCont">
       <div>
         <span class="icon-copyright mr-2">2023 orbrift</span>
@@ -14,48 +14,37 @@
       </div>
       <div class="mt-3">
         <span class="icon-briefcase mr-2"></span>
-        <a href="#" target="_blank" class="t-white">Download Resume</a>
+        <a href="#" target="_blank" class="text-white">Download Resume</a>
       </div>
       <div class="mt-7">
-        <router-link class="Lnk no-deco" to="/privacy"
+        <router-link class="Lnk no-underline" to="/privacy"
           >Privacy and Terms</router-link
         >
       </div>
     </section>
-          <!-- Social Icons -->
-      <section
-        
-        class="Social flex j-c-center text-center mb-5"
-      >
-        <a
-          class="icon-github mr-3 br5 b4"
-          href="https://github.com/dayo4"
-          target="blank"
-        ></a>
-        <a
-          class="icon-facebook mr-3 br5 b4"
-          href="https://facebook.com/dayo999"
-          target="blank"
-        ></a>
-        <a
-          class="icon-whatsapp mr-3 br5 b4"
-          href="https://wa.me/message/25GPJOSG52QCO1"
-          target="blank"
-        ></a>
-        <a
-          class="icon-linkedin mr-3 br5 b4"
-          href="https://www.linkedin.com/in/adedayo-adeniyi-761498244"
-          target="blank"
-        ></a>
-      </section>
-
+    <!-- Social Icons -->
+    <section class="Social flex justify-center text-center mb-5">
+      <a class="icon-github" href="https://github.com/dayo4" target="blank"></a>
+      <a
+        class="icon-facebook"
+        href="https://facebook.com/dayo999"
+        target="blank"
+      ></a>
+      <a
+        class="icon-whatsapp"
+        href="https://wa.me/message/25GPJOSG52QCO1"
+        target="blank"
+      ></a>
+      <a
+        class="icon-linkedin"
+        href="https://www.linkedin.com/in/adedayo-adeniyi-761498244"
+        target="blank"
+      ></a>
+    </section>
   </footer>
 </template>
 <script lang="ts">
-
-export default {
-
-};
+export default {};
 </script>
 <style lang="scss">
 footer {
@@ -97,24 +86,27 @@ footer {
       );
     }
   }
-  
+
   & .Lnk {
     color: $pri-color;
   }
-  
+
   & .Social {
     text-align: center;
-  & a {
-    width: 30px;
-    height: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $pri-color;
-    text-decoration: none;
+    & a {
+      width: 30px;
+      height: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: solid 1.5px $pri-color;
+      border-radius: 100%;
+      margin-right: 12px;
+      color: $pri-color;
+      text-decoration: none;
+    }
   }
-}
 }
 </style>

@@ -7,14 +7,14 @@
       </router-link>
 
       <!-- SEARCH ICON FOR MOBILE SCREEN -->
-      <div @click="$emit('search')" class="SearchIcon sm:hidden">
+      <div @click="$emit('search')" class="SearchIcon md:hidden">
         <i class="icon-search"></i>
       </div>
       <!-- SEARCH ICON FOR MOBILE SCREEN -->
 
       <div class="MainNavLinks flex items-center justify-center">
         <!-- LINKS FOR VERY SMALL SCREENS  -->
-        <a @click="openDropdown('mobile')" class="MenuDropBtn sm:hidden">
+        <a @click="openDropdown('mobile')" class="MenuDropBtn md:hidden">
           <span class="BtnIcon icon-list-nested"></span>
           <div
             v-show="dropdowns.mobileDropdown"
@@ -37,7 +37,7 @@
         <!-- LINKS FOR WIDE SCREENS  -->
         <ClientOnly>
           <router-link
-            :class="`hide-xs ${
+            :class="`hidden md:block ${
               link.subLinks ? 'MenuDropBtn NoLowerBorder' : ''
             }`"
             :to="{ name: link.a }"
@@ -75,12 +75,12 @@
       </div>
 
       <!-- SEARCH ICON FOR WIDE SCREEN -->
-      <div @click="$emit('search')" class="SearchIcon flex items-center justify-center xs:hidden sm:flex">
+      <div @click="$emit('search')" class="SearchIcon items-center justify-center hidden md:flex">
         <i class="icon-search"></i>
       </div>
       <!-- SEARCH ICON FOR WIDE SCREEN -->
 
-      <div class="ExtraLink flex items-center justify-center xs:hidden sm:flex">
+      <div class="ExtraLink items-center justify-center hidden md:flex">
         <router-link :to="{ name: 'create' }">
           <span class="Icon icon-diamond"></span>
           <span class="Name">Hire me</span>
@@ -330,7 +330,7 @@ nav {
     // border: solid $pri-color 1.5px;
   // }
   & .Name {
-      font-size: 18px !important;
+      font-size: 14px;
   }
 }
 
@@ -380,19 +380,19 @@ nav {
   }
 }
 
-@include sm-and-down {
-  nav {
-    height: 48px;
-  }
-  .MainNavLinks,
-  .ExtraLink {
-    & a {
-      padding: 5px;
-      margin-right: 3px;
-    }
-    & > a > .Name {
-      font-size: 14px;
-    }
-  }
-}
+// @include sm-and-down {
+//   nav {
+//     height: 48px;
+//   }
+//   .MainNavLinks,
+//   .ExtraLink {
+//     & a {
+//       padding: 5px;
+//       margin-right: 3px;
+//     }
+//     & > a > .Name {
+//       font-size: 16px !important;
+//     }
+//   }
+// }
 </style>

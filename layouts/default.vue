@@ -43,6 +43,8 @@ export default {
       $Navs.setScrollEvent();
       $General.insertLinks();
       $General
+        .loadScript("https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js", "TW-ripple")
+      $General
         .loadScript()
         .then(() => {
           $General.hideCaptchaBadge();
