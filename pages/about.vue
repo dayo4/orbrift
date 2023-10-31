@@ -6,15 +6,15 @@
     </template>
 
     <template #WrapperBody>
-      <section class="AB_HeadImg flex j-c-center">
-        <div class="TopImg xs4 sm3 md2 mb-5">
+      <section class="AB_HeadImg flex justify-center">
+        <div class="TopImg basis-4/12 sm:basis-3/12 md:basis-2/12 mb-5">
           <img src="/defaults/pgs/orbrift_ab2.jpg" draggable="false" />
         </div>
       </section>
 
       <section class="AB_MainHead">
         <div
-          class="ContentCont flex j-c-center a-i-center bg-img-masked noselect"
+          class="ContentCont flex justify-center items-center Masked-bg-img select-none"
         >
           <div class="Img">
             <!-- <img
@@ -23,14 +23,14 @@
               draggable="false"
             /> -->
           </div>
-          <div class="Content xs11 sm9 md8 flex j-c-center a-i-center">
+          <div class="Content basis-11/12 sm:basis-9/12 md:basis-8/12 flex justify-center items-center">
             <h2 class="Text">Adedayo Adeniyi</h2>
           </div>
         </div>
       </section>
-      <section class="AB_MainBody flex j-c-center">
-        <section class="xs11 sm9 md8 bg-white mb-10 br4">
-          <section class="noselect">
+      <section class="AB_MainBody flex justify-center">
+        <section class="basis-11/12 sm:basis-9/12 md:basis-8/12 bg-white mb-10 rounded-3xl">
+          <section class="select-none">
             <h2 class="AB_Head pl-8 pr-2">About Me</h2>
             <p>
               A dedicated and result-oriented Front-end Developer with skills in
@@ -166,7 +166,7 @@
             <h2 v-aos="'fade-right'" class="AB_Head">Why Choose Me?</h2>
             <ul>
               <li v-aos="'fade-up-left'">
-                <strong class="t-blue-grey--1"
+                <strong class="text-blue-gray-600"
                   >Advanced Technical Skills:</strong
                 >
                 I stay up to date with the latest industry trends and
@@ -175,7 +175,7 @@
                 align with industry standards.
               </li>
               <li v-aos="'fade-up-left'">
-                <strong class="t-blue-grey--1"
+                <strong class="text-blue-gray-600"
                   >Analytical and Divergent Thinking:
                 </strong>
                 I possess strong problem-solving skills, enabling me to approach
@@ -184,7 +184,7 @@
                 outcomes.
               </li>
               <li v-aos="'fade-up-left'">
-                <strong class="t-blue-grey--1"
+                <strong class="text-blue-gray-600"
                   >Effective Communication and Collaboration:</strong
                 >
                 When you choose to work with me, you're not just hiring a web
