@@ -6,16 +6,16 @@
     </template>
 
     <template #WrapperBody>
-      <div class="flex j-c-center">
-        <div class="xs11 sm10 md8 lg6">
-          <section class="flex j-c-center">
-            <div class="TopImg xs4 sm3 md2 mb-7">
+      <div class="flex justify-center">
+        <div class="basis-11/12 sm:basis-10/12 md:basis-8/12 lg:basis-6/12">
+          <section class="flex justify-center">
+            <div class="TopImg basis-4/12 sm:basis-3/12 md:basis-2/12 mb-7">
               <img src="/defaults/pgs/orbrift_ab3.jpg" draggable="false" />
             </div>
           </section>
 
-          <section class="TopInfo bg-blue-5 p-3 mb-7 mt-6">
-            <h3 class="text-center t-white letter-space-1">
+          <section class="TopInfo bg-blue-50 p-3 mb-7 mt-6">
+            <h3 class="text-center text-white" style="letter-spacing: 0.5px">
               It starts with a simple request
             </h3>
           </section>
@@ -42,10 +42,10 @@
               </template>
               <template #SectBody>
                 <div>
-                  <span v-if="email_err" class="Error t-red-1">{{
+                  <span v-if="email_err" class="Error text-red-500">{{
                     email_err
                   }}</span>
-                  <i v-else class="font-2">Please ensure your E-mail is correct!</i>
+                  <i v-else class="text-xs">Please ensure your E-mail is correct!</i>
                 </div>
                 <input v-model="email" @input="email_err = ''" type="email" placeholder="Enter your email" />
               </template>
@@ -57,7 +57,7 @@
                 <span>Your Name</span>
               </template>
               <template #SectBody>
-                <span v-show="name_err" class="Error t-red-1">{{
+                <span v-show="name_err" class="Error text-red-500">{{
                   name_err
                 }}</span>
                 <input v-model="name" @input="name_err = ''" type="text" placeholder="Enter your name" />
@@ -71,10 +71,10 @@
                   looking for</span>
               </template>
               <template #SectBody>
-                <span v-show="description_err" class="Error t-red-1">{{
+                <span v-show="description_err" class="Error text-red-500">{{
                   description_err
                 }}</span>
-                <div ref="descInput" @input="setDescription" class="TextArea bg-white font-5 br2 p-7 mt-2"
+                <div ref="descInput" @input="setDescription" class="TextArea bg-white text-lg rounded-lg p-7 mt-2"
                   contenteditable="true" placeholder="Enter information about the service you require"></div>
               </template>
             </Section>
@@ -87,10 +87,10 @@
                 </span>
               </template>
               <template #SectBody>
-                <span v-show="features_err" class="Error t-red-1">{{
+                <span v-show="features_err" class="Error text-red-500">{{
                   features_err
                 }}</span>
-                <div ref="featInput" @input="setFeatures" class="TextArea bg-white font-5 br2 p-7 mt-2"
+                <div ref="featInput" @input="setFeatures" class="TextArea bg-white text-lg rounded-lg p-7 mt-2"
                   contenteditable="true" placeholder="Enter the details and features that you desire"></div>
               </template>
             </Section>
@@ -108,14 +108,14 @@
             <!-- Server Response Error -->
             <transition name="expand">
               <div v-if="success || error" class="mt-5">
-                <div :class="error ? 'bg-pink-5 t-red-1' : 'bg-lime-4 t-green-1'" class="Alert p-3 b1">
+                <div :class="error ? 'bg-pink-50 text-red-500' : 'bg-lime-50 text-green-500'" class="Alert p-3 border">
                   {{ success || error }}
                 </div>
               </div>
             </transition>
 
             <!-- Send button -->
-            <div class="flex j-c-center my-8">
+            <div class="flex justify-center my-8">
               <Button @clicked="send" type="action" size="medium" icon="icon-forward">
                 Submit
               </Button>
