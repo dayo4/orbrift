@@ -335,6 +335,7 @@ nav {
 }
 
 .MainNavLinks {
+  // font-size: 16px;
   & .MenuDropBtn {
     position: relative;
     margin-right: 10px;

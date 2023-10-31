@@ -7,7 +7,7 @@
         <div class="w-full text-center pt-1">
           <h2 class="text-white text-[26px] sm:text-4xl mb-0">ADEDAYO ADENIYI</h2>
           <h5 class="text-white text-xl mt-3 mb-0 z-0 relative after:content-[''] after:absolute after:-bottom-1 after:left-[50%] after:-ml-20 after:w-[160px] after:h-4 after:bg-my-pri-color after:bg-opacity-25 after:-z-[1]">Web Developer</h5>
-          <h3 class="text-my-pri-color text-[28px] sm:text-[35px] mt-12 mb-2 py-0 px-12">Creating Modern Software Solutions</h3>
+          <h3 class="text-my-pri-color text-[28px] sm:text-[32px] xl:text-[35px] mt-12 mb-2 py-0 px-12">Creating Modern Software Solutions</h3>
         </div>
 
         <!-- image -->
