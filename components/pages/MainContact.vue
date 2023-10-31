@@ -1,11 +1,11 @@
 <template>
-  <section class="flex j-c-center">
-    <div class="GenFormStyle xs11 sm9 md7 lg6 z-index-1 noselect">
-      <section v-if="topInfo" class="TopInfo bg-blue-5 p-3 mb-7">
-        <div class="t-white">Simply send a request using the form below.</div>
-        <div class="Mediums flex a-i-center j-c-center font-12">
+  <section class="flex justify-center">
+    <div class="GenFormStyle basis-11/12 sm:basis-9/12 md:basis-7/12 lg:basis-6/12 z-[1] select-none">
+      <section v-if="topInfo" class="TopInfo bg-blue-100 p-3 mb-7">
+        <div class="text-white">Simply send a request using the form below.</div>
+        <div class="Mediums flex items-center justify-center text-3xl">
           <a
-            class="icon-whatsapp t-green--1 no-deco"
+            class="icon-whatsapp text-green-500 no-underline"
             title="whatsapp"
             href="https://wa.me/message/25GPJOSG52QCO1"
             target="_blank"
@@ -15,7 +15,7 @@
 
       <div class="Section">
         <span class="Head">Name</span>
-        <span v-show="name_err" class="Error t-red-1">{{ name_err }}</span>
+        <span v-show="name_err" class="Error text-red-500">{{ name_err }}</span>
         <input
           v-model="name"
           @input="name_err = ''"
@@ -26,8 +26,8 @@
 
       <div class="Section">
         <span class="Head">E-mail</span>
-        <span v-if="email_err" class="Error t-red-1">{{ email_err }}</span>
-        <i v-else class="font-2">Please ensure your E-mail is correct!</i>
+        <span v-if="email_err" class="Error text-red-500">{{ email_err }}</span>
+        <i v-else class="text-xs">Please ensure your E-mail is correct!</i>
         <input
           v-model="email"
           @input="email_err = ''"
@@ -38,11 +38,11 @@
 
       <div class="Section">
         <span class="Head">Your Message</span>
-        <span v-show="msg_err" class="Error t-red-1">{{ msg_err }}</span>
+        <span v-show="msg_err" class="Error text-red-500">{{ msg_err }}</span>
         <div
           ref="msgInput"
           @input="setMsg"
-          class="TextArea bg-white font-5 br2 p-7 mt-2"
+          class="TextArea bg-white text-lg rounded-lg p-7 mt-2"
           contenteditable="true"
           placeholder="Type your message"
         ></div>
@@ -51,8 +51,8 @@
       <transition name="expand">
         <div v-if="success || error" class="mt-5">
           <div
-            :class="error ? 'bg-pink-5 t-red-1' : 'bg-white t-green-1'"
-            class="Alert p-3 b1"
+            :class="error ? 'bg-pink-50 text-red-500' : 'bg-white text-green-400'"
+            class="Alert p-3 border"
           >
             {{ success || error }}
           </div>
@@ -60,7 +60,7 @@
       </transition>
 
       <!-- Send button -->
-      <div class="flex j-c-center my-8">
+      <div class="flex justify-center my-8">
         <Button @clicked="send" type="action" size="medium" icon="icon-forward">
           Send {{ target === "app" ? "Mail" : "" }}
         </Button>
