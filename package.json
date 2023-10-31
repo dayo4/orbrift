@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^16.1.1",
+    "@material-tailwind/html": "^2.0.0",
     "aos": "^2.3.4",
     "axios": "^1.4.0",
     "contentful": "^10.5.1",

@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+const withMT = require("@material-tailwind/html/utils/withMT");
+
+module.exports = withMT({
   content: [
     "./components/**/*.{js,vue,ts}",
     "./layouts/**/*.vue",
@@ -41,4 +43,4 @@ module.exports = {
     },
   },
   plugins: [],
-};
+});
