@@ -1,17 +1,15 @@
 <template>
   <div>
     <transition name="slide-up-fade">
-      <div v-show="status" class="Wrapper flex j-c-center noselect">
-        <span class="Load bg-trans-1">
-          <div
-            v-html="$appLogo('white', 'logo-x-small logo-rotate')"
-          ></div>
-          <div class="TextCont" :class="progressTotal > 0 ? 'HasProgress' : ''">
+      <div v-show="status" class="Wrapper flex justify-center select-none">
+        <span class="Load bg-opacity-50 bg-my-sec-color">
+          <div v-html="$appLogo('white', 'logo-x-small logo-rotate')"></div>
+          <div class="ont" :class="progressTotal > 0 ? 'HasProgress' : ''">
             <span
-              class="font-3 bold-3 px-1 py-1 br4 flex a-i-center j-c-around"
+              class="text-sm font-bold px-1 py-1 rounded-3xl flex items-center justify-around"
             >
               <span :class="icon"></span>
-              <span class="Text pr-2 letter-space-1">{{ info }}</span>
+              <span class="pr-2" style="letter-spacing: 0.5px">{{ info }}</span>
             </span>
             <i class="Progress" :style="'width:' + progressElapsed + '%;'"></i>
           </div>
@@ -60,7 +58,7 @@ export default {
   padding: 4px;
   // padding-bottom: 2px;
   border-radius: 28px;
-  & > .TextCont {
+  & > .ont {
     min-width: 215px;
     max-width: 300px;
     background-color: $sec-color;
@@ -85,7 +83,7 @@ export default {
         bottom: 7px;
         left: 5px;
         right: 5px;
-        text-overflow: ellipsis;
+        overflow: ellipsis;
         white-space: nowrap;
       }
     }
