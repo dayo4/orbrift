@@ -1,7 +1,11 @@
 <template>
   <div>
     <section class="Posts">
-      <article v-for="(post, i) in posts" :key="i" class="Post xs12 sm10 md7">
+      <article
+        v-for="(post, i) in posts"
+        :key="i"
+        class="Post basis-full sm:basis-9/12 md:basis-7/12"
+      >
         <div class="TopSect" @click="openPost(post.slug)">
           <div class="PostImageWrapper">
             <img
@@ -33,14 +37,22 @@
     </section>
 
     <!-- Pagination -->
-    <section class="flex j-c-center">
-      <div class="Pagins xs12 sm11 md8">
-        <button
+    <section class="flex justify-center">
+      <div class="Pagins basis-full sm:basis-11/12 md:basis-8/12">
+        <!-- <button
           @click="$emit('switchPage', pagin.current - 1)"
-          class="btn bg-trans-4"
+          class="btn bg-opacity-80"
         >
           <span class="icon-angle-double-left font-6"></span>
-          <span class="font-1 mt-1">PREV</span>
+          <span class="text-xs mt-1">PREV</span>
+        </button> -->
+        <button
+          @click="$emit('switchPage', pagin.current - 1)"
+          class="btn rounded-lg bg-my-sec-color bg-opacity-80"
+          data-ripple-light="true"
+        >
+          <span class="icon-angle-double-left text-xl"></span>
+          <span class="text-xs mt-[2px]">PREV</span>
         </button>
         <button class="Nums btn bg-white" v-for="i in pagin.pages" :key="i">
           <span
@@ -51,10 +63,11 @@
         </button>
         <button
           @click="$emit('switchPage', pagin.current + 1)"
-          class="btn bg-trans-4"
+          class="btn rounded-lg bg-my-sec-color bg-opacity-80"
+          data-ripple-light="true"
         >
-          <span class="font-1 mt-1">NEXT</span>
-          <span class="Icon icon-angle-double-right font-6"></span>
+          <span class="text-xs mt-[2px]">NEXT</span>
+          <span class="Icon icon-angle-double-right text-xl"></span>
         </button>
       </div>
     </section>
@@ -72,12 +85,8 @@ export default {
     const router = useRouter();
     const route = useRoute();
 
-    const posts = computed(() =>
-      props.posts
-    );
-    const pagin = computed(() =>
-      props.pagin
-    );
+    const posts = computed(() => props.posts);
+    const pagin = computed(() => props.pagin);
 
     const openPost = (slug: string) => {
       router.push({ path: "/posts/" + slug });
@@ -86,8 +95,8 @@ export default {
     return {
       posts,
       pagin,
-      openPost
-    }
+      openPost,
+    };
   },
 };
 </script>
