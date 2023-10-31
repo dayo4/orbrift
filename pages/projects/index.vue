@@ -10,9 +10,9 @@
           <article
             v-for="(project, i) in projects"
             :key="i"
-            class="Proj xs12 sm9 md7 lg6"
+            class="Proj basis-full sm:basis-8/12 md:basis-7/12 lg:basis-6/12 xs12 sm9 md7 lg6"
           >
-            <div class="TopSect noselect">
+            <div class="TopSect select-none">
               <div class="ImgWrap">
                 <img
                   :src="project.images[0].fields.file.url"
@@ -36,7 +36,7 @@
               </div>
             </div> -->
             <p class="Summary" v-html="project.summary"></p>
-            <div class="flex j-c-end mt-6 mr-8">
+            <div class="flex justify-end mt-6 mr-8">
               <button @click="openProject(project.slug)" class="ViewBtn">
                 <span class="icon-right"></span>
               </button>
@@ -45,15 +45,9 @@
         </section>
 
         <!-- Pagination -->
-        <section class="flex j-c-center">
-          <div class="Pagins xs12 sm11 md8">
-            <!-- <button
-              @click="switchPage(pagin.current - 1)"
-              class="btn bg-trans-4"
-            >
-              <span class="icon-angle-double-left font-6"></span>
-              <span class="font-1 mt-1">PREV</span>
-            </button> -->
+        <section class="flex justify-center">
+          <div class="Pagins basis-full sm:basis-11/12 md:basis-8/12">
+
             <button class="Nums btn bg-white" v-for="i in pagin.pages" :key="i">
               <span
                 @click="switchPage(i)"
@@ -61,13 +55,7 @@
                 >{{ i }}</span
               >
             </button>
-            <!-- <button
-              @click="switchPage(pagin.current + 1)"
-              class="btn bg-trans-4"
-            >
-              <span class="font-1 mt-1">NEXT</span>
-              <span class="Icon icon-angle-double-right font-6"></span>
-            </button> -->
+
           </div>
         </section>
         <!-- Pagination -->
