@@ -8,7 +8,7 @@
     <template #WrapperBody>
       <div class="PostContainer">
         <!-- HEAD -->
-        <div class="BlogPost xs12 sm10 md7">
+        <div class="BlogPost basis-full sm:basis-10/12 md:basis-7/12">
           <div class="TopSection">
             <div class="PostImageWrapper">
               <img
@@ -39,7 +39,7 @@
         <!-- BODY -->
         <section
           v-html="post?.content"
-          class="Body xs12 sm10 md7 p-5"
+          class="Body basis-full sm:basis-10/12 md:basis-7/12 p-5"
         ></section>
 
         <!-- Bottom Meta -->
@@ -69,7 +69,7 @@
           </router-link>
         </div>
 
-        <div v-aos="'fade-left'" class="NP_postNavigation j-c-end mr-2">
+        <div v-aos="'fade-left'" class="NP_postNavigation justify-end mr-2">
           <router-link
             v-if="nextPost"
             :to="`/posts/${nextPost.slug}`"
