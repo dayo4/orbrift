@@ -25,14 +25,10 @@ export default {
       { i: "nodejs" },
       { i: "next" },
       { i: "docker_", t: "Docker" },
-      // { i: "web3" },
       { i: "gcloud", t: "G-cloud" },
-      // { i: "jamstack" },
       { i: "graphql", t: "Graphql" },
       { i: "mysql", t: "Mysql" },
       { i: "wordpress", t: "Wordpress" },
-      // "firebase",
-      // "vercel",
     ];
 
     return {
