@@ -10,7 +10,7 @@ A personal website build using VueJs and NodeJs.
   - [About](#about)
   - [Demo](#demo)
   - [Features](#features)
-  - [Tech Stack](#tech-stack)  <!-- New Section -->
+  - [Tech Stack](#tech-stack)  
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
