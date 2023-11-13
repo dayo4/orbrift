@@ -1,7 +1,7 @@
 ```markdown
 # Orbrift - Adedayo Adeniyi
 
-Orbrift is my personal website build using VueJs and NodeJs.
+A personal website build using VueJs and NodeJs.
 
 ## Table of Contents
 
